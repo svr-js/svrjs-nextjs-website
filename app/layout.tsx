@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/shared/providers/themeprovider";
+import Navbar from "@/components/shared/Navbar";
 
 const poppins = Poppins({
   weight: ["400", "600", "700", "900"],
@@ -27,6 +28,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <Navbar />
           {children}
         </ThemeProvider>
       </body>

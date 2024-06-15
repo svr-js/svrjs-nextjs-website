@@ -19,7 +19,7 @@ export const NAVBAR = {
     },
     {
       href: "/blog",
-      target: "_blank",
+      target: "_self",
       label: "Blog",
     },
   ],
@@ -113,6 +113,6 @@ export const questions = [
     key: "item-6",
     question: "How can I use SVR.JS?",
     answer:
-      "You can <a href='/docs' className='text-white'>read its documentation</a> to learn how to use the SVR.JS web server.",
+      "You can read the documents to learn how to use the SVR.JS web server.",
   },
 ];

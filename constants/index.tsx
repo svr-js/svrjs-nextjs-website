@@ -116,3 +116,29 @@ export const questions = [
       "You can read the documents to learn how to use the SVR.JS web server.",
   },
 ];
+
+export const FOOTERLINKS = {
+  otherPages: [
+    { href: "/", label: "Home" },
+    { href: "/testimonial", label: "Testimonial" },
+    { href: "/contact", label: "Contact" },
+  ],
+  plans: [
+    { href: "/blog", label: "Blog" },
+    { href: "/downloads", label: "Downloads" },
+    { href: "/forum", label: "Forum" },
+  ],
+  social: {
+    supportText: "Support Us on Socials",
+  },
+  footerBottom: {
+    designedBy: {
+      href: "https://abhijee.com",
+      label: "Proxy",
+    },
+    rightsReserved: {
+      href: "https://cyprostudio.com",
+      label: "Cypro Studio",
+    },
+  },
+};

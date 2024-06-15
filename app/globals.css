@@ -202,7 +202,6 @@ body {
 }
 
 footer {
-  /* padding: 3% 9%; */
   background-image: url("/bg.svg");
   background-position: top;
   background-size: cover;
@@ -229,7 +228,6 @@ footer {
 }
 .footop a {
   text-decoration: none;
-  color: #ffffffb7;
   font-weight: 300;
   font-size: 1rem;
   transition: all 0.3s ease;
@@ -237,30 +235,20 @@ footer {
 
 .footbootom h4 {
   font-size: 1rem;
-  color: #ffffffb7;
   font-weight: 300;
 }
 
 .footcolum1 > p {
   line-height: 1;
   font-size: 1.2rem;
-  color: #ffffffb7;
   font-weight: 300;
   transition: all 0.2s ease;
-}
-
-.footop a:hover {
-  color: rgba(253, 162, 182, 0.774);
 }
 
 .box-socials-foot > a > i {
   font-size: 1.6rem;
   cursor: pointer;
   transition: all 0.3 ease;
-}
-
-.box-socials-foot > a > i:hover {
-  color: rgba(253, 162, 173, 0.774);
 }
 
 .footbootom > h4 > a {

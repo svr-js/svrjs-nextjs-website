@@ -53,15 +53,31 @@ const MobileNav = () => {
                 {label}
               </Link>
             ))}
-            {NAVBAR.rightLinks?.map(({ href = "", label, target }) => (
+            {NAVBAR.rightLinks?.map(({ href, label, target }) => (
               <Link
                 key={label}
                 href={href}
                 target={target}
-                className={`w-[110px] ${buttonVariants({
+                className={`w-[110px] gap-2 ${buttonVariants({
                   variant: "secondary",
                 })}`}
-              ></Link>
+              >
+                <Image
+                  src="/next.svg"
+                  alt="git"
+                  width={23}
+                  height={23}
+                  className="hidden dark:block"
+                />
+                <Image
+                  src="/nextdark.svg"
+                  alt="git"
+                  width={23}
+                  height={23}
+                  className="block dark:hidden"
+                />
+                {label}
+              </Link>
             ))}
           </nav>
         </SheetContent>

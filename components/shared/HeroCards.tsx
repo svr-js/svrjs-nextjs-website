@@ -115,7 +115,34 @@ const HeroCards = () => {
             })}
           >
             <span className="sr-only">X icon</span>
-            <Twitter />
+            <div className="hidden dark:block">
+              <svg
+                width="25"
+                height="25"
+                viewBox="0 0 25 25"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M19.0039 2.34375H22.4512L14.9219 10.9473L23.7793 22.6562H16.8457L11.4111 15.5566L5.2002 22.6562H1.74805L9.7998 13.4521L1.30859 2.34375H8.41797L13.3252 8.83301L19.0039 2.34375ZM17.793 20.5957H19.7021L7.37793 4.29688H5.32715L17.793 20.5957Z"
+                  fill="white"
+                />
+              </svg>
+            </div>
+            <div className="dark:hidden block">
+              <svg
+                width="25"
+                height="25"
+                viewBox="0 0 25 25"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M19.0039 2.34375H22.4512L14.9219 10.9473L23.7793 22.6562H16.8457L11.4111 15.5566L5.2002 22.6562H1.74805L9.7998 13.4521L1.30859 2.34375H8.41797L13.3252 8.83301L19.0039 2.34375ZM17.793 20.5957H19.7021L7.37793 4.29688H5.32715L17.793 20.5957Z"
+                  fill="black"
+                />
+              </svg>
+            </div>
           </Link>
           <Link
             href={cards.aboutCard.socialLinks.Mastodon}
@@ -320,6 +347,7 @@ const HeroCards = () => {
           </span>
         </div>
       </Card>
+
       {/* Service  */}
       <Card className="absolute w-[350px] -right-[10px] bottom-[75px] drop-shadow-xl shadow-black/10 dark:shadow-white/10">
         <CardHeader className="space-y-1 flex md:flex-row justify-start items-start gap-4">

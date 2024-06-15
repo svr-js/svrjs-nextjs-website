@@ -95,7 +95,7 @@ const Hero = () => {
             ) : (
               <Check className="w-4 h-4 mr-2" />
             )}
-            {command.slice(0, 40)}
+            {command.slice(0, 39)}...
           </Button>
           <p className="hidden lg:block">|</p>
           <p className="block lg:hidden">or</p>

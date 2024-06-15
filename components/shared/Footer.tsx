@@ -4,7 +4,7 @@ import Iconss from "../ui/icons";
 
 const Footer = () => {
   return (
-    <footer className="flex flex-col px-24 md:px-32 py-10 w-full bg-white dark:bg-[#00000738] dark:text-white">
+    <footer className="flex flex-col px-24 md:px-32 py-10 w-full bg-white text-black dark:bg-[#00000738] dark:text-white">
       <div className="footop flex justify-around items-start mb-14">
         <div className="flex items-center">
           <Image

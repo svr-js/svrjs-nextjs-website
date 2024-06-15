@@ -28,7 +28,10 @@ const Footer = () => {
           <h1 className="foot-header font-[700] text-primary">Other Pages</h1>
           {FOOTERLINKS.otherPages.map((link) => (
             <h3 key={link.href}>
-              <Link href={link.href} className="hover:text-green-100/70">
+              <Link
+                href={link.href}
+                className="dark:hover:text-green-100/70 hover:text-green-500"
+              >
                 {link.label}
               </Link>
             </h3>
@@ -38,7 +41,10 @@ const Footer = () => {
           <h1 className="foot-header text-primary">Plans</h1>
           {FOOTERLINKS.plans.map((link) => (
             <h3 key={link.href}>
-              <Link href={link.href} className="hover:text-green-100/70">
+              <Link
+                href={link.href}
+                className="dark:hover:text-green-100/70 hover:text-green-500"
+              >
                 {link.label}
               </Link>
             </h3>

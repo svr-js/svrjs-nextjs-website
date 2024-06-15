@@ -66,7 +66,9 @@ const Navbar = () => {
                 key={label}
                 href={href}
                 target={target}
-                className={`border ${buttonVariants({ variant: 'ghost' })}`}
+                className={`border ${buttonVariants({
+                  variant: "ghost",
+                })} px-0 w-11`}
               >
                 <Image
                   src="/next.svg"

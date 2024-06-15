@@ -45,7 +45,7 @@ const Hero = () => {
 
   return (
     <section className="relative container grid lg:grid-cols-2 place-items-center py-20 md:py-24 gap-10">
-      {/* <GridPattern
+      <GridPattern
         squares={[
           [4, 4],
           [5, 1],
@@ -56,9 +56,9 @@ const Hero = () => {
         ]}
         className={cn(
           "[mask-image:radial-gradient(300px_circle_at_center,white,transparent)]",
-          "inset-x-0 inset-y-[-50%] h-[200%] opacity-20"
+          "inset-x-0 inset-y-[-50%] h-[200%] opacity-30"
         )}
-      /> */}
+      />
       <div className="text-center lg:text-start space-y-6">
         <AnimatedGradientText className="mx-auto lg:mx-0">
           🎉{" "}

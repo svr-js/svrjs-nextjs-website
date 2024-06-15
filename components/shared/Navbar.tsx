@@ -1,17 +1,17 @@
-"use client";
+'use client';
 
 import {
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuList,
-} from "@radix-ui/react-navigation-menu";
-import Image from "next/image";
-import Link from "next/link";
-import ThemeToggle from "../ui/theme-toggle";
-import { NAVBAR } from "@/constants";
-import { buttonVariants } from "../ui/button";
-import MobileNav from "./MobileNav";
-import { usePathname } from "next/navigation";
+} from '@radix-ui/react-navigation-menu';
+import Image from 'next/image';
+import Link from 'next/link';
+import ThemeToggle from '../ui/theme-toggle';
+import { NAVBAR } from '@/constants';
+import { buttonVariants } from '../ui/button';
+import MobileNav from './MobileNav';
+import { usePathname } from 'next/navigation';
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -50,9 +50,9 @@ const Navbar = () => {
                 href={href}
                 target={target}
                 className={`text-[18px] tracking-tight ${
-                  pathname == href ? "bg-accent/40" : ""
+                  pathname == href ? 'bg-accent/40' : ''
                 } ${buttonVariants({
-                  variant: "ghost",
+                  variant: 'ghost',
                 })}`}
               >
                 {label}
@@ -61,12 +61,12 @@ const Navbar = () => {
           </nav>
 
           <div className="hidden md:flex gap-2 items-center">
-            {NAVBAR.rightLinks?.map(({ href = "", label, target }) => (
+            {NAVBAR.rightLinks?.map(({ href = '', label, target }) => (
               <Link
                 key={label}
                 href={href}
                 target={target}
-                className={`border ${buttonVariants({ variant: "ghost" })}`}
+                className={`border ${buttonVariants({ variant: 'ghost' })}`}
               >
                 <Image
                   src="/next.svg"

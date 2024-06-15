@@ -1,16 +1,17 @@
-import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
-import "./globals.css";
-import { ThemeProvider } from "@/components/shared/providers/themeprovider";
+import type { Metadata } from 'next';
+import { Poppins } from 'next/font/google';
+import './globals.css';
+import { ThemeProvider } from '@/components/shared/providers/themeprovider';
+import Navbar from '@/components/shared/Navbar';
 
 const poppins = Poppins({
-  weight: ["400", "600", "700", "900"],
-  subsets: ["latin"],
+  weight: ['400', '600', '700', '900'],
+  subsets: ['latin'],
 });
 
 export const metadata: Metadata = {
-  title: "SVRJS - A Web Server running on Nodejs",
-  description: "Open Source Software Library",
+  title: 'SVRJS - A Web Server running on Nodejs',
+  description: 'Open Source Software Library',
 };
 
 export default function RootLayout({
@@ -27,6 +28,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <Navbar />
           {children}
         </ThemeProvider>
       </body>

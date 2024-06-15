@@ -68,7 +68,8 @@ const Navbar = () => {
                 target={target}
                 className={`border ${buttonVariants({
                   variant: "ghost",
-                })} px-0 w-11`}
+                  size: "icon",
+                })}`}
               >
                 <Image
                   src="/next.svg"

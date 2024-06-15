@@ -1,4 +1,5 @@
 import About from "@/components/shared/About";
+import Faq from "@/components/shared/FAQ";
 import Hero from "@/components/shared/Hero";
 import HowItWorks from "@/components/shared/HowItWorks";
 import Navbar from "@/components/shared/Navbar";
@@ -12,6 +13,7 @@ const RootPage = () => {
       <HowItWorks />
       <About />
       <Newsletter />
+      <Faq />
     </>
   );
 };

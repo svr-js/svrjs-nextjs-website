@@ -56,7 +56,7 @@ const DownloadPage = () => {
         Get all the latest version of SVRJS download and compiled Files here!
       </p>
       <Table>
-        <TableCaption>A list of available downloads.</TableCaption>
+        <TableCaption>A list of all available downloads.</TableCaption>
         <TableHeader>
           <TableRow>
             <TableHead className="w-[150px]">Date</TableHead>
@@ -73,10 +73,9 @@ const DownloadPage = () => {
               <TableCell>{download.fileName}</TableCell>
               <TableCell>{download.version}</TableCell>
               <TableCell className="text-left">{download.fileSize}</TableCell>
-              <TableCell>
-                <Link href={download.downloadLink} className="flex items-end">
-                  <Button variant={"outline"}>
-                    {" "}
+              <TableCell className="flex items-center justify-end">
+                <Link href={download.downloadLink}>
+                  <Button variant={"ghost"} className="">
                     <Download className="w-4 h-4 mr-2" />
                     Download
                   </Button>

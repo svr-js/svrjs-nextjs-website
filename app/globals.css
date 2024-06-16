@@ -92,6 +92,14 @@ body {
     @apply flex justify-between items-center;
   }
 
+  .flex-start {
+    @apply flex justify-between items-start;
+  }
+
+  .flex-end {
+    @apply flex justify-between items-end;
+  }
+
   /* TYPOGRAPHY */
   /* 64 */
   .h1-bold {
@@ -203,12 +211,4 @@ body {
   .toggle-switch {
     @apply bg-gray-300 !important;
   }
-}
-
-footer {
-  background-image: url("/bg.svg");
-  background-position: top;
-  background-size: cover;
-  background-repeat: no-repeat;
-  transition: all 0.3s ease;
 }

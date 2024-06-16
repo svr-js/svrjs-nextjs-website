@@ -72,8 +72,9 @@ const DownloadPage = () => {
               <TableCell className="font-medium">{download.date}</TableCell>
               <TableCell>{download.fileName}</TableCell>
               <TableCell>{download.version}</TableCell>
+              <TableCell className="text-left">{download.fileSize}</TableCell>
               <TableCell>
-                <Link href={download.downloadLink}>
+                <Link href={download.downloadLink} className="flex items-end">
                   <Button variant={"outline"}>
                     {" "}
                     <Download className="w-4 h-4 mr-2" />
@@ -81,7 +82,6 @@ const DownloadPage = () => {
                   </Button>
                 </Link>
               </TableCell>
-              <TableCell className="text-right">{download.fileSize}</TableCell>
             </TableRow>
           ))}
         </TableBody>

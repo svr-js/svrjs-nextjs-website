@@ -6,7 +6,7 @@ import { FOOTERLINKS } from "@/constants";
 
 const Footer = () => {
   return (
-    <footer className="flex flex-col px-6 md:px-16 lg:px-32 py-10 w-full bg-zinc-100 text-black dark:bg-[#0308033b] dark:text-white border-t max-md:bg-none transition-all">
+    <footer className="flex flex-col px-6 md:px-16 lg:px-32 py-10 w-full bg-zinc-100 text-black dark:bg-[#0308033b] dark:text-white border-t max-lg:bg-none transition-all">
       <div className="flex flex-col lg:flex-row justify-between md:items-start items-center mb-14">
         <div className="flex items-center mb-6 lg:mb-0">
           <Image
@@ -26,7 +26,7 @@ const Footer = () => {
         </div>
         <div className="flex flex-col items-center md:items-start md:flex-row justify-between w-full lg:w-auto gap-8 lg:space-y-0 lg:space-x-12">
           <div className="flex flex-col items-center md:items-start">
-            <h1 className="text-2xl font-light text-primary">Use SvrJs</h1>
+            <h1 className="text-2xl font-light text-primary">Other Pages</h1>
             {FOOTERLINKS.otherPages.map((link) => (
               <h3 key={link.href}>
                 <Link
@@ -39,7 +39,7 @@ const Footer = () => {
             ))}
           </div>
           <div className="flex flex-col items-center md:items-start">
-            <h1 className="text-2xl font-light text-primary">Other Pages</h1>
+            <h1 className="text-2xl font-light text-primary">Resources</h1>
             {FOOTERLINKS.plans.map((link) => (
               <h3 key={link.href}>
                 <Link

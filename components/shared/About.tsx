@@ -4,7 +4,7 @@ import Statistics from "./Statistics";
 
 const About = () => {
   return (
-    <section id="about" className=" container py-2 sm:py-24">
+    <section id="about" className="container py-2 sm:py-9">
       <div className="bg-accent/50 border rounded-lg py-12">
         <div className="px-6 flex flex-col-reverse md:flex-row gap-8 md:gap-12">
           <Image

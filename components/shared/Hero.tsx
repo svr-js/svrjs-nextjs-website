@@ -44,7 +44,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative container grid lg:grid-cols-2 place-items-center py-20 md:py-24 gap-10">
+    <section className="relative sm:container grid lg:grid-cols-2 place-items-center py-20 md:py-24 gap-10">
       <GridPattern
         squares={[
           [4, 4],

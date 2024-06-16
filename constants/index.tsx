@@ -120,7 +120,7 @@ export const questions = [
 export const FOOTERLINKS = {
   otherPages: [
     { href: "/", label: "Home" },
-    { href: "/testimonial", label: "Testimonial" },
+    { href: "/docs", label: "Docs" },
     { href: "/contact", label: "Contact" },
   ],
   plans: [
@@ -138,7 +138,7 @@ export const FOOTERLINKS = {
     },
     rightsReserved: {
       href: "https://cyprostudio.com",
-      label: "Cypro Studio",
+      label: "SVRJS",
     },
   },
 };

@@ -13,7 +13,7 @@ const Faq = () => {
       <h2 className="text-3xl md:text-5xl font-bold mb-4 text-black dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-b dark:from-white dark:to-neutral-400">
         Frequently Asked Question
       </h2>
-      <p className="textlg text-muted-foreground text-start mt-4 mb-8">
+      <p className="text-lg text-muted-foreground text-start mt-4 mb-8">
         Find answers to common questions about SVRJS
       </p>
       <Accordion

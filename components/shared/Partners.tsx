@@ -14,7 +14,7 @@ const Partners = () => {
       </h2>
       <div className="w-full flex-start flex-row">
         <div className="flex max-md:flex-col items-center justify-start gap-4">
-          <h2 className="text-xl font-semibold bg-accent/60 px-2 py-2 rounded-md">
+          <h2 className="text-lg font-medium bg-accent/60 px-2 py-2 rounded-md">
             Process of setting up a WordPress website running on SVR.JS.
           </h2>
           <Button className="flex-center font-bold max-md:w-full max-w-xl">

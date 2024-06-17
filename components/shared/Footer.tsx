@@ -28,9 +28,9 @@ const Footer = () => {
             </div>
             <div className="flex flex-col items-center md:items-start md:flex-row justify-between w-full lg:w-auto lg:space-y-0 space-x-8 xl:space-x-16">
               <div className="flex flex-col items-center md:items-start">
-                <h1 className="text-2xl font-light text-primary">
+                <div className="text-2xl font-light text-primary">
                   Other Pages
-                </h1>
+                </div>
                 {FOOTERLINKS.otherPages.map((link) => (
                   <span key={link.href}>
                     <Link
@@ -56,7 +56,7 @@ const Footer = () => {
                 ))}
               </div>
               <div className="flex flex-col items-center md:items-start">
-                <h1 className="text-2xl font-light text-primary">Social</h1>
+                <div className="text-2xl font-light text-primary">Social</div>
                 <p className="text-base font-light">
                   {FOOTERLINKS.social.supportText}
                 </p>

@@ -27,7 +27,7 @@ export const NAVBAR = {
     {
       label: "Git",
       target: "_blank",
-      href: "https://github.com/",
+      href: "https://git.svrjs.org/",
     },
   ],
 };

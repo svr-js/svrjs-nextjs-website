@@ -35,6 +35,7 @@ const Newsletter = () => {
         </p>
         <form
           className="relative flex flex-col w-full md:flex-row md:w-6/12 lg:w-4/12 mx-auto gap-4 md:gap-2"
+          aria-label="Email Information"
           onSubmit={handleSubmit}
         >
           <Input placeholder="example@subscribe.com"></Input>

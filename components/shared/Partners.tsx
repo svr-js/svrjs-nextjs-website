@@ -1,9 +1,15 @@
+"use client";
 import React from "react";
 import { Button } from "../ui/button";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const Partners = () => {
+  const router = useRouter();
+  const handleClick = () => {
+    router.push("/docs");
+  };
   return (
     <section
       id="partners"
@@ -17,7 +23,10 @@ const Partners = () => {
           <h2 className="text-lg font-medium bg-accent/60 px-2 py-2 rounded-md">
             Process of setting up a WordPress website running on SVR.JS.
           </h2>
-          <Button className="flex-center font-bold max-md:w-full max-w-xl">
+          <Button
+            onClick={handleClick}
+            className="flex-center font-bold max-md:w-full max-w-xl"
+          >
             Docs <ArrowUpRight />
           </Button>
         </div>

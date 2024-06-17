@@ -32,27 +32,27 @@ const Footer = () => {
                   Other Pages
                 </h1>
                 {FOOTERLINKS.otherPages.map((link) => (
-                  <h3 key={link.href}>
+                  <span key={link.href}>
                     <Link
                       href={link.href}
                       className="text-base font-light dark:hover:text-green-100/70 hover:text-green-500"
                     >
                       {link.label}
                     </Link>
-                  </h3>
+                  </span>
                 ))}
               </div>
               <div className="flex flex-col items-center md:items-start">
                 <h1 className="text-2xl font-light text-primary">Resources</h1>
                 {FOOTERLINKS.plans.map((link) => (
-                  <h3 key={link.href}>
+                  <span key={link.href}>
                     <Link
                       href={link.href}
                       className="text-base font-light dark:hover:text-green-100/70 hover:text-green-500"
                     >
                       {link.label}
                     </Link>
-                  </h3>
+                  </span>
                 ))}
               </div>
               <div className="flex flex-col items-center md:items-start">
@@ -68,7 +68,7 @@ const Footer = () => {
           </div>
           <div className="border-t mb-6 border-gray-300 dark:border-white/30"></div>
           <div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0 px-4">
-            <h4 className="text-sm font-light">
+            <span className="text-sm font-light">
               Designed and Developed by{" "}
               <Link
                 href={FOOTERLINKS.footerBottom.designedBy.href}
@@ -76,8 +76,8 @@ const Footer = () => {
               >
                 {FOOTERLINKS.footerBottom.designedBy.label}
               </Link>
-            </h4>
-            <h4 className="text-sm font-light">
+            </span>
+            <span className="text-sm font-light">
               All Rights Reserved{" "}
               <Link
                 href={FOOTERLINKS.footerBottom.rightsReserved.href}
@@ -85,7 +85,7 @@ const Footer = () => {
               >
                 {FOOTERLINKS.footerBottom.rightsReserved.label}
               </Link>
-            </h4>
+            </span>
           </div>
         </div>
       </footer>

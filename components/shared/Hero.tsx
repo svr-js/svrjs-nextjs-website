@@ -44,16 +44,8 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative container grid lg:grid-cols-2 place-items-center py-20 md:py-24 gap-10">
+    <section className="relative sm:container grid lg:grid-cols-2 place-items-center py-20 md:py-24 gap-10">
       <GridPattern
-        squares={[
-          [4, 4],
-          [5, 1],
-          [8, 2],
-          [6, 6],
-          [10, 5],
-          [13, 3],
-        ]}
         className={cn(
           "[mask-image:radial-gradient(300px_circle_at_center,white,transparent)]",
           "inset-x-0 inset-y-[-50%] h-[200%] opacity-30"
@@ -99,7 +91,7 @@ const Hero = () => {
           </Button>
           <p className="hidden lg:block">|</p>
           <p className="block lg:hidden">or</p>
-          <Link className="w-full" href="/dashboard">
+          <Link className="w-full" href="/downloads">
             <Button className="w-full">Download</Button>
           </Link>
           <div className="pointer-events-none dark:invert -scale-x-100 absolute -bottom-14 max-lg:left-0 lg:right-20 inline-flex justify-center items-center gap-1">

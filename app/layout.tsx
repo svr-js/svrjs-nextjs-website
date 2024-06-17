@@ -3,6 +3,7 @@ import { Poppins } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/components/shared/providers/themeprovider';
 import Navbar from '@/components/shared/Navbar';
+import Footer from '@/components/shared/Footer';
 
 const poppins = Poppins({
   weight: ['400', '600', '700', '900'],
@@ -21,15 +22,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={poppins.className}>
+      <body className={`font-sans antialiased ${poppins.className}`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
-          <Navbar />
-          {children}
+          <main className="flex flex-col min-h-screen">
+            <Navbar />
+            <div className="flex-grow flex-1">{children}</div>
+            <Footer />
+          </main>
         </ThemeProvider>
       </body>
     </html>

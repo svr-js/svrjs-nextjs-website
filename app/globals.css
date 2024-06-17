@@ -60,10 +60,14 @@
   scroll-behavior: smooth;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   font-family: var(--font-poppins);
   user-select: text;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 @layer base {
@@ -71,7 +75,7 @@ body {
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground w-full h-full;
   }
 }
 
@@ -86,6 +90,14 @@ body {
 
   .flex-between {
     @apply flex justify-between items-center;
+  }
+
+  .flex-start {
+    @apply flex justify-between items-start;
+  }
+
+  .flex-end {
+    @apply flex justify-between items-end;
   }
 
   /* TYPOGRAPHY */

@@ -49,7 +49,7 @@ const Navbar = () => {
                 key={label}
                 href={href}
                 target={target}
-                className={`text-[18px] tracking-tight ${
+                className={`text-[17px] tracking-tight ${
                   pathname == href ? 'bg-accent/40' : ''
                 } ${buttonVariants({
                   variant: 'ghost',
@@ -67,8 +67,9 @@ const Navbar = () => {
                 href={href}
                 target={target}
                 className={`border ${buttonVariants({
-                  variant: "ghost",
-                })} px-0 w-11`}
+                  variant: 'ghost',
+                  size: 'icon',
+                })}`}
               >
                 <Image
                   src="/next.svg"

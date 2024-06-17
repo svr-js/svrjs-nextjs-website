@@ -1,3 +1,5 @@
+"use client";
+
 import { BorderBeam } from "@/components/ui/border-beam";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
@@ -23,6 +25,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import Iconss from "../ui/icons";
+import { useRouter } from "next/navigation";
 
 const happyMonkey = Happy_Monkey({
   preload: true,
@@ -31,6 +34,7 @@ const happyMonkey = Happy_Monkey({
 });
 
 const HeroCards = () => {
+  const router = useRouter();
   const cards = {
     aboutCard: {
       description:
@@ -49,7 +53,7 @@ const HeroCards = () => {
       description:
         "Get the best features and priority support with our Pro Plan.",
       primaryButtonText: "Download SVR Now",
-      onPrimaryButtonClick: () => alert("Plan chosen"),
+      onPrimaryButtonClick: () => router.push("/downloads"),
       features: [
         {
           title: "Unlimited Projects",

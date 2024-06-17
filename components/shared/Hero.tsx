@@ -91,7 +91,7 @@ const Hero = () => {
           </Button>
           <p className="hidden lg:block">|</p>
           <p className="block lg:hidden">or</p>
-          <Link className="w-full" href="/dashboard">
+          <Link className="w-full" href="/downloads">
             <Button className="w-full">Download</Button>
           </Link>
           <div className="pointer-events-none dark:invert -scale-x-100 absolute -bottom-14 max-lg:left-0 lg:right-20 inline-flex justify-center items-center gap-1">

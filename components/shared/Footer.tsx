@@ -26,7 +26,7 @@ const Footer = () => {
                 className="dark:hidden block"
               />
             </div>
-            <div className="flex flex-col items-center md:items-start md:flex-row justify-between w-full lg:w-auto lg:space-y-0 space-x-8 xl:space-x-16">
+            <div className="flex flex-col items-center md:items-start md:flex-row justify-between w-full lg:w-auto space-y-6 md:space-y-0 md:space-x-8 xl:space-x-16">
               <div className="flex flex-col items-center md:items-start">
                 <div className="text-2xl font-light text-primary">
                   Other Pages

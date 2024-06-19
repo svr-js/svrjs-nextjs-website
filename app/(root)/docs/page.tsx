@@ -1,7 +1,9 @@
-import React from "react";
+import Sidebar from '@/components/shared/Sidebar';
 
-const Docs = () => {
-  return <div>Docs</div>;
-};
-
-export default Docs;
+export default function Page() {
+  return (
+    <>
+      <Sidebar />
+    </>
+  );
+}

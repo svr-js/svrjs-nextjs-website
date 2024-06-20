@@ -78,8 +78,8 @@ const DownloadPage: React.FC = () => {
         </TableHeader>
         <TableBody>
           {downloads
+            .slice(0, 10)
             .reverse()
-            .slice(10)
             .map((download) => (
               <TableRow key={download._id}>
                 <TableCell className="font-medium">{download.date}</TableCell>

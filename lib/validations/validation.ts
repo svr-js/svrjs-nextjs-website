@@ -1,7 +1,8 @@
 import { z } from "zod";
 
 export const downloadSchema = z.object({
-  username: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
-  }),
+  fileName: z.string().nonempty(),
+  version: z.string().nonempty(),
+  downloadLink: z.string().url().nonempty(),
+  fileSize: z.string().nonempty(),
 });

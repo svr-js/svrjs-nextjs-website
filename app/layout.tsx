@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`font-sans antialiased ${poppins.className}`}>
+      <body className={`antialiased ${poppins.className}`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

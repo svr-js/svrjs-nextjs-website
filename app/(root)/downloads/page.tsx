@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Table,
@@ -10,12 +13,45 @@ import {
 } from "@/components/ui/table";
 import { Download } from "lucide-react";
 import Link from "next/link";
-import clientPromise from "@/lib/db";
 
-const DownloadPage = async () => {
-  const client = await clientPromise;
-  const db = client.db("downloadsDatabase");
-  const downloads = await db.collection("downloads").find().toArray();
+interface Download {
+  _id: string;
+  date: string;
+  fileName: string;
+  version: string;
+  fileSize: string;
+  downloadLink: string;
+}
+
+const DownloadPage: React.FC = () => {
+  const [downloads, setDownloads] = useState<Download[]>([]);
+  const [error, setError] = useState("");
+
+  const fetchDownloads = async () => {
+    try {
+      const response = await fetch("/api/downloads", {
+        method: "GET",
+      });
+      if (response.ok) {
+        const data: Download[] = await response.json();
+        setDownloads(data);
+      } else {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+    } catch (error: any) {
+      setError(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchDownloads();
+
+    const interval = setInterval(() => {
+      fetchDownloads();
+    }, 10000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section
@@ -28,6 +64,7 @@ const DownloadPage = async () => {
       <p className="text-lg text-muted-foreground text-start mb-4">
         Get all the latest version of SVRJS download and compiled Files here!
       </p>
+      {error && <p className="text-red-500">{error}</p>}
       <Table>
         <TableCaption>A list of all available downloads.</TableCaption>
         <TableHeader>
@@ -43,7 +80,7 @@ const DownloadPage = async () => {
           {downloads
             .slice()
             .reverse()
-            .map((download: any) => (
+            .map((download) => (
               <TableRow key={download._id}>
                 <TableCell className="font-medium">{download.date}</TableCell>
                 <TableCell>{download.fileName}</TableCell>

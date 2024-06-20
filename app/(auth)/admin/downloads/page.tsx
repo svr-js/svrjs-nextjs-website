@@ -34,9 +34,9 @@ const AdminPage = () => {
     });
 
     if (response.ok) {
+      form.reset();
       console.log("Upload successful");
       alert("Uploaded");
-      form.reset();
     } else {
       console.error("Upload failed");
       alert("Upload Failed");

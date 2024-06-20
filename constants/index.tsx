@@ -1,4 +1,5 @@
 import { BadgeAlert, BarChart4, Cog, ShieldCheck } from "lucide-react";
+import { Download, Home, Settings, User } from "lucide-react";
 
 export const NAVBAR = {
   centerLinks: [
@@ -144,6 +145,34 @@ export const FOOTERLINKS = {
     },
   },
 };
+
+export const AdminLinks = [
+  {
+    name: "Dashboard",
+    url: "/admin",
+    icon: Home,
+  },
+  {
+    name: "Downloads",
+    url: "/admin/downloads",
+    icon: Download,
+  },
+  {
+    name: "Mods",
+    url: "/admin/mods",
+    icon: User,
+  },
+  {
+    name: "Logs",
+    url: "/admin/changelogs",
+    icon: Settings,
+  },
+  {
+    name: "Back Home",
+    url: "/",
+    icon: Home,
+  },
+];
 
 export const TERMS_AND_CONDITIONS = `
 Last updated: 24.04.2024

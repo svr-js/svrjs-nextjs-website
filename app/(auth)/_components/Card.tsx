@@ -1,15 +1,21 @@
+import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 import { FC } from "react";
 
 interface CardProps {
   title: string;
-  content: string;
+  url: string;
 }
 
-const Card: FC<CardProps> = ({ title, content }) => {
+const Card: FC<CardProps> = ({ title, url }) => {
   return (
-    <div className="bg-white shadow-lg rounded-lg p-6">
-      <h2 className="text-2xl font-bold mb-2">{title}</h2>
-      <p className="">{content}</p>
+    <div className=" bg-zinc-900 border rounded-lg hover:bg-zinc-800 transition-all">
+      <Link href={url} className="group">
+        <div className="flex-center rounded-lg p-6">
+          <h2 className="text-2xl font-bold mb-2">{title}</h2>
+          <ArrowUpRight className="w-5 h-5 mb-2 ml-2 opacity-0 group-hover:opacity-100 transition-all duration-300" />
+        </div>
+      </Link>
     </div>
   );
 };

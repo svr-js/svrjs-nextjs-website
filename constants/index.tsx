@@ -1,4 +1,5 @@
 import { BadgeAlert, BarChart4, Cog, ShieldCheck } from "lucide-react";
+import { Download, Home, Settings, User } from "lucide-react";
 
 export const NAVBAR = {
   centerLinks: [
@@ -95,7 +96,7 @@ export const questions = [
     key: "item-3",
     question: "How was SVR.JS created?",
     answer:
-      "Someone in 2018 wanted to create a website, but he didn't know about setting up popular web server software like Apache httpd, NGINX, or IIS... So he created his own web server in Node.JS to serve his website! And he saved it in a file called svr.js. Since then, this web server has been gradually turned from a web server intended for one website into a general-purpose web server, which is what SVR.JS is today!",
+      "Someone in 2018 wanted to create a website, but he didnt know about setting up popular web server software like Apache httpd, NGINX, or IIS... So he created his own web server in Node.JS to serve his website! And he saved it in a file called svr.js. Since then, this web server has been gradually turned from a web server intended for one website into a general-purpose web server, which is what SVR.JS is today!",
   },
   {
     key: "item-4",
@@ -107,7 +108,7 @@ export const questions = [
     key: "item-5",
     question: "What is Node.JS?",
     answer:
-      "Node.JS is an asynchronous event-driven JavaScript runtime built on Chromium's V8 engine. Node.JS is designed to build scalable network applications.",
+      "Node.JS is an asynchronous event-driven JavaScript runtime built on Chromiums V8 engine. Node.JS is designed to build scalable network applications.",
   },
   {
     key: "item-6",
@@ -144,6 +145,34 @@ export const FOOTERLINKS = {
     },
   },
 };
+
+export const AdminLinks = [
+  {
+    name: "Dashboard",
+    url: "/admin",
+    icon: Home,
+  },
+  {
+    name: "Downloads",
+    url: "/admin/downloads",
+    icon: Download,
+  },
+  {
+    name: "Mods",
+    url: "/admin/mods",
+    icon: User,
+  },
+  {
+    name: "Logs",
+    url: "/admin/changelogs",
+    icon: Settings,
+  },
+  {
+    name: "Back Home",
+    url: "/",
+    icon: Home,
+  },
+];
 
 export const TERMS_AND_CONDITIONS = `
 Last updated: 24.04.2024

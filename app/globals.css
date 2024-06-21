@@ -99,6 +99,54 @@ body {
   .flex-end {
     @apply flex justify-between items-end;
   }
+  .root {
+    @apply flex max-h-screen w-full flex-col lg:flex-row;
+  }
+  .root-container {
+    @apply mt-16 flex-1 overflow-auto py-8 lg:mt-0 lg:max-h-screen lg:py-10;
+  }
+
+  /* .gradient-text {
+    @apply bg-purple-gradient bg-cover bg-clip-text text-transparent;
+  } */
+  .sheet-content button {
+    @apply focus:ring-0 focus-visible:ring-transparent focus:ring-offset-0 focus-visible:ring-offset-0 focus-visible:outline-none focus-visible:border-none !important;
+  }
+
+  .sidebar {
+    @apply hidden h-screen w-72 p-5 shadow-md shadow-purple-200/50 lg:flex;
+  }
+  .header {
+    @apply flex-between fixed h-16 w-full border-b p-5 lg:hidden;
+  }
+
+  .header-nav_elements {
+    @apply mt-8 flex w-full flex-col items-start gap-5;
+  }
+
+  /* Search Component */
+  .search {
+    @apply flex w-full rounded-[16px] border-2 border-purple-200/20 bg-white px-4 shadow-sm shadow-purple-200/15 md:max-w-96;
+  }
+  .sidebar-logo {
+    @apply flex items-center gap-2 md:py-2;
+  }
+
+  .sidebar-nav {
+    @apply h-full flex-col justify-between md:flex md:gap-4;
+  }
+
+  .sidebar-nav_elements {
+    @apply hidden w-full flex-col items-start gap-2 md:flex;
+  }
+
+  .sidebar-nav_element {
+    @apply flex-center p-medium-16 w-full whitespace-nowrap rounded-full bg-cover  transition-all hover:bg-white/10 hover:shadow-inner;
+  }
+
+  .sidebar-link {
+    @apply flex p-medium-16 size-full gap-4 p-4;
+  }
 
   /* TYPOGRAPHY */
   /* 64 */

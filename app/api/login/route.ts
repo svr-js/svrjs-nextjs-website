@@ -1,31 +1,31 @@
-// import { NextResponse } from 'next/server';
-// import { setCookie } from 'nookies';
-// require('dotenv').config();
+import { NextRequest, NextResponse } from "next/server";
+import { serialize } from "cookie";
 
-// // nvm, clerk is overkill for one u
+export async function POST(request: NextRequest) {
+	const { username, password } = await request.json();
 
-// export async function POST(request: NextApiRequest) {
-//   const { username, password } = await request.json();
-//   console.log(username, password);
-//   console.log(process.env.PASSWORD);
+	const adminUsername = process.env.ADMIN_USERNAME;
+	const adminPassword = process.env.ADMIN_PASSWORD;
 
-//   if (username === process.env.USERNAME && password === process.env.PASSWORD) {
-//     const response = NextResponse.json(
-//       { message: 'Login successful' },
-//       { status: 200 }
-//     );
+	if (username === adminUsername && password === adminPassword) {
+		const cookie = serialize("auth", "authenticated", {
+			httpOnly: true,
+			path: "/",
+			maxAge: 60 * 60 * 24, // 1 day
+		});
 
-//     setCookie({ res: response }, 'token', 'your-auth-token', {
-//       httpOnly: true,
-//       secure: process.env.NODE_ENV !== 'development',
-//       maxAge: 30 * 24 * 60 * 60,
-//       path: '/',
-//     });
+		return new NextResponse(JSON.stringify({ message: "Login successful" }), {
+			headers: {
+				"Set-Cookie": cookie,
+				"Content-Type": "application/json",
+			},
+		});
+	}
 
-//     return response;
-//   } else {
-//     return NextResponse.json({ message: 'Login failed' }, { status: 401 });
-//   }
-// }
-
-// im gonna create server actions
+	return new NextResponse(JSON.stringify({ message: "Invalid credentials" }), {
+		status: 401,
+		headers: {
+			"Content-Type": "application/json",
+		},
+	});
+}

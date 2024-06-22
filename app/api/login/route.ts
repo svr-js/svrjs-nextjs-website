@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { serialize } from "cookie";
 
+// Force the API to use SSR instead of static generation
+export const dynamic = "force-dynamic";
+
 export async function POST(request: NextRequest) {
 	const { username, password } = await request.json();
 

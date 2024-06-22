@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import clientPromise from "@/lib/db";
 
+// Force the API to use SSR instead of static generation
+export const dynamic = "force-dynamic";
+
 // Handler for GET requests
 export async function GET(req: NextRequest) {
   try {

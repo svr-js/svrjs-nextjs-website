@@ -1,6 +1,9 @@
 import { NextResponse } from "next/server";
 import clientPromise from "@/lib/db";
 
+// Force the API to use SSR instead of static generation
+export const dynamic = "force-dynamic";
+
 export async function POST(request: Request) {
   const body = await request.json();
   const { fileName, version, downloadLink, fileSize } = body;

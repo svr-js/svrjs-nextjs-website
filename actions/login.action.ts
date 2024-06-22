@@ -1,9 +1,13 @@
-"use server";
+// 'use server';
+// import { NextApiRequest } from 'next';
+// import { NextResponse } from 'next/server';
 
-export function CheckLoggedIn(username: string, password: string) {
-	if (
-		username === process.env.ADMIN_USERNAME &&
-		password === process.env.ADMIN_PASSWORD
-	) {
-	}
-}
+// export async function POST(req: NextApiRequest) {
+//   const { username, password } = await req.body;
+
+//   if (username === process.env.USERNAME && password === process.env.PASSWORD) {
+//     return NextResponse.json({ success: true });
+//   } else {
+//     return NextResponse.json({ success: false });
+//   }
+// }

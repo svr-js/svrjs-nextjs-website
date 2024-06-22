@@ -1,7 +1,15 @@
-import React from "react";
+import Sidebar from "@/components/shared/Sidebar";
 
-const Docs = () => {
-  return <div>Docs</div>;
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Docs - SVRJS",
 };
 
-export default Docs;
+export default function Page() {
+  return (
+    <>
+      <Sidebar />
+    </>
+  );
+}

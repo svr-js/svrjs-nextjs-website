@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Table,
@@ -11,38 +14,45 @@ import {
 import { Download } from "lucide-react";
 import Link from "next/link";
 
-const downloads = [
-  {
-    date: "2024-06-01",
-    fileName: "SVRJS_v1.0.0.zip",
-    version: "1.0.0",
-    fileSize: "15MB",
-    downloadLink: "/downloads/SVRJS_v1.0.0.zip",
-  },
-  {
-    date: "2024-06-10",
-    fileName: "SVRJS_v1.1.0.zip",
-    version: "1.1.0",
-    fileSize: "18MB",
-    downloadLink: "/downloads/SVRJS_v1.1.0.zip",
-  },
-  {
-    date: "2024-06-15",
-    fileName: "SVRJS_v1.2.0.zip",
-    version: "1.2.0",
-    fileSize: "20MB",
-    downloadLink: "/downloads/SVRJS_v1.2.0.zip",
-  },
-  {
-    date: "2024-06-20",
-    fileName: "SVRJS_v1.3.0.zip",
-    version: "1.3.0",
-    fileSize: "22MB",
-    downloadLink: "/downloads/SVRJS_v1.3.0.zip",
-  },
-];
+interface Mods {
+  _id: string;
+  date: string;
+  fileName: string;
+  version: string;
+  fileSize: string;
+  downloadLink: string;
+}
 
-const Mods = () => {
+const ModsPage: React.FC = () => {
+  const [downloads, setDownloads] = useState<Mods[]>([]);
+  const [error, setError] = useState("");
+
+  const fetchDownloads = async () => {
+    try {
+      const response = await fetch("/api/mods", {
+        method: "GET",
+      });
+      if (response.ok) {
+        const data: Mods[] = await response.json();
+        setDownloads(data);
+      } else {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+    } catch (error: any) {
+      setError(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchDownloads();
+
+    const interval = setInterval(() => {
+      fetchDownloads();
+    }, 10000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section
       id="mods"
@@ -52,8 +62,9 @@ const Mods = () => {
         SvrJS Mods
       </h1>
       <p className="text-lg text-muted-foreground text-start mb-4">
-        Get all the latest version of SVRJS Mods and compiled Files here!
+        Get all the latest version of SVRJS Mods and compiled Files here!{" "}
       </p>
+      {error && <p className="text-red-500">{error}</p>}
       <Table>
         <TableCaption>A list of all available downloads.</TableCaption>
         <TableHeader>
@@ -66,26 +77,29 @@ const Mods = () => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {downloads.map((download) => (
-            <TableRow key={download.fileName}>
-              <TableCell className="font-medium">{download.date}</TableCell>
-              <TableCell>{download.fileName}</TableCell>
-              <TableCell>{download.version}</TableCell>
-              <TableCell className="text-left">{download.fileSize}</TableCell>
-              <TableCell className="flex items-center justify-end">
-                <Link href={download.downloadLink}>
-                  <Button variant={"ghost"} className="">
-                    <Download className="w-4 h-4 mr-2" />
-                    Download
-                  </Button>
-                </Link>
-              </TableCell>
-            </TableRow>
-          ))}
+          {downloads
+            .slice(0, 10)
+            .reverse()
+            .map((download) => (
+              <TableRow key={download._id}>
+                <TableCell className="font-medium">{download.date}</TableCell>
+                <TableCell>{download.fileName}</TableCell>
+                <TableCell>{download.version}</TableCell>
+                <TableCell className="text-left">{download.fileSize}</TableCell>
+                <TableCell className="flex items-center justify-end">
+                  <Link href={download.downloadLink}>
+                    <Button variant={"ghost"} className="">
+                      <Download className="w-4 h-4 mr-2" />
+                      Download
+                    </Button>
+                  </Link>
+                </TableCell>
+              </TableRow>
+            ))}
         </TableBody>
       </Table>
     </section>
   );
 };
 
-export default Mods;
+export default ModsPage;

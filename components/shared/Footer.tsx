@@ -35,7 +35,7 @@ const Footer = () => {
                   <span key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-base font-light dark:hover:text-green-100/70 hover:text-green-500"
+                      className="text-base font-light dark:hover:text-green-100/70 hover:text-green-500 hover:underline"
                     >
                       {link.label}
                     </Link>
@@ -48,7 +48,7 @@ const Footer = () => {
                   <span key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-base font-light dark:hover:text-green-100/70 hover:text-green-500"
+                      className="text-base font-light dark:hover:text-green-100/70 hover:text-green-500 hover:underline"
                     >
                       {link.label}
                     </Link>

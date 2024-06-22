@@ -7,6 +7,7 @@ export async function GET(req: NextRequest) {
     const client = await clientPromise;
     const db = client.db("downloadsDatabase");
     const downloads = await db.collection("downloads").find().toArray();
+    // console.log("Downloads fetched:", downloads);
     return NextResponse.json(downloads, { status: 200 });
   } catch (error) {
     console.log(`Error Messge ${error}`);

@@ -124,10 +124,12 @@ export const FOOTERLINKS = {
     { href: "/contact", label: "Contact" },
     { href: "/blog", label: "Blog" },
     { href: "/forum", label: "Forum" },
+    { href: "/changelogs", label: "Change Logs" },
   ],
   plans: [
     { href: "/docs", label: "Docs" },
     { href: "/downloads", label: "Downloads" },
+    { href: "/mods", label: "Svrjs Mods" },
     { href: "/tos", label: "Terms of Serivce" },
     { href: "/privacy-policy", label: "Privacy Policy" },
   ],

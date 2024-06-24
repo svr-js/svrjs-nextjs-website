@@ -1,0 +1,23 @@
+---
+title: Configurations
+---
+
+## Configuration
+
+SVR.JS can be configured by modifying _config.json_ file.
+
+### _config.json_ properties
+
+The _config.json_ file contains various properties that you can customize to configure SVR.JS according to your specific requirements. Below are the available properties:
+
+#### General Configuration
+
+- _users_ (Array of Objects, SVR.JS 3.0.0 or newer)
+  - Users list for HTTP authentication. Use _svrpasswd_ tool to add, modify or delete users.
+    - _name_: User name for HTTP authentication (String)
+    - _pass_: Salted hash of the password (default SHA256 with appended salt, String)
+    - _salt_: Salt used to generate the SHA256 hash (String)
+    - _pbkdf2_: Flag used to determine, if hash is PBKDF2 (Boolean, SVR.JS 3.7.0 or newer)
+    - _scrypt_: Flag used to determine, if hash is scrypt (Boolean, SVR.JS 3.7.0 or newer)
+- _port_ (Number or String, required)
+  - HTTP port for SVR.JS to listen on. For SVR.JS 3.6.0 and later, it can also be a Unix socket or Windows named pipe. For SVR.JS 3.9.0 and later, this can also be an IP address along with a port like \_"192.168....

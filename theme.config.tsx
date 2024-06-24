@@ -42,6 +42,8 @@ export default {
 			};
 		}
 	},
+	primaryHue: 136,
+	primarySaturation: 75,
 	// banner: {
 	// 	key: "svrjs",
 	// 	text: <a href="https://svrjs.org">🎉 Check out SVRJS Now. Read more →</a>,

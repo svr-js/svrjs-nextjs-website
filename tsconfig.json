@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "lib/Hoc/withAuth.jsx" , "**/*.mdx", "pages/_app.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "lib/Hoc/withAuth.jsx" , "**/*.mdx", "pages/_app.tsx"],
   "exclude": ["node_modules"]
 }

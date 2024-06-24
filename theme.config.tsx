@@ -1,6 +1,16 @@
 import { useRouter } from "next/router";
 
 export default {
+	head: (
+		<>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+			<meta property="og:title" content="SVRJS" />
+			<meta
+				property="og:description"
+				content="the open source node running server"
+			/>
+		</>
+	),
 	editLink: {
 		component: null,
 	},

@@ -10,7 +10,6 @@ html {
 }
 
 body {
-	font-family: var(--font-poppins);
 	user-select: text;
 	overflow-x: clip;
 }

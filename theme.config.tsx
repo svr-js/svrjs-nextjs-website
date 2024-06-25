@@ -19,13 +19,7 @@ export default {
 	},
 	logo: (
 		<>
-			<img
-				src="/plainlogo.svg"
-				alt={`logo`}
-				width={25}
-				height={25}
-				className="dark:block hidden"
-			/>
+			<img src="/plainlogo.svg" alt={`logo`} width={25} height={25} />
 			<h1
 				style={{
 					fontWeight: 700,

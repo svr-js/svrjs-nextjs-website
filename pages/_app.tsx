@@ -1,3 +1,4 @@
+import { AppProps } from "next/app";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 
@@ -6,7 +7,7 @@ const poppins = Poppins({
   subsets: ["latin"],
 });
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }: AppProps) {
 	return (
 		<>
 			<style jsx global>{`

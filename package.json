@@ -27,6 +27,7 @@
     "lucide-react": "^0.394.0",
     "mini-svg-data-uri": "^1.4.4",
     "mongoose": "^8.4.3",
+    "next-auth": "^4.24.7",
     "next-themes": "^0.3.0",
     "nextra": "^2.13.4",
     "nextra-theme-docs": "^2.13.4",

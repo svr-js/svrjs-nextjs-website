@@ -20,6 +20,12 @@ import { logsSchema } from "@/lib/validations/validation";
 const AdminPage = () => {
   const form = useForm<z.infer<typeof logsSchema>>({
     resolver: zodResolver(logsSchema),
+    defaultValues: {
+      fileName: "",
+      version: "",
+      downloadLink: "",
+      fileSize: "",
+    },
   });
 
   const onSubmit: SubmitHandler<z.infer<typeof logsSchema>> = async (data) => {
@@ -42,8 +48,8 @@ const AdminPage = () => {
   };
 
   return (
-    <section id="admin-page" className="wrapper container">
-      <h1 className="text-3xl font-bold py-6">Admin Upload Section</h1>
+    <section id="logs-page" className="wrapper container">
+      <h1 className="text-3xl font-bold py-6">Server Logs Form</h1>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
           <FormField

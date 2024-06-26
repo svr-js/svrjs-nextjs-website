@@ -1,21 +1,19 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import { getToken } from "next-auth/jwt";
 
-export function middleware(req: NextRequest) {
-	const url = req.nextUrl.clone();
+export async function middleware(req: NextRequest) {
+  const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET });
 
-	if (url.pathname.startsWith("/admin")) {
-		const authCookie = req.cookies.get("auth");
+  if (req.nextUrl.pathname.startsWith("/admin") && !token) {
+    const url = req.nextUrl.clone();
+    url.pathname = "/login";
+    return NextResponse.redirect(url);
+  }
 
-		if (!authCookie) {
-			url.pathname = "/login";
-			return NextResponse.redirect(url);
-		}
-	}
-
-	return NextResponse.next();
+  return NextResponse.next();
 }
 
 export const config = {
-	matcher: ["/admin/:path*"],
+  matcher: ["/admin/:path*"],
 };

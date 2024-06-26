@@ -20,6 +20,12 @@ import { downloadSchema } from "@/lib/validations/validation";
 const AdminPage = () => {
   const form = useForm<z.infer<typeof downloadSchema>>({
     resolver: zodResolver(downloadSchema),
+    defaultValues: {
+      fileName: "",
+      version: "",
+      downloadLink: "",
+      fileSize: "",
+    },
   });
 
   const onSubmit: SubmitHandler<z.infer<typeof downloadSchema>> = async (
@@ -44,8 +50,8 @@ const AdminPage = () => {
   };
 
   return (
-    <section id="admin-page" className="wrapper container">
-      <h1 className="text-3xl font-bold py-6">Admin Upload Section</h1>
+    <section id="downloads-page" className="wrapper container">
+      <h1 className="text-3xl font-bold py-6">Mods Form</h1>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
           <FormField

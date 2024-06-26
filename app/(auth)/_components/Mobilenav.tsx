@@ -6,13 +6,14 @@ import Image from "next/image";
 import { AdminLinks } from "@/constants";
 import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
+import Logo from "@/components/shared/Logo";
 
 const MobileNav = () => {
   const pathname = usePathname();
   return (
     <header className="header">
       <Link href="/" className="flex items-center gap-2 md:py-2">
-        <Image src="/logo.svg" alt="" width={180} height={28} />
+        <Logo width={180} height={28} />
       </Link>
 
       <nav className="flex gap-2">

@@ -3,13 +3,28 @@ import React, { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
+import { useSession } from "next-auth/react";
 
 const LoginPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const router = useRouter();
+  const { data: session, status } = useSession();
 
+  if (status === "loading") {
+    return (
+      <>
+        <main className="h-screen w-full flex-center">
+          <p className="animate-pulse text-xl">Loading</p>
+        </main>
+      </>
+    );
+  }
+
+  if (session) {
+    router.push("/admin");
+  }
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     const res = await signIn("credentials", {

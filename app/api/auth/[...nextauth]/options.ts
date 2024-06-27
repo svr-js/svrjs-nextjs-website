@@ -1,5 +1,6 @@
 import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import bcrypt from "bcrypt";
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -12,18 +13,27 @@ export const authOptions: NextAuthOptions = {
       },
       async authorize(credentials: any): Promise<any> {
         const adminUsername = process.env.ADMIN_USERNAME;
-        const adminPassword = process.env.ADMIN_PASSWORD;
+        const adminPasswordHash = process.env.ADMIN_PASSWORD;
 
-        if (
-          credentials.username === adminUsername &&
-          credentials.password === adminPassword
-        ) {
-          // Any object returned will be saved in `user` property of the JWT
-          return { id: 1, name: "svrjsAdmin" };
-        } else {
-          // If you return null then an error will be displayed advising the user to check their details.
-          return null;
+        console.log(adminUsername);
+        console.log(adminPasswordHash);
+        console.log(credentials.username);
+        console.log(credentials.password);
+        if (credentials.username == adminUsername) {
+          const isValidPassword = await bcrypt.compare(
+            credentials.password,
+            adminPasswordHash!
+          );
+
+          console.log(isValidPassword);
+
+          if (isValidPassword) {
+            // aany object returned will be saved in `user` property of the jwtt
+            return { id: 1, name: "svrjsAdmin" };
+          }
         }
+        // If you return null then an error will be displayed that the user to check their details.
+        return null;
       },
     }),
   ],
@@ -38,8 +48,8 @@ export const authOptions: NextAuthOptions = {
     },
     async session({ session, token }) {
       // Add token info to session
-      //   session.user.id = token.id;
-      //   session.user.name = token.name;
+      // session.user.id = token.id;
+      // session.user.name = token.name;
       return session;
     },
   },

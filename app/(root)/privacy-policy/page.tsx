@@ -2,6 +2,12 @@ import { PRIVACY_POLICY } from "@/constants/guidelines";
 import React from "react";
 import ReactMarkdown from "react-markdown";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+	title: "Privacy Policy - SVRJS",
+};
+
 const PrivacyPolicy = () => {
 	return (
 		<section

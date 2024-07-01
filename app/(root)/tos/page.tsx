@@ -1,5 +1,10 @@
 import ReactMarkdown from "react-markdown";
 import { TERMS_AND_CONDITIONS } from "@/constants/guidelines";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+	title: "Terms Of Service - SVRJS",
+};
 
 const TermsOfService = () => {
 	return (

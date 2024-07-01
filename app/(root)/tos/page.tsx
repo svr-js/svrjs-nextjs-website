@@ -7,7 +7,7 @@ const TermsOfService = () => {
 			id="tos"
 			className="wrapper container py-24 md:py-28 gap-4 flex flex-col"
 		>
-			<div className="prose max-w-full prose-lg dark:prose-invert">
+			<div className="prose prose-lg dark:prose-invert">
 				<ReactMarkdown>{TERMS_AND_CONDITIONS}</ReactMarkdown>
 			</div>
 		</section>

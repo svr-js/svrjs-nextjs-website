@@ -8,7 +8,7 @@ const PrivacyPolicy = () => {
 			id="privacy-policy"
 			className="wrapper container py-24 md:py-28 gap-4 flex flex-col"
 		>
-			<div className="prose prose-lg dark:prose-invert">
+			<div className="prose max-w-full prose-lg dark:prose-invert">
 				<ReactMarkdown>{PRIVACY_POLICY}</ReactMarkdown>
 			</div>
 		</section>

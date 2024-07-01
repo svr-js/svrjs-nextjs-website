@@ -1,5 +1,6 @@
-import { PRIVACY_POLICY } from "@/constants";
+import { PRIVACY_POLICY } from "@/constants/guidelines";
 import React from "react";
+import ReactMarkdown from "react-markdown";
 
 const PrivacyPolicy = () => {
 	return (
@@ -7,13 +8,9 @@ const PrivacyPolicy = () => {
 			id="privacy-policy"
 			className="wrapper container py-24 md:py-28 gap-4 flex flex-col"
 		>
-			<h2 className="text-3xl font-bold italic underline mb-6">
-				Privacy Policy
-			</h2>
-			<div
-				className="prose prose-lg dark:prose-invert"
-				dangerouslySetInnerHTML={{ __html: PRIVACY_POLICY }}
-			/>
+			<div className="prose prose-lg dark:prose-invert">
+				<ReactMarkdown>{PRIVACY_POLICY}</ReactMarkdown>
+			</div>
 		</section>
 	);
 };

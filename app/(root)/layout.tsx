@@ -3,7 +3,7 @@ import Navbar from "@/components/shared/Navbar";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-	title: "Home - SVRJS",
+	title: "SVRJS - A Web Server running on Nodejs",
 };
 
 export default function PageLayout({

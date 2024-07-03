@@ -17,9 +17,13 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { sendContactForm } from "@/lib/api/contact";
+import { useToast } from "@/components/ui/use-toast";
+import { useState } from "react";
 
 const ContactUs = () => {
+	const { toast } = useToast();
+	const [loading, setLoading] = useState(false);
+
 	const form = useForm<z.infer<typeof contactFormSchema>>({
 		resolver: zodResolver(contactFormSchema),
 		defaultValues: {
@@ -30,7 +34,39 @@ const ContactUs = () => {
 	});
 
 	async function onSubmit(values: z.infer<typeof contactFormSchema>) {
-		await sendContactForm(values);
+		setLoading(true);
+		try {
+			const res = await fetch("/api/contact", {
+				method: "POST",
+				body: JSON.stringify(values),
+				headers: {
+					"Content-Type": "application/json",
+					Accept: "application/json",
+				},
+			});
+
+			if (res.ok) {
+				form.reset();
+				toast({
+					description: "Your message has been sent.",
+				});
+				setLoading(false);
+			} else {
+				toast({
+					title: "Uh oh! Something went wrong.",
+					variant: "destructive",
+				});
+				setLoading(false);
+			}
+		} catch (error) {
+			console.error(error);
+			toast({
+				title: "Uh oh! Something went wrong.",
+				variant: "destructive",
+			});
+			setLoading(false);
+		}
+
 		console.log(values);
 	}
 
@@ -89,7 +125,12 @@ const ContactUs = () => {
 									</FormItem>
 								)}
 							/>
-							<Button type="submit" variant={"default"} className="w-full">
+							<Button
+								type="submit"
+								variant={"default"}
+								className="w-full"
+								disabled={loading}
+							>
 								<div className="flex items-center justify-center">
 									<span className="tracking-tight font-[600px]">SEND</span>
 									<Send className="ml-2 w-5 h-5" />

@@ -43,7 +43,7 @@ const ContactUs = () => {
 			</div>
 
 			<section id="contact" className="w-full">
-				<div className="flex flex-col md:flex-row justify-between mx-auto p-5 max-w-3xl">
+				<div className="flex max-md:flex-center flex-col md:flex-row justify-between mx-auto p-5 max-w-3xl">
 					{/* Left contact page */}
 					<Form {...form}>
 						<form

@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "lib/Hoc/withAuth.jsx" , "**/*.mdx", "pages/_app.tsx", "hashedpass.s"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "lib/Hoc/withAuth.jsx" , "**/*.mdx", "pages/_app.tsx", "hashedpass.s", "app/(root)/contact"],
   "exclude": ["node_modules"]
 }

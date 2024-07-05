@@ -14,14 +14,14 @@ export const NAVBAR = {
 			label: "Docs",
 		},
 		{
-			href: "/forum",
-			target: "_self",
-			label: "Forum",
-		},
-		{
 			href: "/blog",
 			target: "_self",
 			label: "Blog",
+		},
+		{
+			href: "/contact",
+			target: "_self",
+			label: "Contact",
 		},
 	],
 	rightLinks: [

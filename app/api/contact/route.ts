@@ -19,9 +19,10 @@ const generateEmailContent = (data: Record<string, string>) => {
 	const stringData = Object.entries(data).reduce(
 		(str, [key, val]) =>
 			str +
-			`${CONTACT_MESSAGE_FIELDS[key] || escapeHtml(key)}: \n${escapeHtml(
-				val
-			)} \n\n`,
+			`${CONTACT_MESSAGE_FIELDS[key] || key}: ${val.replace(
+				/\n/g,
+				"<br/>"
+			)} <br/><br/>`,
 		""
 	);
 

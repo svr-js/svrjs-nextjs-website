@@ -1,6 +1,6 @@
 "use client";
 import Iconss from "@/components/ui/icons";
-import { MapPin, Phone, Mail, Send } from "lucide-react";
+import { Mail, Send, WebhookIcon, Bug, Shield } from "lucide-react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -79,7 +79,7 @@ const ContactUs = () => {
 			</div>
 
 			<section id="contact" className="w-full">
-				<div className="flex max-md:flex-center flex-col md:flex-row justify-between mx-auto p-5 max-w-3xl">
+				<div className="flex max-md:flex-center flex-col md:flex-row justify-between mx-auto p-5 max-w-4xl">
 					{/* Left contact page */}
 					<Form {...form}>
 						<form
@@ -143,18 +143,38 @@ const ContactUs = () => {
 					<div className="max-w-xl mt-3 md:ml-5">
 						<ul className="ml-2 max-md:flex-center flex-col pr-5">
 							<li className="mb-2 text-[#aaa] flex items-center">
-								<MapPin className="mr-2" size={24} />
-								<span>webmaster@svrjs.org</span>
-							</li>
-							<li className="mb-2 text-[#aaa] flex items-center">
-								<Phone className="mr-2" size={24} />
+								<WebhookIcon className="mr-2" size={24} />
 								<span>
 									<a
-										href="tel:1-212-555-5555"
-										title="Give me a call"
-										className="text-[#bbb] hover:text-white transition duration-200"
+										href="mailto:#"
+										title="Send me an email"
+										className="opacity-70 hover:opacity-100 transition duration-200"
+									>
+										webmaster@svrjs.org
+									</a>
+								</span>
+							</li>
+							<li className="mb-2 text-[#aaa] flex items-center">
+								<Bug className="mr-2" size={24} />
+								<span>
+									<a
+										href="mailto:#"
+										title="Send me an email"
+										className="opacity-70 hover:opacity-100 transition duration-200"
 									>
 										bugreports@svrjs.org
+									</a>
+								</span>
+							</li>
+							<li className="mb-2 text-[#aaa] flex items-center">
+								<Shield className="mr-2" size={24} />
+								<span>
+									<a
+										href="mailto:#"
+										title="Send me an email"
+										className="opacity-70 hover:opacity-100 transition duration-200"
+									>
+										vulnerability-reports@svrjs.org
 									</a>
 								</span>
 							</li>
@@ -164,7 +184,7 @@ const ContactUs = () => {
 									<a
 										href="mailto:#"
 										title="Send me an email"
-										className="text-[#bbb] hover:text-white transition duration-200"
+										className="opacity-70 hover:opacity-100 transition duration-200"
 									>
 										support@svrjs.org
 									</a>
@@ -177,7 +197,7 @@ const ContactUs = () => {
 						</ul>
 						<hr className="border-t border-white opacity-60 my-4" />
 						<div className="text-center text-[#555] text-sm font-light">
-							© ALL RIGHTS RESERVED
+							© ALL RIGHTS RESERVED SVRJS
 						</div>
 					</div>
 				</div>

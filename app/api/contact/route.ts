@@ -12,17 +12,15 @@ const escapeHtml = (text: string) => {
 		.replace(/&/g, "&amp;")
 		.replace(/</g, "&lt;")
 		.replace(/>/g, "&gt;")
-		.replace(/\n/g, "<br/>");
+		.replace(/"/g, "&quot;")
+		.replace(/'/g, "&#039;");
 };
 
 const generateEmailContent = (data: Record<string, string>) => {
 	const stringData = Object.entries(data).reduce(
 		(str, [key, val]) =>
 			str +
-			`${CONTACT_MESSAGE_FIELDS[key] || key}: ${val.replace(
-				/\n/g,
-				"<br/>"
-			)} <br/><br/>`,
+			`${CONTACT_MESSAGE_FIELDS[key] || key}: ${val.replace(/\n/g, "\n")} \n\n`,
 		""
 	);
 
@@ -31,7 +29,10 @@ const generateEmailContent = (data: Record<string, string>) => {
 			str +
 			`<h3 class="form-heading">${escapeHtml(
 				CONTACT_MESSAGE_FIELDS[key] || key
-			)}</h3><p class="form-answer">${escapeHtml(val)}</p>`,
+			)}</h3><p class="form-answer">${escapeHtml(val).replace(
+				/\n/g,
+				"<br/>"
+			)}</p>`,
 		""
 	);
 

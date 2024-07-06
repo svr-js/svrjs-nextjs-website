@@ -336,5 +336,32 @@ BY USING SERVICE OR OTHER SERVICES PROVIDED BY US, YOU ACKNOWLEDGE THAT YOU HAVE
 ## 18. Contact Us
 
 Please send your feedback, comments, requests for technical support by email: support[at]svrjs[dot]org.
+`;
 
+export const contribute = `
+# Contributing to SVR.JS
+We welcome contributions from the community! Here’s how you can help:
+## Git server details
+The Git server runs Forgejo Git hosting package and it’s located at [git.svrjs.org](https://git.svrjs.org/).
+## Reporting Bugs
+If you find a bug, please open an issue on our issue tracker with a detailed description of the problem and steps to reproduce it.
+
+## Submitting Patches
+We accept patches via pull requests. Here’s our process:
+
+## Fork the project.
+- Create a branch for your patch.
+- Commit your changes with descriptive commit messages.
+- Push your branch to your fork.
+- Open a pull request against the main repository.
+- Running Tests
+- Before submitting a pull request, please run the tests to ensure your changes haven’t introduced any new issues.
+
+## Documentation
+If your contribution changes existing functionality or adds new features, please update the documentation accordingly.
+
+## License
+By contributing to our project, you agree that your contributions will be licensed under our project’s license.
+
+Thank you for considering contributing to our project!
 `;

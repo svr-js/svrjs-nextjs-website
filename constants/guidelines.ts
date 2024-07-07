@@ -365,3 +365,113 @@ By contributing to our project, you agree that your contributions will be licens
 
 Thank you for considering contributing to our project!
 `;
+
+export const vulnerabilities = `
+## SVR.JS Vulnerabilities
+
+Some older versions of SVR.JS are vulnerable to cyberattacks. It’s recommended to update your SVR.JS version to the newest one.
+If you find a security issue with SVR.JS, report it as soon as possible to vulnerability-reports[at]svrjs[dot]org. We’ll mitigate that vulnerability if it is possible.
+
+## SVR.JS
+
+### Fixed in SVR.JS 3.15.0 and in SVR.JS 3.14.16 LTS
+- An attacker could send a HTTP forward proxy request with malformed URL not using CONNECT method to possibly crash the server.
+
+### Fixed in SVR.JS 3.13.0 and in SVR.JS 3.4.41 LTS
+- An attacker could use user name with newlines on HTTP authentication to inject false log entries. (introduced in SVR.JS 3.0.0)
+- An attacker could install problematic SVR.JS mod with newlines in its filename to inject false log entries. (introduced in SVR.JS 3.0.0)
+
+### Fixed in SVR.JS 3.12.1 and in SVR.JS 3.4.39 LTS
+- An attacker could inject HTML code into the \`extName\` parameter of the \`callServerError\` method to perform XSS attack.
+- An attacker could inject HTML code into the \`serverAdministratorEmail\` config.json property and cause the server to return 500, 502, 503, 504, 506 or 509 error code using a default error page or an error page with a \`{contact}\` placeholder to perform XSS attack.
+
+### Fixed in SVR.JS 3.10.2
+- SVR.JS mods and server-side JavaScript were executed in the wrong order. So the attacker could bypass access controls if one of the mods had them, but the other one allowed browsing sensitive information. (introduced in SVR.JS 3.9.3; not present in LTS)
+
+### Fixed in SVR.JS 3.9.6 and in SVR.JS 3.4.34 LTS
+- An attacker could use URL beginning with “/temp/“ to leak information from temp directory in SVR.JS installation directory (includes source code through hidden \`.modloader_w12345\` and \`.serverSideScript_w12345.js\`), if web root is in SVR.JS installation directory. View the security advisory
+
+### Fixed in SVR.JS 3.9.3 and in SVR.JS 3.4.31 LTS
+- An attacker could use request URL that begins with “http://“ or with “https://“ (instead of one that begins with “/“) to bypass all access controls (including HTTP authentication) in affected versions that use SVR.JS mods or server-side JavaScript not using \`href\` or \`uobject.pathname\` properties in at least one of path checks. View the security advisory
+
+### Fixed in SVR.JS 3.9.2 and in SVR.JS 3.4.30 LTS
+- Affected SVR.JS versions failed to protect the \`req.url\` property in SVR.JS mods and server-side JavaScript from path traversal because they didn’t detect partial URL sanitation done by WHATWG URL parser and they didn’t apply sanitations back to the \`req.url\` property. (introduced in SVR.JS 3.3.1) View the security advisory
+
+### Fixed in SVR.JS 3.9.0 and in SVR.JS 3.4.28 LTS
+- An attacker could put invalid \`X-Forwarded-For\` header value in order to possibly cause problems with web application. (when enableIPSpoofing was enabled)
+
+### Fixed in SVR.JS 3.7.5
+- Block list didn’t work, and thus attackers could bypass blocks. (introduced in SVR.JS 3.5.0; not present in LTS)
+
+### Fixed in SVR.JS 3.5.6 and in SVR.JS 3.4.16 LTS
+- An attacker could use “…” to traverse directories, while SVR.JS is running on Windows. (in web apps, less probable in SVR.JS itself, since Node.JS itself reports that “…” doesn’t exist)
+
+### Fixed in SVR.JS 3.3.1
+- An attacker could use request URL, that begins with “http://“ or with “https://“ to bypass all access controls in affected versions, that use SVR.JS mods or server-side JavaScript.
+
+### Fixed in SVR.JS 3.3.0
+- Non-standard codes didn’t work, and thus attackers could bypass HTTP authentication. (introduced in SVR.JS 3.2.1)
+
+### Fixed in SVR.JS 3.2.1
+- An attacker could access directory listing of directory above web root using “/..” path. (introduced in SVR.JS 3.0.0 and SVR.JS 2.1.3)
+
+### Fixed in SVR.JS 3.1.2
+- If SVR.JS script is above (not on) web root directory, then config.json and other sensitive files can be easily accessed. (through security misconfiguration; introduced in SVR.JS 3.0.0)
+
+### Fixed in SVR.JS 3.0.0
+- There was a XSS bug in host name indication in default error pages.
+
+### Fixed in SVR.JS 3.0.0 and SVR.JS 2.1.4
+- An attacker could append “%00” to the URL in order to bypass access restrictions when SVR.JS is running on Bun.
+- An attacker could use encoded characters to bypass access restrictions.
+- Fixed access control bypass vulnerability when the server is running on Windows.
+
+### Fixed in SVR.JS 3.0.0 and SVR.JS 2.1.3
+- Server crashed on malformed URL.
+- Path traversal was possible with files.
+- Fixed access control bypass vulnerability when the server is running on Windows (partial fix).
+
+### Fixed in SVR.JS 2.1.1
+- An attacker could use directory listing to access secret files (through path traversal).
+
+## easy-waf integration
+
+### Fixed in easy-waf integration 1.2.4
+- An attacker could send a very small chunk of the POST request body (which will not trigger WAF) before the payload to bypass the WAF.
+
+### Fixed in easy-waf integration 1.2.1
+- An attacker could access the resource on the server with poorly written SVR.JS mod or server-side JavaScript (that normally would invoke 500 Internal Server Error) to crash the server.
+
+## RedBrick
+
+### Fixed in RedBrick 2.5.4
+- An attacker could add HTTP authentication header to the HTTP request when not required to enable web application functionality normally disabled on unauthenticated requests. View the security advisory
+
+### Fixed in RedBrick 2.3.3
+- An attacker could use “CGI-BIN” instead of “cgi-bin” to leak source code, while SVR.JS with RedBrick is running on Windows. View the security advisory
+- An attacker could leak RedBrick interpreter settings, while SVR.JS with RedBrick is running on Windows. View the security advisory
+
+## reverse-proxy-mod
+
+### Fixed in reverse-proxy-mod 1.1.2
+- An attacker could hack the upstream server, replace the web server or application with one that sends an invalid HTTP response code, and make a request to the hacked server through the reverse proxy to crash the reverse proxy server.
+
+### Fixed in reverse-proxy-mod 1.0.4
+- An attacker could leak reverse proxy configuration file. View the security advisory
+
+## OrangeCircle
+
+### Fixed in OrangeCircle 1.1.2
+- An attacker could add HTTP authentication header to the HTTP request when not required to enable web application functionality normally disabled on unauthenticated requests. View the security advisory
+
+### Fixed in OrangeCircle 1.0.2
+- An attacker could leak OrangeCircle configuration, while SVR.JS with YellowSquare is running on Windows. View the security advisory
+
+## YellowSquare
+
+### Fixed in YellowSquare 1.1.2
+- An attacker could add HTTP authentication header to the HTTP request when not required to enable web application functionality normally disabled on unauthenticated requests. View the security advisory
+
+### Fixed in YellowSquare 1.0.1
+- An attacker could use “JSGI-BIN” instead of “jsgi-bin” to leak source code, while SVR.JS with YellowSquare is running on Windows. View the security advisory
+`;

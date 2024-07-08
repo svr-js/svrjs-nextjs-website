@@ -1,8 +1,4 @@
 export const PRIVACY_POLICY = `
-# Privacy Policy
-
-**Effective date: 26.05.2024**
-
 ## 1. Introduction
 
 Welcome to SVR.JS.
@@ -197,10 +193,6 @@ If you have any questions about this Privacy Policy, please contact us by email:
 `;
 
 export const TERMS_AND_CONDITIONS = `
-# Terms and Conditions
-
-Last updated: 24.04.2024
-
 ## 1. Introduction
 
 Welcome to SVR.JS (“Company”, “we”, “our”, “us”)!
@@ -339,8 +331,7 @@ Please send your feedback, comments, requests for technical support by email: su
 `;
 
 export const contribute = `
-# Contributing to SVR.JS
-We welcome contributions from the community! Here’s how you can help:
+
 ## Git server details
 The Git server runs Forgejo Git hosting package and it’s located at [git.svrjs.org](https://git.svrjs.org/).
 ## Reporting Bugs
@@ -367,12 +358,6 @@ Thank you for considering contributing to our project!
 `;
 
 export const vulnerabilities = `
-## SVR.JS Vulnerabilities
-
-Some older versions of SVR.JS are vulnerable to cyberattacks. It’s recommended to update your SVR.JS version to the newest one.
-If you find a security issue with SVR.JS, report it as soon as possible to vulnerability-reports[at]svrjs[dot]org. We’ll mitigate that vulnerability if it is possible.
-
-## SVR.JS
 
 ### Fixed in SVR.JS 3.15.0 and in SVR.JS 3.14.16 LTS
 - An attacker could send a HTTP forward proxy request with malformed URL not using CONNECT method to possibly crash the server.

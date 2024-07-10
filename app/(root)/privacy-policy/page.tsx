@@ -18,11 +18,7 @@ const PrivacyPolicy = () => {
 				Privacy Policy
 			</h1>
 			<p className="text-lg text-muted-foreground text-start mb-4">
-				Some older versions of SVR.JS are vulnerable to cyberattacks. It&apos;s
-				recommended to update your SVR.JS version to the newest one. If you find
-				a security issue with SVR.JS, report it as soon as possible to
-				vulnerability-reports[at]svrjs[dot]org. We&apos;ll mitigate that
-				vulnerability if it is possible.
+				Effective date: 26.05.2024
 			</p>
 			<div className="prose max-w-full prose-lg dark:prose-invert">
 				<ReactMarkdown>{PRIVACY_POLICY}</ReactMarkdown>

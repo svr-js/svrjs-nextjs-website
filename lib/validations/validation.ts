@@ -15,10 +15,9 @@ export const modsSchema = z.object({
 });
 
 export const logsSchema = z.object({
-	fileName: z.string().nonempty(),
 	version: z.string().nonempty(),
-	downloadLink: z.string().url().nonempty(),
-	fileSize: z.string().nonempty(),
+	date: z.string().nonempty(),
+	bullets: z.array(z.string().nonempty()),
 });
 
 // Contact Page

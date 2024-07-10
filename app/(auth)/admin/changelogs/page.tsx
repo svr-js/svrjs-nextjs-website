@@ -1,129 +1,132 @@
 "use client";
 
 import React from "react";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm, SubmitHandler, useFieldArray } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
+	Form,
+	FormControl,
+	FormField,
+	FormItem,
+	FormLabel,
+	FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { UploadButton, UploadDropzone } from "@/lib/uploadthing";
 import { logsSchema } from "@/lib/validations/validation";
+import { z } from "zod";
 
-const AdminPage = () => {
-  const form = useForm<z.infer<typeof logsSchema>>({
-    resolver: zodResolver(logsSchema),
-    defaultValues: {
-      fileName: "",
-      version: "",
-      downloadLink: "",
-      fileSize: "",
-    },
-  });
+type LogsFormValues = z.infer<typeof logsSchema>;
 
-  const onSubmit: SubmitHandler<z.infer<typeof logsSchema>> = async (data) => {
-    const response = await fetch("/api/uploadlogs", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
+const AdminLogPage = () => {
+	const form = useForm<LogsFormValues>({
+		resolver: zodResolver(logsSchema),
+		defaultValues: {
+			version: "",
+			date: "",
+			bullets: [""],
+		},
+	});
 
-    if (response.ok) {
-      form.reset();
-      console.log("Upload successful");
-      alert("Uploaded");
-    } else {
-      console.error("Upload failed");
-      alert("Upload Failed");
-    }
-  };
+	const { fields, append, remove } = useFieldArray({
+		control: form.control,
+		name: "bullets" as const, // Ensure this is typed correctly
+	});
 
-  return (
-    <section id="logs-page" className="wrapper container">
-      <h1 className="text-3xl font-bold py-6">Server Logs Form</h1>
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-          <FormField
-            control={form.control}
-            name="fileName"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>File Name</FormLabel>
-                <FormControl>
-                  <Input {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="version"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Version</FormLabel>
-                <FormControl>
-                  <Input {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="downloadLink"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Download Link</FormLabel>
-                <UploadButton
-                  endpoint="imageUploader"
-                  onClientUploadComplete={(res) => {
-                    field.onChange(res[0].url);
-                  }}
-                  onUploadError={(error: Error) => {
-                    alert(`ERROR! ${error.message}`);
-                  }}
-                />
-                <FormControl>
-                  <Input {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="fileSize"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>File Size</FormLabel>
-                <FormControl>
-                  <Input {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <Button
-            type="submit"
-            className="w-full text-lg rounded-full"
-            size={"lg"}
-          >
-            Submit
-          </Button>
-        </form>
-      </Form>
-    </section>
-  );
+	const onSubmit: SubmitHandler<LogsFormValues> = async (data) => {
+		const response = await fetch("/api/uploadlogs", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(data),
+		});
+
+		if (response.ok) {
+			form.reset();
+			console.log("Upload successful");
+			alert("Uploaded");
+		} else {
+			console.error("Upload failed");
+			alert("Upload Failed");
+		}
+	};
+
+	return (
+		<section id="logs-page" className="wrapper container">
+			<h1 className="text-3xl font-bold py-6">Server Logs Form</h1>
+			<Form {...form}>
+				<form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+					<FormField
+						control={form.control}
+						name="version"
+						render={({ field }) => (
+							<FormItem>
+								<FormLabel>Version Name</FormLabel>
+								<FormControl>
+									<Input {...field} />
+								</FormControl>
+								<FormMessage />
+							</FormItem>
+						)}
+					/>
+					<FormField
+						control={form.control}
+						name="date"
+						render={({ field }) => (
+							<FormItem>
+								<FormLabel>Date</FormLabel>
+								<FormControl>
+									<Input {...field} placeholder="Released on 24 Nov 2024" />
+								</FormControl>
+								<FormMessage />
+							</FormItem>
+						)}
+					/>
+					{fields.map((field, index) => (
+						<FormField
+							key={field.id}
+							control={form.control}
+							name={`bullets.${index}`}
+							render={({ field }) => (
+								<FormItem>
+									<FormLabel>Key Point {index + 1}</FormLabel>
+									<FormControl>
+										<Input {...field} />
+									</FormControl>
+									<FormMessage />
+									<Button
+										type="button"
+										onClick={() => remove(index)}
+										className="mt-2"
+										variant={"destructive"}
+									>
+										Remove
+									</Button>
+								</FormItem>
+							)}
+						/>
+					))}
+					<Button
+						type="button"
+						onClick={() => append("")}
+						className="mb-4"
+						size={"lg"}
+						variant={"outline"}
+					>
+						Add
+					</Button>
+					<Button
+						type="submit"
+						className="w-full text-lg rounded-full"
+						size={"lg"}
+					>
+						Submit
+					</Button>
+				</form>
+			</Form>
+		</section>
+	);
 };
 
-export default AdminPage;
+export default AdminLogPage;

@@ -54,7 +54,7 @@ const DownloadsPage = () => {
 
 	return (
 		<section id="downloads-page" className="wrapper container">
-			<h1 className="text-3xl font-bold py-6">Mods Form</h1>
+			<h1 className="text-3xl font-bold py-6">Downloads Form</h1>
 			<Form {...form}>
 				<form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
 					<FormField

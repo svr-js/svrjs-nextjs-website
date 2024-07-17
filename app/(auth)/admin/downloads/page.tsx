@@ -16,8 +16,11 @@ import {
 import { Input } from "@/components/ui/input";
 import { UploadButton, UploadDropzone } from "@/lib/uploadthing";
 import { downloadSchema } from "@/lib/validations/validation";
+import { useToast } from "@/components/ui/use-toast";
 
 const DownloadsPage = () => {
+	const { toast } = useToast();
+
 	const form = useForm<z.infer<typeof downloadSchema>>({
 		resolver: zodResolver(downloadSchema),
 		defaultValues: {
@@ -41,11 +44,11 @@ const DownloadsPage = () => {
 
 		if (response.ok) {
 			form.reset();
+			toast({ description: "Download Sucessfully Updated" });
 			console.log("Upload successful");
-			alert("Uploaded");
 		} else {
 			console.error("Upload failed");
-			alert("Upload Failed");
+			toast({ description: "Uploading Failed", variant: "destructive" });
 		}
 	};
 

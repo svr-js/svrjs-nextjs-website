@@ -16,8 +16,10 @@ import {
 import { Input } from "@/components/ui/input";
 import { UploadButton, UploadDropzone } from "@/lib/uploadthing";
 import { modsSchema } from "@/lib/validations/validation";
+import { useToast } from "@/components/ui/use-toast";
 
 const SvrjsModsAdminPage = () => {
+	const { toast } = useToast();
 	const form = useForm<z.infer<typeof modsSchema>>({
 		resolver: zodResolver(modsSchema),
 		defaultValues: {
@@ -39,11 +41,16 @@ const SvrjsModsAdminPage = () => {
 
 		if (response.ok) {
 			form.reset();
+			toast({
+				description: "Successfully Uploaded Mods",
+			});
 			console.log("Upload successful");
-			alert("Uploaded");
 		} else {
 			console.error("Upload failed");
-			alert("Upload Failed");
+			toast({
+				description: "Upload failed",
+				variant: "destructive",
+			});
 		}
 	};
 

@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useForm, SubmitHandler, useFieldArray } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
@@ -12,13 +12,35 @@ import {
 	FormLabel,
 	FormMessage,
 } from "@/components/ui/form";
+import {
+	Table,
+	TableBody,
+	TableCaption,
+	TableCell,
+	TableHead,
+	TableHeader,
+	TableRow,
+} from "@/components/ui/table";
 import { Input } from "@/components/ui/input";
 import { logsSchema } from "@/lib/validations/validation";
 import { z } from "zod";
+import { useToast } from "@/components/ui/use-toast";
+
+interface LogEntry {
+	_id: string;
+	version: string;
+	date: string;
+	bullets: { point: string }[];
+}
 
 type LogsFormValues = z.infer<typeof logsSchema>;
 
 const AdminLogPage = () => {
+	const [logs, setLogs] = useState<LogEntry[]>([]);
+	const [error, setError] = useState("");
+	const { toast } = useToast();
+	const [loading, setLoading] = useState(false);
+
 	const form = useForm<LogsFormValues>({
 		resolver: zodResolver(logsSchema),
 		defaultValues: {
@@ -33,7 +55,33 @@ const AdminLogPage = () => {
 		name: "bullets",
 	});
 
+	const fetchLogs = async () => {
+		try {
+			const response = await fetch("/api/logs", {
+				method: "GET",
+			});
+			if (response.ok) {
+				const data: LogEntry[] = await response.json();
+				setLogs(data);
+			} else {
+				throw new Error(`HTTP error! status: ${response.status}`);
+			}
+		} catch (error: any) {
+			setError(error.message || "Failed to fetch logs");
+		}
+	};
+
+	useEffect(() => {
+		fetchLogs();
+		const interval = setInterval(() => {
+			fetchLogs();
+		}, 10000);
+
+		return () => clearInterval(interval);
+	}, []);
+
 	const onSubmit: SubmitHandler<LogsFormValues> = async (data) => {
+		setLoading(true);
 		const response = await fetch("/api/uploadlogs", {
 			method: "POST",
 			headers: {
@@ -44,11 +92,30 @@ const AdminLogPage = () => {
 
 		if (response.ok) {
 			form.reset();
+			fetchLogs();
+			setLoading(false);
+			toast({ description: "Logs successfully added" });
 			console.log("Upload successful");
-			alert("Uploaded");
 		} else {
 			console.error("Upload failed");
-			alert("Upload Failed");
+			setLoading(false);
+			toast({ description: "Upload Failed", variant: "destructive" });
+		}
+	};
+
+	const deleteLog = async (id: string) => {
+		try {
+			const response = await fetch(`/api/delete/${id}`, {
+				method: "DELETE",
+			});
+			if (response.ok) {
+				fetchLogs();
+				console.log("Delete successful");
+			} else {
+				throw new Error(`HTTP error! status: ${response.status}`);
+			}
+		} catch (error: any) {
+			setError(error.message || "Failed to delete log");
 		}
 	};
 
@@ -83,6 +150,7 @@ const AdminLogPage = () => {
 							</FormItem>
 						)}
 					/>
+
 					{fields.map((field, index) => (
 						<FormField
 							key={field.id}
@@ -98,7 +166,7 @@ const AdminLogPage = () => {
 									<Button
 										type="button"
 										className="mt-2"
-										variant={"destructive"}
+										variant={"secondary"}
 										onClick={() => remove(index)}
 									>
 										Remove
@@ -119,12 +187,46 @@ const AdminLogPage = () => {
 					<Button
 						type="submit"
 						className="w-full text-lg rounded-full"
+						disabled={loading}
 						size={"lg"}
 					>
 						Submit
 					</Button>
 				</form>
 			</Form>
+
+			{/* Section to list and delete logs */}
+			<section id="logs-list" className="py-16 md:py-24">
+				<h2 className="text-3xl md:text-4xl font-bold">Existing Logs</h2>
+				{error && <p className="text-red-500">{error}</p>}
+				<Table className="w-full mt-4 border-muted">
+					<TableHeader>
+						<TableRow>
+							<TableHead className="border-b px-4 py-2">Version</TableHead>
+							<TableHead className="border-b px-4 py-2">Date</TableHead>
+							<TableHead className="border-b px-4 py-2">Actions</TableHead>
+						</TableRow>
+					</TableHeader>
+					<TableBody>
+						{logs.map((log) => (
+							<TableRow key={log._id}>
+								<TableCell className="border-b px-4 py-2">
+									{log.version}
+								</TableCell>
+								<TableCell className="border-b px-4 py-2">{log.date}</TableCell>
+								<TableCell className="border-b px-4 py-2">
+									<Button
+										variant={"destructive"}
+										onClick={() => deleteLog(log._id)}
+									>
+										Delete
+									</Button>
+								</TableCell>
+							</TableRow>
+						))}
+					</TableBody>
+				</Table>
+			</section>
 		</section>
 	);
 };

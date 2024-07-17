@@ -24,13 +24,13 @@ const AdminLogPage = () => {
 		defaultValues: {
 			version: "",
 			date: "",
-			bullets: [""],
+			bullets: [{ point: "" }],
 		},
 	});
 
 	const { fields, append, remove } = useFieldArray({
 		control: form.control,
-		name: "bullets" as const, // Ensure this is typed correctly
+		name: "bullets",
 	});
 
 	const onSubmit: SubmitHandler<LogsFormValues> = async (data) => {
@@ -87,7 +87,7 @@ const AdminLogPage = () => {
 						<FormField
 							key={field.id}
 							control={form.control}
-							name={`bullets.${index}`}
+							name={`bullets.${index}.point`}
 							render={({ field }) => (
 								<FormItem>
 									<FormLabel>Key Point {index + 1}</FormLabel>
@@ -97,9 +97,9 @@ const AdminLogPage = () => {
 									<FormMessage />
 									<Button
 										type="button"
-										onClick={() => remove(index)}
 										className="mt-2"
 										variant={"destructive"}
+										onClick={() => remove(index)}
 									>
 										Remove
 									</Button>
@@ -109,12 +109,12 @@ const AdminLogPage = () => {
 					))}
 					<Button
 						type="button"
-						onClick={() => append("")}
 						className="mb-4"
-						size={"lg"}
+						size={"icon"}
 						variant={"outline"}
+						onClick={() => append({ point: "" })}
 					>
-						Add
+						+
 					</Button>
 					<Button
 						type="submit"

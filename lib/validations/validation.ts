@@ -15,10 +15,16 @@ export const modsSchema = z.object({
 });
 
 export const logsSchema = z.object({
-	version: z.string().nonempty(),
-	date: z.string().nonempty(),
-	bullets: z.array(z.string().nonempty()),
+	version: z.string(),
+	date: z.string(),
+	bullets: z.array(
+		z.object({
+			point: z.string(),
+		})
+	),
 });
+
+export type LogsFormValues = z.infer<typeof logsSchema>;
 
 // Contact Page
 

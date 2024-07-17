@@ -105,7 +105,7 @@ const AdminLogPage = () => {
 
 	const deleteLog = async (id: string) => {
 		try {
-			const response = await fetch(`/api/delete/${id}`, {
+			const response = await fetch(`/api/delete/logs/${id}`, {
 				method: "DELETE",
 			});
 			if (response.ok) {

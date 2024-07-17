@@ -208,22 +208,27 @@ const AdminLogPage = () => {
 						</TableRow>
 					</TableHeader>
 					<TableBody>
-						{logs.map((log) => (
-							<TableRow key={log._id}>
-								<TableCell className="border-b px-4 py-2">
-									{log.version}
-								</TableCell>
-								<TableCell className="border-b px-4 py-2">{log.date}</TableCell>
-								<TableCell className="border-b px-4 py-2">
-									<Button
-										variant={"destructive"}
-										onClick={() => deleteLog(log._id)}
-									>
-										Delete
-									</Button>
-								</TableCell>
-							</TableRow>
-						))}
+						{logs
+							.slice()
+							.reverse()
+							.map((log) => (
+								<TableRow key={log._id}>
+									<TableCell className="border-b px-4 py-2">
+										{log.version}
+									</TableCell>
+									<TableCell className="border-b px-4 py-2">
+										{log.date}
+									</TableCell>
+									<TableCell className="border-b px-4 py-2">
+										<Button
+											variant={"destructive"}
+											onClick={() => deleteLog(log._id)}
+										>
+											Delete
+										</Button>
+									</TableCell>
+								</TableRow>
+							))}
 					</TableBody>
 				</Table>
 			</section>

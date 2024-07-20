@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { AdminLinks } from "@/constants";
+import Logo from "@/components/shared/Logo";
 
 const Sidebar = () => {
 	const pathname = usePathname();
@@ -12,7 +12,7 @@ const Sidebar = () => {
 			<aside className="sidebar">
 				<div className="flex size-full flex-col gap-4">
 					<Link href="/" className="sidebar-logo">
-						<Image src="/logo.svg" alt="" width={180} height={28} />
+						<Logo width={180} height={28} />
 					</Link>
 
 					<nav className="sidebar-nav">

@@ -11,6 +11,7 @@ import Link from "next/link";
 import ThemeToggle from "../ui/theme-toggle";
 import { NAVBAR } from "@/constants";
 import { buttonVariants } from "../ui/button";
+import Logo from "./Logo";
 
 const MobileNav = () => {
 	return (
@@ -23,20 +24,7 @@ const MobileNav = () => {
 				<SheetContent>
 					<SheetHeader>
 						<SheetTitle>
-							<Image
-								src="/logo.svg"
-								alt={`logo`}
-								width={120}
-								height={40}
-								className="dark:block hidden"
-							/>
-							<Image
-								src="/logodark.svg"
-								alt={`logo`}
-								width={120}
-								height={40}
-								className="dark:hidden block"
-							/>
+							<Logo width={120} height={40} />
 						</SheetTitle>
 					</SheetHeader>
 					<nav

@@ -152,46 +152,6 @@ const AdminLogPage = () => {
 		}
 	};
 
-	const createNewPage = async () => {
-		setLoading(true);
-		const response = await fetch(`/api/mdx/pages`, {
-			method: "POST",
-			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify({ title: pageTitle }),
-		});
-
-		if (response.ok) {
-			fetchPages();
-			setLoading(false);
-			toast({ description: "Page successfully created" });
-			setOpen(false);
-			setPageTitle("");
-		} else {
-			setLoading(false);
-			toast({ description: "Page creation Failed", variant: "destructive" });
-		}
-	};
-
-	const handlePageSelect = async (slug: string) => {
-		try {
-			const response = await fetch(`/api/mdx/pages/${slug}`);
-			if (response.ok) {
-				const data: PageEntry = await response.json();
-				setSelectedPage(data);
-			} else {
-				toast({
-					description: "Failed to fetch page data",
-					variant: "destructive",
-				});
-			}
-		} catch (error: any) {
-			toast({
-				description: error.message || "Failed to fetch page data",
-				variant: "destructive",
-			});
-		}
-	};
-
 	return (
 		<section id="logs-page" className="wrapper container">
 			<h1 className="text-3xl font-bold py-6">Server Logs Form</h1>
@@ -267,69 +227,6 @@ const AdminLogPage = () => {
 					</Button>
 				</form>
 			</Form>
-
-			{/* Section to create new page */}
-			<section id="create-page" className="py-16">
-				<h2 className="text-3xl md:text-4xl font-bold mb-2">Multi Log page</h2>
-				<Button variant={"secondary"} onClick={() => setOpen(true)}>
-					Create New Page
-				</Button>
-				<Dialog open={open} onOpenChange={setOpen}>
-					<DialogContent>
-						<DialogHeader>
-							<DialogTitle>Enter Page Title</DialogTitle>
-						</DialogHeader>
-						<Input
-							value={pageTitle}
-							onChange={(e) => setPageTitle(e.target.value)}
-							placeholder="Page Title"
-						/>
-						<DialogFooter>
-							<Button onClick={createNewPage} disabled={loading}>
-								Continue
-							</Button>
-						</DialogFooter>
-					</DialogContent>
-				</Dialog>
-			</section>
-
-			{/* Section to list and delete pages */}
-			<section id="pages-list" className="pb-16">
-				<h2 className="text-3xl md:text-4xl font-bold">Existing Pages</h2>
-				<p className="mb-4">Total Pages: {pages.length}</p>
-				<Table className="w-full mt-4 border-muted">
-					<TableHeader>
-						<TableRow>
-							<TableHead className="border-b px-4 py-2">Slug</TableHead>
-							<TableHead className="border-b px-4 py-2">Actions</TableHead>
-						</TableRow>
-					</TableHeader>
-					<TableBody>
-						{pages.map((page) => (
-							<TableRow key={page.slug}>
-								<TableCell className="border-b px-4 py-2">
-									<a
-										href={`/changelogs/${page.slug}`}
-										className="text-blue-500 underline"
-									>
-										{page.slug}
-									</a>
-								</TableCell>
-								<TableCell className="border-b px-4 py-2">
-									<Button
-										variant={"outline"}
-										onClick={() =>
-											router.push(`/admin/changelogs/${page.slug}`)
-										}
-									>
-										Edit
-									</Button>
-								</TableCell>
-							</TableRow>
-						))}
-					</TableBody>
-				</Table>
-			</section>
 
 			{/* Section to list and delete logs */}
 			<section id="logs-list" className="py-16 md:py-24">

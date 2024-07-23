@@ -57,7 +57,9 @@ const Footer = () => {
 					<div className="border-t mb-6 border-gray-300 dark:border-white/30"></div>
 					<div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0 px-4">
 						<span className="text-sm font-light">
-							Designed and Developed by{" "}
+							{/* TODO: */}
+							{/* put tos and pp here instead */}
+							TOS and PP{" "}
 							<Link
 								href={FOOTERLINKS.footerBottom.designedBy.href}
 								className="text-primary font-semibold"

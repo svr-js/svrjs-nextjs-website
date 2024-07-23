@@ -18,7 +18,7 @@ const TestimonialCard = ({
 }: TestimonialCard) => {
 	return (
 		<li className="inline-block w-full">
-			<div className="bg-[#1c1c1c] mx-auto mb-5 flex w-full cursor-default flex-col gap-4 rounded-2xl px-[30px] py-6 shadow-md transition-all hover:scale-[103%]">
+			<div className="bg-primary/10 dark:bg-[#1c1c1c] mx-auto mb-5 flex w-full cursor-default flex-col gap-4 rounded-2xl px-[30px] py-6 shadow-md transition-all hover:scale-[103%]">
 				<div className="flex flex-row items-center gap-3">
 					<div>
 						<Image
@@ -31,12 +31,12 @@ const TestimonialCard = ({
 					</div>
 					<div className="space-y-1">
 						<div className="flex items-center gap-1">
-							<div className="small-semibold text-white">{name}</div>
+							<div className="small-semibold dark:text-white">{name}</div>
 						</div>
-						<div className="small-regular text-white-800">{role}</div>
+						<div className="text-sm text-muted-foreground">{role}</div>
 					</div>
 				</div>
-				<p className="body-regular text-white">{testimonial}</p>
+				<p className="body-regular dark:text-white">{testimonial}</p>
 				<div className="hue-rotate-90 text-lg">
 					{/* <Image
 						src="/testimonials/stars.svg"

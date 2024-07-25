@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-
 import {
 	Table,
 	TableBody,
@@ -56,13 +55,13 @@ const AdminLogPage = () => {
 			setPages([...pages, newPage]);
 			setPageTitle("");
 			setOpen(false);
-			setLoading(false);
 			toast({ description: "Page created successfully" });
 		} else {
-			console.error("Failed to create page");
-			toast({ description: "Some Error Occured" });
-			setLoading(false);
+			const errorData = await response.json();
+			console.error("Failed to create page:", errorData);
+			toast({ description: `Error: ${errorData.message}` });
 		}
+		setLoading(false);
 	};
 
 	return (

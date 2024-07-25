@@ -38,7 +38,7 @@ const Navbar = () => {
 								href={href}
 								target={target}
 								className={`text-[17px] tracking-tight ${
-									pathname == href ? "bg-accent/40" : ""
+									pathname == href ? "bg-muted-foreground/20" : ""
 								} ${buttonVariants({
 									variant: "ghost",
 								})}`}

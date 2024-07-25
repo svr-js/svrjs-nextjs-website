@@ -81,7 +81,7 @@ const Testimonials = () => {
 			</div>
 			<h1 className="text-3xl md:text-5xl font-bold text-center">
 				Hear it from{" "}
-				<span className="bg-gradient-to-b from-green-200 to-primary text-transparent bg-clip-text">
+				<span className="bg-gradient-to-b from-green-300 to-primary text-transparent bg-clip-text">
 					our users
 				</span>
 			</h1>

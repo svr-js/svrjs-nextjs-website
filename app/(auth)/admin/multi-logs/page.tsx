@@ -55,7 +55,7 @@ const MultiLogs = () => {
 			setPages([...pages, newPage]);
 			setPageTitle("");
 			setOpen(false);
-			router.push(`/admin/multi-pages/${slug}`);
+			router.push(`/admin/multi-logs/${slug}`);
 			toast({ description: "Page created successfully" });
 		} else {
 			const errorData = await response.json();

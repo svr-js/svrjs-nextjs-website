@@ -41,9 +41,11 @@ const EditPage = ({ params }: { params: { slug: string } }) => {
 		if (response.ok) {
 			setLoading(false);
 			toast({ description: "Page successfully updated" });
-			router.push("/admin/multi-logs");
+			router.push(`/admin/multi-logs/`);
 		} else {
 			setLoading(false);
+			// TEMPERARORY ERROR
+			router.push(`/admin/multi-logs/`);
 			toast({ description: "Updated but cant return data" });
 		}
 	};

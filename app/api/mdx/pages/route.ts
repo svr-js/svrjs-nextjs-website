@@ -22,7 +22,7 @@ export const POST = async (req: NextRequest) => {
 	const db = client.db();
 	const { title, slug, content } = await req.json();
 
-	if (!title || !slug || !content) {
+	if (!slug) {
 		return NextResponse.json(
 			{ message: "Missing required fields" },
 			{ status: 400 }

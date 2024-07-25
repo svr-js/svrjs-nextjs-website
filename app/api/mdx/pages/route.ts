@@ -1,11 +1,20 @@
 import { NextRequest, NextResponse } from "next/server";
 import clientPromise from "@/lib/db";
 
-export const GET = async () => {
+export const GET = async (req: NextRequest) => {
 	const client = await clientPromise;
 	const db = client.db();
-	const pages = await db.collection("pages").find().toArray();
-	return NextResponse.json(pages, { status: 200 });
+
+	try {
+		const pages = await db.collection("pages").find().toArray();
+		return NextResponse.json(pages, { status: 200 });
+	} catch (error) {
+		console.error("Error fetching pages:", error);
+		return NextResponse.json(
+			{ message: "Failed to fetch pages" },
+			{ status: 500 }
+		);
+	}
 };
 
 export const POST = async (req: NextRequest) => {
@@ -13,9 +22,9 @@ export const POST = async (req: NextRequest) => {
 	const db = client.db();
 	const { title, slug, content } = await req.json();
 
-	if (!title || !slug || typeof content !== "string") {
+	if (!title || !slug || !content) {
 		return NextResponse.json(
-			{ message: "Missing required fields or invalid data" },
+			{ message: "Missing required fields" },
 			{ status: 400 }
 		);
 	}
@@ -23,7 +32,6 @@ export const POST = async (req: NextRequest) => {
 	try {
 		const newPage = { title, slug, content };
 		const result = await db.collection("pages").insertOne(newPage);
-
 		return NextResponse.json(newPage, { status: 201 });
 	} catch (error) {
 		console.error("Error creating page:", error);

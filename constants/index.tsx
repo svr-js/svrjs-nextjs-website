@@ -1,4 +1,4 @@
-import { BadgeAlert, BarChart4, Cog, ShieldCheck } from "lucide-react";
+import { BadgeAlert, BarChart4, Cog, File, ShieldCheck } from "lucide-react";
 import { Download, Home, Settings, User } from "lucide-react";
 
 export const NAVBAR = {
@@ -168,6 +168,11 @@ export const AdminLinks = [
 		name: "Logs",
 		url: "/admin/changelogs",
 		icon: Settings,
+	},
+	{
+		name: "MultiLogs",
+		url: "/admin/multi-logs",
+		icon: File,
 	},
 	{
 		name: "Back Home",

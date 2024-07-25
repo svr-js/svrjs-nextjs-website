@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { useRouter } from "next/router";
 import ReactMarkdown from "react-markdown";
 
 const Page = ({ params }: { params: { slug: string } }) => {

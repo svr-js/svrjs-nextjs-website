@@ -26,7 +26,7 @@ interface PageEntry {
 	content: string;
 }
 
-const AdminLogPage = () => {
+const MultiLogs = () => {
 	const [pages, setPages] = useState<PageEntry[]>([]);
 	const { toast } = useToast();
 	const router = useRouter();
@@ -59,6 +59,23 @@ const AdminLogPage = () => {
 		} else {
 			const errorData = await response.json();
 			console.error("Failed to create page:", errorData);
+			toast({ description: `Error: ${errorData.message}` });
+		}
+		setLoading(false);
+	};
+
+	const deletePage = async (slug: string) => {
+		setLoading(true);
+		const response = await fetch(`/api/mdx/pages/${slug}`, {
+			method: "DELETE",
+		});
+
+		if (response.ok) {
+			setPages(pages.filter((page) => page.slug !== slug));
+			toast({ description: "Page deleted successfully" });
+		} else {
+			const errorData = await response.json();
+			console.error("Failed to delete page:", errorData);
 			toast({ description: `Error: ${errorData.message}` });
 		}
 		setLoading(false);
@@ -119,6 +136,14 @@ const AdminLogPage = () => {
 									>
 										Edit
 									</Button>
+									<Button
+										variant={"destructive"}
+										onClick={() => deletePage(page.slug)}
+										className="ml-2"
+										disabled={loading}
+									>
+										Delete
+									</Button>
 								</TableCell>
 							</TableRow>
 						))}
@@ -129,4 +154,4 @@ const AdminLogPage = () => {
 	);
 };
 
-export default AdminLogPage;
+export default MultiLogs;

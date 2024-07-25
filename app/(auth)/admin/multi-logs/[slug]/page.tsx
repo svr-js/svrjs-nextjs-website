@@ -32,18 +32,16 @@ const EditPage = ({ params }: { params: { slug: string } }) => {
 
 	const savePage = async () => {
 		setLoading(true);
-		const response = await fetch(`/api/mdx/pages/${slug}`, {
+		const response = await fetch(`/api/mdx/pages/${slug}?slug=${slug}`, {
 			method: "PUT",
-			headers: {
-				"Content-Type": "application/json",
-			},
+			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify({ title, content }),
 		});
 
 		if (response.ok) {
 			setLoading(false);
 			toast({ description: "Page successfully updated" });
-			router.push("/admin/changelogs");
+			router.push("/admin/multi-logs");
 		} else {
 			setLoading(false);
 			toast({ description: "Page update failed", variant: "destructive" });

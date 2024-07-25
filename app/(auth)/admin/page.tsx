@@ -11,7 +11,7 @@ const AdminPage = () => {
 					<Card title="Downloads" url="/admin/downloads" />
 					<Card title="Mods" url="/admin/mods" />
 					<Card title="Logs" url="/admin/changelogs" />
-					<Card title="Docs" url="/admin" />
+					<Card title="MultiLogs" url="/admin/multi-logs" />
 				</div>
 			</section>
 		</>

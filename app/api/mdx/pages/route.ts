@@ -1,46 +1,55 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import clientPromise from "@/lib/db";
 
-export async function GET() {
-	try {
-		const client = await clientPromise;
-		const db = client.db();
-		const pages = await db.collection("pages").find({}).toArray();
-		return NextResponse.json(pages, { status: 200 });
-	} catch (error) {
+export const GET = async () => {
+	const client = await clientPromise;
+	const db = client.db();
+	const pages = await db.collection("pages").find().toArray();
+	return NextResponse.json(pages, { status: 200 });
+};
+
+export const PUT = async (
+	req: NextRequest,
+	{ params }: { params: { slug: string } }
+) => {
+	const client = await clientPromise;
+	const db = client.db();
+	const { slug } = params;
+	const { title, content } = await req.json();
+
+	if (!slug) {
+		return NextResponse.json({ message: "Slug is required" }, { status: 400 });
+	}
+
+	const result = await db
+		.collection("pages")
+		.findOneAndUpdate(
+			{ slug },
+			{ $set: { title, content } },
+			{ returnDocument: "after" }
+		);
+
+	if (result && result.value) {
+		const page = result.value;
+		return NextResponse.json(page, { status: 200 });
+	} else {
+		return NextResponse.json({ message: "Page not found" }, { status: 404 });
+	}
+};
+
+export const POST = async (req: NextRequest) => {
+	const client = await clientPromise;
+	const db = client.db();
+	const { title, slug, content } = await req.json();
+
+	if (!title || !slug || !content) {
 		return NextResponse.json(
-			{ error: "Failed to load pages" },
-			{ status: 500 }
+			{ message: "Missing required fields" },
+			{ status: 400 }
 		);
 	}
-}
 
-export async function POST(req: Request) {
-	try {
-		const body = await req.json();
-		const { title, slug, content } = body;
-
-		const client = await clientPromise;
-		const db = client.db();
-		const result = await db
-			.collection("pages")
-			.insertOne({ title, slug, content });
-
-		if (result.acknowledged) {
-			const newPage = await db
-				.collection("pages")
-				.findOne({ _id: result.insertedId });
-			return NextResponse.json(newPage, { status: 201 });
-		} else {
-			return NextResponse.json(
-				{ error: "Failed to create page" },
-				{ status: 500 }
-			);
-		}
-	} catch (error) {
-		return NextResponse.json(
-			{ error: "Failed to create page" },
-			{ status: 500 }
-		);
-	}
-}
+	const newPage = { title, slug, content };
+	const result = await db.collection("pages").insertOne(newPage);
+	return NextResponse.json(newPage, { status: 201 });
+};

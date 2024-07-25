@@ -24,20 +24,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { logsSchema } from "@/lib/validations/validation";
 import { z } from "zod";
-import { useRouter } from "next/navigation";
 import { useToast } from "@/components/ui/use-toast";
-import dynamic from "next/dynamic";
-import {
-	Dialog,
-	DialogContent,
-	DialogHeader,
-	DialogFooter,
-	DialogTitle,
-} from "@/components/ui/dialog";
-
-const MarkdownEditor = dynamic(() => import("@uiw/react-md-editor"), {
-	ssr: false,
-});
 
 interface LogEntry {
 	_id: string;
@@ -46,54 +33,13 @@ interface LogEntry {
 	bullets: { point: string }[];
 }
 
-interface PageEntry {
-	title: string;
-	slug: string;
-	content: string; // Add content to the PageEntry interface
-}
-
 type LogsFormValues = z.infer<typeof logsSchema>;
 
 const AdminLogPage = () => {
 	const [logs, setLogs] = useState<LogEntry[]>([]);
-	const [pages, setPages] = useState<PageEntry[]>([]);
 	const [error, setError] = useState("");
 	const { toast } = useToast();
-	const router = useRouter();
 	const [loading, setLoading] = useState(false);
-	const [open, setOpen] = useState(false);
-	const [pageTitle, setPageTitle] = useState("");
-	const [selectedPage, setSelectedPage] = useState<PageEntry | null>(null);
-
-	useEffect(() => {
-		fetch("/api/mdx/pages")
-			.then((response) => response.json())
-			.then((data) => setPages(data))
-			.catch((error) => console.error("Failed to load pages", error));
-	}, []);
-
-	const createPage = async () => {
-		setLoading(true);
-		const slug = pageTitle.toLowerCase().replace(/\s+/g, "-");
-		const response = await fetch("/api/mdx/pages", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({ title: pageTitle, slug, content: "" }),
-		});
-
-		if (response.ok) {
-			const newPage = await response.json();
-			setPages([...pages, newPage]);
-			setPageTitle("");
-			setOpen(false);
-			setLoading(false);
-		} else {
-			console.error("Failed to create page");
-			setLoading(false);
-		}
-	};
 
 	const form = useForm<LogsFormValues>({
 		resolver: zodResolver(logsSchema),
@@ -122,31 +68,6 @@ const AdminLogPage = () => {
 			setError(error.message || "Failed to fetch logs");
 		}
 	};
-
-	const fetchPages = async () => {
-		try {
-			const response = await fetch("/api/mdx/pages", { method: "GET" });
-			if (response.ok) {
-				const data: PageEntry[] = await response.json();
-				setPages(data);
-			} else {
-				throw new Error(`HTTP error! status: ${response.status}`);
-			}
-		} catch (error: any) {
-			setError(error.message || "Failed to fetch pages");
-		}
-	};
-
-	useEffect(() => {
-		fetchLogs();
-		fetchPages();
-		const interval = setInterval(() => {
-			fetchLogs();
-			fetchPages();
-		}, 10000);
-
-		return () => clearInterval(interval);
-	}, []);
 
 	const onSubmit: SubmitHandler<LogsFormValues> = async (data) => {
 		setLoading(true);
@@ -181,6 +102,15 @@ const AdminLogPage = () => {
 			setError(error.message || "Failed to delete log");
 		}
 	};
+
+	useEffect(() => {
+		fetchLogs();
+		const interval = setInterval(() => {
+			fetchLogs();
+		}, 10000);
+
+		return () => clearInterval(interval);
+	}, []);
 
 	return (
 		<section id="logs-page" className="wrapper container">
@@ -258,71 +188,6 @@ const AdminLogPage = () => {
 				</form>
 			</Form>
 
-			<section className="container mx-auto p-4">
-				{/* <h1 className="text-3xl font-bold">Changelog Management</h1> */}
-				<section id="create-page" className="py-16">
-					<h2 className="text-3xl md:text-4xl font-bold mb-2">
-						Multi Log Page
-					</h2>
-					<Button variant={"secondary"} onClick={() => setOpen(true)}>
-						Create New Page
-					</Button>
-					<Dialog open={open} onOpenChange={setOpen}>
-						<DialogContent>
-							<DialogHeader>
-								<DialogTitle>Enter Page Title</DialogTitle>
-							</DialogHeader>
-							<Input
-								value={pageTitle}
-								onChange={(e) => setPageTitle(e.target.value)}
-								placeholder="Page Title"
-							/>
-							<DialogFooter>
-								<Button disabled={loading} onClick={createPage}>
-									Continue
-								</Button>
-							</DialogFooter>
-						</DialogContent>
-					</Dialog>
-				</section>
-				<section id="pages-list" className="pb-16">
-					<h2 className="text-3xl md:text-4xl font-bold">Existing Pages</h2>
-					<p className="mb-4">Total Pages: {pages.length}</p>
-					<Table className="w-full mt-4 border-muted">
-						<TableHeader>
-							<TableRow>
-								<TableHead className="border-b px-4 py-2">Slug</TableHead>
-								<TableHead className="border-b px-4 py-2">Actions</TableHead>
-							</TableRow>
-						</TableHeader>
-						<TableBody>
-							{pages.map((page) => (
-								<TableRow key={page.slug}>
-									<TableCell className="border-b px-4 py-2">
-										<a
-											href={`/changelogs/${page.slug}`}
-											className="text-blue-500 underline"
-										>
-											{page.slug}
-										</a>
-									</TableCell>
-									<TableCell className="border-b px-4 py-2">
-										<Button
-											variant={"outline"}
-											onClick={() =>
-												router.push(`/admin/changelogs/${page.slug}`)
-											}
-										>
-											Edit
-										</Button>
-									</TableCell>
-								</TableRow>
-							))}
-						</TableBody>
-					</Table>
-				</section>
-			</section>
-
 			{/* Section to list and delete logs */}
 			<section id="logs-list" className="py-16 md:py-24">
 				<h2 className="text-3xl md:text-4xl font-bold">Existing Logs</h2>
@@ -360,52 +225,6 @@ const AdminLogPage = () => {
 					</TableBody>
 				</Table>
 			</section>
-
-			{/* Section to edit selected page */}
-			{selectedPage && (
-				<section id="edit-page" className="py-16 md:py-24">
-					<h2 className="text-3xl md:text-4xl font-bold">Edit Page</h2>
-					<MarkdownEditor
-						value={selectedPage.content}
-						onChange={(value) => {
-							if (value !== undefined) {
-								setSelectedPage((prev) => ({
-									...prev!,
-									content: value,
-								}));
-							}
-						}}
-					/>
-					<Button
-						className="mt-4"
-						onClick={async () => {
-							if (selectedPage) {
-								const response = await fetch(
-									`/api/mdx/pages/${selectedPage.slug}`,
-									{
-										method: "PUT",
-										headers: { "Content-Type": "application/json" },
-										body: JSON.stringify({
-											...selectedPage,
-											content: selectedPage.content,
-										}),
-									}
-								);
-								if (response.ok) {
-									toast({ description: "Page successfully updated" });
-								} else {
-									toast({
-										description: "Page update failed",
-										variant: "destructive",
-									});
-								}
-							}
-						}}
-					>
-						Save Changes
-					</Button>
-				</section>
-			)}
 		</section>
 	);
 };

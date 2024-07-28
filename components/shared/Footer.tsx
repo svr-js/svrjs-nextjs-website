@@ -10,15 +10,15 @@ const Footer = () => {
 	return (
 		<>
 			<footer className="flex flex-col w-full transition-all bg-zinc-100 text-black dark:bg-[#0308033b] border-t dark:text-white">
-				<div className="px-6 md:px-16 lg:px-32 py-10 w-full mx-auto max-w-screen-2xl">
+				<div className="px-6 md:px-12 lg:px-24 py-10 w-full mx-auto max-w-screen-2xl">
 					<div className="flex flex-col lg:flex-row justify-between max-lg:items-start max-md:items-center items-center mb-6 ">
 						<div className="flex items-center mb-6 lg:mb-0">
 							<Logo width={200} height={80} />
 						</div>
-						<div className="flex flex-col items-center md:items-start md:flex-row justify-between w-full lg:w-auto space-y-6 md:space-y-0 md:space-x-8 xl:space-x-16">
+						<div className="flex flex-col items-center md:items-start md:flex-row justify-between w-full lg:w-auto space-y-6 md:space-y-0 md:space-x-6 xl:space-x-16">
 							<div className="flex flex-col items-center md:items-start">
 								<div className="text-2xl font-light text-primary">
-									Other Pages
+									Quick Links
 								</div>
 								{FOOTERLINKS.otherPages.map((link) => (
 									<span key={link.href}>
@@ -31,9 +31,25 @@ const Footer = () => {
 									</span>
 								))}
 							</div>
+
 							<div className="flex flex-col items-center md:items-start">
 								<h1 className="text-2xl font-light text-primary">Resources</h1>
 								{FOOTERLINKS.plans.map((link) => (
+									<span key={link.href}>
+										<Link
+											href={link.href}
+											className="text-base font-light dark:hover:text-green-100/70 hover:text-green-500 hover:underline"
+										>
+											{link.label}
+										</Link>
+									</span>
+								))}
+							</div>
+							<div className="flex flex-col items-center md:items-start">
+								<div className="text-2xl font-light text-primary">
+									Additional
+								</div>
+								{FOOTERLINKS.additional.map((link) => (
 									<span key={link.href}>
 										<Link
 											href={link.href}

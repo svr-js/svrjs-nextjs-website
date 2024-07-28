@@ -138,6 +138,11 @@ export const FOOTERLINKS = {
 		{ href: "/mods", label: "Svrjs Mods" },
 		{ href: "/changelogs", label: "Change Logs" },
 	],
+	additional: [
+		{ href: "/contribute", label: "Contribute" },
+		{ href: "/vulnerabilities", label: "Vulnerabilities" },
+		{ href: "http://status.svrjs.org", label: "Server Uptime" },
+	],
 	social: {
 		supportText: "Support Us on Socials",
 	},

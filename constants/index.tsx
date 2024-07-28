@@ -151,7 +151,7 @@ export const FOOTERLINKS = {
 			label: "Privacy Policy",
 		},
 		rightsReserved: {
-			href: "https://cyprostudio.com",
+			href: "https://svrjs.org/",
 			label: "SVRJS",
 		},
 	},

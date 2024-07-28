@@ -30,9 +30,9 @@ export const NAVBAR = {
 			label: "Blog",
 		},
 		{
-			href: "/contact",
+			href: "/forum",
 			target: "_self",
-			label: "Contact",
+			label: "Forum",
 		},
 	],
 	rightLinks: [

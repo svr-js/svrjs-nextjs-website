@@ -2,6 +2,7 @@
 import { Skeleton } from "@/components/ui/skeleton";
 import React, { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
+import Head from "next/head";
 
 const Page = ({ params }: { params: { slug: string } }) => {
 	const { slug } = params;
@@ -18,9 +19,11 @@ const Page = ({ params }: { params: { slug: string } }) => {
 				if (response.ok) {
 					const data = await response.json();
 					setPage(data);
+					return (document.title = `${data.title} | SVRJS`);
 				} else {
 					if (response.status === 404) {
 						setNotFound(true);
+						return (document.title = "404 Not Found");
 					}
 				}
 			} catch (error) {
@@ -68,14 +71,16 @@ const Page = ({ params }: { params: { slug: string } }) => {
 	}
 
 	return (
-		<section className="wrapper container py-24 md:py-28 gap-4 flex flex-col">
-			<h1 className="text-3xl md:text-5xl font-bold text-black dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-b dark:from-white dark:to-neutral-400">
-				{page.title}
-			</h1>
-			<ReactMarkdown className="prose max-w-full prose-lg dark:prose-invert">
-				{page.content}
-			</ReactMarkdown>
-		</section>
+		<>
+			<section className="wrapper container py-24 md:py-28 gap-4 flex flex-col">
+				<h1 className="text-3xl md:text-5xl font-bold text-black dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-b dark:from-white dark:to-neutral-400">
+					{page.title}
+				</h1>
+				<ReactMarkdown className="prose max-w-full prose-lg dark:prose-invert">
+					{page.content}
+				</ReactMarkdown>
+			</section>
+		</>
 	);
 };
 

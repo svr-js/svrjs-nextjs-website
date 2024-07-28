@@ -1,4 +1,5 @@
 "use client";
+import { Skeleton } from "@/components/ui/skeleton";
 import React, { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 
@@ -35,8 +36,16 @@ const Page = ({ params }: { params: { slug: string } }) => {
 
 	if (loading) {
 		return (
-			<section className="flex-center flex-col wrapper container">
-				<p className="text-lg">Loading...</p>
+			<section className="wrapper container py-24 md:py-28 gap-4 flex flex-col">
+				<div className="mb-3">
+					<Skeleton className="w-[400px] h-[50px] rounded-md" />
+				</div>
+				<div className="flex flex-col gap-4">
+					<Skeleton className="w-[300px] h-[30px] rounded-md" />
+					<Skeleton className="w-[200px] h-[20px] rounded-md" />
+					<Skeleton className="w-[200px] h-[20px] rounded-md" />
+					<Skeleton className="w-[200px] h-[20px] rounded-md" />
+				</div>
 			</section>
 		);
 	}

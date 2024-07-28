@@ -1,4 +1,13 @@
-import { BadgeAlert, BarChart4, Cog, File, ShieldCheck } from "lucide-react";
+import {
+	BadgeAlert,
+	BarChart4,
+	Bug,
+	Cog,
+	File,
+	Mail,
+	ShieldCheck,
+	WebhookIcon,
+} from "lucide-react";
 import { Download, Home, Settings, User } from "lucide-react";
 
 // Navbar
@@ -193,5 +202,29 @@ export const AdminLinks = [
 		name: "Back Home",
 		url: "/",
 		icon: Home,
+	},
+];
+
+// contact page emails
+export const emails = [
+	{
+		icon: WebhookIcon,
+		email: "webmaster@svrjs.org",
+		url: "mailto:webmaster@svrjs.org",
+	},
+	{
+		icon: Bug,
+		email: "bugreports@svrjs.org",
+		url: "mailto:bugreports@svrjs.org",
+	},
+	{
+		icon: ShieldCheck,
+		email: "vulnerability-reports@svrjs.org",
+		url: "mailto:vulnerability-reports@svrjs.org",
+	},
+	{
+		icon: Mail,
+		email: "support@svrjs.org",
+		url: "mailto:support@svrjs.org",
 	},
 ];

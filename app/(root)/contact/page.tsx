@@ -9,7 +9,6 @@ import { Button } from "@/components/ui/button";
 import {
 	Form,
 	FormControl,
-	FormDescription,
 	FormField,
 	FormItem,
 	FormLabel,
@@ -19,6 +18,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
 import { useState } from "react";
+import { Separator } from "@/components/ui/separator";
+import { emails } from "@/constants";
 
 const ContactUs = () => {
 	const { toast } = useToast();
@@ -66,25 +67,23 @@ const ContactUs = () => {
 			});
 			setLoading(false);
 		}
-
-		console.log(values);
 	}
 
 	return (
 		<>
-			<div className="flex items-center justify-center py-16 md:py-24 w-full transition-all duration-300">
-				<h1 className="text-4xl md:text-6xl tracking-tight font-bold uppercase">
+			<div className="flex items-center justify-center py-12 md:py-16 w-full transition-all duration-300">
+				<h1 className="text-4xl md:text-6xl tracking-tight font-bold uppercase text-center text-gray-900 dark:text-white">
 					Contact Us
 				</h1>
 			</div>
 
 			<section id="contact" className="w-full">
-				<div className="flex max-md:flex-center flex-col md:flex-row justify-between mx-auto p-5 max-w-4xl">
+				<div className="flex-center flex-col md:flex-row justify-between mx-auto p-6 max-w-5xl">
 					{/* Left contact page */}
 					<Form {...form}>
 						<form
 							onSubmit={form.handleSubmit(onSubmit)}
-							className="space-y-4 pb-8 mb-4 max-w-sm w-full"
+							className="space-y-4 pb-8 mb-8 max-w-lg w-full bg-accent border p-6 rounded-lg shadow-md"
 						>
 							<FormField
 								control={form.control}
@@ -119,7 +118,11 @@ const ContactUs = () => {
 									<FormItem>
 										<FormLabel>Message</FormLabel>
 										<FormControl>
-											<Textarea placeholder="Your Message" {...field} />
+											<Textarea
+												className="h-44"
+												placeholder="Your Message"
+												{...field}
+											/>
 										</FormControl>
 										<FormMessage />
 									</FormItem>
@@ -128,11 +131,11 @@ const ContactUs = () => {
 							<Button
 								type="submit"
 								variant={"default"}
-								className="w-full"
+								className="w-full mt-2"
 								disabled={loading}
 							>
 								<div className="flex items-center justify-center">
-									<span className="tracking-tight font-[600px]">SEND</span>
+									<span className="tracking-tight font-semibold">SEND</span>
 									<Send className="ml-2 w-5 h-5" />
 								</div>
 							</Button>
@@ -140,63 +143,32 @@ const ContactUs = () => {
 					</Form>
 
 					{/* Right contact page */}
-					<div className="max-w-xl mt-3 md:ml-5">
-						<ul className="ml-2 max-md:flex-center flex-col pr-5">
-							<li className="mb-2 text-[#aaa] flex items-center">
-								<WebhookIcon className="mr-2" size={24} />
-								<span>
-									<a
-										href="mailto:#"
-										title="Send me an email"
-										className="opacity-70 hover:opacity-100 transition duration-200"
-									>
-										webmaster@svrjs.org
-									</a>
-								</span>
-							</li>
-							<li className="mb-2 text-[#aaa] flex items-center">
-								<Bug className="mr-2" size={24} />
-								<span>
-									<a
-										href="mailto:#"
-										title="Send me an email"
-										className="opacity-70 hover:opacity-100 transition duration-200"
-									>
-										bugreports@svrjs.org
-									</a>
-								</span>
-							</li>
-							<li className="mb-2 text-[#aaa] flex items-center">
-								<Shield className="mr-2" size={24} />
-								<span>
-									<a
-										href="mailto:#"
-										title="Send me an email"
-										className="opacity-70 hover:opacity-100 transition duration-200"
-									>
-										vulnerability-reports@svrjs.org
-									</a>
-								</span>
-							</li>
-							<li className="mb-2 text-[#aaa] flex items-center">
-								<Mail className="mr-2" size={24} />
-								<span>
-									<a
-										href="mailto:#"
-										title="Send me an email"
-										className="opacity-70 hover:opacity-100 transition duration-200"
-									>
-										support@svrjs.org
-									</a>
-								</span>
-							</li>
+					<div className="max-w-lg mt-8 md:mt-0 md:ml-8 p-12 border rounded-lg">
+						<ul className="space-y-4 mb-6">
+							{emails.map((email, index) => (
+								<li
+									key={index}
+									className="text-gray-600 dark:text-gray-300 flex items-center"
+								>
+									<email.icon className="mr-2" size={24} />
+									<span>
+										<a
+											href={email.url}
+											title={`Send an email to ${email.email}`}
+											className="text-muted-foreground hover:text-accent-foreground transition duration-200"
+										>
+											{email.email}
+										</a>
+									</span>
+								</li>
+							))}
 						</ul>
-						<hr className="border-t border-white opacity-60 my-4" />
-						<ul className="flex justify-center space-x-3 mb-6">
+						<Separator />
+						<ul className="flex justify-center space-x-3 my-6">
 							<Iconss />
 						</ul>
-						<hr className="border-t border-white opacity-60 my-4" />
-						<div className="text-center text-[#555] text-sm font-light">
+						<Separator />
+						<div className="text-center text-gray-500 mt-2 text-sm font-light">
 							© ALL RIGHTS RESERVED SVRJS
 						</div>
 					</div>

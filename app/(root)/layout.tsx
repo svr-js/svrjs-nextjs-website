@@ -10,11 +10,11 @@ export const metadata: Metadata = {
 		title: "SVRJS - A Web Server running on Node.js",
 		description:
 			"Experience unparalleled flexibility with SVR.JS - the ultimate web server for Node.js. Host web pages, run server-side JavaScript, utilize mods for extended functionality, and more. Integrated log viewer and user management tools included. Also supports Bun (experimental).",
-		url: "https://yourwebsite.com",
+		url: "https://svrjs.org",
 		type: "website",
 		images: [
 			{
-				url: "https://yourwebsite.com/og-image.jpg",
+				url: "https://svrjs.org/metadata/svrjs-cover.png",
 				width: 800,
 				height: 600,
 				alt: "SVRJS - A Web Server running on Node.js",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 		title: "SVRJS - A Web Server running on Node.js",
 		description:
 			"Experience unparalleled flexibility with SVR.JS - the ultimate web server for Node.js. Host web pages, run server-side JavaScript, utilize mods for extended functionality, and more. Integrated log viewer and user management tools included. Also supports Bun (experimental).",
-		images: "/logo.svg",
+		images: "/metadata/svrjs-cover.png",
 	},
 };
 export default function PageLayout({

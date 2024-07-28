@@ -208,6 +208,11 @@ export const AdminLinks = [
 // contact page emails
 export const emails = [
 	{
+		icon: Mail,
+		email: "support@svrjs.org",
+		url: "mailto:support@svrjs.org",
+	},
+	{
 		icon: WebhookIcon,
 		email: "webmaster@svrjs.org",
 		url: "mailto:webmaster@svrjs.org",
@@ -221,10 +226,5 @@ export const emails = [
 		icon: ShieldCheck,
 		email: "vulnerability-reports@svrjs.org",
 		url: "mailto:vulnerability-reports@svrjs.org",
-	},
-	{
-		icon: Mail,
-		email: "support@svrjs.org",
-		url: "mailto:support@svrjs.org",
 	},
 ];

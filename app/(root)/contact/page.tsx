@@ -168,9 +168,7 @@ const ContactUs = () => {
 							<Iconss />
 						</ul>
 						<Separator />
-						<div className="text-center text-gray-500 mt-2 text-sm font-light">
-							© ALL RIGHTS RESERVED SVRJS
-						</div>
+						<div className="text-center text-gray-500 mt-2 text-sm font-light"></div>
 					</div>
 				</div>
 			</section>

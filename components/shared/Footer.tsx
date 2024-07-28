@@ -6,6 +6,7 @@ import { FOOTERLINKS } from "@/constants";
 import Logo from "./Logo";
 
 const Footer = () => {
+	const currentYear = new Date().getFullYear();
 	return (
 		<>
 			<footer className="flex flex-col w-full transition-all bg-zinc-100 text-black dark:bg-[#0308033b] border-t dark:text-white">
@@ -57,7 +58,7 @@ const Footer = () => {
 					<div className="border-t mb-6 border-gray-300 dark:border-white/30"></div>
 					<div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0 px-4">
 						<span className="text-sm font-light">
-							All Rights Reserved{" "}
+							Copyright © 2023-{currentYear}{" "}
 							<Link
 								href={FOOTERLINKS.footerBottom.rightsReserved.href}
 								className="text-primary font-semibold"
@@ -72,7 +73,7 @@ const Footer = () => {
 							>
 								{FOOTERLINKS.footerBottom.termsofService.label}{" "}
 							</Link>
-							and{" "}
+							|{" "}
 							<Link
 								href={FOOTERLINKS.footerBottom.privacyPolicy.href}
 								className="text-primary font-medium transition-all underline-offset-4 hover:underline"

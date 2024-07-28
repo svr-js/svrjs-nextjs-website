@@ -1,6 +1,8 @@
 import { BadgeAlert, BarChart4, Cog, File, ShieldCheck } from "lucide-react";
 import { Download, Home, Settings, User } from "lucide-react";
 
+// Navbar
+
 export const NAVBAR = {
 	centerLinks: [
 		{
@@ -33,6 +35,7 @@ export const NAVBAR = {
 	],
 };
 
+// About section Stats
 export const stats = [
 	{
 		title: "Downloads",
@@ -52,6 +55,7 @@ export const stats = [
 	},
 ];
 
+// Features Section Home Page
 export const Features = [
 	{
 		icon: <ShieldCheck className="w-10 h-10 text-primary" />,
@@ -79,6 +83,7 @@ export const Features = [
 	},
 ];
 
+// FAQS
 export const questions = [
 	{
 		key: "item-1",
@@ -118,6 +123,8 @@ export const questions = [
 	},
 ];
 
+// Footer
+
 export const FOOTERLINKS = {
 	otherPages: [
 		{ href: "/", label: "Home" },
@@ -137,7 +144,7 @@ export const FOOTERLINKS = {
 	footerBottom: {
 		termsofService: {
 			href: "/tos",
-			label: "TOS",
+			label: "Terms of Service",
 		},
 		privacyPolicy: {
 			href: "/privacy-policy",
@@ -150,6 +157,7 @@ export const FOOTERLINKS = {
 	},
 };
 
+// Admin Dashboard
 export const AdminLinks = [
 	{
 		name: "Dashboard",

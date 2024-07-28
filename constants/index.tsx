@@ -137,9 +137,13 @@ export const FOOTERLINKS = {
 		supportText: "Support Us on Socials",
 	},
 	footerBottom: {
-		designedBy: {
-			href: "https://abhijee.com",
-			label: "Proxy",
+		termsofService: {
+			href: "/tos",
+			label: "TOS",
+		},
+		privacyPolicy: {
+			href: "/privacy-policy",
+			label: "Privacy Policy",
 		},
 		rightsReserved: {
 			href: "https://cyprostudio.com",

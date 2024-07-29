@@ -23,6 +23,7 @@ const Navbar = () => {
 				<NavigationMenuList className="container h-16 px-4 w-full flex justify-between items-center">
 					<NavigationMenuItem className="font-bold flex items-center">
 						<Link href="/#" className="inline-flex items-center gap-2">
+							<span className="sr-only">SVR.JS</span>
 							<Logo width={120} height={40} />
 						</Link>
 					</NavigationMenuItem>

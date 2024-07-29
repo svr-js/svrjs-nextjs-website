@@ -40,7 +40,7 @@ export default function PageLayout({
 	return (
 		<main className="flex flex-col min-h-screen">
 			<Navbar />
-			<div className="flex-grow flex-1">{children}</div>
+			<div className="flex-grow flex-1 overflow-x-hidden">{children}</div>
 			<Footer />
 		</main>
 	);

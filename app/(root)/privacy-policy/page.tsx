@@ -17,7 +17,7 @@ const PrivacyPolicy = () => {
 			<h1 className="text-3xl md:text-5xl pb-1 md:pb-2 font-bold text-black dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-b dark:from-white dark:to-neutral-400">
 				Privacy Policy
 			</h1>
-			<p className="md:text-lg text-muted-foreground text-start mb-4">
+			<p className="md:text-lg text-muted-foreground text-start mb-6">
 				Effective date: 26.05.2024
 			</p>
 			<div className="prose max-w-full md:prose-lg dark:prose-invert">

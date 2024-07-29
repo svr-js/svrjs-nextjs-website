@@ -15,7 +15,7 @@ const Vulnerabilities = () => {
 			<h1 className="text-3xl md:text-5xl pb-1 md:pb-2 font-bold text-black dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-b dark:from-white dark:to-neutral-400">
 				SVR.JS Vulnerabilities
 			</h1>
-			<p className="md:text-lg text-muted-foreground text-start mb-4">
+			<p className="md:text-lg text-muted-foreground text-start mb-6">
 				Some older versions of SVR.JS are vulnerable to cyberattacks. It&apos;s
 				recommended to update your SVR.JS version to the newest one. If you find
 				a security issue with SVR.JS, report it as soon as possible to

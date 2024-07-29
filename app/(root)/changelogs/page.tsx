@@ -57,7 +57,7 @@ const LogsPage: React.FC = () => {
 			<h1 className="text-3xl md:text-5xl pb-1 md:pb-2 font-bold text-black dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-b dark:from-white dark:to-neutral-400">
 				Server LOGS
 			</h1>
-			<p className="md:text-lg text-muted-foreground text-start mb-4">
+			<p className="md:text-lg text-muted-foreground text-start mb-6">
 				Get all the latest version of SVRJS download and compiled Files here!
 			</p>
 			{error && <p className="text-red-500">{error}</p>}

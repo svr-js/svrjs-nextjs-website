@@ -57,7 +57,7 @@ const LogsPage: React.FC = () => {
 			<h1 className="text-3xl md:text-5xl md:pb-2 font-bold text-black dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-b dark:from-white dark:to-neutral-400">
 				Server LOGS
 			</h1>
-			<p className="text-lg text-muted-foreground text-start mb-4">
+			<p className="md:text-lg text-muted-foreground text-start mb-4">
 				Get all the latest version of SVRJS download and compiled Files here!
 			</p>
 			{error && <p className="text-red-500">{error}</p>}
@@ -65,7 +65,7 @@ const LogsPage: React.FC = () => {
 			{reversedDownloads.map((download) => (
 				<div
 					key={download._id}
-					className="flex-start prose max-w-full prose-lg dark:prose-invert flex-col"
+					className="flex-start prose max-w-full md:prose-lg dark:prose-invert flex-col"
 				>
 					<h2 className="font-bold text-3xl">{download.version}</h2>
 					<span className="font-medium italic">{download.date}</span>
@@ -76,7 +76,7 @@ const LogsPage: React.FC = () => {
 					</ul>
 				</div>
 			))}
-			<div className="prose max-w-full prose-lg dark:prose-invert">
+			<div className="prose max-w-full md:prose-lg dark:prose-invert">
 				<ReactMarkdown>{CHANGE_LOGS}</ReactMarkdown>
 			</div>
 		</section>

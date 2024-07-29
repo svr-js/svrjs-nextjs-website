@@ -20,7 +20,7 @@ const Navbar = () => {
 		<header className="sticky border-b top-0 z-40 w-full shadow-md bg-white dark:border-b-slate-800 dark:bg-background">
 			{/* LOGO LEFT NAVBAR */}
 			<NavigationMenu className="mx-auto">
-				<NavigationMenuList className="container h-16 px-4 w-screen flex justify-between items-center">
+				<NavigationMenuList className="container h-16 px-4 w-full flex justify-between items-center">
 					<NavigationMenuItem className="font-bold flex items-center">
 						<Link href="/#" className="inline-flex items-center gap-2">
 							<Logo width={120} height={40} />

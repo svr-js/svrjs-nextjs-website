@@ -65,7 +65,7 @@ const Hero = () => {
 				</AnimatedGradientText>
 				<main className="text-5xl md:text-6xl font-bold">
 					<h1 className="inline custom-title">
-						<span className="bg-primary bg-clip-text text-transparent bg-gradient-to-r from-green-300 to-primary">
+						<span className="text-transparent bg-gradient-to-r from-green-300 to-primary bg-clip-text">
 							Simplify
 						</span>{" "}
 						your server logic performance

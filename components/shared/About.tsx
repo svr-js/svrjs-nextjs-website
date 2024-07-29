@@ -12,7 +12,7 @@ const About = () => {
 						alt="aboutpicture"
 						width={300}
 						height={300}
-						className="w-[300px] object-contain rounded-lg"
+						className="w-[300px] object-contain rounded-lg flex-shrink-0"
 					/>
 
 					<div className="flex flex-col justify-between">

@@ -20,35 +20,40 @@ const Navbar = () => {
 		<header className="sticky border-b top-0 z-40 w-full shadow-md bg-white dark:border-b-slate-800 dark:bg-background">
 			{/* LOGO LEFT NAVBAR */}
 			<NavigationMenu className="mx-auto">
-				<NavigationMenuList className="container h-16 px-4 w-screen flex justify-between items-center">
+				<NavigationMenuList className="container h-16 px-4 w-full flex justify-between items-center">
 					<NavigationMenuItem className="font-bold flex items-center">
 						<Link href="/#" className="inline-flex items-center gap-2">
+							<span className="sr-only">SVR.JS</span>
 							<Logo width={120} height={40} />
 						</Link>
 					</NavigationMenuItem>
 
 					{/* Mobile view */}
-					<MobileNav />
+					<NavigationMenuItem className="flex md:hidden">
+						<MobileNav />
+					</NavigationMenuItem>
 
 					{/* Desktop Menu */}
-					<nav className="hidden md:flex gap-4">
-						{NAVBAR.centerLinks?.map(({ href, label, target }) => (
-							<Link
-								key={label}
-								href={href}
-								target={target}
-								className={`text-[17px] tracking-tight ${
-									pathname == href ? "bg-muted-foreground/20" : ""
-								} ${buttonVariants({
-									variant: "ghost",
-								})}`}
-							>
-								{label}
-							</Link>
-						))}
-					</nav>
+					<NavigationMenuItem className="hidden md:flex">
+						<nav className="hidden md:flex gap-4">
+							{NAVBAR.centerLinks?.map(({ href, label, target }) => (
+								<Link
+									key={label}
+									href={href}
+									target={target}
+									className={`text-[17px] tracking-tight ${
+										pathname == href ? "bg-muted-foreground/20" : ""
+									} ${buttonVariants({
+										variant: "ghost",
+									})}`}
+								>
+									{label}
+								</Link>
+							))}
+						</nav>
+					</NavigationMenuItem>
 
-					<div className="hidden md:flex gap-2 items-center">
+					<NavigationMenuItem className="hidden md:flex gap-2 items-center">
 						{NAVBAR.rightLinks?.map(({ href = "", label, target }) => (
 							<Link
 								key={label}
@@ -75,7 +80,7 @@ const Navbar = () => {
 							</Link>
 						))}
 						<ThemeToggle />
-					</div>
+					</NavigationMenuItem>
 				</NavigationMenuList>
 			</NavigationMenu>
 		</header>

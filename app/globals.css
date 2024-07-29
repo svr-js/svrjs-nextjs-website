@@ -6,12 +6,10 @@ html {
 	height: 100%;
 	width: 100%;
 	font-family: "Poppins", sans-serif;
-	overflow-x: hidden;
 }
 
 body {
 	user-select: text;
-	overflow-x: clip;
 }
 
 * {

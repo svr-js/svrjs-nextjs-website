@@ -86,7 +86,7 @@ const Testimonials = () => {
 				</span>
 			</h1>
 
-			<div className="wrapper columns-1 gap-5 md:columns-2 lg:columns-3 py-6 mt-6">
+			<ul className="wrapper columns-1 gap-5 md:columns-2 lg:columns-3 py-6 mt-6">
 				{testimonials.map((testimonial, idx) => (
 					<TestimonialCard
 						avatar={testimonial.avatar}
@@ -97,7 +97,7 @@ const Testimonials = () => {
 						key={idx}
 					/>
 				))}
-			</div>
+			</ul>
 		</section>
 	);
 };

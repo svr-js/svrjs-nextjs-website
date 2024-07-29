@@ -58,7 +58,7 @@ const DownloadPage: React.FC = () => {
       id="download"
       className="wrapper container py-24 md:py-28 gap-4 flex flex-col"
     >
-      <h1 className="text-3xl md:text-5xl font-bold text-black dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-b dark:from-white dark:to-neutral-400">
+      <h1 className="text-3xl md:text-5xl md:pb-2 font-bold text-black dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-b dark:from-white dark:to-neutral-400">
         Downloads
       </h1>
       <p className="text-lg text-muted-foreground text-start mb-4">

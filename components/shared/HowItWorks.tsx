@@ -11,7 +11,7 @@ const HowItWorks = () => {
 					development
 				</span>
 			</h2>
-			<p className="md:w-3/4 mx-auto mt-4 mb-8 text-xl text-muted-foreground">
+			<p className="md:w-3/4 mx-auto mt-4 mb-8 text-lg md:text-xl text-muted-foreground">
 				Beautifully designed components that you can copy and paste into your
 				apps. Accessible. Customizable. Open Source.
 			</p>

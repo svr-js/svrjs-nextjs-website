@@ -19,6 +19,7 @@ const MobileNav = () => {
 			<ThemeToggle />
 			<Sheet>
 				<SheetTrigger>
+					<span className="sr-only">Menu</span>
 					<Menu className="w-5 h-5" />
 				</SheetTrigger>
 				<SheetContent>

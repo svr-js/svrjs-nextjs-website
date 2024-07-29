@@ -28,27 +28,31 @@ const Navbar = () => {
 					</NavigationMenuItem>
 
 					{/* Mobile view */}
-					<MobileNav />
+					<NavigationMenuItem className="flex md:hidden">
+						<MobileNav />
+					</NavigationMenuItem>
 
 					{/* Desktop Menu */}
-					<nav className="hidden md:flex gap-4">
-						{NAVBAR.centerLinks?.map(({ href, label, target }) => (
-							<Link
-								key={label}
-								href={href}
-								target={target}
-								className={`text-[17px] tracking-tight ${
-									pathname == href ? "bg-muted-foreground/20" : ""
-								} ${buttonVariants({
-									variant: "ghost",
-								})}`}
-							>
-								{label}
-							</Link>
-						))}
-					</nav>
+					<NavigationMenuItem className="hidden md:flex">
+						<nav className="hidden md:flex gap-4">
+							{NAVBAR.centerLinks?.map(({ href, label, target }) => (
+								<Link
+									key={label}
+									href={href}
+									target={target}
+									className={`text-[17px] tracking-tight ${
+										pathname == href ? "bg-muted-foreground/20" : ""
+									} ${buttonVariants({
+										variant: "ghost",
+									})}`}
+								>
+									{label}
+								</Link>
+							))}
+						</nav>
+					</NavigationMenuItem>
 
-					<div className="hidden md:flex gap-2 items-center">
+					<NavigationMenuItem className="hidden md:flex gap-2 items-center">
 						{NAVBAR.rightLinks?.map(({ href = "", label, target }) => (
 							<Link
 								key={label}
@@ -75,7 +79,7 @@ const Navbar = () => {
 							</Link>
 						))}
 						<ThemeToggle />
-					</div>
+					</NavigationMenuItem>
 				</NavigationMenuList>
 			</NavigationMenu>
 		</header>

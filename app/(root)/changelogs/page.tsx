@@ -52,9 +52,9 @@ const LogsPage: React.FC = () => {
 	return (
 		<section
 			id="logs"
-			className="wrapper container py-24 md:py-28 gap-4 flex flex-col"
+			className="wrapper container py-24 md:py-28 gap-2 flex flex-col"
 		>
-			<h1 className="text-3xl md:text-5xl md:pb-2 font-bold text-black dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-b dark:from-white dark:to-neutral-400">
+			<h1 className="text-3xl md:text-5xl pb-1 md:pb-2 font-bold text-black dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-b dark:from-white dark:to-neutral-400">
 				Server LOGS
 			</h1>
 			<p className="md:text-lg text-muted-foreground text-start mb-4">
@@ -65,7 +65,7 @@ const LogsPage: React.FC = () => {
 			{reversedDownloads.map((download) => (
 				<div
 					key={download._id}
-					className="flex-start prose max-w-full md:prose-lg dark:prose-invert flex-col"
+					className="flex-start prose max-w-full md:prose-lg dark:prose-invert flex-col mb-4"
 				>
 					<h2 className="font-bold text-3xl">{download.version}</h2>
 					<span className="font-medium italic">{download.date}</span>

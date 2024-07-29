@@ -56,9 +56,9 @@ const ModsPage: React.FC = () => {
   return (
     <section
       id="mods"
-      className="wrapper container py-24 md:py-28 gap-4 flex flex-col"
+      className="wrapper container py-24 md:py-28 gap-2 flex flex-col"
     >
-      <h1 className="text-3xl md:text-5xl md:pb-2 font-bold text-black dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-b dark:from-white dark:to-neutral-400">
+      <h1 className="text-3xl md:text-5xl pb-1 md:pb-2 font-bold text-black dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-b dark:from-white dark:to-neutral-400">
         SvrJS Mods
       </h1>
       <p className="md:text-lg text-muted-foreground text-start mb-4">

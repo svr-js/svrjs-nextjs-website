@@ -12,6 +12,7 @@ const AdminPage = () => {
 					<Card title="Mods" url="/admin/mods" />
 					<Card title="Logs" url="/admin/changelogs" />
 					<Card title="MultiLogs" url="/admin/multi-logs" />
+					<Card title="Vulnerabilities" url="/admin/vulnerabilities" />
 				</div>
 			</section>
 		</>

@@ -6,6 +6,7 @@ import { Download } from "lucide-react";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import { CHANGE_LOGS } from "@/constants/guidelines";
+import { Skeleton } from "@/components/ui/skeleton";
 
 interface Bullet {
 	point: string;
@@ -21,6 +22,7 @@ interface LOGS {
 const LogsPage: React.FC = () => {
 	const [downloads, setDownloads] = useState<LOGS[]>([]);
 	const [error, setError] = useState("");
+	const [loading, setLoading] = useState(true);
 
 	const fetchDownloads = async () => {
 		try {
@@ -35,6 +37,8 @@ const LogsPage: React.FC = () => {
 			}
 		} catch (error: any) {
 			setError(error.message || "Failed to fetch downloads");
+		} finally {
+			setLoading(false);
 		}
 	};
 
@@ -48,6 +52,22 @@ const LogsPage: React.FC = () => {
 		return () => clearInterval(interval);
 	}, []);
 	const reversedDownloads = [...downloads].reverse();
+
+	if (loading) {
+		return (
+			<section className="wrapper container py-24 md:py-28 gap-4 flex flex-col">
+				<div className="mb-3">
+					<Skeleton className="w-[400px] h-[50px] rounded-md" />
+				</div>
+				<div className="flex flex-col gap-4">
+					<Skeleton className="w-[300px] h-[30px] rounded-md" />
+					<Skeleton className="w-[200px] h-[20px] rounded-md" />
+					<Skeleton className="w-[200px] h-[20px] rounded-md" />
+					<Skeleton className="w-[200px] h-[20px] rounded-md" />
+				</div>
+			</section>
+		);
+	}
 
 	return (
 		<section

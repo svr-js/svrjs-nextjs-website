@@ -57,7 +57,7 @@ const AdminLogPage = () => {
 
 	const fetchLogs = async () => {
 		try {
-			const response = await fetch("/api/vulnerabilties", { method: "GET" });
+			const response = await fetch("/api/vulnerabilities", { method: "GET" });
 			if (response.ok) {
 				const data: LogEntry[] = await response.json();
 				setLogs(data);

@@ -34,57 +34,35 @@ export const PUT = async (
 		return NextResponse.json({ message: "Slug is required" }, { status: 400 });
 	}
 
-	const { title, content } = await req.json();
+	const { title, content, vulnerabilities } = await req.json();
 
-	if (typeof title !== "string" || typeof content !== "string") {
+	if (
+		typeof title !== "string" ||
+		typeof content !== "string" ||
+		typeof vulnerabilities !== "string"
+	) {
 		return NextResponse.json(
-			{ message: "Invalid title or content" },
+			{ message: "Invalid title, content, or vulnerabilities" },
 			{ status: 400 }
 		);
 	}
 
 	try {
-		// it works here ig
-		const result = await db
-			.collection("pages")
-			.findOneAndUpdate(
-				{ slug },
-				{ $set: { title, content } },
-				{ returnDocument: "after" }
-			);
+		const result = await db.collection("pages").findOneAndUpdate(
+			{ slug },
+			{ $set: { title, content, vulnerabilities } },
+			{ returnDocument: "after" } // Updated option
+		);
 
-		// i hate my life fr fr
-		console.log("Update Result:", result);
-		// result returns like
-
-		// Update Result: {
-		// 	_id: new ObjectId('66a2946b2b91eef505eef943'),
-		// 	title: 'TEST PAGE',
-		// 	slug: 'test-page',
-		// 	content: 'asd]---\n' +
-		// 	  '---\n' +
-		// 	  '\n' +
-		// 	  'this is basic heading ?\n' +
-		// 	  '\n' +
-		// 	  '**HELLO**\n' +
-		// 	  '\n' +
-		// 	  'erw\n' +
-		// 	  '\n' +
-		// 	  'trying another time for test'
-		//   }
-
-		// ERRROR : TypeError: Cannot read properties of undefined (reading '_id')
-		// aposdjaoi sdio JUST WORK NIAWWWWWWWWW
-
-		// if (result && result.value) {
-		const serializedResult = {
-			...result?.value,
-			_id: result?.value._id.toString(), // Convert ObjectId to string
-		};
-		return NextResponse.json(result?.value.content, { status: 200 });
-		// } else {
-		// return NextResponse.json({ message: "Page not found" }, { status: 404 });
-		// }
+		if (result?.value) {
+			const serializedResult = {
+				...result.value,
+				_id: result.value._id.toString(), // Convert ObjectId to string
+			};
+			return NextResponse.json(serializedResult, { status: 200 });
+		} else {
+			return NextResponse.json({ message: "Page not found" }, { status: 404 });
+		}
 	} catch (error) {
 		console.error("Error updating page:", error);
 		return NextResponse.json(

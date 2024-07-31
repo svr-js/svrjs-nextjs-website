@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useEffect, useState } from "react";
 import { useForm, SubmitHandler, useFieldArray } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -15,41 +14,50 @@ import {
 import {
 	Table,
 	TableBody,
-	TableCaption,
 	TableCell,
 	TableHead,
 	TableHeader,
 	TableRow,
 } from "@/components/ui/table";
 import { Input } from "@/components/ui/input";
-import { z } from "zod";
-import { useToast } from "@/components/ui/use-toast";
-import { vulnerabilitiesSchema } from "@/lib/validations/validation";
 import {
 	Select,
+	SelectTrigger,
 	SelectContent,
 	SelectItem,
-	SelectTrigger,
+	SelectValue,
 } from "@/components/ui/select";
+import { z } from "zod";
+import { useToast } from "@/components/ui/use-toast";
+import {
+	ModsVulnerability,
+	vulnerabilitiesSchema,
+} from "@/lib/validations/validation";
 
-interface VulnerabiltyEntry {
+interface VulnerabilityEntry {
 	_id: string;
-	version: string;
+	title: string;
+	category: string;
 	bullets: { point: string }[];
 }
 
-type VulnerabiltiesForm = z.infer<typeof vulnerabilitiesSchema>;
+type VulnerabilitiesForm = z.infer<typeof vulnerabilitiesSchema>;
 
 const AdminLogPage = () => {
-	const [logs, setLogs] = useState<VulnerabiltyEntry[]>([]);
+	const [logs, setLogs] = useState<VulnerabilityEntry[]>([]);
+	const [categories, setCategories] = useState<
+		{ title: string; _id: string }[]
+	>([]);
+	const [selectedCategory, setSelectedCategory] = useState<string>("");
 	const [error, setError] = useState("");
 	const { toast } = useToast();
 	const [loading, setLoading] = useState(false);
 
-	const form = useForm<VulnerabiltiesForm>({
+	const form = useForm<ModsVulnerability>({
 		resolver: zodResolver(vulnerabilitiesSchema),
 		defaultValues: {
-			version: "",
+			title: "",
+			category: "",
 			bullets: [{ point: "" }],
 		},
 	});
@@ -63,7 +71,7 @@ const AdminLogPage = () => {
 		try {
 			const response = await fetch("/api/vulnerabilities", { method: "GET" });
 			if (response.ok) {
-				const data: VulnerabiltyEntry[] = await response.json();
+				const data: VulnerabilityEntry[] = await response.json();
 				setLogs(data);
 			} else {
 				throw new Error(`HTTP error! status: ${response.status}`);
@@ -73,12 +81,29 @@ const AdminLogPage = () => {
 		}
 	};
 
-	const onSubmit: SubmitHandler<VulnerabiltiesForm> = async (data) => {
+	const fetchCategories = async () => {
+		try {
+			const response = await fetch("/api/mdx/pages", { method: "GET" });
+			if (response.ok) {
+				const data = await response.json();
+				setCategories(data);
+			} else {
+				throw new Error(`HTTP error! status: ${response.status}`);
+			}
+		} catch (error: any) {
+			setError(error.message || "Failed to fetch categories");
+		}
+	};
+
+	const onSubmit: SubmitHandler<ModsVulnerability> = async (data) => {
 		setLoading(true);
-		const response = await fetch("/api/uploadvulnerabilities", {
+		const response = await fetch("/api/vulnerability/mods", {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify(data),
+			body: JSON.stringify({
+				...data,
+				category: selectedCategory,
+			}),
 		});
 
 		if (response.ok) {
@@ -109,6 +134,7 @@ const AdminLogPage = () => {
 
 	useEffect(() => {
 		fetchLogs();
+		fetchCategories();
 		const interval = setInterval(() => {
 			fetchLogs();
 		}, 10000);
@@ -118,19 +144,44 @@ const AdminLogPage = () => {
 
 	return (
 		<section id="logs-page" className="wrapper container">
-			<h1 className="text-3xl font-bold py-6">Server Vulnerabilties Form</h1>
+			<h1 className="text-3xl font-bold py-6">Server Vulnerabilities Form</h1>
 			<Form {...form}>
 				<form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
 					<FormField
 						control={form.control}
-						name="version"
+						name="title"
 						render={({ field }) => (
 							<FormItem>
-								<FormLabel>Version Name</FormLabel>
+								<FormLabel>Title</FormLabel>
 								<FormControl>
 									<Input {...field} />
 								</FormControl>
 								<FormMessage />
+							</FormItem>
+						)}
+					/>
+
+					<FormField
+						control={form.control}
+						name="category"
+						render={({ field }) => (
+							<FormItem>
+								<FormLabel>Category</FormLabel>
+								<Select
+									value={selectedCategory}
+									onValueChange={(value) => setSelectedCategory(field.value)}
+								>
+									<SelectTrigger>
+										<SelectValue placeholder={"Category"} />
+									</SelectTrigger>
+									<SelectContent>
+										{categories.map((cat) => (
+											<SelectItem key={cat._id} value={cat._id}>
+												{cat.title}
+											</SelectItem>
+										))}
+									</SelectContent>
+								</Select>
 							</FormItem>
 						)}
 					/>
@@ -142,7 +193,7 @@ const AdminLogPage = () => {
 							name={`bullets.${index}.point`}
 							render={({ field }) => (
 								<FormItem>
-									<FormLabel>Key Point {index + 1}</FormLabel>
+									<FormLabel>Bullet Point {index + 1}</FormLabel>
 									<FormControl>
 										<Input {...field} />
 									</FormControl>
@@ -182,13 +233,14 @@ const AdminLogPage = () => {
 			{/* Section to list and delete logs */}
 			<section id="logs-list" className="py-16 md:py-24">
 				<h2 className="text-3xl md:text-4xl font-bold">
-					Existing Vulnerabilties
+					Existing Vulnerabilities
 				</h2>
 				{error && <p className="text-red-500">{error}</p>}
 				<Table className="w-full mt-4 border-muted">
 					<TableHeader>
 						<TableRow>
-							<TableHead className="border-b px-4 py-2">Version</TableHead>
+							<TableHead className="border-b px-4 py-2">Title</TableHead>
+							<TableHead className="border-b px-4 py-2">Category</TableHead>
 							<TableHead className="border-b px-4 py-2">Actions</TableHead>
 						</TableRow>
 					</TableHeader>
@@ -199,7 +251,10 @@ const AdminLogPage = () => {
 							.map((log) => (
 								<TableRow key={log._id}>
 									<TableCell className="border-b px-4 py-2">
-										{log.version}
+										{log.title}
+									</TableCell>
+									<TableCell className="border-b px-4 py-2">
+										{log.category}
 									</TableCell>
 									<TableCell className="border-b px-4 py-2">
 										<Button

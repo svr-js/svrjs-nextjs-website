@@ -16,6 +16,7 @@ const EditPage = ({ params }: { params: { slug: string } }) => {
 	const { toast } = useToast();
 	const [title, setTitle] = useState("");
 	const [content, setContent] = useState("");
+	const [vulnerabilities, setVulnerabilities] = useState("");
 	const [loading, setLoading] = useState(false);
 
 	useEffect(() => {
@@ -25,6 +26,7 @@ const EditPage = ({ params }: { params: { slug: string } }) => {
 				.then((data) => {
 					setTitle(data.title);
 					setContent(data.content);
+					setVulnerabilities(data.vulnerabilities || "");
 				})
 				.catch((error) => console.error("Failed to load page", error));
 		}
@@ -35,7 +37,7 @@ const EditPage = ({ params }: { params: { slug: string } }) => {
 		const response = await fetch(`/api/mdx/pages/${slug}`, {
 			method: "PUT",
 			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify({ title, content }),
+			body: JSON.stringify({ title, content, vulnerabilities }),
 		});
 
 		if (response.ok) {
@@ -44,9 +46,7 @@ const EditPage = ({ params }: { params: { slug: string } }) => {
 			router.push(`/admin/multi-logs/`);
 		} else {
 			setLoading(false);
-			// TEMPERARORY ERROR
-			router.push(`/admin/multi-logs/`);
-			toast({ description: "Updated but cant return data" });
+			toast({ description: "Page Updated" });
 		}
 	};
 
@@ -57,7 +57,7 @@ const EditPage = ({ params }: { params: { slug: string } }) => {
 	};
 
 	return (
-		<section id="edit-page" className="wrapper container">
+		<section id="edit-page" className="wrapper container gap-4">
 			<h1 className="text-3xl font-bold py-6">Edit Page: {slug}</h1>
 			<Input
 				value={title}
@@ -68,6 +68,12 @@ const EditPage = ({ params }: { params: { slug: string } }) => {
 				value={content}
 				onChange={handleEditorChange}
 				height={560}
+			/>
+			<h1 className="text-3xl font-bold py-6">Vulnerabilities</h1>
+			<MarkdownEditor
+				value={vulnerabilities}
+				onChange={(value) => setVulnerabilities(value || "")}
+				height={200}
 			/>
 			<Button onClick={savePage} disabled={loading} className="mt-4">
 				Save

@@ -1,7 +1,7 @@
 "use client";
 
 import ReactMarkdown from "react-markdown";
-import { vulnerabilities } from "@/constants/guidelines";
+import { VULNERABILITY } from "@/constants/guidelines";
 import { useEffect, useState } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 
@@ -11,14 +11,22 @@ interface Bullet {
 
 interface Vulnerabilities {
 	_id: string;
-	date: string;
 	version: string;
 	bullets?: Bullet[]; // Make bullets optional
+}
+
+interface ModsVulnerability {
+	_id: string;
+	title: string;
+	slug: string;
+	content: string;
+	vulnerabilities: string;
 }
 
 const Vulnerabilities = () => {
 	const [loading, setLoading] = useState(true);
 	const [downloads, setDownloads] = useState<Vulnerabilities[]>([]);
+	const [mods, setMods] = useState<ModsVulnerability[]>([]);
 	const [error, setError] = useState("");
 
 	const fetchData = async () => {
@@ -29,7 +37,7 @@ const Vulnerabilities = () => {
 			if (response.ok) {
 				const data: Vulnerabilities[] = await response.json();
 				setDownloads(data);
-				return (document.title = "Vulnerabilities | SVRJS");
+				document.title = "Vulnerabilities | SVRJS";
 			} else {
 				throw new Error(`HTTP error! status: ${response.status}`);
 			}
@@ -40,18 +48,43 @@ const Vulnerabilities = () => {
 		}
 	};
 
+	const fetchMods = async () => {
+		try {
+			const response = await fetch(`/api/mdx/pages`, {
+				method: "GET",
+			});
+			if (response.ok) {
+				const data: ModsVulnerability[] = await response.json();
+				// Filter out entries where vulnerabilities is undefined or an empty string
+				const filteredMods = data.filter(
+					(mod) => mod.vulnerabilities && mod.vulnerabilities.trim() !== ""
+				);
+				setMods(filteredMods);
+				document.title = "Vulnerabilities | SVRJS";
+			} else {
+				throw new Error(`HTTP error! status: ${response.status}`);
+			}
+		} catch (error: any) {
+			setError(error.message || "Failed to fetch vulnerabilities");
+		} finally {
+			setLoading(false);
+		}
+	};
+
 	useEffect(() => {
 		fetchData();
-
+		fetchMods();
 		const interval = setInterval(() => {
 			fetchData();
+			fetchMods();
 		}, 10000);
 
 		return () => clearInterval(interval);
 	}, []);
-	const reversedDownloads = [...downloads].reverse();
 
-	// initially loading = true
+	const reversedDownloads = [...downloads].reverse();
+	const reversedMods = [...mods].reverse();
+
 	if (loading) {
 		return (
 			<section className="wrapper container py-24 md:py-28 gap-4 flex flex-col">
@@ -98,9 +131,27 @@ const Vulnerabilities = () => {
 					</ul>
 				</div>
 			))}
+
 			<div className="prose max-w-full md:prose-lg dark:prose-invert">
-				<ReactMarkdown>{vulnerabilities}</ReactMarkdown>
+				<ReactMarkdown>{VULNERABILITY}</ReactMarkdown>
 			</div>
+
+			{/* Section with MODS content */}
+			{reversedMods.map((mod) => (
+				<div
+					key={mod._id}
+					className="flex-start flex-col prose dark:prose-invert mb-4 gap-4"
+				>
+					<h2 className="text-3xl md:text-5xl py-1 md:py-2 font-bold text-black dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-b dark:from-white dark:to-neutral-400 -mb-1">
+						{mod.title}
+					</h2>
+					{mod.vulnerabilities && (
+						<div className="prose max-w-full md:prose-lg dark:prose-invert">
+							<ReactMarkdown>{mod.vulnerabilities}</ReactMarkdown>
+						</div>
+					)}
+				</div>
+			))}
 		</section>
 	);
 };

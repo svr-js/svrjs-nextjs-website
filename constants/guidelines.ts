@@ -357,7 +357,7 @@ By contributing to our project, you agree that your contributions will be licens
 Thank you for considering contributing to our project!
 `;
 
-export const vulnerabilities = `
+export const VULNERABILITY = `
 
 ### Fixed in SVR.JS 3.15.0 and in SVR.JS 3.14.16 LTS
 - An attacker could send a HTTP forward proxy request with malformed URL not using CONNECT method to possibly crash the server.
@@ -419,46 +419,6 @@ export const vulnerabilities = `
 ### Fixed in SVR.JS 2.1.1
 - An attacker could use directory listing to access secret files (through path traversal).
 
-## easy-waf integration
-
-### Fixed in easy-waf integration 1.2.4
-- An attacker could send a very small chunk of the POST request body (which will not trigger WAF) before the payload to bypass the WAF.
-
-### Fixed in easy-waf integration 1.2.1
-- An attacker could access the resource on the server with poorly written SVR.JS mod or server-side JavaScript (that normally would invoke 500 Internal Server Error) to crash the server.
-
-## RedBrick
-
-### Fixed in RedBrick 2.5.4
-- An attacker could add HTTP authentication header to the HTTP request when not required to enable web application functionality normally disabled on unauthenticated requests. View the security advisory
-
-### Fixed in RedBrick 2.3.3
-- An attacker could use “CGI-BIN” instead of “cgi-bin” to leak source code, while SVR.JS with RedBrick is running on Windows. View the security advisory
-- An attacker could leak RedBrick interpreter settings, while SVR.JS with RedBrick is running on Windows. View the security advisory
-
-## reverse-proxy-mod
-
-### Fixed in reverse-proxy-mod 1.1.2
-- An attacker could hack the upstream server, replace the web server or application with one that sends an invalid HTTP response code, and make a request to the hacked server through the reverse proxy to crash the reverse proxy server.
-
-### Fixed in reverse-proxy-mod 1.0.4
-- An attacker could leak reverse proxy configuration file. View the security advisory
-
-## OrangeCircle
-
-### Fixed in OrangeCircle 1.1.2
-- An attacker could add HTTP authentication header to the HTTP request when not required to enable web application functionality normally disabled on unauthenticated requests. View the security advisory
-
-### Fixed in OrangeCircle 1.0.2
-- An attacker could leak OrangeCircle configuration, while SVR.JS with YellowSquare is running on Windows. View the security advisory
-
-## YellowSquare
-
-### Fixed in YellowSquare 1.1.2
-- An attacker could add HTTP authentication header to the HTTP request when not required to enable web application functionality normally disabled on unauthenticated requests. View the security advisory
-
-### Fixed in YellowSquare 1.0.1
-- An attacker could use “JSGI-BIN” instead of “jsgi-bin” to leak source code, while SVR.JS with YellowSquare is running on Windows. View the security advisory
 `;
 
 export const CHANGE_LOGS = `

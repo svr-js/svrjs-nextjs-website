@@ -24,7 +24,28 @@ export const logsSchema = z.object({
 	),
 });
 
+export const vulnerabilitiesSchema = z.object({
+	version: z.string(),
+	bullets: z.array(
+		z.object({
+			point: z.string(),
+		})
+	),
+});
+
+export const ModsVulnerabilities = z.object({
+	title: z.string(),
+	category: z.string(),
+	bullets: z.array(
+		z.object({
+			point: z.string(),
+		})
+	),
+});
+
 export type LogsFormValues = z.infer<typeof logsSchema>;
+export type VulnerabiltiesForm = z.infer<typeof vulnerabilitiesSchema>;
+export type ModsVulnerability = z.infer<typeof ModsVulnerabilities>;
 
 // Contact Page
 

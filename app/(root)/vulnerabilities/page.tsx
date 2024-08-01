@@ -37,7 +37,7 @@ const Vulnerabilities = () => {
 			if (response.ok) {
 				const data: Vulnerabilities[] = await response.json();
 				setDownloads(data);
-				document.title = "Vulnerabilities | SVRJS";
+				document.title = "Vulnerabilities - SVRJS";
 			} else {
 				throw new Error(`HTTP error! status: ${response.status}`);
 			}
@@ -60,7 +60,7 @@ const Vulnerabilities = () => {
 					(mod) => mod.vulnerabilities && mod.vulnerabilities.trim() !== ""
 				);
 				setMods(filteredMods);
-				document.title = "Vulnerabilities | SVRJS";
+				document.title = "Vulnerabilities - SVRJS";
 			} else {
 				throw new Error(`HTTP error! status: ${response.status}`);
 			}
@@ -86,6 +86,7 @@ const Vulnerabilities = () => {
 	const reversedMods = [...mods].reverse();
 
 	if (loading) {
+		document.title = "Vulnerabilities - SVRJS";
 		return (
 			<section className="wrapper container py-24 md:py-28 gap-4 flex flex-col">
 				<div className="mb-3">
@@ -121,7 +122,7 @@ const Vulnerabilities = () => {
 			{reversedDownloads.map((download) => (
 				<div
 					key={download._id}
-					className="flex-start flex-col prose dark:prose-invert mb-4 gap-4"
+					className="flex-start flex-col prose dark:prose-invert gap-4"
 				>
 					<h2 className="font-semibold text-3xl -mb-2">{download.version}</h2>
 					<ul className="list-disc pl-5">
@@ -132,7 +133,7 @@ const Vulnerabilities = () => {
 				</div>
 			))}
 
-			<div className="prose max-w-full md:prose-lg dark:prose-invert">
+			<div className="prose max-w-full md:prose-lg dark:prose-invert mb-6 md:mb-9">
 				<ReactMarkdown>{VULNERABILITY}</ReactMarkdown>
 			</div>
 
@@ -140,13 +141,13 @@ const Vulnerabilities = () => {
 			{reversedMods.map((mod) => (
 				<div
 					key={mod._id}
-					className="flex-start flex-col prose dark:prose-invert my-6 md:my-9 gap-4"
+					className="flex-start flex-col my-6 md:my-9 gap-4 w-full"
 				>
 					<h2 className="text-2xl md:text-3xl py-1 md:py-2 font-bold text-black dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-b dark:from-white dark:to-neutral-400 -mb-1">
 						{mod.title}
 					</h2>
 					{mod.vulnerabilities && (
-						<div className="prose max-w-full md:prose-lg dark:prose-invert">
+						<div className="prose max-w-full md:prose-lg dark:prose-invert ">
 							<ReactMarkdown>{mod.vulnerabilities}</ReactMarkdown>
 						</div>
 					)}

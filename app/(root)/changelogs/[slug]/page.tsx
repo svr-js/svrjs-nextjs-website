@@ -19,7 +19,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
 				if (response.ok) {
 					const data = await response.json();
 					setPage(data);
-					return (document.title = `${data.title} Change Log | SVRJS`);
+					return (document.title = `${data.title} Change Log - SVRJS`);
 				} else {
 					if (response.status === 404) {
 						setNotFound(true);
@@ -38,6 +38,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
 	}, [slug]);
 
 	if (loading) {
+		document.title = "Mods Change Logs - SVRJS";
 		return (
 			<section className="wrapper container py-24 md:py-28 gap-4 flex flex-col">
 				<div className="mb-3">

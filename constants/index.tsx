@@ -2,6 +2,7 @@ import {
 	BadgeAlert,
 	BarChart4,
 	Bug,
+	BugIcon,
 	Cog,
 	File,
 	Mail,
@@ -150,6 +151,7 @@ export const FOOTERLINKS = {
 	additional: [
 		{ href: "/contribute", label: "Contribute" },
 		{ href: "/vulnerabilities", label: "Vulnerabilities" },
+		{ href: "https://git.svrjs.org", label: "Git Server" },
 		{ href: "http://status.svrjs.org", label: "Server Uptime" },
 	],
 	social: {
@@ -199,9 +201,37 @@ export const AdminLinks = [
 		icon: File,
 	},
 	{
+		name: "Vulnerabilities",
+		url: "/admin/vulnerabilities",
+		icon: BugIcon,
+	},
+	{
 		name: "Back Home",
 		url: "/",
 		icon: Home,
+	},
+];
+
+export const AdminDashboardLINKS = [
+	{
+		label: "Downloads",
+		url: "/admin/downloads",
+	},
+	{
+		label: "SVRJS Mods",
+		url: "/admin/mods",
+	},
+	{
+		label: "Change Logs",
+		url: "/admin/changelogs",
+	},
+	{
+		label: "MultiLogs",
+		url: "/admin/multi-logs",
+	},
+	{
+		label: "Vulnerabilities",
+		url: "/admin/vulnerabilities",
 	},
 ];
 

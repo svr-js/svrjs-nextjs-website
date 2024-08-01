@@ -54,6 +54,7 @@ const LogsPage: React.FC = () => {
 	const reversedDownloads = [...downloads].reverse();
 
 	if (loading) {
+		document.title = "Change Logs - SVRJS";
 		return (
 			<section className="wrapper container py-24 md:py-28 gap-4 flex flex-col">
 				<div className="mb-3">

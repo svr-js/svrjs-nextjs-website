@@ -32,6 +32,7 @@ export const metadata: Metadata = {
 		creator: "@SVR_JS",
 	},
 };
+
 export default function PageLayout({
 	children,
 }: {

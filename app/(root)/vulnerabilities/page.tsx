@@ -140,9 +140,9 @@ const Vulnerabilities = () => {
 			{reversedMods.map((mod) => (
 				<div
 					key={mod._id}
-					className="flex-start flex-col prose dark:prose-invert mb-4 gap-4"
+					className="flex-start flex-col prose dark:prose-invert my-6 md:my-9 gap-4"
 				>
-					<h2 className="text-3xl md:text-5xl py-1 md:py-2 font-bold text-black dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-b dark:from-white dark:to-neutral-400 -mb-1">
+					<h2 className="text-3xl py-1 md:py-2 font-bold text-black dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-b dark:from-white dark:to-neutral-400 -mb-1">
 						{mod.title}
 					</h2>
 					{mod.vulnerabilities && (

@@ -19,7 +19,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
 				if (response.ok) {
 					const data = await response.json();
 					setPage(data);
-					return (document.title = `${data.title} | SVRJS`);
+					return (document.title = `${data.title} Change Log | SVRJS`);
 				} else {
 					if (response.status === 404) {
 						setNotFound(true);

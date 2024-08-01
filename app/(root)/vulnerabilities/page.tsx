@@ -37,7 +37,7 @@ const Vulnerabilities = () => {
 			if (response.ok) {
 				const data: Vulnerabilities[] = await response.json();
 				setDownloads(data);
-				document.title = "Vulnerabilities - SVRJS";
+				return (document.title = "Vulnerabilities - SVRJS");
 			} else {
 				throw new Error(`HTTP error! status: ${response.status}`);
 			}
@@ -60,7 +60,7 @@ const Vulnerabilities = () => {
 					(mod) => mod.vulnerabilities && mod.vulnerabilities.trim() !== ""
 				);
 				setMods(filteredMods);
-				document.title = "Vulnerabilities - SVRJS";
+				return (document.title = "Vulnerabilities - SVRJS");
 			} else {
 				throw new Error(`HTTP error! status: ${response.status}`);
 			}
@@ -86,19 +86,23 @@ const Vulnerabilities = () => {
 	const reversedMods = [...mods].reverse();
 
 	if (loading) {
-		document.title = "Vulnerabilities - SVRJS";
 		return (
-			<section className="wrapper container py-24 md:py-28 gap-4 flex flex-col">
-				<div className="mb-3">
-					<Skeleton className="w-[400px] h-[50px] rounded-md" />
-				</div>
-				<div className="flex flex-col gap-4">
-					<Skeleton className="w-[300px] h-[30px] rounded-md" />
-					<Skeleton className="w-[200px] h-[20px] rounded-md" />
-					<Skeleton className="w-[200px] h-[20px] rounded-md" />
-					<Skeleton className="w-[200px] h-[20px] rounded-md" />
-				</div>
-			</section>
+			<>
+				<head>
+					<title>Vulnerabilities - SVRJS</title>
+				</head>
+				<section className="wrapper container py-24 md:py-28 gap-4 flex flex-col">
+					<div className="mb-3">
+						<Skeleton className="w-[400px] h-[50px] rounded-md" />
+					</div>
+					<div className="flex flex-col gap-4">
+						<Skeleton className="w-[300px] h-[30px] rounded-md" />
+						<Skeleton className="w-[200px] h-[20px] rounded-md" />
+						<Skeleton className="w-[200px] h-[20px] rounded-md" />
+						<Skeleton className="w-[200px] h-[20px] rounded-md" />
+					</div>
+				</section>
+			</>
 		);
 	}
 

@@ -54,19 +54,23 @@ const LogsPage: React.FC = () => {
 	const reversedDownloads = [...downloads].reverse();
 
 	if (loading) {
-		document.title = "Change Logs - SVRJS";
 		return (
-			<section className="wrapper container py-24 md:py-28 gap-4 flex flex-col">
-				<div className="mb-3">
-					<Skeleton className="w-[400px] h-[50px] rounded-md" />
-				</div>
-				<div className="flex flex-col gap-4">
-					<Skeleton className="w-[300px] h-[30px] rounded-md" />
-					<Skeleton className="w-[200px] h-[20px] rounded-md" />
-					<Skeleton className="w-[200px] h-[20px] rounded-md" />
-					<Skeleton className="w-[200px] h-[20px] rounded-md" />
-				</div>
-			</section>
+			<>
+				<head>
+					<title>Change Logs - SVRJS</title>
+				</head>
+				<section className="wrapper container py-24 md:py-28 gap-4 flex flex-col">
+					<div className="mb-3">
+						<Skeleton className="w-[400px] h-[50px] rounded-md" />
+					</div>
+					<div className="flex flex-col gap-4">
+						<Skeleton className="w-[300px] h-[30px] rounded-md" />
+						<Skeleton className="w-[200px] h-[20px] rounded-md" />
+						<Skeleton className="w-[200px] h-[20px] rounded-md" />
+						<Skeleton className="w-[200px] h-[20px] rounded-md" />
+					</div>
+				</section>
+			</>
 		);
 	}
 

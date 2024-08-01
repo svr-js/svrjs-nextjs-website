@@ -4,11 +4,33 @@ import Logo from "./components/shared/Logo";
 export default {
 	head: (
 		<>
-			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-			<meta property="og:title" content="SVRJS" />
+			<meta
+				name="description"
+				content="Experience unparalleled flexibility with SVR.JS - the ultimate web server for Node.js. Host web pages, run server-side JavaScript, utilize mods for extended functionality, and more. Integrated log viewer and user management tools included. Also supports Bun (experimental)."
+			/>
+			<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+			<meta property="og:title" content="Documentation - SVRJS" />
 			<meta
 				property="og:description"
-				content="the open source node running server"
+				content="Experience unparalleled flexibility with SVR.JS - the ultimate web server for Node.js. Host web pages, run server-side JavaScript, utilize mods for extended functionality, and more. Integrated log viewer and user management tools included. Also supports Bun (experimental)."
+			/>
+			<meta property="og:type" content="website" />
+			<meta property="og:url" content="https://svrjs.org" />
+			<meta
+				property="og:image"
+				content="https://svrjs.vercel.app/metadata/svrjs-cover.png"
+			/>
+			<title>Documentation - SVRJS</title>
+			<meta name="twitter:card" content="summary_large_image" />
+			<meta name="twitter:title" content="Documentation - SVRJS" />
+			<meta
+				name="twitter:description"
+				content="Experience unparalleled flexibility with SVR.JS - the ultimate web server for Node.js. Host web pages, run server-side JavaScript, utilize mods for extended functionality, and more. Integrated log viewer and user management tools included. Also supports Bun (experimental).."
+			/>
+			<meta
+				name="twitter:image"
+				content="https://svrjs.vercel.app/metadata/svrjs-cover.png"
 			/>
 		</>
 	),

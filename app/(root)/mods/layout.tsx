@@ -4,28 +4,28 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
 	title: "Mods - SVRJS",
 	description:
-		"Experience unparalleled flexibility with SVR.JS - the ultimate web server for Node.js. Host web pages, run server-side JavaScript, utilize mods for extended functionality, and more. Integrated log viewer and user management tools included. Also supports Bun (experimental).",
+		"Expand the functionality of SVR.JS with our collection of mods! Visit the mod downloads page to explore, download, and install a wide range of mods tailored to enhance your web server experience.",
 	openGraph: {
-		title: "SVRJS - A Web Server running on Node.js",
+		title: "Mods - SVRJS",
 		description:
-			"Experience unparalleled flexibility with SVR.JS - the ultimate web server for Node.js. Host web pages, run server-side JavaScript, utilize mods for extended functionality, and more. Integrated log viewer and user management tools included. Also supports Bun (experimental).",
-		url: "https://svrjs.org",
+			"Expand the functionality of SVR.JS with our collection of mods! Visit the mod downloads page to explore, download, and install a wide range of mods tailored to enhance your web server experience.",
+		url: "https://svrjs.org/mods",
 		type: "website",
 		images: [
 			{
 				url: "https://svrjs.vercel.app/metadata/svrjs-cover.png",
 				width: 800,
 				height: 600,
-				alt: "SVRJS - A Web Server running on Node.js",
+				alt: "Mods - SVRJS",
 			},
 		],
 	},
 	twitter: {
 		card: "summary_large_image",
 		site: "@SVR_JS",
-		title: "SVRJS - A Web Server running on Node.js",
+		title: "Mods - SVRJS",
 		description:
-			"Experience unparalleled flexibility with SVR.JS - the ultimate web server for Node.js. Host web pages, run server-side JavaScript, utilize mods for extended functionality, and more. Integrated log viewer and user management tools included. Also supports Bun (experimental).",
+			"Expand the functionality of SVR.JS with our collection of mods! Visit the mod downloads page to explore, download, and install a wide range of mods tailored to enhance your web server experience.",
 		images: ["https://svrjs.vercel.app/metadata/svrjs-cover.png"],
 		creator: "@SVR_JS",
 	},

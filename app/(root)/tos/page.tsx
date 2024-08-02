@@ -6,28 +6,28 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
 	title: "Terms of Service - SVRJS",
 	description:
-		"Experience unparalleled flexibility with SVR.JS - the ultimate web server for Node.js. Host web pages, run server-side JavaScript, utilize mods for extended functionality, and more. Integrated log viewer and user management tools included. Also supports Bun (experimental).",
+		"Understand your rights and responsibilities when using SVR.JS. Our Terms of Service page outlines the conditions for visiting our website, ensuring a transparent and fair experience for all users.",
 	openGraph: {
-		title: "SVRJS - A Web Server running on Node.js",
+		title: "Terms of Service - SVRJS",
 		description:
-			"Experience unparalleled flexibility with SVR.JS - the ultimate web server for Node.js. Host web pages, run server-side JavaScript, utilize mods for extended functionality, and more. Integrated log viewer and user management tools included. Also supports Bun (experimental).",
-		url: "https://svrjs.org",
+			"Understand your rights and responsibilities when using SVR.JS. Our Terms of Service page outlines the conditions for visiting our website, ensuring a transparent and fair experience for all users.",
+		url: "https://svrjs.org/tos",
 		type: "website",
 		images: [
 			{
 				url: "https://svrjs.vercel.app/metadata/svrjs-cover.png",
 				width: 800,
 				height: 600,
-				alt: "SVRJS - A Web Server running on Node.js",
+				alt: "Terms of Service - SVRJS",
 			},
 		],
 	},
 	twitter: {
 		card: "summary_large_image",
 		site: "@SVR_JS",
-		title: "SVRJS - A Web Server running on Node.js",
+		title: "Terms of Service - SVRJS",
 		description:
-			"Experience unparalleled flexibility with SVR.JS - the ultimate web server for Node.js. Host web pages, run server-side JavaScript, utilize mods for extended functionality, and more. Integrated log viewer and user management tools included. Also supports Bun (experimental).",
+			"Understand your rights and responsibilities when using SVR.JS. Our Terms of Service page outlines the conditions for visiting our website, ensuring a transparent and fair experience for all users.",
 		images: ["https://svrjs.vercel.app/metadata/svrjs-cover.png"],
 		creator: "@SVR_JS",
 	},

@@ -6,14 +6,14 @@ export default {
 		<>
 			<meta
 				name="description"
-				content="Experience unparalleled flexibility with SVR.JS - the ultimate web server for Node.js. Host web pages, run server-side JavaScript, utilize mods for extended functionality, and more. Integrated log viewer and user management tools included. Also supports Bun (experimental)."
+				content="The SVR.JS documentation provides comprehensive information and instructions on how to use and configure the SVR.JS web server. This documentation is also a valuable resource for web developers."
 			/>
 			<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 			<meta property="og:title" content="Documentation - SVRJS" />
 			<meta
 				property="og:description"
-				content="Experience unparalleled flexibility with SVR.JS - the ultimate web server for Node.js. Host web pages, run server-side JavaScript, utilize mods for extended functionality, and more. Integrated log viewer and user management tools included. Also supports Bun (experimental)."
+				content="The SVR.JS documentation provides comprehensive information and instructions on how to use and configure the SVR.JS web server. This documentation is also a valuable resource for web developers."
 			/>
 			<meta property="og:type" content="website" />
 			<meta property="og:url" content="https://svrjs.org" />
@@ -26,7 +26,7 @@ export default {
 			<meta name="twitter:title" content="Documentation - SVRJS" />
 			<meta
 				name="twitter:description"
-				content="Experience unparalleled flexibility with SVR.JS - the ultimate web server for Node.js. Host web pages, run server-side JavaScript, utilize mods for extended functionality, and more. Integrated log viewer and user management tools included. Also supports Bun (experimental).."
+				content="The SVR.JS documentation provides comprehensive information and instructions on how to use and configure the SVR.JS web server. This documentation is also a valuable resource for web developers."
 			/>
 			<meta
 				name="twitter:image"

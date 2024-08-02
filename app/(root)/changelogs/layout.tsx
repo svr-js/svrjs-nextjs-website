@@ -4,28 +4,28 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
 	title: "ChangeLogs - SVRJS",
 	description:
-		"Experience unparalleled flexibility with SVR.JS - the ultimate web server for Node.js. Host web pages, run server-side JavaScript, utilize mods for extended functionality, and more. Integrated log viewer and user management tools included. Also supports Bun (experimental).",
+		"Stay up-to-date with the latest improvements and updates to SVR.JS web server. Our change log page provides a comprehensive list of new features, bug fixes, and enhancements for each release.",
 	openGraph: {
-		title: "SVRJS - A Web Server running on Node.js",
+		title: "ChangeLogs - SVRJS",
 		description:
-			"Experience unparalleled flexibility with SVR.JS - the ultimate web server for Node.js. Host web pages, run server-side JavaScript, utilize mods for extended functionality, and more. Integrated log viewer and user management tools included. Also supports Bun (experimental).",
-		url: "https://svrjs.org",
+			"Stay up-to-date with the latest improvements and updates to SVR.JS web server. Our change log page provides a comprehensive list of new features, bug fixes, and enhancements for each release.",
+		url: "https://svrjs.org/changelogs",
 		type: "website",
 		images: [
 			{
 				url: "https://svrjs.vercel.app/metadata/svrjs-cover.png",
 				width: 800,
 				height: 600,
-				alt: "SVRJS - A Web Server running on Node.js",
+				alt: "ChangeLogs - SVRJS",
 			},
 		],
 	},
 	twitter: {
 		card: "summary_large_image",
 		site: "@SVR_JS",
-		title: "SVRJS - A Web Server running on Node.js",
+		title: "ChangeLogs - SVRJS",
 		description:
-			"Experience unparalleled flexibility with SVR.JS - the ultimate web server for Node.js. Host web pages, run server-side JavaScript, utilize mods for extended functionality, and more. Integrated log viewer and user management tools included. Also supports Bun (experimental).",
+			"Stay up-to-date with the latest improvements and updates to SVR.JS web server. Our change log page provides a comprehensive list of new features, bug fixes, and enhancements for each release.",
 		images: ["https://svrjs.vercel.app/metadata/svrjs-cover.png"],
 		creator: "@SVR_JS",
 	},

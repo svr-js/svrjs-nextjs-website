@@ -6,28 +6,28 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
 	title: "Contribute - SVRJS",
 	description:
-		"Experience unparalleled flexibility with SVR.JS - the ultimate web server for Node.js. Host web pages, run server-side JavaScript, utilize mods for extended functionality, and more. Integrated log viewer and user management tools included. Also supports Bun (experimental).",
+		"Contribute to SVR.JS and be part of an exciting open-source project. Follow the step-by-step guidelines to make your code contributions.",
 	openGraph: {
-		title: "SVRJS - A Web Server running on Node.js",
+		title: "Contribute - SVRJS",
 		description:
-			"Experience unparalleled flexibility with SVR.JS - the ultimate web server for Node.js. Host web pages, run server-side JavaScript, utilize mods for extended functionality, and more. Integrated log viewer and user management tools included. Also supports Bun (experimental).",
-		url: "https://svrjs.org",
+			"Contribute to SVR.JS and be part of an exciting open-source project. Follow the step-by-step guidelines to make your code contributions.",
+		url: "https://svrjs.org/contribute",
 		type: "website",
 		images: [
 			{
 				url: "https://svrjs.vercel.app/metadata/svrjs-cover.png",
 				width: 800,
 				height: 600,
-				alt: "SVRJS - A Web Server running on Node.js",
+				alt: "Contribute - SVRJS",
 			},
 		],
 	},
 	twitter: {
 		card: "summary_large_image",
 		site: "@SVR_JS",
-		title: "SVRJS - A Web Server running on Node.js",
+		title: "Contribute - SVRJS",
 		description:
-			"Experience unparalleled flexibility with SVR.JS - the ultimate web server for Node.js. Host web pages, run server-side JavaScript, utilize mods for extended functionality, and more. Integrated log viewer and user management tools included. Also supports Bun (experimental).",
+			"Contribute to SVR.JS and be part of an exciting open-source project. Follow the step-by-step guidelines to make your code contributions.",
 		images: ["https://svrjs.vercel.app/metadata/svrjs-cover.png"],
 		creator: "@SVR_JS",
 	},

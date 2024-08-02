@@ -79,7 +79,42 @@ const Page = ({ params }: { params: { slug: string } }) => {
 		<>
 			<head>
 				<title>{page.title} Changelog - SVRJS</title>
+				<meta
+					name="description"
+					content={`Keep track of the latest updates and improvements for ${page.title} with our comprehensive change log. Discover new features, bug fixes, and enhancements for each release of this SVR.JS mod.`}
+				/>
+				<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+				<meta property="og:title" content={`${page.title} Changelog - SVRJS`} />
+				<meta
+					property="og:description"
+					content={`Keep track of the latest updates and improvements for ${page.title} with our comprehensive change log. Discover new features, bug fixes, and enhancements for each release of this SVR.JS mod.`}
+				/>
+				<meta property="og:type" content="website" />
+				<meta
+					property="og:url"
+					content={`https://svrjs.org/changelogs/${slug}`}
+				/>
+				<meta
+					property="og:image"
+					content="https://svrjs.vercel.app/metadata/svrjs-cover.png"
+				/>
+				<title>Documentation - SVRJS</title>
+				<meta name="twitter:card" content="summary_large_image" />
+				<meta
+					name="twitter:title"
+					content={`${page.title} Changelog - SVRJS`}
+				/>
+				<meta
+					name="twitter:description"
+					content={`Keep track of the latest updates and improvements for ${page.title} with our comprehensive change log. Discover new features, bug fixes, and enhancements for each release of this SVR.JS mod.`}
+				/>
+				<meta
+					name="twitter:image"
+					content="https://svrjs.vercel.app/metadata/svrjs-cover.png"
+				/>
 			</head>
+
 			<section className="wrapper container py-24 md:py-28 gap-2 flex flex-col">
 				<h1 className="text-3xl md:text-5xl pb-1 md:pb-2 font-bold text-black dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-b dark:from-white dark:to-neutral-400">
 					{page.title} Change Log

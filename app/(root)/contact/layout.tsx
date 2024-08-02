@@ -4,28 +4,28 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
 	title: "Contact Us - SVRJS",
 	description:
-		"Experience unparalleled flexibility with SVR.JS - the ultimate web server for Node.js. Host web pages, run server-side JavaScript, utilize mods for extended functionality, and more. Integrated log viewer and user management tools included. Also supports Bun (experimental).",
+		"Have questions about SVR.JS? Need technical support? Visit our Contact Us page to find various ways to get in touch with our team, including email, forums, and our official support channel.",
 	openGraph: {
-		title: "SVRJS - A Web Server running on Node.js",
+		title: "Contact Us - SVRJS",
 		description:
-			"Experience unparalleled flexibility with SVR.JS - the ultimate web server for Node.js. Host web pages, run server-side JavaScript, utilize mods for extended functionality, and more. Integrated log viewer and user management tools included. Also supports Bun (experimental).",
-		url: "https://svrjs.org",
+			"Have questions about SVR.JS? Need technical support? Visit our Contact Us page to find various ways to get in touch with our team, including email, forums, and our official support channel.",
+		url: "https://svrjs.org/contact",
 		type: "website",
 		images: [
 			{
 				url: "https://svrjs.vercel.app/metadata/svrjs-cover.png",
 				width: 800,
 				height: 600,
-				alt: "SVRJS - A Web Server running on Node.js",
+				alt: "Contact Us - SVRJS",
 			},
 		],
 	},
 	twitter: {
 		card: "summary_large_image",
 		site: "@SVR_JS",
-		title: "SVRJS - A Web Server running on Node.js",
+		title: "Contact Us - SVRJS",
 		description:
-			"Experience unparalleled flexibility with SVR.JS - the ultimate web server for Node.js. Host web pages, run server-side JavaScript, utilize mods for extended functionality, and more. Integrated log viewer and user management tools included. Also supports Bun (experimental).",
+			"Have questions about SVR.JS? Need technical support? Visit our Contact Us page to find various ways to get in touch with our team, including email, forums, and our official support channel.",
 		images: ["https://svrjs.vercel.app/metadata/svrjs-cover.png"],
 		creator: "@SVR_JS",
 	},

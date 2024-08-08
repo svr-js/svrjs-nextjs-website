@@ -33,7 +33,7 @@ export default async function BlogSlugArticle({
 	const data: BlogSlugArticle = await getData(params.slug);
 
 	return (
-		<section className="max-w-5xl container mx-auto py-24 md:py-28 flex flex-col items-center px-4">
+		<section className="max-w-5xl container mx-auto py-8 md:py-28 flex flex-col items-center px-4">
 			<Link
 				href="/blog"
 				className="self-start mb-8 text-primary hover:text-green-300 transition-all flex items-center"

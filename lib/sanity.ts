@@ -1,12 +1,14 @@
 import { createClient } from "next-sanity";
 import imageUrlBuilder from "@sanity/image-url";
 
-export const client = createClient({
-	apiVersion: "2023-05-03",
+const config = {
+	apiVersion: "2023-08-08",
 	dataset: "production",
 	projectId: `${process.env.SANITY_PROJECT_ID}`,
-	useCdn: false, // basically enable this for faster loading time
-});
+	useCdn: false, // ensure fresh data
+};
+
+export const client = createClient(config);
 
 const builder = imageUrlBuilder(client);
 

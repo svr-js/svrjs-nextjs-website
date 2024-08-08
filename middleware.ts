@@ -5,10 +5,22 @@ import { getToken } from "next-auth/jwt";
 export async function middleware(req: NextRequest) {
 	const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET });
 
-	if (req.nextUrl.pathname.startsWith("/admin") && !token) {
-		const url = req.nextUrl.clone();
-		url.pathname = "/login";
-		return NextResponse.redirect(url);
+	if (!token) {
+		if (req.nextUrl.pathname.startsWith("/admin")) {
+			const url = req.nextUrl.clone();
+			url.pathname = "/login";
+			return NextResponse.redirect(url);
+		} else if (req.nextUrl.pathname.startsWith("/api/mdx/pages") && req.method != "GET") {
+			return NextResponse.json(
+	                        { error: "Login required" },
+				{ status: 401 }
+			);
+		} else if (req.nextUrl.pathname.startsWith("/api")) {
+			return NextResponse.json(
+	                        { error: "Login required" },
+				{ status: 401 }
+			);
+		}
 	}
 
 	return NextResponse.next();
@@ -20,9 +32,13 @@ export const config = {
 		"/api/delete/downloads/[id]",
 		"/api/delete/logs/[id]",
 		"/api/delete/mods/[id]",
+		"/api/delete/vulnerability/[id]",
+		"/api/mdx/pages",
+		"/api/mdx/pages/[slug]",
 		"/api/upload",
 		"/api/uploadlogs",
 		"/api/uploadmods",
 		"/api/uploadthing",
+		"/api/uploadvulnerabilities",
 	],
 };

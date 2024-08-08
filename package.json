@@ -24,6 +24,7 @@
     "@radix-ui/react-toast": "^1.2.1",
     "@radix-ui/themes": "^3.0.5",
     "@sanity/image-url": "^1.0.2",
+    "@sanity/vision": "^3.53.0",
     "@tailwindcss/typography": "^0.5.13",
     "@types/bcrypt": "^5.0.2",
     "@types/cookie": "^0.6.0",

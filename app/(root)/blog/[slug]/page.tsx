@@ -41,7 +41,7 @@ export default async function BlogSlugArticle({
 				<ArrowLeft className="mr-2" />
 				Back to Blog
 			</Link>
-			<header className="text-center mb-12 w-full">
+			<header className="text-start mb-12 w-full">
 				{data.titleImage && (
 					<div className="mb-8">
 						<h1 className="text-3xl md:text-4xl mb-12 font-bold text-black dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-b dark:from-white dark:to-neutral-400">

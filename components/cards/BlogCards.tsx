@@ -2,37 +2,66 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ExternalLink } from "lucide-react";
+import { client, urlFor } from "@/lib/sanity";
+import { Card, CardContent } from "../ui/card";
 
-const BlogCards = () => {
+interface BlogPostcard {
+	title: string;
+	smallDescription: string;
+	currentSlug: string;
+	titleImage: string;
+}
+
+async function getData() {
+	const query = `*[_type == 'blog'] | order(_createdAt desc) {
+  title,
+    smallDescription,
+    "currentSlug": slug.current,
+    titleImage
+}`;
+
+	const data = await client.fetch(query);
+
+	return data;
+}
+
+const BlogCards = async () => {
+	const data: BlogPostcard[] = await getData();
+	console.log(data);
+
 	return (
-		<section className="grid max-w-6xl gap-2 fade-in sm:grid-cols-2 lg:grid-cols-3">
-			<div className="fade-in-bottom group h-fit w-fit rounded-lg border delay-300">
-				<Link
-					href="/blog"
-					className="relative block overflow-hidden rounded-lg border"
+		<section className="grid max-w-6xl gap-4 mx-auto sm:grid-cols-2 lg:grid-cols-3">
+			{data.map((post, idx) => (
+				<Card
+					className="group h-full w-full rounded-lg border overflow-hidden"
+					key={idx}
 				>
-					<div className="h-full w-full overflow-hidden">
-						<Image
-							src={"/metadata/svrjs-cover.png"}
-							alt={"svrjs-cover"}
-							width={500}
-							height={50}
-							className="h-full w-full object-cover object-center transition-all md:group-hover:scale-[1.01]"
-						/>
-					</div>
-					<div className="flex w-full flex-col justify-between gap-2 rounded-b-lg border-t bg-accent/25 p-4 md:flex-row md:items-start md:p-2 md:group-hover:bg-accent/50">
-						<div>
-							<p>Svrjs Node Server</p>
-							<span className="text-sm text-muted-foreground">
-								Description here
-							</span>
+					<Link href={`/blog/${post.currentSlug}`} className="block">
+						<div className="relative overflow-hidden rounded-t-lg">
+							<Image
+								src={urlFor(post.titleImage).url()}
+								alt="SVRJS Blog Cover"
+								width={500}
+								height={300}
+								className="w-full object-cover transition-transform duration-200 group-hover:scale-105"
+							/>
 						</div>
-						<p className="text-sm text-muted-foreground opacity-0 group-hover:opacity-100 duration-300">
-							<ExternalLink />
-						</p>
-					</div>
-				</Link>
-			</div>
+						<CardContent className="p-4">
+							<div className="flex-between mb-2 py-2 ">
+								<h3 className="text-xl font-semibold leading-tight">
+									{post.title}
+								</h3>
+								<div className="text-sm text-muted-foreground opacity-0 group-hover:opacity-100 duration-300">
+									<ExternalLink />
+								</div>
+							</div>
+							<p className="text-sm text-muted-foreground">
+								{post.smallDescription}
+							</p>
+						</CardContent>
+					</Link>
+				</Card>
+			))}
 		</section>
 	);
 };

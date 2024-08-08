@@ -7,7 +7,7 @@ export default defineConfig({
   name: 'default',
   title: 'svrjs',
 
-  projectId: `${process.env.SANITY_PROJECT_ID}`,
+  projectId: '0u8q501s',
   dataset: 'production',
 
   plugins: [structureTool(), visionTool()],

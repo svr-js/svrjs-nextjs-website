@@ -12,12 +12,14 @@ import {
 	PaginationNext,
 	PaginationPrevious,
 } from "@/components/ui/pagination";
+import { format } from "date-fns";
 
 interface BlogPostcard {
 	title: string;
 	smallDescription: string;
 	currentSlug: string;
 	titleImage: string;
+	_createdAt: string; // Add createdAt field
 }
 
 interface BlogCardsProps {
@@ -33,7 +35,8 @@ const BlogCards: React.FC<BlogCardsProps> = async ({ searchParams }) => {
     title,
     smallDescription,
     "currentSlug": slug.current,
-    titleImage
+    titleImage,
+	_createdAt
   }[${(currentPage - 1) * cardsPerPage}...${currentPage * cardsPerPage}]`;
 
 	const posts: BlogPostcard[] = await client.fetch(query);
@@ -47,38 +50,49 @@ const BlogCards: React.FC<BlogCardsProps> = async ({ searchParams }) => {
 	return (
 		<>
 			<section className="grid max-w-6xl gap-4 mx-auto sm:grid-cols-2 lg:grid-cols-3">
-				{posts.map((post, idx) => (
-					<Card
-						className="group h-full w-full rounded-lg border overflow-hidden"
-						key={idx}
-					>
-						<Link href={`/blog/${post.currentSlug}`} className="block">
-							<div className="relative overflow-hidden rounded-t-lg">
-								<Image
-									src={urlFor(post.titleImage).url()}
-									alt={post.title}
-									width={500}
-									height={300}
-									priority
-									className="w-full object-cover transition-transform duration-200 group-hover:scale-105"
-								/>
-							</div>
-							<CardContent className="p-4">
-								<div className="flex-between mb-2 py-2">
-									<h3 className="text-xl font-semibold leading-tight">
-										{post.title}
-									</h3>
-									<div className="text-sm text-muted-foreground opacity-0 group-hover:opacity-100 duration-300">
-										<ExternalLink />
-									</div>
+				{posts.map((post, idx) => {
+					const formattedDate = format(
+						new Date(post._createdAt),
+						"MMMM d, yyyy"
+					); // Format the date
+
+					return (
+						<Card
+							className="group h-full w-full rounded-lg border overflow-hidden"
+							key={idx}
+						>
+							<Link href={`/blog/${post.currentSlug}`} className="block">
+								<div className="relative overflow-hidden rounded-t-lg">
+									<Image
+										src={urlFor(post.titleImage).url()}
+										alt={post.title}
+										width={500}
+										height={300}
+										priority
+										className="w-full object-cover transition-transform duration-200 group-hover:scale-105"
+									/>
 								</div>
-								<p className="text-sm text-muted-foreground">
-									{post.smallDescription}
-								</p>
-							</CardContent>
-						</Link>
-					</Card>
-				))}
+								<CardContent className="p-4">
+									<div className="flex-between mb-2 py-2">
+										<h3 className="text-xl font-semibold leading-tight">
+											{post.title}
+										</h3>
+										<div className="text-sm text-muted-foreground opacity-0 group-hover:opacity-100 duration-300">
+											<ExternalLink />
+										</div>
+									</div>
+									<p className="text-sm text-muted-foreground">
+										{post.smallDescription}
+									</p>
+									<p className="text-xs text-muted-foreground mt-2">
+										Published on: {formattedDate}{" "}
+										{/* Display the formatted date */}
+									</p>
+								</CardContent>
+							</Link>
+						</Card>
+					);
+				})}
 			</section>
 			<div className="flex-center mt-12">
 				{totalPages > 1 && (

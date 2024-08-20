@@ -21,6 +21,11 @@ export default {
       type: 'image',
       title: 'Title Image',
     },
+    // {
+    //   name: 'publishedAt',
+    //   title: 'Published At',
+    //   type: 'datetime',
+    // },
     {
       name: 'smallDescription',
       type: 'text',

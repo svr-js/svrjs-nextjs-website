@@ -4,16 +4,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
-import NotFound from "@/app/not-found";
+import { notFound } from "next/navigation";
 import { Metadata } from "next";
+import { format } from "date-fns";
 
 async function getData(slug: string) {
 	const query = `
     *[_type == "blog" && slug.current == '${slug}'] {
         "currentSlug": slug.current,
-            title,
-            content,
-            titleImage
+        title,
+        content,
+        titleImage,
+        _createdAt
     }[0]`;
 
 	const data = await client.fetch(query);
@@ -25,6 +27,7 @@ interface BlogSlugArticle {
 	title: string;
 	content: any;
 	titleImage: string;
+	_createdAt: string;
 }
 
 export async function generateMetadata({
@@ -77,8 +80,10 @@ export default async function BlogSlugArticle({
 	const data: BlogSlugArticle = await getData(params.slug);
 
 	if (!data) {
-		return <NotFound />;
+		notFound();
 	}
+
+	const formattedDate = format(new Date(data._createdAt), "MMMM d, yyyy");
 
 	return (
 		<>
@@ -90,10 +95,10 @@ export default async function BlogSlugArticle({
 					<ArrowLeft className="mr-2" />
 					Back to Blog
 				</Link>
-				<header className="text-start mb-12 w-full">
+				<header className="text-start mb-8 w-full">
 					{data.titleImage && (
-						<div className="mb-8">
-							<h1 className="text-3xl md:text-5xl mb-12 font-bold text-black dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-b dark:from-white dark:to-neutral-400">
+						<div className="mb-2">
+							<h1 className="text-3xl md:text-5xl mb-12 py-4 font-bold text-black dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-b dark:from-white dark:to-neutral-400">
 								{data.title}
 							</h1>
 							<Image
@@ -104,6 +109,9 @@ export default async function BlogSlugArticle({
 								priority
 								className="w-full h-auto object-cover rounded-md"
 							/>
+							<p className="mt-4 text-xl text-muted-foreground">
+								Uploaded at {formattedDate}
+							</p>{" "}
 						</div>
 					)}
 				</header>

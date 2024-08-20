@@ -90,7 +90,7 @@ export default async function BlogSlugArticle({
 			<section className="max-w-5xl container mx-auto py-8 md:py-28 flex flex-col items-center px-4">
 				<Link
 					href="/blog?page=1"
-					className="self-start mb-8 text-primary hover:text-green-300 transition-all flex items-center"
+					className="self-start mb-4 text-primary hover:text-green-300 transition-all flex items-center"
 				>
 					<ArrowLeft className="mr-2" />
 					Back to Blog
@@ -98,7 +98,7 @@ export default async function BlogSlugArticle({
 				<header className="text-start mb-8 w-full">
 					{data.titleImage && (
 						<div className="mb-2">
-							<h1 className="text-3xl md:text-5xl mb-12 py-4 font-bold text-black dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-b dark:from-white dark:to-neutral-400">
+							<h1 className="text-3xl md:text-5xl mb-8 py-4 font-bold text-black dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-b dark:from-white dark:to-neutral-400">
 								{data.title}
 							</h1>
 							<Image
@@ -109,7 +109,7 @@ export default async function BlogSlugArticle({
 								priority
 								className="w-full h-auto object-cover rounded-md"
 							/>
-							<p className="mt-4 text-xl text-muted-foreground">
+							<p className="mt-4 text-lg md:text-xl text-muted-foreground">
 								Uploaded at {formattedDate}
 							</p>{" "}
 						</div>

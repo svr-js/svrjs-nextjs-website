@@ -4,6 +4,12 @@ import { client } from "@/lib/sanity";
 import { toHTML } from "@portabletext/to-html";
 
 export async function GET() {
+	// Define the site URL based on the environment
+	const SITE_URL =
+		process.env.NODE_ENV === "production"
+			? "https://svrjs.vercel.app"
+			: "http://localhost:3000";
+
 	const postsQuery = `*[_type == 'blog'] | order(_createdAt desc) {
     title,
     "slug": slug.current,
@@ -11,11 +17,6 @@ export async function GET() {
     titleImage,
     _createdAt
   }`;
-
-	const SITE_URL =
-		process.env.NODE_ENV === "production"
-			? "http://localhost:3000"
-			: "https://svrjs.vercel.app";
 
 	const posts = await client.fetch(postsQuery);
 
@@ -35,12 +36,15 @@ export async function GET() {
 			description: toHTML(post.content),
 			url: `${SITE_URL}/blog/${post.slug}`,
 			date: new Date(post._createdAt).toUTCString(),
+			// uncomment this if u want to
 			// enclosure: { url: urlFor(post.titleImage).url() },
 			// author: "SVRJS",
 		});
 	});
 
-	return NextResponse.json(feed.xml({ indent: true }), {
-		headers: { "Content-Type": "application" },
+	return new NextResponse(feed.xml({ indent: true }), {
+		headers: {
+			"Content-Type": "application/xml",
+		},
 	});
 }

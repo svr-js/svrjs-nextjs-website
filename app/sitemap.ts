@@ -1,6 +1,10 @@
+import { getAllBlogPostSlugs } from "@/lib/getBlogPost";
+
 export default async function sitemap() {
-	let routes = [
-		"",
+	const blogPostSlugs = await getAllBlogPostSlugs();
+
+	const baseRoutes = [
+		"/",
 		"/blog",
 		"/changelogs",
 		"/contact",
@@ -11,10 +15,16 @@ export default async function sitemap() {
 		"/privacy-policy",
 		"/tos",
 		"/vulnerabilities",
+		"/newsletter",
 	].map((route) => ({
-		url: `https://vimfn.in${route}`,
+		url: `https://svrjs.vercel.app${route}`,
 		lastModified: new Date().toISOString().split("T")[0],
 	}));
 
-	return [...routes];
+	const blogRoutes = blogPostSlugs.map((slug) => ({
+		url: `https://svrjs.vercel.app/blog/${slug.slug}`,
+		lastModified: new Date().toISOString().split("T")[0],
+	}));
+
+	return [...baseRoutes, ...blogRoutes];
 }

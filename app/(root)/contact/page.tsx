@@ -20,10 +20,13 @@ import { useToast } from "@/components/ui/use-toast";
 import { useState } from "react";
 import { Separator } from "@/components/ui/separator";
 import { emails } from "@/constants";
+import HCaptcha from "@hcaptcha/react-hcaptcha";
 
 const ContactUs = () => {
 	const { toast } = useToast();
 	const [loading, setLoading] = useState(false);
+	const [showCaptcha, setShowCaptcha] = useState(false);
+	const [captchaToken, setCaptchaToken] = useState<string | null>(null);
 
 	const form = useForm<z.infer<typeof contactFormSchema>>({
 		resolver: zodResolver(contactFormSchema),
@@ -35,11 +38,16 @@ const ContactUs = () => {
 	});
 
 	async function onSubmit(values: z.infer<typeof contactFormSchema>) {
+		if (!captchaToken) {
+			setShowCaptcha(true);
+			return;
+		}
+
 		setLoading(true);
 		try {
 			const res = await fetch("/api/contact", {
 				method: "POST",
-				body: JSON.stringify(values),
+				body: JSON.stringify({ ...values, captchaToken }),
 				headers: {
 					"Content-Type": "application/json",
 					Accept: "application/json",
@@ -48,16 +56,15 @@ const ContactUs = () => {
 
 			if (res.ok) {
 				form.reset();
+				setCaptchaToken(null); // Reset captcha token after successful submission
 				toast({
 					description: "Your message has been sent.",
 				});
-				setLoading(false);
 			} else {
 				toast({
 					title: "Uh oh! Something went wrong.",
 					variant: "destructive",
 				});
-				setLoading(false);
 			}
 		} catch (error) {
 			console.error(error);
@@ -65,8 +72,15 @@ const ContactUs = () => {
 				title: "Uh oh! Something went wrong.",
 				variant: "destructive",
 			});
+		} finally {
 			setLoading(false);
+			setShowCaptcha(false); // Hide captcha after submission attempt
 		}
+	}
+
+	function handleCaptchaVerify(token: string) {
+		setCaptchaToken(token);
+		onSubmit(form.getValues()); // Trigger form submission after captcha is verified
 	}
 
 	return (
@@ -128,6 +142,14 @@ const ContactUs = () => {
 									</FormItem>
 								)}
 							/>
+
+							{showCaptcha && (
+								<HCaptcha
+									sitekey={process.env.NEXT_PUBLIC_HCAPTCHA_SITE_KEY!}
+									onVerify={handleCaptchaVerify}
+								/>
+							)}
+
 							<Button
 								type="submit"
 								variant={"default"}

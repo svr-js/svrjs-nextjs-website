@@ -19,7 +19,7 @@ interface BlogPostcard {
 	smallDescription: string;
 	currentSlug: string;
 	titleImage: string;
-	_createdAt: string; // Add createdAt field
+	_createdAt: string;
 }
 
 interface BlogCardsProps {
@@ -30,7 +30,6 @@ const BlogCards: React.FC<BlogCardsProps> = async ({ searchParams }) => {
 	const cardsPerPage = 6;
 	const currentPage = searchParams.page ? parseInt(searchParams.page) : 1;
 
-	// Fetch the blog posts
 	const query = `*[_type == 'blog'] | order(_createdAt desc) {
     title,
     smallDescription,
@@ -41,7 +40,6 @@ const BlogCards: React.FC<BlogCardsProps> = async ({ searchParams }) => {
 
 	const posts: BlogPostcard[] = await client.fetch(query);
 
-	// Fetch the total number of blog posts
 	const totalPostsQuery = `count(*[_type == 'blog'])`;
 	const totalPosts: number = await client.fetch(totalPostsQuery);
 
@@ -54,7 +52,7 @@ const BlogCards: React.FC<BlogCardsProps> = async ({ searchParams }) => {
 					const formattedDate = format(
 						new Date(post._createdAt),
 						"MMMM d, yyyy"
-					); // Format the date
+					);
 
 					return (
 						<Card

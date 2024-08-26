@@ -1,12 +1,14 @@
 import { client, urlFor } from "@/lib/sanity";
-import { PortableText } from "@portabletext/react";
+import { PortableText, PortableTextComponents } from "@portabletext/react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Copy } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { format } from "date-fns";
+import Prism from "prismjs";
+import CopyButton from "@/components/shared/copyButton";
 
 async function getData(slug: string) {
 	const query = `
@@ -72,6 +74,45 @@ export async function generateMetadata({
 	};
 }
 
+// Custom PortableText components
+const customPortableTextComponents: PortableTextComponents = {
+	types: {
+		image: ({ value }) => {
+			return (
+				<div className="my-8">
+					<Image
+						src={urlFor(value).url()}
+						alt={value.alt || "Blog Image"}
+						width={1200}
+						height={800}
+						className="w-full h-auto rounded-lg"
+					/>
+					{value.caption && (
+						<p className="mt-2 text-center text-sm text-muted-foreground">
+							{value.caption}
+						</p>
+					)}
+				</div>
+			);
+		},
+		code: ({ value }) => {
+			Prism.highlight(value.code, Prism.languages.javascript, "javascript");
+
+			return (
+				<div className="relative my-8">
+					<pre
+						className="language-py text-codeText p-4 rounded-md overflow-x-auto text-sm md:text-base"
+						style={{ position: "relative", overflowX: "auto" }}
+					>
+						<code>{value.code}</code>
+					</pre>
+					<CopyButton code={value.code} />
+				</div>
+			);
+		},
+	},
+};
+
 export default async function BlogSlugArticle({
 	params,
 }: {
@@ -117,7 +158,10 @@ export default async function BlogSlugArticle({
 				</header>
 				<Separator className="mb-6" />
 				<article className="prose max-w-full md:prose-lg dark:prose-invert">
-					<PortableText value={data.content} />
+					<PortableText
+						value={data.content}
+						components={customPortableTextComponents}
+					/>
 				</article>
 			</section>
 		</>

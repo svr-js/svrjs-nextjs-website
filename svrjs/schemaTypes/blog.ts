@@ -39,6 +39,12 @@ export default {
         {
           type: 'block',
         },
+        {
+          type: 'image',
+        },
+        {
+          type: 'code',
+        },
       ],
     },
   ],

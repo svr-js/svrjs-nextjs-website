@@ -45,10 +45,10 @@ export async function generateMetadata({
 	}
 
 	return {
-		title: data.title,
+		title: `${data.title} - SVRJS`,
 		description: data.smallDescription,
 		openGraph: {
-			title: data.title,
+			title: `${data.title} - SVRJS`,
 			description: data.smallDescription,
 			url: `https://svrjs.org/blog/${data.currentSlug}`,
 			type: "website",
@@ -57,14 +57,14 @@ export async function generateMetadata({
 					url: urlFor(data.titleImage).url(),
 					width: 800,
 					height: 600,
-					alt: data.title,
+					alt: `${data.title} - SVRJS`,
 				},
 			],
 		},
 		twitter: {
 			card: "summary_large_image",
 			site: "@SVR_JS",
-			title: data.title,
+			title: `${data.title} - SVRJS`,
 			description: data.smallDescription,
 			images: [urlFor(data.titleImage).url()],
 			creator: "@SVR_JS",

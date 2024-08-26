@@ -21,7 +21,7 @@ interface Download {
 	fileName: string;
 	version: string;
 	fileSize: string;
-	downloadLink: string;
+	downloadLink?: string; // Optional
 }
 
 const DownloadPage: React.FC = () => {
@@ -40,7 +40,7 @@ const DownloadPage: React.FC = () => {
 				throw new Error(`HTTP error! status: ${response.status}`);
 			}
 		} catch (error: any) {
-			setError(error);
+			setError(error.message);
 		}
 	};
 
@@ -88,12 +88,19 @@ const DownloadPage: React.FC = () => {
 								<TableCell>{download.version}</TableCell>
 								<TableCell className="text-left">{download.fileSize}</TableCell>
 								<TableCell className="flex items-center justify-end">
-									<Link href={download.downloadLink}>
-										<Button variant={"ghost"} className="">
+									{download.downloadLink ? (
+										<Link href={download.downloadLink}>
+											<Button variant={"ghost"} className="">
+												<Download className="w-4 h-4 mr-2" />
+												Download
+											</Button>
+										</Link>
+									) : (
+										<Button variant={"ghost"} disabled>
 											<Download className="w-4 h-4 mr-2" />
-											Download
+											Unavailable
 										</Button>
-									</Link>
+									)}
 								</TableCell>
 							</TableRow>
 						))}

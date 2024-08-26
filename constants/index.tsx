@@ -233,6 +233,10 @@ export const AdminDashboardLINKS = [
 		label: "Vulnerabilities",
 		url: "/admin/vulnerabilities",
 	},
+	{
+		label: "Emails",
+		url: "/admin/email",
+	},
 ];
 
 // contact page emails
@@ -258,3 +262,10 @@ export const emails = [
 		url: "mailto:vulnerability-reports@svrjs.org",
 	},
 ];
+
+export const EXAMPLE_A1 = `
+  <div>
+    <h1>Test Email Preview</h1>
+    <p>This is a simple email preview test.</p>
+  </div>
+`;

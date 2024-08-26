@@ -1,5 +1,5 @@
-import MobileNav from "./_components/Mobilenav";
-import Sidebar from "./_components/Sidebar";
+import MobileNav from "../_components/Mobilenav";
+import Sidebar from "../_components/Sidebar";
 
 export default function PageLayout({
 	children,

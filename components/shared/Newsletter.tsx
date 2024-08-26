@@ -6,6 +6,7 @@ import { Input } from "../ui/input";
 import Image from "next/image";
 import { Happy_Monkey } from "next/font/google";
 import { Mail } from "lucide-react";
+import HCaptcha from "@hcaptcha/react-hcaptcha";
 
 const happyMonkey = Happy_Monkey({
 	preload: true,
@@ -18,16 +19,22 @@ const Newsletter = () => {
 		"idle" | "loading" | "success" | "error"
 	>("idle");
 	const [input, setInput] = useState<string>("");
+	const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+	const [showCaptcha, setShowCaptcha] = useState<boolean>(false);
+	const [isSubmitting, setIsSubmitting] = useState<boolean>(false); // Added this line
 	const buttonRef = useRef<HTMLButtonElement>(null);
+	const hcaptchaRef = useRef<HCaptcha>(null);
 
-	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-		e.preventDefault();
+	const handleCaptcha = async (token: string) => {
+		setCaptchaToken(token);
+		setShowCaptcha(false);
+		await handleSubmit(token);
+	};
 
-		const email = input;
-		const button = buttonRef.current;
+	const handleSubmit = async (token: string | null) => {
+		if (!input || !token || isSubmitting) return;
 
-		if (!button || !email) return;
-
+		setIsSubmitting(true);
 		setSubmission("loading");
 
 		try {
@@ -36,18 +43,26 @@ const Newsletter = () => {
 				headers: {
 					"Content-Type": "application/json",
 				},
-				body: JSON.stringify({ email }),
+				body: JSON.stringify({ email: input, captchaToken: token }),
 			});
 
 			if (response.ok) {
 				setSubmission("success");
+				setInput("");
 			} else {
 				setSubmission("error");
 			}
 		} catch (error) {
 			console.error("Error subscribing:", error);
 			setSubmission("error");
+		} finally {
+			setIsSubmitting(false);
 		}
+	};
+
+	const handleSubscribeClick = () => {
+		if (!input) return;
+		setShowCaptcha(true);
 	};
 
 	return (
@@ -58,13 +73,13 @@ const Newsletter = () => {
 					Join The Newsletter!
 				</h3>
 				<p className="text-lg text-muted-foreground text-center mt-4 md:mt-2 mb-8">
-					Subscribe to our newsletter for updates. we promise no spam emails
+					Subscribe to our newsletter for updates. We promise no spam emails
 					will be sent
 				</p>
 				<form
 					className="relative flex flex-col w-full md:flex-row md:w-6/12 lg:w-4/12 mx-auto gap-4 md:gap-2"
 					aria-label="Email Information"
-					onSubmit={handleSubmit}
+					onSubmit={(e) => e.preventDefault()}
 				>
 					<div className="group flex items-center gap-x-4 py-1 pl-4 pr-1 rounded-[9px] bg-[#090D11] hover:bg-[#15141B] shadow-outline-gray hover:shadow-transparent focus-within:bg-[#15141B] focus-within:!shadow-outline-gray-focus transition-all duration-300">
 						<Mail className="hidden sm:inline w-6 h-6 text-[#4B4C52] group-focus-within:text-white group-hover:text-white transition-colors duration-300" />
@@ -77,9 +92,14 @@ const Newsletter = () => {
 							className="flex-1 text-white text-sm sm:text-base outline-none placeholder-[#4B4C52] group-focus-within:placeholder-white bg-transparent placeholder:transition-colors placeholder:duration-300 border-none"
 						/>
 					</div>
-					<Button ref={buttonRef} disabled={submission === "loading" || !input}>
+					<Button
+						ref={buttonRef}
+						onClick={handleSubscribeClick}
+						disabled={submission === "loading" || !input || isSubmitting}
+					>
 						Subscribe
 					</Button>
+
 					<div className="pointer-events-none dark:invert -scale-x-100 absolute -bottom-14 right-1/2 md:right-14 inline-flex justify-center items-center gap-1">
 						<Image
 							src="/curly-arrow.png"
@@ -87,6 +107,7 @@ const Newsletter = () => {
 							width={35}
 							height={35}
 						/>
+
 						<span
 							className={`mt-10 font-bold text-black -scale-x-100 text-[15px] ${happyMonkey.className}`}
 						>
@@ -107,6 +128,15 @@ const Newsletter = () => {
 						</span>
 					</div>
 				</form>
+				{showCaptcha && (
+					<div className="flex-center">
+						<HCaptcha
+							sitekey={process.env.NEXT_PUBLIC_HCAPTCHA_SITE_KEY!}
+							onVerify={handleCaptcha}
+							ref={hcaptchaRef}
+						/>
+					</div>
+				)}
 			</div>
 			<hr className="w-11/12 mx-auto" />
 		</section>

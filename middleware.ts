@@ -37,5 +37,6 @@ export const config = {
 		"/api/uploadmods",
 		"/api/uploadthing",
 		"/api/uploadvulnerabilities",
+		"/email-editor",
 	],
 };

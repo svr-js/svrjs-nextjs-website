@@ -9,6 +9,8 @@ import { Metadata } from "next";
 import { format } from "date-fns";
 import Prism from "prismjs";
 import CopyButton from "@/components/shared/copyButton";
+import "./_styles/prism-twilight.css";
+import "./_styles/prism.twilight.min.css";
 
 async function getData(slug: string) {
 	const query = `
@@ -74,7 +76,6 @@ export async function generateMetadata({
 	};
 }
 
-// Custom PortableText components
 const customPortableTextComponents: PortableTextComponents = {
 	types: {
 		image: ({ value }) => {
@@ -101,10 +102,10 @@ const customPortableTextComponents: PortableTextComponents = {
 			return (
 				<div className="relative my-8">
 					<pre
-						className="language-py text-codeText p-4 rounded-md overflow-x-auto text-sm md:text-base"
+						className="language-js p-4 rounded-md overflow-x-auto text-sm md:text-base"
 						style={{ position: "relative", overflowX: "auto" }}
 					>
-						<code>{value.code}</code>
+						<code className="language-js">{value.code}</code>
 					</pre>
 					<CopyButton code={value.code} />
 				</div>

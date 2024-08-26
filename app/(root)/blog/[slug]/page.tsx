@@ -2,15 +2,20 @@ import { client, urlFor } from "@/lib/sanity";
 import { PortableText, PortableTextComponents } from "@portabletext/react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, Copy } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { format } from "date-fns";
 import Prism from "prismjs";
+import "prismjs/components/prism-javascript";
+import "prismjs/components/prism-python";
+import "prismjs/components/prism-php";
+
 import CopyButton from "@/components/shared/copyButton";
 import "./_styles/prism-twilight.css";
 import "./_styles/prism.twilight.min.css";
+import PrismLoader from "@/components/loader/prismLoader";
 
 async function getData(slug: string) {
 	const query = `
@@ -97,16 +102,26 @@ const customPortableTextComponents: PortableTextComponents = {
 			);
 		},
 		code: ({ value }) => {
-			Prism.highlight(value.code, Prism.languages.javascript, "javascript");
+			const language = value.language || "javascript";
+			const grammar = Prism.languages[language];
+
+			if (!grammar) {
+				console.error(`No grammar found for language: "${language}"`);
+				return (
+					<pre className="p-4 rounded-md overflow-x-auto text-sm md:text-base">
+						<code>{value.code}</code>
+					</pre>
+				);
+			}
 
 			return (
 				<div className="relative my-8">
 					<pre
-						className="language-js p-4 rounded-md overflow-x-auto text-sm md:text-base"
-						style={{ position: "relative", overflowX: "auto" }}
+						className={`language-${language} p-4 rounded-md overflow-x-auto text-sm md:text-base`}
 					>
-						<code className="language-js">{value.code}</code>
+						<code className={`language-${language}`}>{value.code}</code>
 					</pre>
+					<PrismLoader />
 					<CopyButton code={value.code} />
 				</div>
 			);
@@ -153,7 +168,7 @@ export default async function BlogSlugArticle({
 							/>
 							<p className="mt-4 text-lg md:text-xl text-muted-foreground">
 								Uploaded at {formattedDate}
-							</p>{" "}
+							</p>
 						</div>
 					)}
 				</header>

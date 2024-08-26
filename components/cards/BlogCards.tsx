@@ -31,12 +31,12 @@ const BlogCards: React.FC<BlogCardsProps> = async ({ searchParams }) => {
 	const currentPage = searchParams.page ? parseInt(searchParams.page) : 1;
 
 	const query = `*[_type == 'blog'] | order(_createdAt desc) {
-    title,
-    smallDescription,
-    "currentSlug": slug.current,
-    titleImage,
-	_createdAt
-  }[${(currentPage - 1) * cardsPerPage}...${currentPage * cardsPerPage}]`;
+        title,
+        smallDescription,
+        "currentSlug": slug.current,
+        titleImage,
+        _createdAt
+    }[${(currentPage - 1) * cardsPerPage}...${currentPage * cardsPerPage}]`;
 
 	const posts: BlogPostcard[] = await client.fetch(query);
 
@@ -53,6 +53,11 @@ const BlogCards: React.FC<BlogCardsProps> = async ({ searchParams }) => {
 						new Date(post._createdAt),
 						"MMMM d, yyyy"
 					);
+
+					const truncatedDescription =
+						post.smallDescription.length > 130
+							? post.smallDescription.substring(0, 130) + "..."
+							: post.smallDescription;
 
 					return (
 						<Card
@@ -80,11 +85,10 @@ const BlogCards: React.FC<BlogCardsProps> = async ({ searchParams }) => {
 										</div>
 									</div>
 									<p className="text-sm text-muted-foreground">
-										{post.smallDescription}
+										{truncatedDescription}
 									</p>
 									<p className="text-xs text-muted-foreground mt-2">
-										Published on: {formattedDate}{" "}
-										{/* Display the formatted date */}
+										Published on: {formattedDate}
 									</p>
 								</CardContent>
 							</Link>

@@ -81,15 +81,15 @@ const Newsletter = () => {
 					aria-label="Email Information"
 					onSubmit={(e) => e.preventDefault()}
 				>
-					<div className="group flex items-center gap-x-4 py-1 pl-4 pr-1 rounded-[9px] bg-[#090D11] hover:bg-[#15141B] shadow-outline-gray hover:shadow-transparent focus-within:bg-[#15141B] focus-within:!shadow-outline-gray-focus transition-all duration-300">
-						<Mail className="hidden sm:inline w-6 h-6 text-[#4B4C52] group-focus-within:text-white group-hover:text-white transition-colors duration-300" />
+					<div className="group flex items-center gap-x-4 pl-4 pr-1 rounded-[9px] bg-accent/80 hover:bg-accent shadow-outline-gray hover:shadow-transparent focus-within:bg-accent focus-within:!shadow-outline-gray-focus transition-all duration-300">
+						<Mail className="hidden sm:inline w-6 h-6 text-[#4B4C52] group-focus-within:text-secondary-foreground group-hover:text-secondary-foreground transition-colors duration-300" />
 						<Input
 							value={input}
 							onChange={(e) => setInput(e.target.value)}
 							placeholder="Email address"
 							required
 							type="email"
-							className="flex-1 text-white text-sm sm:text-base outline-none placeholder-[#4B4C52] group-focus-within:placeholder-white bg-transparent placeholder:transition-colors placeholder:duration-300 border-none"
+							className="flex-1 text-white text-sm sm:text-base outline-none placeholder-[#4B4C52] group-focus-within:placeholder-muted bg-transparent placeholder:transition-colors placeholder:duration-300 border-none"
 						/>
 					</div>
 					<Button

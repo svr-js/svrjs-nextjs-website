@@ -16,7 +16,9 @@ import "prismjs/components/prism-handlebars";
 
 export default function PrismLoader() {
 	useEffect(() => {
-		Prism.highlightAll();
+		if (Prism) {
+			Prism.highlightAll();
+		}
 	}, []);
 
 	return null;

@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/shared/providers/themeprovider";
 import AuthProvider from "@/components/shared/providers/AuthProvider";
 import { Toaster } from "@/components/ui/toaster";
+import { Analytics } from "@vercel/analytics/react";
 
 const poppins = Poppins({
 	weight: ["400", "600", "700", "900"],
@@ -57,6 +58,7 @@ export default function RootLayout({
 					<AuthProvider>
 						{children}
 						<Toaster />
+						<Analytics />
 					</AuthProvider>
 				</ThemeProvider>
 			</body>

@@ -89,7 +89,7 @@ const Newsletter = () => {
 							placeholder="Email address"
 							required
 							type="email"
-							className="flex-1 text-white text-sm sm:text-base outline-none placeholder-[#4B4C52] group-focus-within:placeholder-muted bg-transparent placeholder:transition-colors placeholder:duration-300 border-none"
+							className="flex-1 text-secondary-foreground text-sm sm:text-base outline-none placeholder-[#4B4C52] group-focus-within:placeholder-muted bg-transparent placeholder:transition-colors placeholder:duration-300 border-none"
 						/>
 					</div>
 					<Button

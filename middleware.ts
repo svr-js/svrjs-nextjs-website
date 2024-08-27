@@ -35,7 +35,6 @@ export const config = {
 		"/api/upload",
 		"/api/uploadlogs",
 		"/api/uploadmods",
-		"/api/uploadthing",
 		"/api/uploadvulnerabilities",
 		"/email-editor",
 	],

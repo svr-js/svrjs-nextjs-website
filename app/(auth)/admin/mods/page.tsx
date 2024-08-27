@@ -25,6 +25,12 @@ import {
 	TableHeader,
 	TableRow,
 } from "@/components/ui/table";
+import {
+	Dialog,
+	DialogContent,
+	DialogTitle,
+	DialogTrigger,
+} from "@/components/ui/dialog";
 
 interface ModEntry {
 	_id: string;
@@ -37,10 +43,12 @@ interface ModEntry {
 const SvrjsModsAdminPage = () => {
 	const { toast } = useToast();
 	const [mods, setMods] = useState<ModEntry[]>([]);
+	const [editMod, setEditMod] = useState<ModEntry | null>(null);
 	const [error, setError] = useState<string | null>(null);
 	const [loading, setLoading] = useState(false);
+	const [dialogOpen, setDialogOpen] = useState(false);
 
-	const form = useForm<z.infer<typeof modsSchema>>({
+	const mainForm = useForm<z.infer<typeof modsSchema>>({
 		resolver: zodResolver(modsSchema),
 		defaultValues: {
 			fileName: "",
@@ -49,6 +57,37 @@ const SvrjsModsAdminPage = () => {
 			fileSize: "",
 		},
 	});
+
+	const dialogForm = useForm<z.infer<typeof modsSchema>>({
+		resolver: zodResolver(modsSchema),
+		defaultValues: {
+			fileName: "",
+			version: "",
+			downloadLink: "",
+			fileSize: "",
+		},
+	});
+
+	useEffect(() => {
+		fetchMods();
+		const interval = setInterval(() => {
+			fetchMods();
+		}, 10000);
+
+		return () => clearInterval(interval);
+	}, []);
+
+	useEffect(() => {
+		if (editMod) {
+			dialogForm.reset({
+				fileName: editMod.fileName,
+				version: editMod.version,
+				downloadLink: editMod.downloadLink,
+				fileSize: editMod.fileSize,
+			});
+			setDialogOpen(true); // Open dialog when a mod is being edited
+		}
+	}, [editMod]);
 
 	const fetchMods = async () => {
 		try {
@@ -66,37 +105,48 @@ const SvrjsModsAdminPage = () => {
 		}
 	};
 
-	useEffect(() => {
-		fetchMods();
-		const interval = setInterval(() => {
-			fetchMods();
-		}, 10000);
-
-		return () => clearInterval(interval);
-	}, []);
-
 	const onSubmit: SubmitHandler<z.infer<typeof modsSchema>> = async (data) => {
 		setLoading(true);
-		const response = await fetch("/api/uploadmods", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify(data),
-		});
+		try {
+			const response = editMod
+				? await fetch(`/api/update/mods/${editMod._id}`, {
+						method: "PUT",
+						headers: {
+							"Content-Type": "application/json",
+						},
+						body: JSON.stringify(data),
+					})
+				: await fetch("/api/uploadmods", {
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json",
+						},
+						body: JSON.stringify(data),
+					});
 
-		if (response.ok) {
-			form.reset();
-			fetchMods();
+			if (response.ok) {
+				mainForm.reset();
+				dialogForm.reset();
+				fetchMods();
+				setLoading(false);
+				setEditMod(null);
+				setDialogOpen(false); // Close dialog on successful submission
+				toast({
+					description: "Successfully Saved Changes",
+				});
+			} else {
+				console.error("Save failed");
+				setLoading(false);
+				toast({
+					description: "Save failed",
+					variant: "destructive",
+				});
+			}
+		} catch (error) {
+			console.error("Save failed", error);
 			setLoading(false);
 			toast({
-				description: "Successfully Uploaded Mods",
-			});
-		} else {
-			console.error("Upload failed");
-			setLoading(false);
-			toast({
-				description: "Upload failed",
+				description: "Save failed",
 				variant: "destructive",
 			});
 		}
@@ -120,10 +170,10 @@ const SvrjsModsAdminPage = () => {
 	return (
 		<section id="mods-page" className="wrapper container">
 			<h1 className="text-3xl font-bold py-6">Mods Form</h1>
-			<Form {...form}>
-				<form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+			<Form {...mainForm}>
+				<form onSubmit={mainForm.handleSubmit(onSubmit)} className="space-y-4">
 					<FormField
-						control={form.control}
+						control={mainForm.control}
 						name="fileName"
 						render={({ field }) => (
 							<FormItem>
@@ -136,7 +186,7 @@ const SvrjsModsAdminPage = () => {
 						)}
 					/>
 					<FormField
-						control={form.control}
+						control={mainForm.control}
 						name="version"
 						render={({ field }) => (
 							<FormItem>
@@ -149,7 +199,7 @@ const SvrjsModsAdminPage = () => {
 						)}
 					/>
 					<FormField
-						control={form.control}
+						control={mainForm.control}
 						name="downloadLink"
 						render={({ field }) => (
 							<FormItem>
@@ -171,7 +221,7 @@ const SvrjsModsAdminPage = () => {
 						)}
 					/>
 					<FormField
-						control={form.control}
+						control={mainForm.control}
 						name="fileSize"
 						render={({ field }) => (
 							<FormItem>
@@ -189,7 +239,7 @@ const SvrjsModsAdminPage = () => {
 						size={"lg"}
 						disabled={loading}
 					>
-						Submit
+						{editMod ? "Save Changes" : "Submit"}
 					</Button>
 				</form>
 			</Form>
@@ -234,7 +284,109 @@ const SvrjsModsAdminPage = () => {
 									<TableCell className="border-b px-4 py-2">
 										{mod.fileSize}
 									</TableCell>
-									<TableCell className="border-b px-4 py-2">
+									<TableCell className="border-b px-4 py-2 gap-2 flex-center">
+										<Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+											<DialogTrigger>
+												<Button
+													variant="outline"
+													onClick={() => setEditMod(mod)}
+												>
+													Edit
+												</Button>
+											</DialogTrigger>
+											<DialogContent>
+												<DialogTitle>Edit Content</DialogTitle>
+
+												<Form {...dialogForm}>
+													<form
+														onSubmit={dialogForm.handleSubmit(onSubmit)}
+														className="space-y-4"
+													>
+														<FormField
+															control={dialogForm.control}
+															name="fileName"
+															render={({ field }) => (
+																<FormItem>
+																	<FormLabel>File Name</FormLabel>
+																	<FormControl>
+																		<Input
+																			{...field}
+																			defaultValue={editMod?.fileName}
+																		/>
+																	</FormControl>
+																	<FormMessage />
+																</FormItem>
+															)}
+														/>
+														<FormField
+															control={dialogForm.control}
+															name="version"
+															render={({ field }) => (
+																<FormItem>
+																	<FormLabel>Version</FormLabel>
+																	<FormControl>
+																		<Input
+																			{...field}
+																			defaultValue={editMod?.version}
+																		/>
+																	</FormControl>
+																	<FormMessage />
+																</FormItem>
+															)}
+														/>
+														<FormField
+															control={dialogForm.control}
+															name="downloadLink"
+															render={({ field }) => (
+																<FormItem>
+																	<FormLabel>Download Link</FormLabel>
+																	<UploadButton
+																		endpoint="imageUploader"
+																		onClientUploadComplete={(res) => {
+																			field.onChange(res[0].url);
+																		}}
+																		onUploadError={(error: Error) => {
+																			alert(`ERROR! ${error.message}`);
+																		}}
+																	/>
+																	<FormControl>
+																		<Input
+																			{...field}
+																			defaultValue={editMod?.downloadLink}
+																		/>
+																	</FormControl>
+																	<FormMessage />
+																</FormItem>
+															)}
+														/>
+														<FormField
+															control={dialogForm.control}
+															name="fileSize"
+															render={({ field }) => (
+																<FormItem>
+																	<FormLabel>File Size</FormLabel>
+																	<FormControl>
+																		<Input
+																			{...field}
+																			defaultValue={editMod?.fileSize}
+																		/>
+																	</FormControl>
+																	<FormMessage />
+																</FormItem>
+															)}
+														/>
+														<Button
+															type="submit"
+															className="w-full text-lg rounded-full"
+															size={"lg"}
+															disabled={loading}
+														>
+															Save Changes
+														</Button>
+													</form>
+												</Form>
+											</DialogContent>
+										</Dialog>
 										<Button
 											variant={"destructive"}
 											onClick={() => deleteMod(mod._id)}

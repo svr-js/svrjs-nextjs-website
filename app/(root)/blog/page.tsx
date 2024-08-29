@@ -52,7 +52,7 @@ const BlogPage = async ({
 			</h1>
 			<p className="text-muted-foreground flex-center mb-2">
 				Stay updated with our latest blog posts by subscribing to our
-				<Link href="/rss.xml">
+				<Link href="/rss.xml" rel="alternate">
 					<Button variant={"link"} className="mx-0 px-2">
 						<Rss className="w-5 h-5 mr-1" /> RSS feed
 					</Button>

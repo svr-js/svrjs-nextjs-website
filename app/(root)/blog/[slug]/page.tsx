@@ -156,7 +156,12 @@ export default async function BlogSlugArticle({
 							Back
 						</Button>
 					</Link>
-					<Link href="/rss.xml" className="ml-auto" rel="alternate">
+					<Link
+						href="/rss.xml"
+						className="ml-auto"
+						rel="alternate"
+						type="application/rss+xml"
+					>
 						<Button
 							variant={"link"}
 							size={"lg"}

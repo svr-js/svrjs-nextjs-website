@@ -2,7 +2,7 @@ import { client, urlFor } from "@/lib/sanity";
 import { PortableText, PortableTextComponents } from "@portabletext/react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Rss } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
@@ -16,6 +16,7 @@ import CopyButton from "@/components/shared/copyButton";
 import "./_styles/prism-twilight.css";
 import "./_styles/prism.twilight.min.css";
 import PrismLoader from "@/components/loader/prismLoader";
+import { Button } from "@/components/ui/button";
 
 async function getData(slug: string) {
 	const query = `
@@ -145,13 +146,26 @@ export default async function BlogSlugArticle({
 	return (
 		<>
 			<section className="max-w-5xl container mx-auto py-8 md:py-28 flex flex-col items-center px-4">
-				<Link
-					href="/blog?page=1"
-					className="self-start mb-4 text-primary hover:text-green-300 transition-all flex items-center"
-				>
-					<ArrowLeft className="mr-2" />
-					Back to Blog
-				</Link>
+				<div className="w-full mx-auto flex-center">
+					<Link
+						href="/blog"
+						className="group text-primary transition-all flex items-center"
+					>
+						<Button variant={"ghost"} size={"lg"} className="mx-0 px-2 ">
+							<ArrowLeft className="mr-2 w-5 h-5 group-hover:translate-x-1 transition-all" />
+							Back
+						</Button>
+					</Link>
+					<Link href="/rss.xml" className="ml-auto">
+						<Button
+							variant={"link"}
+							size={"lg"}
+							className="mx-0 px-2 text-accent-foreground"
+						>
+							<Rss className="w-5 h-5 mr-1" /> Subscribe to RSS
+						</Button>
+					</Link>
+				</div>
 				<header className="text-start mb-8 w-full">
 					{data.titleImage && (
 						<div className="mb-2">

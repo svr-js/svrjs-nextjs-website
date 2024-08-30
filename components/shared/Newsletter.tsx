@@ -129,7 +129,7 @@ const Newsletter = () => {
 					</div>
 				</form>
 				{showCaptcha && (
-					<div className="flex-center">
+					<div className="flex-center relative">
 						<HCaptcha
 							sitekey={process.env.NEXT_PUBLIC_HCAPTCHA_SITE_KEY!}
 							onVerify={handleCaptcha}

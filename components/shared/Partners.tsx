@@ -4,6 +4,7 @@ import { Button } from "../ui/button";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import HeroVideoDialog from "../ui/heroVideoAction";
 
 const Partners = () => {
 	const router = useRouter();
@@ -35,12 +36,18 @@ const Partners = () => {
 				</div>
 			</div>
 
-			<video
+			<HeroVideoDialog
+				animationStyle="top-in-bottom-out"
+				videoSrc="https://odysee.com/$/embed/@SVRJS:5/svrjs-in-action:e?r=7t9EG6VDTNZDSze8ysoChqocLNhAMZEe"
+				thumbnailSrc="/poster.svg"
+				thumbnailAlt="Poster.svg"
+			/>
+			{/* <video
 				src="/svgaction.mp4"
 				className="rounded-xl aspect-video bg-[#09090b]"
 				controls
 				poster="/poster.svg"
-			></video>
+			></video> */}
 			<hr className="w-full h-1" />
 		</section>
 	);

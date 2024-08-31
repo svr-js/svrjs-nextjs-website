@@ -40,11 +40,12 @@ export default function PageLayout({
 }: {
 	children: React.ReactNode;
 }) {
+	const iconClassName = "w-4 h-4 flex-center text-zinc-950 -mr-2";
 	return (
 		<div className="flex flex-col min-h-screen">
 			{/* Comment or edit this whenever required */}
 			<Banner
-				icon={<Home />}
+				icon={<Home className={iconClassName} />}
 				title="SVR.JS 4.0.0 is now on beta!"
 				announcement="The latest beta version is SVR.JS 4.0.0-beta3."
 				link="https://blog.svrjs.org/2024/08/30/SVR-JS-4-0-0-beta3-has-been-released/"

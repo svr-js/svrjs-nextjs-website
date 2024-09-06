@@ -50,7 +50,6 @@ export default function PageLayout({
 				announcement="The latest beta version is SVR.JS 4.0.0-beta3."
 				link="https://blog.svrjs.org/2024/08/30/SVR-JS-4-0-0-beta3-has-been-released/"
 				buttonText="Read more"
-				className={""}
 			/>
 			<Navbar />
 			<div className="flex-grow flex-1 overflow-x-hidden">{children}</div>

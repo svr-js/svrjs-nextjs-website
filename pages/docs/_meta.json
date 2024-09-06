@@ -1,4 +1,23 @@
 {
-    "index": "Getting Started",
-    "configuration": "Configuration"
+    "index": "Introduction",
+    "requirements" : "System requirements",
+    "---": {
+        "type": "separator"
+      },
+      "getting-started": "Getting Started",
+      "seperator": {
+          "type": "separator"
+        },
+    "config": "Configurations",
+    "configseperator": {
+        "type": "separator"
+      },
+    "mods": "Mods",
+    "modseperator": {
+        "type": "separator"
+      },
+    "server-side-javascript": "Server Side javascript",
+    "ssjseperator": {
+        "type": "separator"
+      }
 }

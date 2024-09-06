@@ -1,10 +1,12 @@
 import { NextResponse } from "next/server";
-import clientPromise from "@/lib/db"; // Adjust the path to where your db.ts is located
+import clientPromise from "@/lib/db";
 
 interface Subscriber {
 	email: string;
 	subscribedAt: Date;
 }
+
+export const dynamic = "force-dynamic";
 
 export async function GET(req: Request) {
 	try {
@@ -17,7 +19,7 @@ export async function GET(req: Request) {
 		const db = client.db("newsletter");
 		const collection = db.collection("subscribers");
 
-		// pagination
+		// Pagination
 		const documents = await collection.find().skip(skip).limit(limit).toArray();
 
 		const subscribers: Subscriber[] = documents.map((doc) => ({

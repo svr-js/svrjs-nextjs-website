@@ -61,9 +61,9 @@ const HeroCards = () => {
       curlyText: "Free Forever!"
     },
     serviceCard: {
-      title: "Our Services",
+      title: "Pro tip: see our blog!",
       description:
-        "We offer a variety of services to cater to your needs, including web development, SEO, and more."
+        "We have web development, web server administration, and web application security tips on our blog!"
     }
   };
 

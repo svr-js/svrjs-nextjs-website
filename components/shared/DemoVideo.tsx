@@ -39,15 +39,9 @@ const DemoVideo = () => {
       <HeroVideoDialog
         animationStyle="top-in-bottom-out"
         videoSrc="https://odysee.com/$/embed/@SVRJS:5/svrjs-in-action:e?r=7t9EG6VDTNZDSze8ysoChqocLNhAMZEe"
-        thumbnailSrc="/poster.svg"
-        thumbnailAlt="Poster.svg"
+        thumbnailSrc="/svrjs-in-action.png"
+        thumbnailAlt="SVR.JS in action!"
       />
-      {/* <video
-				src="/svgaction.mp4"
-				className="rounded-xl aspect-video bg-[#09090b]"
-				controls
-				poster="/poster.svg"
-			></video> */}
       <hr className="w-full h-1" />
     </section>
   );

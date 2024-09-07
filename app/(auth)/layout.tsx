@@ -1,5 +1,5 @@
 import React from "react";
-import AuthProvider from "../../components/shared/providers/AuthProvider";
+import AuthProvider from "@/components/shared/providers/AuthProvider";
 
 export default function AdminLayout({
   children

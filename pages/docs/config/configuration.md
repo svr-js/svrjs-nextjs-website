@@ -1,10 +1,6 @@
 ---
-title: Configuration
+title: config.json properties
 ---
-
-## Configuration
-
-SVR.JS can be configured by modifying _config.json_ file.
 
 ### _config.json_ properties
 

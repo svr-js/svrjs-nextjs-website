@@ -51,7 +51,7 @@ const DownloadPage: React.FC = async () => {
         found in{" "}
         <Link
           href="https://downloads.svrjs.org"
-          className="font-light text-white hover:underline"
+          className="text-black dark:text-white underline"
         >
           SVR.JS downloads server
         </Link>

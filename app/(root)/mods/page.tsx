@@ -50,14 +50,14 @@ const ModsPage: React.FC = async () => {
         Get all the latest version of SVR.JS mods here! Notes can be found at{" "}
         <Link
           href="/docs/mod-notes"
-          className="font-light text-white hover:underline"
+          className="text-black dark:text-white underline"
         >
           &ldquo;SVR.JS mod notes&rdquo; section in SVR.JS documentation
         </Link>
         . Other SVR.JS mods downloads can be found in{" "}
         <Link
           href="https://downloads.svrjs.org/mods"
-          className="font-light text-white hover:underline"
+          className="text-black dark:text-white underline"
         >
           SVR.JS downloads server
         </Link>

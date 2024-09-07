@@ -15,7 +15,7 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import { Happy_Monkey } from "next/font/google";
-import { ArchiveRestore, Headset, Infinity, LightbulbIcon } from "lucide-react";
+import { BarChart4, Cog, LightbulbIcon, ShieldCheck } from "lucide-react";
 import Iconss from "../ui/icons";
 
 const happyMonkey = Happy_Monkey({
@@ -37,28 +37,28 @@ const HeroCards = () => {
       }
     },
     pricingCard: {
-      planName: "Pro Plan",
+      planName: "Free Forever",
       badgeTitle: "Popular",
       pricePerMonth: "$0",
       description:
-        "Get the best features and priority support with our Pro Plan.",
-      primaryButtonText: "Download SVR Now",
+        "Get all the features with SVR.JS, which is free as in freedom.",
+      primaryButtonText: "Download SVR.JS",
       primaryButtonDestination: "/downloads",
       features: [
         {
-          title: "Unlimited Projects",
-          icons: <Infinity width={25} height={25} />
+          title: "Scalablity",
+          icons: <BarChart4 width={25} height={25} />
         },
         {
-          title: "Priority Support",
-          icons: <ArchiveRestore width={25} height={25} />
+          title: "Security",
+          icons: <ShieldCheck width={25} height={25} />
         },
         {
-          title: "Free Updates",
-          icons: <Headset width={25} height={25} />
+          title: "Configurability",
+          icons: <Cog width={25} height={25} />
         }
       ],
-      curlyText: "Best Value!"
+      curlyText: "Free Forever!"
     },
     serviceCard: {
       title: "Our Services",
@@ -138,7 +138,8 @@ const HeroCards = () => {
                 className="inline-flex justify-center items-center gap-x-3"
               >
                 {benefit.icons}
-                <h3>{benefit.title}</h3>
+                <span>{benefit.title}</span>
+                <br />
               </span>
             ))}
           </div>

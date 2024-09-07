@@ -78,18 +78,17 @@ const HeroCards = () => {
           <Avatar>
             <AvatarImage
               alt={"twitteravatar"}
-              src={"https://github.com/shadcn.png"}
+              src={"/testimonials/acrosett.webp"}
             />
-            <AvatarFallback>Proxy</AvatarFallback>
+            <AvatarFallback>acrosett</AvatarFallback>
           </Avatar>
           <div className="flex flex-col">
-            <CardTitle className="text-lg">Proxy</CardTitle>
-            <CardDescription>@proxyxd_s</CardDescription>
+            <CardTitle className="text-lg">acrosett</CardTitle>
+            <CardDescription>@acrosettdev</CardDescription>
           </div>
         </CardHeader>
         <CardContent>
-          Svrjs has the best server side rendering{" "}
-          <span className="text-sky-400">#SVRJSONTOP</span>
+          My pleasure, SVR.js is an awesome project! 🔥🚀
         </CardContent>
         <BorderBeam className="-z-10" />
       </Card>

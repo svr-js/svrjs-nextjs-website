@@ -1,3 +1,7 @@
+---
+title: Mod files
+---
+
 ### Mod files (_.tar.gz_ mods)
 
 1.  _index.js_ - main script for mod

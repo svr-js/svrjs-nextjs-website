@@ -1,3 +1,7 @@
+---
+title: CLI options
+---
+
 ### CLI options
 
 - _-h_, _-?_, _/h_, _/?_ or _--help_ - displays help

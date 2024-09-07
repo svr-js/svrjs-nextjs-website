@@ -1,5 +1,5 @@
 ---
-title: config.json properties
+title: Configuration
 ---
 
 ## Configuration

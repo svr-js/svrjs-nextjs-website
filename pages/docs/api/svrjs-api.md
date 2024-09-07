@@ -1,3 +1,7 @@
+---
+title: SVR.JS API (.js mods)
+---
+
 ## SVR.JS API (_.js_ mods)
 
 SVR.JS has its API for _.js_ mods that expands its functionality. SVR.JS API extends vanilla Node.JS HTTP API.

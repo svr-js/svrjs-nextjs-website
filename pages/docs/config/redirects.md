@@ -1,3 +1,7 @@
+---
+title: Redirects
+---
+
 # Redirects
 
 Setting up HTTP redirects is simple with SVR.JS. You can add a 301 or 302 code (with `scode` property set to 301 or 302) entry to the `nonStandardCodes` property in `config.json`. The entry should specify the source URL for the redirect in the `url` or regular expression string for the redirect in `regex` property (for example `"/\\/blog($|[#?\\/].*)/"`), and the destination URL in the `location` property (for regular expressions, you can use for example `"$1"` for contents of the first capturing group). Destination location can be relative to the current site (for example `/blogs`) or a full URL (for example `https://blog.example.com`).

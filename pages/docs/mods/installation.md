@@ -1,3 +1,7 @@
+---
+title: Mod installation
+---
+
 ## Mods
 
 Mods in SVR.JS are custom modules that can extend the server's functionality. Using mods, you can extend SVR.JS functionality to suit your specific requirements and customize the server's behavior to handle different types of requests.

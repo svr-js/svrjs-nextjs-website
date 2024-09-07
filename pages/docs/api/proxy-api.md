@@ -1,4 +1,8 @@
-### Proxy API
+---
+title: Proxy API (legacy)
+---
+
+### Proxy API (legacy)
 
 <small>_Added in SVR.JS 3.4.21, 3.7.0_</small>{" "}
 

@@ -1,4 +1,8 @@
-### Non-proxy API
+---
+title: Non-proxy API (legacy)
+---
+
+### Non-proxy API (legacy)
 
 This API is exposed both to mods and server-side JavaScript. This API also includes proxy requests, which don't use CONNECT method. It's possible to determine, if the request comes from the proxy, by checking if _req.url_ begins with "_http://_" or with "_https://_" (unlike non-proxy requests, for which _req.url_ begins with "_/_") like this:
 

@@ -1,3 +1,7 @@
+---
+title: Mod development
+---
+
 ### Mod development (_.js_ mods)
 
 This section provides a comprehensive guide on developing `.js` mods for SVR.JS. Mods allow you to extend the functionality of SVR.JS by writing custom JavaScript code.

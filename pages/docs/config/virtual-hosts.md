@@ -1,3 +1,7 @@
+---
+title: Virtual hosts
+---
+
 ### Virtual hosts
 
 When you're not planning to use SVR.JS server-side JavaScript or SVR.JS mods implementing individual web applications and plan to use SVR.JS similarly to Apache, nginx or IIS (static-only, PHP, CGI or JSGI), you can use virtual host-like functionality (name-based; IP-based from SVR.JS 3.14.1 and newer) with SVR.JS 3.8.0 or newer.

@@ -1,3 +1,7 @@
+---
+title: User management
+---
+
 ### User management
 
 You can manage users for HTTP authentication in SVR.JS by using _svrpasswd.js_ tool (SVR.JS 3.0.0 or newer). Usage is `node svrpasswd.js [-h] [--help] [-?] [/h] [/?] [-x] [-a|--add|-d|--delete] <username>`. Command-line options:

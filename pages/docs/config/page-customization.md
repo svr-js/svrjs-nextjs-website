@@ -1,3 +1,7 @@
+---
+title: Page customization
+---
+
 ### Page customization
 
 You can easily customize the appearance of pages served by SVR.JS by adding custom head and foot sections. These sections can be linked to every _.html_ file served by SVR.JS.

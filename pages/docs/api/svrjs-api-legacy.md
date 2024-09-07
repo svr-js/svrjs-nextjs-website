@@ -1,3 +1,7 @@
+---
+title: SVR.JS API (.tar.gz mods and server-side JavaScript)
+---
+
 ## SVR.JS API (_.tar.gz_ mods and server-side JavaScript)
 
 SVR.JS has its API for both _.tar.gz_ mods and server-side JavaScript that expands its functionality. SVR.JS API extends vanilla Node.JS HTTP API.

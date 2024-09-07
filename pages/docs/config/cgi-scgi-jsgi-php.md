@@ -1,3 +1,7 @@
+---
+title: CGI/SCGI/JSGI/PHP
+---
+
 ### CGI/SCGI/JSGI/PHP
 
 In order to use CGI with SVR.JS, you need to install RedBrick mod. For SCGI you need to install OrangeCircle, while for JSGI you need to install YellowSquare mod. [Download these mods.](https://svrjs.org/mods)

@@ -1,3 +1,7 @@
+---
+title: Installation
+---
+
 ### Installation
 
 #### Using SVR.JS installer (installer packages made in April 5, 2024 and later; GNU/Linux only)

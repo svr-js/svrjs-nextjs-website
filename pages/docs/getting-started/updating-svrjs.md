@@ -1,3 +1,7 @@
+---
+title: Updating SVR.JS
+---
+
 ### Updating SVR.JS
 
 #### Using SVR.JS updater (included in SVR.JS installer package; GNU/Linux only)

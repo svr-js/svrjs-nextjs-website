@@ -1,3 +1,7 @@
+---
+title: Proxy callback API (module.exports.proxy)
+---
+
 ### Proxy callback API (`module.exports.proxy`)
 
 <small>_Added in SVR.JS 4.0.0_</small>{" "}

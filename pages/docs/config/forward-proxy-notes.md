@@ -1,3 +1,7 @@
+---
+title: Forward proxy notes
+---
+
 ### Forward proxy notes
 
 In order to use SVR.JS as a forward proxy, you need to install forward-proxy-mod SVR.JS mod. [Download this mod.](https://svrjs.org/mods)

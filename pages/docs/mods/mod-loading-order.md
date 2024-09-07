@@ -1,3 +1,7 @@
+---
+title: Mod loading order
+---
+
 ### Mod loading order
 
 #### Startup

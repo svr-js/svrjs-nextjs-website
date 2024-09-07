@@ -1,3 +1,7 @@
+---
+title: Server-side JavaScript
+---
+
 ## Server-side JavaScript
 
 Another way to expand SVR.JS functionality is through server-side JavaScript located in _serverSideScript.js_ file inside SVR.JS web root (or locaten in SVR.JS installation directory if you're running SVR.JS 3.9.0 or newer, and you have set _useWebRootServerSideScript_ property to _false_). Server-side JavaScript allows you to create various web applications using JavaScript, Node.JS and SVR.JS API.

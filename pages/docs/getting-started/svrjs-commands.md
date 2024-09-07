@@ -1,3 +1,7 @@
+---
+title: SVR.JS commands
+---
+
 ### SVR.JS commands
 
 SVR.JS comes with a console interface that provides several built-in commands for managing the server and interacting with it.

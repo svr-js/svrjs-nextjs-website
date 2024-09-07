@@ -6,13 +6,13 @@ const About = () => {
   return (
     <section id="about" className="container py-2 sm:py-9">
       <div className="bg-accent/50 border rounded-lg py-12">
-        <div className="px-6 flex flex-col-reverse md:flex-row gap-8 md:gap-12">
+        <div className="px-6 flex flex-col-reverse md:flex-row gap-8">
           <Image
-            src="/about.svg"
-            alt="aboutpicture"
-            width={300}
-            height={300}
-            className="w-[300px] object-contain rounded-lg flex-shrink-0"
+            src="/logo.svg"
+            alt="SVR.JS logo"
+            width={172}
+            height={172}
+            className="w-[172px] object-contain rounded-lg flex-shrink-0"
           />
 
           <div className="flex flex-col justify-between">

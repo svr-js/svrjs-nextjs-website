@@ -152,7 +152,7 @@ export const FOOTERLINKS = {
     { href: "/contribute", label: "Contribute" },
     { href: "/vulnerabilities", label: "Vulnerabilities" },
     { href: "https://git.svrjs.org", label: "Git Server" },
-    { href: "http://status.svrjs.org", label: "Server Uptime" }
+    { href: "https://status.svrjs.org", label: "Server Uptime" }
   ],
   social: {
     supportText: "Support Us on Socials"

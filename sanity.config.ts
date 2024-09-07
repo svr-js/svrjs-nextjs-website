@@ -13,6 +13,8 @@ export default defineConfig({
   projectId: `${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}`,
   dataset: "production",
 
+  basePath: "/studio",
+
   plugins: [structureTool(), visionTool(), codeInput()],
 
   schema: {

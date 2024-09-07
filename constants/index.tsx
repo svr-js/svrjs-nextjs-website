@@ -163,7 +163,7 @@ export const FOOTERLINKS = {
       label: "Terms of Service"
     },
     privacyPolicy: {
-      href: "/privacy-policy",
+      href: "/privacy",
       label: "Privacy Policy"
     },
     rightsReserved: {

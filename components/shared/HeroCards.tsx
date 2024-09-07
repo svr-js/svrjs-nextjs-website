@@ -12,11 +12,11 @@ import {
   CardHeader,
   CardTitle
 } from "@/components/ui/card";
+import Link from "next/link";
 import Image from "next/image";
 import { Happy_Monkey } from "next/font/google";
 import { ArchiveRestore, Headset, Infinity, LightbulbIcon } from "lucide-react";
 import Iconss from "../ui/icons";
-import { useRouter } from "next/navigation";
 
 const happyMonkey = Happy_Monkey({
   preload: true,
@@ -25,7 +25,6 @@ const happyMonkey = Happy_Monkey({
 });
 
 const HeroCards = () => {
-  const router = useRouter();
   const cards = {
     aboutCard: {
       description:
@@ -44,7 +43,7 @@ const HeroCards = () => {
       description:
         "Get the best features and priority support with our Pro Plan.",
       primaryButtonText: "Download SVR Now",
-      onPrimaryButtonClick: () => router.push("/downloads"),
+      primaryButtonDestination: "/downloads",
       features: [
         {
           title: "Unlimited Projects",
@@ -124,13 +123,11 @@ const HeroCards = () => {
           </div>
 
           <CardDescription>{cards.pricingCard.description}</CardDescription>
-          <Button
-            size="sm"
-            className="w-full"
-            onClick={cards.pricingCard.onPrimaryButtonClick}
-          >
-            {cards.pricingCard.primaryButtonText}
-          </Button>
+          <Link className="w-full" href="/downloads">
+            <Button size="sm" className="w-full">
+              {cards.pricingCard.primaryButtonText}
+            </Button>
+          </Link>
         </CardHeader>
         <hr className="w-4/5 m-auto -mt-2 mb-4" />
         <CardFooter className="flex">

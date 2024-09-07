@@ -27,6 +27,7 @@ interface BlogCardsProps {
 }
 
 const BlogCards: React.FC<BlogCardsProps> = async ({ searchParams }) => {
+  "use server";
   const cardsPerPage = 6;
   const currentPage = searchParams.page ? parseInt(searchParams.page) : 1;
 

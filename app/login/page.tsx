@@ -30,7 +30,7 @@ const LoginPage = () => {
     const res = await signIn("credentials", {
       redirect: false,
       username,
-      password,
+      password
     });
 
     if (res?.ok) {

@@ -13,11 +13,11 @@ import "prismjs/components/prism-markup-templating";
 import "prismjs/components/prism-handlebars";
 
 export default function PrismLoader() {
-	useEffect(() => {
-		if (Prism) {
-			Prism.highlightAll();
-		}
-	}, []);
+  useEffect(() => {
+    if (Prism) {
+      Prism.highlightAll();
+    }
+  }, []);
 
-	return null;
+  return null;
 }

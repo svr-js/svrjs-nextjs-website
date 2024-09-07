@@ -2,43 +2,43 @@ import { mailOptions, transporter } from "@/lib/nodemailer/nodemailer";
 import { NextRequest, NextResponse } from "next/server";
 
 const CONTACT_MESSAGE_FIELDS: Record<string, string> = {
-	name: "Name",
-	email: "Email",
-	message: "Message",
+  name: "Name",
+  email: "Email",
+  message: "Message"
 };
 
 const escapeHtml = (text: string) => {
-	return text
-		.replace(/&/g, "&amp;")
-		.replace(/</g, "&lt;")
-		.replace(/>/g, "&gt;")
-		.replace(/"/g, "&quot;")
-		.replace(/'/g, "&#039;");
+  return text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 };
 
 const generateEmailContent = (data: Record<string, string>) => {
-	const stringData = Object.entries(data).reduce(
-		(str, [key, val]) =>
-			str +
-			`${CONTACT_MESSAGE_FIELDS[key] || key}: ${val.replace(/\n/g, "\n")} \n\n`,
-		""
-	);
+  const stringData = Object.entries(data).reduce(
+    (str, [key, val]) =>
+      str +
+      `${CONTACT_MESSAGE_FIELDS[key] || key}: ${val.replace(/\n/g, "\n")} \n\n`,
+    ""
+  );
 
-	const htmlData = Object.entries(data).reduce(
-		(str, [key, val]) =>
-			str +
-			`<h3 class="form-heading">${escapeHtml(
-				CONTACT_MESSAGE_FIELDS[key] || key
-			)}</h3><p class="form-answer">${escapeHtml(val).replace(
-				/\n/g,
-				"<br/>"
-			)}</p>`,
-		""
-	);
+  const htmlData = Object.entries(data).reduce(
+    (str, [key, val]) =>
+      str +
+      `<h3 class="form-heading">${escapeHtml(
+        CONTACT_MESSAGE_FIELDS[key] || key
+      )}</h3><p class="form-answer">${escapeHtml(val).replace(
+        /\n/g,
+        "<br/>"
+      )}</p>`,
+    ""
+  );
 
-	return {
-		text: stringData,
-		html: `<!DOCTYPE html>
+  return {
+    text: stringData,
+    html: `<!DOCTYPE html>
       <html>
       <head>
           <title>Contact Email</title>
@@ -90,37 +90,37 @@ const generateEmailContent = (data: Record<string, string>) => {
           </tr>
           </table>
       </body>
-      </html>`,
-	};
+      </html>`
+  };
 };
 
 export async function POST(req: NextRequest) {
-	if (req.method !== "POST") {
-		return NextResponse.json(
-			{ message: "Method Not Allowed" },
-			{ status: 405 }
-		);
-	}
+  if (req.method !== "POST") {
+    return NextResponse.json(
+      { message: "Method Not Allowed" },
+      { status: 405 }
+    );
+  }
 
-	try {
-		const data = await req.json();
-		console.log(data);
+  try {
+    const data = await req.json();
+    console.log(data);
 
-		await transporter.sendMail({
-			...mailOptions,
-			...generateEmailContent(data),
-			subject: "Contact Email",
-		});
+    await transporter.sendMail({
+      ...mailOptions,
+      ...generateEmailContent(data),
+      subject: "Contact Email"
+    });
 
-		return NextResponse.json(
-			{ message: "Email sent successfully" },
-			{ status: 200 }
-		);
-	} catch (error) {
-		console.error("Error sending email:", error);
-		return NextResponse.json(
-			{ message: "Internal Server Error" },
-			{ status: 500 }
-		);
-	}
+    return NextResponse.json(
+      { message: "Email sent successfully" },
+      { status: 200 }
+    );
+  } catch (error) {
+    console.error("Error sending email:", error);
+    return NextResponse.json(
+      { message: "Internal Server Error" },
+      { status: 500 }
+    );
+  }
 }

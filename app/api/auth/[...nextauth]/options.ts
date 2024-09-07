@@ -9,7 +9,7 @@ export const authOptions: NextAuthOptions = {
       name: "Credentials",
       credentials: {
         username: { label: "Username", type: "text" },
-        password: { label: "Password", type: "password" },
+        password: { label: "Password", type: "password" }
       },
       async authorize(credentials: any): Promise<any> {
         const adminUsername = process.env.ADMIN_USERNAME;
@@ -34,8 +34,8 @@ export const authOptions: NextAuthOptions = {
         }
         // If you return null then an error will be displayed that the user to check their details.
         return null;
-      },
-    }),
+      }
+    })
   ],
   callbacks: {
     async jwt({ token, user }) {
@@ -51,13 +51,13 @@ export const authOptions: NextAuthOptions = {
       // session.user.id = token.id;
       // session.user.name = token.name;
       return session;
-    },
+    }
   },
   pages: {
-    signIn: "/login",
+    signIn: "/login"
   },
   session: {
-    strategy: "jwt",
+    strategy: "jwt"
   },
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: process.env.NEXTAUTH_SECRET
 };

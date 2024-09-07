@@ -8,18 +8,18 @@ import Partners from "@/components/shared/Partners";
 import Testimonials from "@/components/shared/Testimonials";
 
 const RootPage = () => {
-	return (
-		<>
-			<Hero />
-			<HowItWorks />
-			<Testimonials />
-			<Partners />
-			<About />
-			{/* <DataTable /> */}
-			<Faq />
-			<Newsletter />
-		</>
-	);
+  return (
+    <>
+      <Hero />
+      <HowItWorks />
+      <Testimonials />
+      <Partners />
+      <About />
+      {/* <DataTable /> */}
+      <Faq />
+      <Newsletter />
+    </>
+  );
 };
 
 export default RootPage;

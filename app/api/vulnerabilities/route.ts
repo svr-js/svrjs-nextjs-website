@@ -6,15 +6,15 @@ export const dynamic = "force-dynamic";
 
 // Handler for GET requests
 export async function GET(req: NextRequest) {
-	try {
-		const client = await clientPromise;
-		const db = client.db("downloadsDatabase");
-		const downloads = await db.collection("vulnerabilities").find().toArray();
-		return NextResponse.json(downloads, { status: 200 });
-	} catch (error) {
-		return NextResponse.json(
-			{ error: "Failed to fetch logs" },
-			{ status: 500 }
-		);
-	}
+  try {
+    const client = await clientPromise;
+    const db = client.db("downloadsDatabase");
+    const downloads = await db.collection("vulnerabilities").find().toArray();
+    return NextResponse.json(downloads, { status: 200 });
+  } catch (error) {
+    return NextResponse.json(
+      { error: "Failed to fetch logs" },
+      { status: 500 }
+    );
+  }
 }

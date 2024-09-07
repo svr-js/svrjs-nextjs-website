@@ -4,13 +4,13 @@ import { client } from "@/lib/sanity";
 import { toHTML } from "@portabletext/to-html";
 
 export async function GET() {
-	// Define the site URL based on the environment
-	const SITE_URL =
-		process.env.NODE_ENV === "production"
-			? "https://svrjs.vercel.app"
-			: "http://localhost:3000";
+  // Define the site URL based on the environment
+  const SITE_URL =
+    process.env.NODE_ENV === "production"
+      ? "https://svrjs.vercel.app"
+      : "http://localhost:3000";
 
-	const postsQuery = `*[_type == 'blog'] | order(_createdAt desc) {
+  const postsQuery = `*[_type == 'blog'] | order(_createdAt desc) {
     title,
     "slug": slug.current,
     content,
@@ -18,33 +18,33 @@ export async function GET() {
     _createdAt
   }`;
 
-	const posts = await client.fetch(postsQuery);
+  const posts = await client.fetch(postsQuery);
 
-	const feed = new RSS({
-		title: "SVRJS Blog",
-		description: "Explore the latest blog posts from SVRJS",
-		feed_url: `${SITE_URL}/rss.xml`,
-		site_url: `${SITE_URL}`,
-		image_url: `${SITE_URL}/metadata/svrjs-cover.png`,
-		language: "en-US",
-		pubDate: new Date().toUTCString(),
-	});
+  const feed = new RSS({
+    title: "SVRJS Blog",
+    description: "Explore the latest blog posts from SVRJS",
+    feed_url: `${SITE_URL}/rss.xml`,
+    site_url: `${SITE_URL}`,
+    image_url: `${SITE_URL}/metadata/svrjs-cover.png`,
+    language: "en-US",
+    pubDate: new Date().toUTCString()
+  });
 
-	posts.forEach((post: any) => {
-		feed.item({
-			title: post.title,
-			description: toHTML(post.content),
-			url: `${SITE_URL}/blog/${post.slug}`,
-			date: new Date(post._createdAt).toUTCString(),
-			// uncomment this if u want to
-			// enclosure: { url: urlFor(post.titleImage).url() },
-			// author: "SVRJS",
-		});
-	});
+  posts.forEach((post: any) => {
+    feed.item({
+      title: post.title,
+      description: toHTML(post.content),
+      url: `${SITE_URL}/blog/${post.slug}`,
+      date: new Date(post._createdAt).toUTCString()
+      // uncomment this if u want to
+      // enclosure: { url: urlFor(post.titleImage).url() },
+      // author: "SVRJS",
+    });
+  });
 
-	return new NextResponse(feed.xml({ indent: true }), {
-		headers: {
-			"Content-Type": "application/xml",
-		},
-	});
+  return new NextResponse(feed.xml({ indent: true }), {
+    headers: {
+      "Content-Type": "application/xml"
+    }
+  });
 }

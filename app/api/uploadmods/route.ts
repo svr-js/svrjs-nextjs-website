@@ -16,7 +16,7 @@ export async function POST(request: Request) {
     fileName,
     version,
     downloadLink,
-    fileSize,
+    fileSize
   });
 
   return NextResponse.json({ success: true, id: result.insertedId });

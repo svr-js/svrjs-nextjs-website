@@ -2,13 +2,9 @@ import React from "react";
 import AuthProvider from "../../components/shared/providers/AuthProvider";
 
 export default function AdminLayout({
-	children,
+  children
 }: {
-	children: React.ReactNode;
+  children: React.ReactNode;
 }) {
-	return (
-		<AuthProvider>
-			{children}
-		</AuthProvider>
-	);
+  return <AuthProvider>{children}</AuthProvider>;
 }

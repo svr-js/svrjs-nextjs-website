@@ -9,7 +9,7 @@ import {
   TableCell,
   TableHead,
   TableHeader,
-  TableRow,
+  TableRow
 } from "@/components/ui/table";
 import { Download } from "lucide-react";
 import Link from "next/link";
@@ -30,7 +30,7 @@ const ModsPage: React.FC = () => {
   const fetchDownloads = async () => {
     try {
       const response = await fetch("/api/mods", {
-        method: "GET",
+        method: "GET"
       });
       if (response.ok) {
         const data: Mods[] = await response.json();

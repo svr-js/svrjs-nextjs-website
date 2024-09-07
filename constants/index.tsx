@@ -48,20 +48,20 @@ export const NAVBAR = {
 // About section Stats
 export const stats = [
   {
-    title: "Downloads",
-    count: 69
+    title: "Docker pulls",
+    count: 18
   },
   {
-    title: "Users",
-    count: 42
+    title: "GitHub stars",
+    count: 8
   },
   {
-    title: "Stars",
-    count: 6
+    title: "Powered servers",
+    count: 1
   },
   {
-    title: "Products",
-    count: 2
+    title: "Contributors",
+    count: 1
   }
 ];
 

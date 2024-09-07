@@ -50,6 +50,8 @@ export default function NumberTicker({
         className
       )}
       ref={ref}
-    />
+    >
+      0
+    </span>
   );
 }

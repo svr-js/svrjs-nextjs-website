@@ -6,13 +6,13 @@ export default async function sitemap() {
   const baseRoutes = [
     "/",
     "/blog",
-    "/changelogs",
+    "/changelog",
     "/contact",
     "/contribute",
     "/downloads",
     "/forum",
     "/mods",
-    "/privacy-policy",
+    "/privacy",
     "/tos",
     "/vulnerabilities",
     "/newsletter"

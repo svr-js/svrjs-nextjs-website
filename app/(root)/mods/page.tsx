@@ -86,8 +86,8 @@ const ModsPage: React.FC = () => {
             <TableHead className="w-[150px]">Date</TableHead>
             <TableHead>File Name</TableHead>
             <TableHead>Version</TableHead>
-            <TableHead>Download Link</TableHead>
-            <TableHead className="text-right">File Size</TableHead>
+            <TableHead>File Size</TableHead>
+            <TableHead className="text-right">Download Link</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>

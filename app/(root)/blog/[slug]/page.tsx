@@ -202,7 +202,7 @@ export default async function BlogSlugArticle({
               className="w-full h-auto object-cover rounded-md"
             />
             <p className="mt-4 text-lg md:text-xl text-muted-foreground">
-              Uploaded at {formattedDate}
+              Published on: {formattedDate}
             </p>
           </div>
         </header>

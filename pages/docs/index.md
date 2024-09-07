@@ -1,5 +1,5 @@
 ---
-title: SVR.JS documentation
+title: Documentation
 ---
 
 # Welcome to the official documentation of SVR.JS!

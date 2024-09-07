@@ -73,10 +73,7 @@ const HeroCards = () => {
       <Card className="absolute w-[340px] -top-[15px] drop-shadow-xl shadow-black/10 dark:shadow-white/10">
         <CardHeader className="flex flex-row items-center gap-4 pb-2">
           <Avatar>
-            <AvatarImage
-              alt={"twitteravatar"}
-              src={"/testimonials/acrosett.webp"}
-            />
+            <AvatarImage alt={"acrosett"} src={"/testimonials/acrosett.webp"} />
             <AvatarFallback>acrosett</AvatarFallback>
           </Avatar>
           <div className="flex flex-col">

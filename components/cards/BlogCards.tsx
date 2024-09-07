@@ -68,7 +68,11 @@ const BlogCards: React.FC<BlogCardsProps> = async ({ searchParams }) => {
               <Link href={`/blog/${post.currentSlug}`} className="block">
                 <div className="relative overflow-hidden rounded-t-lg">
                   <Image
-                    src={urlFor(post.titleImage).url()}
+                    src={
+                      post.titleImage
+                        ? urlFor(post.titleImage).url()
+                        : "/blog-missing.png"
+                    }
                     alt={post.title}
                     width={500}
                     height={300}

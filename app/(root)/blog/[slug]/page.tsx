@@ -64,7 +64,9 @@ export async function generateMetadata({
       type: "website",
       images: [
         {
-          url: urlFor(data.titleImage).url(),
+          url: data.titleImage
+            ? urlFor(data.titleImage).url()
+            : "/blog-missing.png",
           width: 800,
           height: 600,
           alt: `${data.title} - SVR.JS`
@@ -76,7 +78,9 @@ export async function generateMetadata({
       site: "@SVR_JS",
       title: `${data.title} - SVR.JS`,
       description: data.smallDescription,
-      images: [urlFor(data.titleImage).url()],
+      images: [
+        data.titleImage ? urlFor(data.titleImage).url() : "/blog-missing.png"
+      ],
       creator: "@SVR_JS"
     }
   };
@@ -172,24 +176,26 @@ export default async function BlogSlugArticle({
           </Link>
         </div>
         <header className="text-start mb-8 w-full">
-          {data.titleImage && (
-            <div className="mb-2">
-              <h1 className="text-3xl md:text-5xl mb-8 py-4 font-bold text-black dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-b dark:from-white dark:to-neutral-400">
-                {data.title}
-              </h1>
-              <Image
-                src={urlFor(data.titleImage).url()}
-                alt={data.title}
-                width={1200}
-                height={800}
-                priority
-                className="w-full h-auto object-cover rounded-md"
-              />
-              <p className="mt-4 text-lg md:text-xl text-muted-foreground">
-                Uploaded at {formattedDate}
-              </p>
-            </div>
-          )}
+          <div className="mb-2">
+            <h1 className="text-3xl md:text-5xl mb-8 py-4 font-bold text-black dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-b dark:from-white dark:to-neutral-400">
+              {data.title}
+            </h1>
+            <Image
+              src={
+                data.titleImage
+                  ? urlFor(data.titleImage).url()
+                  : "/blog-missing.png"
+              }
+              alt={data.title}
+              width={1200}
+              height={800}
+              priority
+              className="w-full h-auto object-cover rounded-md"
+            />
+            <p className="mt-4 text-lg md:text-xl text-muted-foreground">
+              Uploaded at {formattedDate}
+            </p>
+          </div>
         </header>
         <Separator className="mb-6" />
         <article className="prose max-w-full md:prose-lg dark:prose-invert">

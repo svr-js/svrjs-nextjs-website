@@ -1,4 +1,5 @@
 import React from "react";
+import { client } from "@/lib/sanity";
 import { Metadata } from "next";
 import BlogCards from "@/components/cards/BlogCards";
 import { Rss } from "lucide-react";
@@ -35,7 +36,9 @@ export const metadata: Metadata = {
   }
 };
 
-const BlogPage = async () => {
+const BlogPage = async ({ params }: { params: { id: string } }) => {
+  // Optionally, you can fetch some initial data here if needed.
+
   return (
     <section
       id="blog"
@@ -52,9 +55,26 @@ const BlogPage = async () => {
           </Button>
         </Link>
       </p>
-      <BlogCards page={1} />
+      <BlogCards page={parseInt(params.id)} />
     </section>
   );
 };
+
+export async function generateStaticParams() {
+  // Change in BlogCards component too!
+  const cardsPerPage = 6;
+
+  const totalPostsQuery = `count(*[_type == 'blog'])`;
+  const totalPosts: number = await client.fetch(totalPostsQuery);
+
+  const totalPages = Math.ceil(totalPosts / cardsPerPage);
+
+  let ids: any[] = [];
+  for (let i = 1; i <= totalPages; i++) {
+    ids.push({ id: i.toString() });
+  }
+
+  return ids;
+}
 
 export default BlogPage;

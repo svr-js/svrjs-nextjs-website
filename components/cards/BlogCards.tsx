@@ -22,14 +22,16 @@ interface BlogPostcard {
   _createdAt: string;
 }
 
-interface BlogCardsProps {
-  searchParams: { page?: string };
+interface BlogCardInterface {
+  page: number;
 }
 
-const BlogCards: React.FC<BlogCardsProps> = async ({ searchParams }) => {
+const BlogCards: React.FC<BlogCardInterface> = async (props) => {
   "use server";
+
+  // Change in /blog/page/[id] route too!
   const cardsPerPage = 6;
-  const currentPage = searchParams.page ? parseInt(searchParams.page) : 1;
+  const currentPage = props.page;
 
   const query = `*[_type == 'blog'] | order(_createdAt desc) {
         title,
@@ -107,13 +109,13 @@ const BlogCards: React.FC<BlogCardsProps> = async ({ searchParams }) => {
             <PaginationContent>
               <PaginationItem>
                 {currentPage > 1 && (
-                  <PaginationPrevious href={`?page=${currentPage - 1}`} />
+                  <PaginationPrevious href={`/blog/page/${currentPage - 1}`} />
                 )}
               </PaginationItem>
               {Array.from({ length: totalPages }).map((_, i) => (
                 <PaginationItem key={i}>
                   <PaginationLink
-                    href={`?page=${i + 1}`}
+                    href={`/blog/page/${i + 1}`}
                     isActive={currentPage === i + 1}
                   >
                     {i + 1}
@@ -122,7 +124,7 @@ const BlogCards: React.FC<BlogCardsProps> = async ({ searchParams }) => {
               ))}
               <PaginationItem>
                 {currentPage < totalPages && (
-                  <PaginationNext href={`?page=${currentPage + 1}`} />
+                  <PaginationNext href={`/blog/page/${currentPage + 1}`} />
                 )}
               </PaginationItem>
             </PaginationContent>

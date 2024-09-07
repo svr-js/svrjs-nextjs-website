@@ -8,8 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky",
-    "cz": "cz",
-    "build-mdx": "node scripts/build-mdx.js"
+    "cz": "cz"
   },
   "dependencies": {
     "@hcaptcha/react-hcaptcha": "^1.11.0",

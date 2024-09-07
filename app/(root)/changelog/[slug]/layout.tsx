@@ -32,6 +32,18 @@ export async function generateMetadata({
     }
   } catch (err) {}
 
+  if (notFound) {
+    return {
+      title: "404 Not Found - SVR.JS",
+      openGraph: {
+        title: "404 Not Found - SVR.JS"
+      },
+      twitter: {
+        title: "404 Not Found - SVR.JS"
+      }
+    };
+  }
+
   return {
     title: `${page.title} change log - SVR.JS`,
     description: `Keep track of the latest updates and improvements for ${page.title} with our comprehensive change log. Discover new features, bug fixes, and enhancements for each release of this SVR.JS mod.`,

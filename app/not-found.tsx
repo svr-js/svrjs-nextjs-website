@@ -1,6 +1,17 @@
+import type { Metadata } from "next";
 import Footer from "@/components/shared/Footer";
 import Navbar from "@/components/shared/Navbar";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "404 Not Found - SVR.JS",
+  openGraph: {
+    title: "404 Not Found - SVR.JS"
+  },
+  twitter: {
+    title: "404 Not Found - SVR.JS"
+  }
+};
 
 const NotFound = () => {
   return (

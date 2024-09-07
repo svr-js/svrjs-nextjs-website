@@ -51,8 +51,13 @@ export async function generateMetadata({
 
   if (!data) {
     return {
-      title: "Not Found",
-      description: "Blog post not found"
+      title: "404 Not Found - SVR.JS",
+      openGraph: {
+        title: "404 Not Found - SVR.JS"
+      },
+      twitter: {
+        title: "404 Not Found - SVR.JS"
+      }
     };
   }
 

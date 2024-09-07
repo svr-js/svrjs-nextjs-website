@@ -59,10 +59,24 @@ const ModsPage: React.FC = () => {
       className="wrapper container py-24 md:py-28 gap-2 flex flex-col"
     >
       <h1 className="text-3xl md:text-5xl pb-1 md:pb-2 font-bold text-black dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-b dark:from-white dark:to-neutral-400">
-        SvrJS Mods
+        SVR.JS mods
       </h1>
       <p className="md:text-lg text-muted-foreground text-start mb-6">
-        Get all the latest version of SVR.JS Mods and compiled Files here!{" "}
+        Get all the latest version of SVR.JS mods here! Notes can be found at{" "}
+        <Link
+          href="/docs/mod-notes"
+          className="font-light text-white hover:underline"
+        >
+          &ldquo;SVR.JS mod notes&rdquo; section in SVR.JS documentation
+        </Link>
+        . Other SVR.JS mods downloads can be found in{" "}
+        <Link
+          href="https://downloads.svrjs.org/mods"
+          className="font-light text-white hover:underline"
+        >
+          SVR.JS downloads server
+        </Link>
+        .
       </p>
       {error && <p className="text-red-500">{error}</p>}
       <Table>

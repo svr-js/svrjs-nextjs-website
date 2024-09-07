@@ -27,12 +27,14 @@ const generateEmailContent = (data: Record<string, string>) => {
   const htmlData = Object.entries(data).reduce(
     (str, [key, val]) =>
       str +
-      `<h3 class="form-heading">${escapeHtml(
-        CONTACT_MESSAGE_FIELDS[key] || key
-      )}</h3><p class="form-answer">${escapeHtml(val).replace(
-        /\n/g,
-        "<br/>"
-      )}</p>`,
+      (key == "captchaToken"
+        ? ""
+        : `<h3 class="form-heading">${escapeHtml(
+            CONTACT_MESSAGE_FIELDS[key] || key
+          )}</h3><p class="form-answer">${escapeHtml(val).replace(
+            /\n/g,
+            "<br/>"
+          )}</p>`),
     ""
   );
 
@@ -105,6 +107,27 @@ export async function POST(req: NextRequest) {
   try {
     const data = await req.json();
     console.log(data);
+
+    // Verify hCaptcha token
+    const hcaptchaResponse = await fetch(
+      `https://api.hcaptcha.com/siteverify`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: `secret=${process.env.HCAPTCHA_SECRET}&response=${data.captchaToken}`
+      }
+    );
+
+    const hcaptchaData = await hcaptchaResponse.json();
+
+    if (!hcaptchaData.success) {
+      return NextResponse.json(
+        { message: "Captcha verification failed." },
+        { status: 400 }
+      );
+    }
 
     await transporter.sendMail({
       ...mailOptions,

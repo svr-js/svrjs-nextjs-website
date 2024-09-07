@@ -42,7 +42,7 @@ const LoginPage = () => {
 
   return (
     <div className="max-w-xl h-screen flex justify-center bg-gray-900 flex-col container">
-      <h1 className="text-3xl font-bold mb-4">SVRJS ADMIN PANEL</h1>
+      <h1 className="text-3xl font-bold mb-4">SVR.JS ADMIN PANEL</h1>
       {error && <p className="text-red-500 mb-4">{error}</p>}
       <form onSubmit={handleLogin}>
         <div className="mb-4">

@@ -4,11 +4,11 @@ import { Metadata } from "next";
 
 // baseURL [ENV]
 export const metadata: Metadata = {
-  title: "Contribute - SVRJS",
+  title: "Contribute - SVR.JS",
   description:
     "Contribute to SVR.JS and be part of an exciting open-source project. Follow the step-by-step guidelines to make your code contributions.",
   openGraph: {
-    title: "Contribute - SVRJS",
+    title: "Contribute - SVR.JS",
     description:
       "Contribute to SVR.JS and be part of an exciting open-source project. Follow the step-by-step guidelines to make your code contributions.",
     url: "https://svrjs.org/contribute",
@@ -18,14 +18,14 @@ export const metadata: Metadata = {
         url: "https://svrjs.vercel.app/metadata/svrjs-cover.png",
         width: 800,
         height: 600,
-        alt: "Contribute - SVRJS"
+        alt: "Contribute - SVR.JS"
       }
     ]
   },
   twitter: {
     card: "summary_large_image",
     site: "@SVR_JS",
-    title: "Contribute - SVRJS",
+    title: "Contribute - SVR.JS",
     description:
       "Contribute to SVR.JS and be part of an exciting open-source project. Follow the step-by-step guidelines to make your code contributions.",
     images: ["https://svrjs.vercel.app/metadata/svrjs-cover.png"],

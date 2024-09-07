@@ -2,11 +2,11 @@ import { Metadata } from "next";
 
 // baseURL [ENV]
 export const metadata: Metadata = {
-  title: "Vulnerabilities - SVRJS",
+  title: "Vulnerabilities - SVR.JS",
   description:
     "Learn about potential security risks associated with outdated SVR.JS web server versions. Stay informed and safeguard your web applications from potential threats with timely updates.",
   openGraph: {
-    title: "Vulnerabilities - SVRJS",
+    title: "Vulnerabilities - SVR.JS",
     description:
       "Learn about potential security risks associated with outdated SVR.JS web server versions. Stay informed and safeguard your web applications from potential threats with timely updates.",
     url: "https://svrjs.org/vulnerabilities",
@@ -16,14 +16,14 @@ export const metadata: Metadata = {
         url: "https://svrjs.vercel.app/metadata/svrjs-cover.png",
         width: 800,
         height: 600,
-        alt: "Vulnerabilities - SVRJS"
+        alt: "Vulnerabilities - SVR.JS"
       }
     ]
   },
   twitter: {
     card: "summary_large_image",
     site: "@SVR_JS",
-    title: "Vulnerabilities - SVRJS",
+    title: "Vulnerabilities - SVR.JS",
     description:
       "Learn about potential security risks associated with outdated SVR.JS web server versions. Stay informed and safeguard your web applications from potential threats with timely updates.",
     images: ["https://svrjs.vercel.app/metadata/svrjs-cover.png"],

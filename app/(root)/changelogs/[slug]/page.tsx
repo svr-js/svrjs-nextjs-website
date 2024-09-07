@@ -19,7 +19,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
         if (response.ok) {
           const data = await response.json();
           setPage(data);
-          return (document.title = `${data.title} Change Log - SVRJS`);
+          return (document.title = `${data.title} Change Log - SVR.JS`);
         } else {
           if (response.status === 404) {
             setNotFound(true);
@@ -41,7 +41,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
     return (
       <>
         <head>
-          <title>Mods Change Logs - SVRJS</title>
+          <title>Mods Change Logs - SVR.JS</title>
         </head>
         <section className="wrapper container py-24 md:py-28 gap-4 flex flex-col">
           <div className="mb-3">
@@ -78,14 +78,17 @@ const Page = ({ params }: { params: { slug: string } }) => {
   return (
     <>
       <head>
-        <title>{page.title} Changelog - SVRJS</title>
+        <title>{page.title} Changelog - SVR.JS</title>
         <meta
           name="description"
           content={`Keep track of the latest updates and improvements for ${page.title} with our comprehensive change log. Discover new features, bug fixes, and enhancements for each release of this SVR.JS mod.`}
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <meta property="og:title" content={`${page.title} Changelog - SVRJS`} />
+        <meta
+          property="og:title"
+          content={`${page.title} Changelog - SVR.JS`}
+        />
         <meta
           property="og:description"
           content={`Keep track of the latest updates and improvements for ${page.title} with our comprehensive change log. Discover new features, bug fixes, and enhancements for each release of this SVR.JS mod.`}
@@ -99,11 +102,11 @@ const Page = ({ params }: { params: { slug: string } }) => {
           property="og:image"
           content="https://svrjs.vercel.app/metadata/svrjs-cover.png"
         />
-        <title>Documentation - SVRJS</title>
+        <title>Documentation - SVR.JS</title>
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content={`${page.title} Changelog - SVRJS`}
+          content={`${page.title} Changelog - SVR.JS`}
         />
         <meta
           name="twitter:description"

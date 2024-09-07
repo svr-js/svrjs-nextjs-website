@@ -6,11 +6,11 @@ import { Metadata } from "next";
 
 // baseURL [ENV]
 export const metadata: Metadata = {
-  title: "Privacy Policy - SVRJS",
+  title: "Privacy Policy - SVR.JS",
   description:
     "Learn how we collect, use, and protect your data. Our Privacy Policy outlines our commitment to your privacy and the measures we take to safeguard your information when visiting our website.",
   openGraph: {
-    title: "Privacy Policy - SVRJS",
+    title: "Privacy Policy - SVR.JS",
     description:
       "Learn how we collect, use, and protect your data. Our Privacy Policy outlines our commitment to your privacy and the measures we take to safeguard your information when visiting our website.",
     url: "https://svrjs.org/privacy-policy",
@@ -20,14 +20,14 @@ export const metadata: Metadata = {
         url: "https://svrjs.vercel.app/metadata/svrjs-cover.png",
         width: 800,
         height: 600,
-        alt: "Privacy Policy - SVRJS"
+        alt: "Privacy Policy - SVR.JS"
       }
     ]
   },
   twitter: {
     card: "summary_large_image",
     site: "@SVR_JS",
-    title: "Privacy Policy - SVRJS",
+    title: "Privacy Policy - SVR.JS",
     description:
       "Learn how we collect, use, and protect your data. Our Privacy Policy outlines our commitment to your privacy and the measures we take to safeguard your information when visiting our website.",
     images: ["https://svrjs.vercel.app/metadata/svrjs-cover.png"],

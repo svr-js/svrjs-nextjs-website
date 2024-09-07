@@ -168,7 +168,7 @@ export const FOOTERLINKS = {
     },
     rightsReserved: {
       href: "https://svrjs.org/",
-      label: "SVRJS"
+      label: "SVR.JS"
     }
   }
 };
@@ -218,7 +218,7 @@ export const AdminDashboardLINKS = [
     url: "/admin/downloads"
   },
   {
-    label: "SVRJS Mods",
+    label: "SVR.JS Mods",
     url: "/admin/mods"
   },
   {

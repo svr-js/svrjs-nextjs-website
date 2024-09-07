@@ -18,7 +18,7 @@ const Partners = () => {
     >
       <h2 className="text-3xl md:text-5xl font-bold text-start">
         <span className="bg-gradient-to-b from-green-300 to-primary text-transparent bg-clip-text">
-          SVRJS
+          SVR.JS
         </span>{" "}
         in action
       </h2>

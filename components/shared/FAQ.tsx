@@ -14,7 +14,7 @@ const Faq = () => {
         Frequently Asked Question
       </h2>
       <p className="text-lg text-muted-foreground text-start mt-4 md:mt-2 mb-8">
-        Find answers to common questions about SVRJS
+        Find answers to common questions about SVR.JS
       </p>
       <Accordion
         type="single"

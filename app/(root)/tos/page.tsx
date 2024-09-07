@@ -4,11 +4,11 @@ import { Metadata } from "next";
 
 // baseURL [ENV]
 export const metadata: Metadata = {
-  title: "Terms of Service - SVRJS",
+  title: "Terms of Service - SVR.JS",
   description:
     "Understand your rights and responsibilities when using SVR.JS. Our Terms of Service page outlines the conditions for visiting our website, ensuring a transparent and fair experience for all users.",
   openGraph: {
-    title: "Terms of Service - SVRJS",
+    title: "Terms of Service - SVR.JS",
     description:
       "Understand your rights and responsibilities when using SVR.JS. Our Terms of Service page outlines the conditions for visiting our website, ensuring a transparent and fair experience for all users.",
     url: "https://svrjs.org/tos",
@@ -18,14 +18,14 @@ export const metadata: Metadata = {
         url: "https://svrjs.vercel.app/metadata/svrjs-cover.png",
         width: 800,
         height: 600,
-        alt: "Terms of Service - SVRJS"
+        alt: "Terms of Service - SVR.JS"
       }
     ]
   },
   twitter: {
     card: "summary_large_image",
     site: "@SVR_JS",
-    title: "Terms of Service - SVRJS",
+    title: "Terms of Service - SVR.JS",
     description:
       "Understand your rights and responsibilities when using SVR.JS. Our Terms of Service page outlines the conditions for visiting our website, ensuring a transparent and fair experience for all users.",
     images: ["https://svrjs.vercel.app/metadata/svrjs-cover.png"],

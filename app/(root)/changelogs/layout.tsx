@@ -2,11 +2,11 @@ import { Metadata } from "next";
 
 // baseURL [ENV]
 export const metadata: Metadata = {
-  title: "ChangeLogs - SVRJS",
+  title: "ChangeLogs - SVR.JS",
   description:
     "Stay up-to-date with the latest improvements and updates to SVR.JS web server. Our change log page provides a comprehensive list of new features, bug fixes, and enhancements for each release.",
   openGraph: {
-    title: "ChangeLogs - SVRJS",
+    title: "ChangeLogs - SVR.JS",
     description:
       "Stay up-to-date with the latest improvements and updates to SVR.JS web server. Our change log page provides a comprehensive list of new features, bug fixes, and enhancements for each release.",
     url: "https://svrjs.org/changelogs",
@@ -16,14 +16,14 @@ export const metadata: Metadata = {
         url: "https://svrjs.vercel.app/metadata/svrjs-cover.png",
         width: 800,
         height: 600,
-        alt: "ChangeLogs - SVRJS"
+        alt: "ChangeLogs - SVR.JS"
       }
     ]
   },
   twitter: {
     card: "summary_large_image",
     site: "@SVR_JS",
-    title: "ChangeLogs - SVRJS",
+    title: "ChangeLogs - SVR.JS",
     description:
       "Stay up-to-date with the latest improvements and updates to SVR.JS web server. Our change log page provides a comprehensive list of new features, bug fixes, and enhancements for each release.",
     images: ["https://svrjs.vercel.app/metadata/svrjs-cover.png"],

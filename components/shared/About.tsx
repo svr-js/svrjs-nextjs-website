@@ -20,14 +20,14 @@ const About = () => {
               <h2 className="text-3xl md:text-5xl font-bold">
                 About{" "}
                 <span className="bg-gradient-to-b from-green-300 to-primary text-transparent bg-clip-text">
-                  SVRJS!
+                  SVR.JS!
                 </span>
               </h2>
               <p className="text-lg text-muted-foreground mt-4">
                 Host a webpage, run server-side JavaScript, use mods to expand
                 server functionality, or use it as a forward or reverse proxy.
-                SVRJS is a web server that runs on top of Node.JS, enabling
-                server-side JS on webpages. SVRJS also has an integrated log
+                SVR.JS is a web server that runs on top of Node.JS, enabling
+                server-side JS on webpages. SVR.JS also has an integrated log
                 viewer, log highlighter, and user management tool.
               </p>
             </div>

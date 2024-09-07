@@ -37,7 +37,7 @@ const Vulnerabilities = () => {
       if (response.ok) {
         const data: Vulnerabilities[] = await response.json();
         setDownloads(data);
-        return (document.title = "Vulnerabilities - SVRJS");
+        return (document.title = "Vulnerabilities - SVR.JS");
       } else {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -60,7 +60,7 @@ const Vulnerabilities = () => {
           (mod) => mod.vulnerabilities && mod.vulnerabilities.trim() !== ""
         );
         setMods(filteredMods);
-        return (document.title = "Vulnerabilities - SVRJS");
+        return (document.title = "Vulnerabilities - SVR.JS");
       } else {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -89,7 +89,7 @@ const Vulnerabilities = () => {
     return (
       <>
         <head>
-          <title>Vulnerabilities - SVRJS</title>
+          <title>Vulnerabilities - SVR.JS</title>
         </head>
         <section className="wrapper container py-24 md:py-28 gap-4 flex flex-col">
           <div className="mb-3">

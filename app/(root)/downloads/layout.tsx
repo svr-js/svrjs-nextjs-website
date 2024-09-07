@@ -2,11 +2,11 @@ import { Metadata } from "next";
 
 // baseURL [ENV]
 export const metadata: Metadata = {
-  title: "Downloads - SVRJS",
+  title: "Downloads - SVR.JS",
   description:
     "Ready to get started with SVR.JS? Visit our downloads page to access the latest stable releases, nightly builds, and archived versions. Find the right fit for your needs today!",
   openGraph: {
-    title: "Downloads - SVRJS",
+    title: "Downloads - SVR.JS",
     description:
       "Ready to get started with SVR.JS? Visit our downloads page to access the latest stable releases, nightly builds, and archived versions. Find the right fit for your needs today!",
     url: "https://svrjs.org/downloads",
@@ -16,14 +16,14 @@ export const metadata: Metadata = {
         url: "https://svrjs.vercel.app/metadata/svrjs-cover.png",
         width: 800,
         height: 600,
-        alt: "Downloads - SVRJS"
+        alt: "Downloads - SVR.JS"
       }
     ]
   },
   twitter: {
     card: "summary_large_image",
     site: "@SVR_JS",
-    title: "Downloads - SVRJS",
+    title: "Downloads - SVR.JS",
     description:
       "Ready to get started with SVR.JS? Visit our downloads page to access the latest stable releases, nightly builds, and archived versions. Find the right fit for your needs today!",
     images: ["https://svrjs.vercel.app/metadata/svrjs-cover.png"],

@@ -21,8 +21,8 @@ export async function GET() {
   const posts = await client.fetch(postsQuery);
 
   const feed = new RSS({
-    title: "SVRJS Blog",
-    description: "Explore the latest blog posts from SVRJS",
+    title: "SVR.JS Blog",
+    description: "Explore the latest blog posts from SVR.JS",
     feed_url: `${SITE_URL}/rss.xml`,
     site_url: `${SITE_URL}`,
     image_url: `${SITE_URL}/metadata/svrjs-cover.png`,
@@ -38,7 +38,7 @@ export async function GET() {
       date: new Date(post._createdAt).toUTCString()
       // uncomment this if u want to
       // enclosure: { url: urlFor(post.titleImage).url() },
-      // author: "SVRJS",
+      // author: "SVR.JS",
     });
   });
 

@@ -63,7 +63,7 @@ const DownloadPage: React.FC = () => {
         Downloads
       </h1>
       <p className="md:text-lg text-muted-foreground text-start mb-6">
-        Get all the latest version of SVRJS download and compiled Files here!
+        Get all the latest version of SVR.JS download and compiled Files here!
       </p>
       {error && <p className="text-red-500">{error}</p>}
       <Table>

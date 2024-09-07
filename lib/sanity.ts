@@ -4,7 +4,7 @@ import imageUrlBuilder from "@sanity/image-url";
 const config = {
   apiVersion: "2023-08-08",
   dataset: "production",
-  projectId: `${process.env.SANITY_PROJECT_ID}`,
+  projectId: `${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}`,
   useCdn: false // ensure fresh data
 };
 

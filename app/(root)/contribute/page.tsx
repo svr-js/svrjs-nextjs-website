@@ -32,6 +32,7 @@ export const metadata: Metadata = {
     creator: "@SVR_JS"
   }
 };
+
 const Contribute = () => {
   return (
     <section

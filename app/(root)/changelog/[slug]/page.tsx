@@ -96,7 +96,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
         <meta property="og:type" content="website" />
         <meta
           property="og:url"
-          content={`https://svrjs.org/changelogs/${slug}`}
+          content={`https://svrjs.org/changelog/${slug}`}
         />
         <meta
           property="og:image"

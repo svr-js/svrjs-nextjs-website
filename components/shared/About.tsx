@@ -20,7 +20,7 @@ const About = () => {
               <h2 className="text-3xl md:text-5xl font-bold">
                 About{" "}
                 <span className="bg-gradient-to-b from-green-300 to-primary text-transparent bg-clip-text">
-                  SVR.JS!
+                  SVR.JS
                 </span>
               </h2>
               <p className="text-lg text-muted-foreground mt-4">

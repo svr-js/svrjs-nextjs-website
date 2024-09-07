@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: "Privacy Policy - SVR.JS",
     description:
       "Learn how we collect, use, and protect your data. Our Privacy Policy outlines our commitment to your privacy and the measures we take to safeguard your information when visiting our website.",
-    url: "https://svrjs.org/privacy-policy",
+    url: "https://svrjs.org/privacy",
     type: "website",
     images: [
       {

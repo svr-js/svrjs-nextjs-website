@@ -28,7 +28,7 @@ const HeroCards = () => {
   const cards = {
     aboutCard: {
       description:
-        "Discover more about our services and offerings. We aim to provide the best experience for our users.",
+        "You can follow us to get the updates on SVR.JS web server, along with web development tips.",
       socialLinks: {
         x: "https://x.com/SVR_JS",
         Mastodon: "https://mastodon.social/@svrjs",

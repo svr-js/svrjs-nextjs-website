@@ -173,7 +173,7 @@ export default async function BlogSlugArticle({
             <Button
               variant={"link"}
               size={"lg"}
-              className="mx-0 px-2 text-accent-foreground"
+              className="mx-0 px-2 text-primary"
             >
               <Rss className="w-5 h-5 mr-1" /> Subscribe to RSS
             </Button>

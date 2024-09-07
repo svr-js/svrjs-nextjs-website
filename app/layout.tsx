@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/shared/providers/themeprovider";
-import AuthProvider from "@/components/shared/providers/AuthProvider";
 import { Toaster } from "@/components/ui/toaster";
 import { Analytics } from "@vercel/analytics/react";
 
@@ -55,11 +54,10 @@ export default function RootLayout({
 					enableSystem
 					disableTransitionOnChange
 				>
-					<AuthProvider>
-						{children}
-						<Toaster />
-						<Analytics />
-					</AuthProvider>
+					
+					{children}
+					<Toaster />
+					<Analytics />
 				</ThemeProvider>
 			</body>
 		</html>

@@ -2,6 +2,7 @@
 import clientPromise from "@/lib/db";
 import { ObjectId } from "mongodb";
 import { NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 
 export async function DELETE(
   request: Request,
@@ -17,6 +18,7 @@ export async function DELETE(
     const result = await collection.deleteOne({ _id: new ObjectId(id) });
 
     if (result.deletedCount === 1) {
+      revalidatePath("/changelog");
       return NextResponse.json({ message: "Log deleted successfully" });
     } else {
       return NextResponse.json({ message: "Log not found" }, { status: 404 });

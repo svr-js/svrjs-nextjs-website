@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import clientPromise from "@/lib/db";
 import { ObjectId } from "mongodb";
+import { revalidatePath } from "next/cache";
 
 export const dynamic = "force-dynamic";
 
@@ -29,6 +30,7 @@ export async function PUT(
     );
 
     if (result.modifiedCount > 0) {
+      revalidatePath("/mods");
       return NextResponse.json({ success: true });
     } else {
       return NextResponse.json({

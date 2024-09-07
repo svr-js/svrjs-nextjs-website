@@ -1,6 +1,3 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Table,
@@ -13,6 +10,7 @@ import {
 } from "@/components/ui/table";
 import { Download } from "lucide-react";
 import Link from "next/link";
+import clientPromise from "@/lib/db";
 
 interface Mods {
   _id: string;
@@ -23,35 +21,22 @@ interface Mods {
   downloadLink: string;
 }
 
-const ModsPage: React.FC = () => {
-  const [downloads, setDownloads] = useState<Mods[]>([]);
-  const [error, setError] = useState("");
+export const dynamic = "force-static";
 
-  const fetchDownloads = async () => {
-    try {
-      const response = await fetch("/api/mods", {
-        method: "GET"
-      });
-      if (response.ok) {
-        const data: Mods[] = await response.json();
-        setDownloads(data);
-      } else {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-    } catch (error: any) {
-      setError(error);
-    }
-  };
+const ModsPage: React.FC = async () => {
+  let error: Error | null = null;
+  let downloads: Mods[] = [];
 
-  useEffect(() => {
-    fetchDownloads();
-
-    const interval = setInterval(() => {
-      fetchDownloads();
-    }, 10000);
-
-    return () => clearInterval(interval);
-  }, []);
+  try {
+    const client = await clientPromise;
+    const db = client.db("downloadsDatabase");
+    downloads = (await db
+      .collection("mods")
+      .find()
+      .toArray()) as unknown as Mods[];
+  } catch (err) {
+    error = err as Error;
+  }
 
   return (
     <section
@@ -78,7 +63,7 @@ const ModsPage: React.FC = () => {
         </Link>
         .
       </p>
-      {error && <p className="text-red-500">{error}</p>}
+      {error && <p className="text-red-500">{error.message}</p>}
       <Table>
         <TableCaption>A list of all available downloads.</TableCaption>
         <TableHeader>

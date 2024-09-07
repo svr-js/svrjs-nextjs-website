@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import clientPromise from "@/lib/db";
+import { revalidatePath } from "next/cache";
 
 export const GET = async (req: NextRequest) => {
   const client = await clientPromise;
@@ -32,6 +33,8 @@ export const POST = async (req: NextRequest) => {
   try {
     const newPage = { title, slug, content };
     const result = await db.collection("pages").insertOne(newPage);
+    revalidatePath(`/changelog/${slug}`);
+    revalidatePath("/vulnerabilities");
     return NextResponse.json(newPage, { status: 201 });
   } catch (error) {
     console.error("Error creating page:", error);

@@ -1,9 +1,8 @@
-"use client";
-
 import ReactMarkdown from "react-markdown";
 import { VULNERABILITY } from "@/constants/guidelines";
 import { useEffect, useState } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
+import clientPromise from "@/lib/db";
 
 interface Bullet {
   point: string;
@@ -23,88 +22,38 @@ interface ModsVulnerability {
   vulnerabilities: string;
 }
 
-const Vulnerabilities = () => {
-  const [loading, setLoading] = useState(true);
-  const [downloads, setDownloads] = useState<Vulnerabilities[]>([]);
-  const [mods, setMods] = useState<ModsVulnerability[]>([]);
-  const [error, setError] = useState("");
+const Vulnerabilities = async () => {
+  let downloads: Vulnerabilities[] = [];
+  let mods: ModsVulnerability[] = [];
+  let error: Error | null = null;
 
-  const fetchData = async () => {
-    try {
-      const response = await fetch("/api/vulnerabilities", {
-        method: "GET"
-      });
-      if (response.ok) {
-        const data: Vulnerabilities[] = await response.json();
-        setDownloads(data);
-        return (document.title = "Vulnerabilities - SVR.JS");
-      } else {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-    } catch (error: any) {
-      setError(error.message || "Failed to fetch downloads");
-    } finally {
-      setLoading(false);
-    }
-  };
+  try {
+    const client = await clientPromise;
+    const db = client.db("downloadsDatabase");
+    downloads = (await db
+      .collection("vulnerabilities")
+      .find()
+      .toArray()) as unknown as Vulnerabilities[];
+  } catch (err) {
+    error = err as Error;
+  }
 
-  const fetchMods = async () => {
-    try {
-      const response = await fetch(`/api/mdx/pages`, {
-        method: "GET"
-      });
-      if (response.ok) {
-        const data: ModsVulnerability[] = await response.json();
-        // Filter out entries where vulnerabilities is undefined or an empty string
-        const filteredMods = data.filter(
-          (mod) => mod.vulnerabilities && mod.vulnerabilities.trim() !== ""
-        );
-        setMods(filteredMods);
-        return (document.title = "Vulnerabilities - SVR.JS");
-      } else {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-    } catch (error: any) {
-      setError(error.message || "Failed to fetch vulnerabilities");
-    } finally {
-      setLoading(false);
-    }
-  };
+  try {
+    const client = await clientPromise;
+    const db = client.db();
 
-  useEffect(() => {
-    fetchData();
-    fetchMods();
-    const interval = setInterval(() => {
-      fetchData();
-      fetchMods();
-    }, 10000);
-
-    return () => clearInterval(interval);
-  }, []);
+    const pages = (await db
+      .collection("pages")
+      .find()
+      .toArray()) as unknown as ModsVulnerability[];
+    mods = pages.filter(
+      (mod: ModsVulnerability) =>
+        mod.vulnerabilities && mod.vulnerabilities.trim() !== ""
+    );
+  } catch (err) {}
 
   const reversedDownloads = [...downloads].reverse();
   const reversedMods = [...mods].reverse();
-
-  if (loading) {
-    return (
-      <>
-        <head>
-          <title>Vulnerabilities - SVR.JS</title>
-        </head>
-        <section className="wrapper container py-24 md:py-28 gap-4 flex flex-col">
-          <div className="mb-3">
-            <Skeleton className="w-[400px] h-[50px] rounded-md" />
-          </div>
-          <div className="flex flex-col gap-4">
-            <Skeleton className="w-[300px] h-[30px] rounded-md" />
-            <Skeleton className="w-[200px] h-[20px] rounded-md" />
-            <Skeleton className="w-[200px] h-[20px] rounded-md" />
-            <Skeleton className="w-[200px] h-[20px] rounded-md" />
-          </div>
-        </section>
-      </>
-    );
-  }
 
   return (
     <section
@@ -121,7 +70,7 @@ const Vulnerabilities = () => {
         vulnerability-reports@svrjs.org. We&apos;ll mitigate that vulnerability
         if it is possible.
       </p>
-      {error && <p className="text-red-500">{error}</p>}
+      {error && <p className="text-red-500">{error.message}</p>}
 
       {reversedDownloads.map((download) => (
         <div
@@ -160,5 +109,7 @@ const Vulnerabilities = () => {
     </section>
   );
 };
+
+export const dynamic = "force-static";
 
 export default Vulnerabilities;

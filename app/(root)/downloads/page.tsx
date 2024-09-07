@@ -1,6 +1,3 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Table,
@@ -13,7 +10,7 @@ import {
 } from "@/components/ui/table";
 import { Download } from "lucide-react";
 import Link from "next/link";
-import { Skeleton } from "@/components/ui/skeleton";
+import clientPromise from "@/lib/db";
 
 interface Download {
   _id: string;
@@ -24,35 +21,22 @@ interface Download {
   downloadLink?: string; // Optional
 }
 
-const DownloadPage: React.FC = () => {
-  const [downloads, setDownloads] = useState<Download[]>([]);
-  const [error, setError] = useState("");
+export const dynamic = "force-static";
 
-  const fetchDownloads = async () => {
-    try {
-      const response = await fetch("/api/downloads", {
-        method: "GET"
-      });
-      if (response.ok) {
-        const data: Download[] = await response.json();
-        setDownloads(data);
-      } else {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-    } catch (error: any) {
-      setError(error.message);
-    }
-  };
+const DownloadPage: React.FC = async () => {
+  let error: Error | null = null;
+  let downloads: Download[] = [];
 
-  useEffect(() => {
-    fetchDownloads();
-
-    const interval = setInterval(() => {
-      fetchDownloads();
-    }, 10000);
-
-    return () => clearInterval(interval);
-  }, []);
+  try {
+    const client = await clientPromise;
+    const db = client.db("downloadsDatabase");
+    downloads = (await db
+      .collection("downloads")
+      .find()
+      .toArray()) as unknown as Download[];
+  } catch (err) {
+    error = err as Error;
+  }
 
   return (
     <section
@@ -73,7 +57,7 @@ const DownloadPage: React.FC = () => {
         </Link>
         .
       </p>
-      {error && <p className="text-red-500">{error}</p>}
+      {error && <p className="text-red-500">{error.message}</p>}
       <Table>
         <TableCaption>A list of all available downloads.</TableCaption>
         <TableHeader>

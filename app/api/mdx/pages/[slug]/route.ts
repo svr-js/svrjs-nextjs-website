@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import clientPromise from "@/lib/db";
+import { revalidatePath } from "next/cache";
 
 export const GET = async (
   req: NextRequest,
@@ -59,6 +60,8 @@ export const PUT = async (
         ...result.value,
         _id: result.value._id.toString() // Convert ObjectId to string
       };
+      revalidatePath(`/changelog/${slug}`);
+      revalidatePath("/vulnerabilities");
       return NextResponse.json(serializedResult, { status: 200 });
     } else {
       return NextResponse.json({ message: "Page not found" }, { status: 404 });
@@ -88,6 +91,8 @@ export const DELETE = async (
     const result = await db.collection("pages").deleteOne({ slug });
 
     if (result.deletedCount > 0) {
+      revalidatePath(`/changelog/${slug}`);
+      revalidatePath("/vulnerabilities");
       return NextResponse.json(
         { message: "Page deleted successfully" },
         { status: 200 }

@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import clientPromise from "@/lib/db";
+import { revalidatePath } from "next/cache";
 
 // Force the API to use SSR instead of static generation
 export const dynamic = "force-dynamic";
@@ -18,6 +19,8 @@ export async function POST(request: Request) {
     downloadLink,
     fileSize
   });
+
+  revalidatePath("/downloads");
 
   return NextResponse.json({ success: true, id: result.insertedId });
 }

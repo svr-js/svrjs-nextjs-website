@@ -1,12 +1,10 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import { CHANGE_LOGS } from "@/constants/guidelines";
 import { Skeleton } from "@/components/ui/skeleton";
+import clientPromise from "@/lib/db";
 
 interface Bullet {
   point: string;
@@ -19,60 +17,24 @@ interface LOGS {
   bullets?: Bullet[]; // Make bullets optional
 }
 
-const LogsPage: React.FC = () => {
-  const [downloads, setDownloads] = useState<LOGS[]>([]);
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(true);
+export const dynamic = "force-static";
 
-  const fetchDownloads = async () => {
-    try {
-      const response = await fetch("/api/logs", {
-        method: "GET"
-      });
-      if (response.ok) {
-        const data: LOGS[] = await response.json();
-        setDownloads(data);
-      } else {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-    } catch (error: any) {
-      setError(error.message || "Failed to fetch downloads");
-    } finally {
-      setLoading(false);
-    }
-  };
+const LogsPage: React.FC = async () => {
+  let error: Error | null = null;
+  let downloads: LOGS[] = [];
 
-  useEffect(() => {
-    fetchDownloads();
-
-    const interval = setInterval(() => {
-      fetchDownloads();
-    }, 10000);
-
-    return () => clearInterval(interval);
-  }, []);
-  const reversedDownloads = [...downloads].reverse();
-
-  if (loading) {
-    return (
-      <>
-        <head>
-          <title>SVR.JS change log - SVR.JS</title>
-        </head>
-        <section className="wrapper container py-24 md:py-28 gap-4 flex flex-col">
-          <div className="mb-3">
-            <Skeleton className="w-[400px] h-[50px] rounded-md" />
-          </div>
-          <div className="flex flex-col gap-4">
-            <Skeleton className="w-[300px] h-[30px] rounded-md" />
-            <Skeleton className="w-[200px] h-[20px] rounded-md" />
-            <Skeleton className="w-[200px] h-[20px] rounded-md" />
-            <Skeleton className="w-[200px] h-[20px] rounded-md" />
-          </div>
-        </section>
-      </>
-    );
+  try {
+    const client = await clientPromise;
+    const db = client.db("downloadsDatabase");
+    downloads = (await db
+      .collection("logs")
+      .find()
+      .toArray()) as unknown as LOGS[];
+  } catch (err) {
+    error = err as Error;
   }
+
+  const reversedDownloads = [...downloads].reverse();
 
   return (
     <section
@@ -85,7 +47,7 @@ const LogsPage: React.FC = () => {
       <p className="md:text-lg text-muted-foreground text-start mb-6">
         See the changes done to SVR.JS web server.
       </p>
-      {error && <p className="text-red-500">{error}</p>}
+      {error && <p className="text-red-500">{error.message}</p>}
 
       {reversedDownloads.map((download) => (
         <div

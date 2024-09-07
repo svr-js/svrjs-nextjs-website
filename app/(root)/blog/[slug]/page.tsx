@@ -66,7 +66,7 @@ export async function generateMetadata({
         {
           url: data.titleImage
             ? urlFor(data.titleImage).url()
-            : "/blog-missing.png",
+            : "https://svrjs.vercel.app/blog-missing.png",
           width: 800,
           height: 600,
           alt: `${data.title} - SVR.JS`
@@ -79,7 +79,9 @@ export async function generateMetadata({
       title: `${data.title} - SVR.JS`,
       description: data.smallDescription,
       images: [
-        data.titleImage ? urlFor(data.titleImage).url() : "/blog-missing.png"
+        data.titleImage
+          ? urlFor(data.titleImage).url()
+          : "https://svrjs.vercel.app/blog-missing.png"
       ],
       creator: "@SVR_JS"
     }
@@ -207,4 +209,14 @@ export default async function BlogSlugArticle({
       </section>
     </>
   );
+}
+
+export async function generateStaticParams() {
+  const query = `*[_type == 'blog']{
+    "slug": slug.current,
+  }`;
+
+  const slugsRaw = await client.fetch(query);
+
+  return slugsRaw;
 }

@@ -24,11 +24,12 @@ const About = () => {
                 </span>
               </h2>
               <p className="text-lg text-muted-foreground mt-4">
-                Host a webpage, run server-side JavaScript, use mods to expand
-                server functionality, or use it as a forward or reverse proxy.
                 SVR.JS is a web server that runs on top of Node.JS, enabling
-                server-side JS on webpages. SVR.JS also has an integrated log
-                viewer, log highlighter, and user management tool.
+                server-side JavaScript on webpages. SVR.JS also has an
+                integrated log viewer, log highlighter, and user management
+                tool. You can host a webpage using SVR.JS, run server-side
+                JavaScript, use mods to expand server functionality, or use it
+                as a forward or reverse proxy.
               </p>
             </div>
             <Statistics />

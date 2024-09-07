@@ -72,9 +72,9 @@ const Hero = () => {
           </h1>
         </main>
         <p className="text-lg text-muted-foreground md:w-10/12 mx-auto lg:mx-0">
-          SVR.JS is a web server that runs on top of Node.JS, thus enabling
-          server-side JavaScript on webpages. SVR.JS also has an integrated log
-          viewer and more...
+          The SVR.JS web server allows you to optimize your server-side
+          operations, ensuring performance and efficiency in a simple,
+          user-friendly package.
         </p>
         <div className="relative mx-auto lg:mx-0 flex gap-2 flex-col-reverse lg:flex-row justify-start items-center w-fit">
           <Button

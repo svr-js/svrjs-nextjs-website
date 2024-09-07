@@ -28,7 +28,7 @@ async function getData(slug: string) {
         _createdAt
     }[0]`;
 
-  const data = await client.fetch(query);
+  const data = await client.fetch(query, {}, { cache: "no-store" });
   return data;
 }
 

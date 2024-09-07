@@ -65,7 +65,11 @@ export async function generateStaticParams() {
   const cardsPerPage = 6;
 
   const totalPostsQuery = `count(*[_type == 'blog'])`;
-  const totalPosts: number = await client.fetch(totalPostsQuery);
+  const totalPosts: number = await client.fetch(
+    totalPostsQuery,
+    {},
+    { cache: "no-store" }
+  );
 
   const totalPages = Math.ceil(totalPosts / cardsPerPage);
 

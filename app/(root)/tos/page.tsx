@@ -43,7 +43,7 @@ const TermsOfService = () => {
         Terms Of Service
       </h1>
       <p className="md:text-lg text-muted-foreground text-start mb-6">
-        Last updated: 24.04.2024
+        Effective date: April 24, 2024
       </p>
       <div className="prose max-w-full md:prose-lg dark:prose-invert">
         <ReactMarkdown>{TERMS_AND_CONDITIONS}</ReactMarkdown>

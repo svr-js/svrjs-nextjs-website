@@ -45,7 +45,7 @@ const PrivacyPolicy = () => {
         Privacy Policy
       </h1>
       <p className="md:text-lg text-muted-foreground text-start mb-6">
-        Effective date: 26.05.2024
+        Effective date: September 7, 2024
       </p>
       <div className="prose max-w-full md:prose-lg dark:prose-invert">
         <ReactMarkdown>{PRIVACY_POLICY}</ReactMarkdown>

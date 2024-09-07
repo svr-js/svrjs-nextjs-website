@@ -118,8 +118,8 @@ const Vulnerabilities = () => {
         Some older versions of SVR.JS are vulnerable to cyberattacks. It&apos;s
         recommended to update your SVR.JS version to the newest one. If you find
         a security issue with SVR.JS, report it as soon as possible to
-        vulnerability-reports[at]svrjs[dot]org. We&apos;ll mitigate that
-        vulnerability if it is possible.
+        vulnerability-reports@svrjs.org. We&apos;ll mitigate that vulnerability
+        if it is possible.
       </p>
       {error && <p className="text-red-500">{error}</p>}
 

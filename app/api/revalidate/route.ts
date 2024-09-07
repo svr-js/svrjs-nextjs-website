@@ -5,14 +5,13 @@ import { NextRequest, NextResponse } from "next/server";
 const secret = `${process.env.SANITY_WEBHOOK_SECRET}`;
 
 export async function POST(req: NextRequest) {
-  //const { body, isValidSignature } = await parseBody(req, secret);
   const body = await req.json();
   const rawBody = JSON.stringify(body);
 
   if (
     !(await isValidSignature(
       rawBody,
-      req.headers[SIGNATURE_HEADER_NAME],
+      req.headers.get(SIGNATURE_HEADER_NAME) ?? "",
       secret.trim()
     ))
   ) {

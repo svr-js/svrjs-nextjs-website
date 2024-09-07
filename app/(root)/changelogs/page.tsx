@@ -57,7 +57,7 @@ const LogsPage: React.FC = () => {
     return (
       <>
         <head>
-          <title>Change Logs - SVR.JS</title>
+          <title>SVR.JS change log - SVR.JS</title>
         </head>
         <section className="wrapper container py-24 md:py-28 gap-4 flex flex-col">
           <div className="mb-3">
@@ -80,10 +80,10 @@ const LogsPage: React.FC = () => {
       className="wrapper container py-24 md:py-28 gap-2 flex flex-col"
     >
       <h1 className="text-3xl md:text-5xl pb-1 md:pb-2 font-bold text-black dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-b dark:from-white dark:to-neutral-400">
-        Server LOGS
+        SVR.JS change log
       </h1>
       <p className="md:text-lg text-muted-foreground text-start mb-6">
-        Get all the latest version of SVR.JS download and compiled Files here!
+        See the changes done to SVR.JS web server.
       </p>
       {error && <p className="text-red-500">{error}</p>}
 

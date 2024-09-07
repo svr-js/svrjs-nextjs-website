@@ -146,7 +146,7 @@ export const FOOTERLINKS = {
     { href: "/docs", label: "Docs" },
     { href: "/downloads", label: "Downloads" },
     { href: "/mods", label: "SVR.JS Mods" },
-    { href: "/changelogs", label: "Change Logs" }
+    { href: "/changelogs", label: "Change log" }
   ],
   additional: [
     { href: "/contribute", label: "Contribute" },

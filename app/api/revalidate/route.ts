@@ -43,7 +43,10 @@ export async function POST(req: NextRequest) {
 
   try {
     if (body._type == "blog") {
-      if (body.slug.current) revalidatePath(`/blog/${body.slug.current}`);
+      if (body.slug.current) {
+        revalidatePath(`/blog/${body.slug.current}`);
+        revalidatePath("/sitemap.xml");
+      }
       revalidatePath("/blog");
 
       // Change in /blog/page/[id] route and in BlogCards component too!

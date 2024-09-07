@@ -62,6 +62,7 @@ export const PUT = async (
       };
       revalidatePath(`/changelog/${slug}`);
       revalidatePath("/vulnerabilities");
+      revalidatePath("/sitemap.xml");
       return NextResponse.json(serializedResult, { status: 200 });
     } else {
       return NextResponse.json({ message: "Page not found" }, { status: 404 });
@@ -93,6 +94,7 @@ export const DELETE = async (
     if (result.deletedCount > 0) {
       revalidatePath(`/changelog/${slug}`);
       revalidatePath("/vulnerabilities");
+      revalidatePath("/sitemap.xml");
       return NextResponse.json(
         { message: "Page deleted successfully" },
         { status: 200 }

@@ -35,6 +35,7 @@ export const POST = async (req: NextRequest) => {
     const result = await db.collection("pages").insertOne(newPage);
     revalidatePath(`/changelog/${slug}`);
     revalidatePath("/vulnerabilities");
+    revalidatePath("/sitemap.xml");
     return NextResponse.json(newPage, { status: 201 });
   } catch (error) {
     console.error("Error creating page:", error);

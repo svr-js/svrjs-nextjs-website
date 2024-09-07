@@ -31,7 +31,7 @@ export const NAVBAR = {
       label: "Blog"
     },
     {
-      href: "/forum",
+      href: "https://forum.svrjs.org",
       target: "_self",
       label: "Forum"
     }
@@ -140,7 +140,7 @@ export const FOOTERLINKS = {
     { href: "/", label: "Home" },
     { href: "/contact", label: "Contact" },
     { href: "/blog", label: "Blog" },
-    { href: "/forum", label: "Forum" }
+    { href: "https://forum.svrjs.org", label: "Forum" }
   ],
   plans: [
     { href: "/docs", label: "Docs" },

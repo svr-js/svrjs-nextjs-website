@@ -20,5 +20,9 @@
     "ssjseperator": {
         "type": "separator"
       },
-    "api": "SVR.JS API"
+    "api": "SVR.JS API",
+    "apiseperator": {
+        "type": "separator"
+      },
+    "mod-notes": "SVR.JS mod notes"
 }

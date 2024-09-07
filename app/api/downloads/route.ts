@@ -8,7 +8,7 @@ export const dynamic = "force-dynamic";
 export async function GET(req: NextRequest) {
   try {
     const client = await clientPromise;
-    const db = client.db("downloadsDatabase");
+    const db = client.db(process.env.MONGODB_DB);
     const downloads = await db.collection("downloads").find().toArray();
     // console.log("Downloads fetched:", downloads);
     return NextResponse.json(downloads, { status: 200 });

@@ -29,7 +29,7 @@ const Vulnerabilities = async () => {
 
   try {
     const client = await clientPromise;
-    const db = client.db("downloadsDatabase");
+    const db = client.db(process.env.MONGODB_DB);
     downloads = (await db
       .collection("vulnerabilities")
       .find()
@@ -40,7 +40,7 @@ const Vulnerabilities = async () => {
 
   try {
     const client = await clientPromise;
-    const db = client.db();
+    const db = client.db(process.env.MONGODB_DB);
 
     const pages = (await db
       .collection("pages")

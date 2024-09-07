@@ -10,7 +10,7 @@ export async function POST(request: Request) {
   const { version, date, bullets } = body;
 
   const client = await clientPromise;
-  const db = client.db("downloadsDatabase");
+  const db = client.db(process.env.MONGODB_DB);
 
   const result = await db.collection("vulnerabilities").insertOne({
     version,

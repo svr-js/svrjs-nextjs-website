@@ -10,7 +10,7 @@ export async function POST(request: Request) {
   const { fileName, version, downloadLink, fileSize } = body;
 
   const client = await clientPromise;
-  const db = client.db("downloadsDatabase");
+  const db = client.db(process.env.MONGODB_DB);
 
   const result = await db.collection("mods").insertOne({
     date: new Date().toISOString().split("T")[0],

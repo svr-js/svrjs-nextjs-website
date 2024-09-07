@@ -4,7 +4,7 @@ import { revalidatePath } from "next/cache";
 
 export const GET = async (req: NextRequest) => {
   const client = await clientPromise;
-  const db = client.db();
+  const db = client.db(process.env.MONGODB_DB);
 
   try {
     const pages = await db.collection("pages").find().toArray();
@@ -20,7 +20,7 @@ export const GET = async (req: NextRequest) => {
 
 export const POST = async (req: NextRequest) => {
   const client = await clientPromise;
-  const db = client.db();
+  const db = client.db(process.env.MONGODB_DB);
   const { title, slug, content } = await req.json();
 
   if (!slug) {

@@ -7,7 +7,7 @@ export const GET = async (
   { params }: { params: { slug: string } }
 ) => {
   const client = await clientPromise;
-  const db = client.db();
+  const db = client.db(process.env.MONGODB_DB);
   const { slug } = params;
 
   if (!slug) {
@@ -28,7 +28,7 @@ export const PUT = async (
   { params }: { params: { slug: string } }
 ) => {
   const client = await clientPromise;
-  const db = client.db();
+  const db = client.db(process.env.MONGODB_DB);
   const { slug } = params;
 
   if (!slug) {
@@ -80,7 +80,7 @@ export const DELETE = async (
   { params }: { params: { slug: string } }
 ) => {
   const client = await clientPromise;
-  const db = client.db();
+  const db = client.db(process.env.MONGODB_DB);
   const { slug } = params;
 
   if (!slug) {

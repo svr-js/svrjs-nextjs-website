@@ -12,7 +12,7 @@ export async function DELETE(
 
   try {
     const client = await clientPromise;
-    const db = client.db("downloadsDatabase");
+    const db = client.db(process.env.MONGODB_DB);
     const collection = db.collection("logs");
 
     const result = await collection.deleteOne({ _id: new ObjectId(id) });

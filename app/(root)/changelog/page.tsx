@@ -25,7 +25,7 @@ const LogsPage: React.FC = async () => {
 
   try {
     const client = await clientPromise;
-    const db = client.db("downloadsDatabase");
+    const db = client.db(process.env.MONGODB_DB);
     downloads = (await db
       .collection("logs")
       .find()

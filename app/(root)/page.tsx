@@ -2,20 +2,19 @@ import About from "@/components/shared/About";
 import DataTable from "@/components/shared/DataTable";
 import Faq from "@/components/shared/FAQ";
 import Hero from "@/components/shared/Hero";
-import HowItWorks from "@/components/shared/HowItWorks";
+import Features from "@/components/shared/Features";
 import Newsletter from "@/components/shared/Newsletter";
-import Partners from "@/components/shared/Partners";
+import DemoVideo from "@/components/shared/DemoVideo";
 import Testimonials from "@/components/shared/Testimonials";
 
 const RootPage = () => {
   return (
     <>
       <Hero />
-      <HowItWorks />
+      <Features />
       <Testimonials />
-      <Partners />
+      <DemoVideo />
       <About />
-      {/* <DataTable /> */}
       <Faq />
       <Newsletter />
     </>

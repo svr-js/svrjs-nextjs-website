@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import HeroVideoDialog from "../ui/heroVideoAction";
 
-const Partners = () => {
+const DemoVideo = () => {
   const router = useRouter();
   const handleClick = () => {
     router.push("/docs");
@@ -53,4 +53,4 @@ const Partners = () => {
   );
 };
 
-export default Partners;
+export default DemoVideo;

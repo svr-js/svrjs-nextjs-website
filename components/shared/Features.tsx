@@ -2,7 +2,7 @@ import { Features } from "@/constants";
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 
-const HowItWorks = () => {
+const FeaturesSection = () => {
   return (
     <section className="container text-center py-12 sm:py-24">
       <h2 className="text-3xl md:text-5xl font-bold">
@@ -32,4 +32,4 @@ const HowItWorks = () => {
   );
 };
 
-export default HowItWorks;
+export default FeaturesSection;

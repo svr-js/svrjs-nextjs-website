@@ -48,17 +48,15 @@ const HeroCards = () => {
       features: [
         {
           title: "Unlimited Projects",
-          icons: <Infinity className="rounded-full" width={25} height={25} />
+          icons: <Infinity width={25} height={25} />
         },
         {
           title: "Priority Support",
-          icons: (
-            <ArchiveRestore className="rounded-full" width={25} height={25} />
-          )
+          icons: <ArchiveRestore width={25} height={25} />
         },
         {
           title: "Free Updates",
-          icons: <Headset className="rounded-full" width={25} height={25} />
+          icons: <Headset width={25} height={25} />
         }
       ],
       curlyText: "Best Value!"

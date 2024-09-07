@@ -145,7 +145,7 @@ export const FOOTERLINKS = {
   plans: [
     { href: "/docs", label: "Docs" },
     { href: "/downloads", label: "Downloads" },
-    { href: "/mods", label: "Svrjs Mods" },
+    { href: "/mods", label: "SVR.JS Mods" },
     { href: "/changelogs", label: "Change Logs" }
   ],
   additional: [

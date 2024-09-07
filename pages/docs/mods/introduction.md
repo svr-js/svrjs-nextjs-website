@@ -2,15 +2,15 @@
 title: Introduction to SVR.JS mods
 ---
 
-## Introduction to SVR.JS mods
+# Introduction to SVR.JS mods
 
 Mods in SVR.JS are custom modules that can extend the server's functionality. Using mods, you can extend SVR.JS functionality to suit your specific requirements and customize the server's behavior to handle different types of requests.
 
-### Installing mods
+## Installing mods
 
 To install mod to SVR.JS, copy the mod to _mods_ directory inside SVR.JS installation directory. SVR.JS searches this directory for mods, loads and executes them in alphabetical order (by mod file name). If you want have mods to be executed in specific order, add numeric prefix to mod file name, for example "_01-redbrick.cgi.2.3.3.tar.gz_" and "_00-easywaf.integration.1.1.2.tar.gz_".
 
-### Mod format
+## Mod format
 
 SVR.JS mods are JavaScript files, they work in SVR.JS 4.x and newer
 

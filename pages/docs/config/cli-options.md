@@ -2,7 +2,7 @@
 title: CLI options
 ---
 
-### CLI options
+# CLI options
 
 - _-h_, _-?_, _/h_, _/?_ or _--help_ - displays help
 - _--clean_ - cleans up files created by SVR.JS

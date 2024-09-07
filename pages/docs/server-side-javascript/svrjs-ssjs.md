@@ -2,11 +2,11 @@
 title: Server-side JavaScript
 ---
 
-## Server-side JavaScript
+# Server-side JavaScript
 
 Another way to expand SVR.JS functionality is through server-side JavaScript located in _serverSideScript.js_ file inside SVR.JS web root (or locaten in SVR.JS installation directory if you're running SVR.JS 3.9.0 or newer, and you have set _useWebRootServerSideScript_ property to _false_). Server-side JavaScript allows you to create various web applications using JavaScript, Node.JS and SVR.JS API.
 
-### Predefined objects
+## Predefined objects
 
 When working with server-side JavaScript in SVR.JS, you have access to several predefined objects that can greatly enhance your scripting capabilities. These objects are available for use without requiring any additional imports or installations.
 
@@ -26,7 +26,7 @@ Additionally, there is an option to control the automatic execution of the _else
 
 By leveraging these predefined objects, you can streamline your server-side JavaScript code and build powerful applications using SVR.JS.
 
-### Predefined methods
+## Predefined methods
 
 _See methods in SVR.JS API in non-proxy section_
 
@@ -37,7 +37,7 @@ SVR.JS 3.8.0 and newer have additionally two methods:
 - `checkHref(destHref)` - checks if request path name matches the _destHref_.
 - `checkHostname(hostname)` - checks if host name defined in the request matches the _hostname_ parameter.
 
-### SSJS development
+## SSJS development
 
 `__dirname` and _._ in `require()` function both refer to _temp_ directory in SVR.JS.
 

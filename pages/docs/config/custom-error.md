@@ -2,7 +2,7 @@
 title: Custom error pages
 ---
 
-### Custom error pages
+# Custom error pages
 
 You can configure SVR.JS to serve custom error pages by adding _.&lt;errorcode&gt;_ (SVR.JS 3.0.0 or newer) or _&lt;errorcode&gt;.html_ pages. For the 404 error, you can specify it by changing the _page404_ property in _config.json_. From SVR.JS 3.8.0 onwards, you can use _errorPages_ property in _config.json_ to specify path to each custom error page.
 

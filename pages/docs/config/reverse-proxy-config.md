@@ -2,7 +2,7 @@
 title: Reverse proxy configuration
 ---
 
-### Reverse proxy configuration
+# Reverse proxy configuration
 
 In order to use SVR.JS as a reverse proxy, you need to install reverse-proxy-mod SVR.JS mod. [Download this mod.](https://svrjs.org/mods)
 

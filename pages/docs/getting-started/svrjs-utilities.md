@@ -2,7 +2,7 @@
 title: SVR.JS utilities
 ---
 
-### SVR.JS utilities
+# SVR.JS utilities
 
 SVR.JS 3.0.0 and later comes with several utilities:
 

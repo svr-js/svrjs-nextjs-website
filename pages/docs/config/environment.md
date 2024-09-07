@@ -2,13 +2,13 @@
 title: Environment variables
 ---
 
-### Environment variables
+# Environment variables
 
-#### SVR.JS 3.12.0 and newer
+## SVR.JS 3.12.0 and newer
 
 You can configure environment variables by configuring _environmentVariables_ property in _config.json_.
 
-#### Older SVR.JS versions
+## Older SVR.JS versions
 
 SVR.JS seamlessly passes through externally set environment variables to mods and server-side JavaScript, allowing you to customize and control your application's behavior based on these variables.
 

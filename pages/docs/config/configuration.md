@@ -2,11 +2,11 @@
 title: config.json properties
 ---
 
-### _config.json_ properties
+# _config.json_ properties
 
 The _config.json_ file contains various properties that you can customize to configure SVR.JS according to your specific requirements. Below are the available properties:
 
-#### General Configuration
+## General Configuration
 
 - _users_ (Array of Objects, SVR.JS 3.0.0 or newer)
   - Users list for HTTP authentication. Use _svrpasswd_ tool to add, modify or delete users.
@@ -24,7 +24,7 @@ The _config.json_ file contains various properties that you can customize to con
 - _spubport_ (Number)
   - Public HTTPS port for SVR.JS to display. It is also used in HTTP to HTTPS redirect.
 
-#### SSL Configuration
+## SSL Configuration
 
 - _secure_ (Boolean, SVR.JS 3.0.0 or newer)
   - Option to enable HTTPS.
@@ -52,14 +52,14 @@ The _config.json_ file contains various properties that you can customize to con
 - _tlsMaxVersion_ (String, SVR.JS 3.14.0 or newer)
   - Maximum TLS version, it can be `TLSv1.3`, `TLSv1.2`, `TLSv1.1`, or `TLSv1`.
 
-#### Domain and Redirect Configuration
+## Domain and Redirect Configuration
 
 - _domain_ (String)
   - Domain for SVR.JS to display. (In SVR.JS 2.x, it was _domian_)
 - _wwwredirect_ (Boolean)
   - Option to enable redirects to domain name that begins with "www.". You need to first set _domain_ property in order for this option to have effect. This property didn't work in SVR.JS versions from 3.3.0 to 3.14.4
 
-#### Error Pages and Logging Configuration
+## Error Pages and Logging Configuration
 
 - _page404_ (String)
   - Path to a custom 404 error page (after pages defined in _errorPages_ property).
@@ -74,7 +74,7 @@ The _config.json_ file contains various properties that you can customize to con
 - _enableLogging_ (Boolean)
   - Option to enable saving logs to a log file.
 
-#### HTTP Configuration
+## HTTP Configuration
 
 - _enableCompression_ (Boolean, SVR.JS 3.0.0 or newer)
   - Option to enable HTTP compression.
@@ -115,7 +115,7 @@ The _config.json_ file contains various properties that you can customize to con
     - _enableConnectProtocol_: Option to enable the "Extended Connect Protocol" defined by RFC 8441 (Number, SVR.JS 3.14.0 or newer).
     - _customSettings_: Additional settings not implemented yet in Node.JS and its underlying libraries. Object key defines the numeric value of the settings type (as defined in the "HTTP/2 SETTINGS" registry established by RFC 7540). Object values define actual numeric value of the settings. Settings types should be greater than 6 and less than 2<sup>16</sup>-1. Values should be in range from 0 to 2<sup>32</sup>-1. Currently you can specify up to 10 custom settings (Object, SVR.JS 3.14.0 or newer).
 
-#### Security Configuration
+## Security Configuration
 
 - _blacklist_ (Array of Strings)
   - Block list of IP addresses and CIDR ranges.
@@ -130,7 +130,7 @@ The _config.json_ file contains various properties that you can customize to con
 - _exposeModsInErrorPages_ (Boolean, SVR.JS 3.4.29, 3.9.1 or newer)
   - Option to expose SVR.JS mod information through default error pages (for example in _SVR.JS RedBrick/2.4.2 on forum.svrjs.org_ signature). Mod information is never exposed through _Server_ header (just SVR.JS information).
 
-#### Virtual Host Configuration
+## Virtual Host Configuration
 
 - _enableDirectoryListingVHost_ (Array of Objects; SVR.JS 3.8.0 or newer)
   - Array containing options to enable directory listings for specific virtual hosts.
@@ -153,7 +153,7 @@ The _config.json_ file contains various properties that you can customize to con
 - _allowPostfixDoubleSlashes_ (Boolean, SVR.JS 3.14.4 or newer)
   - Option to allow double slashes, when inserting web root postfixes. If set to `false`, double slashes are removed by postfix insertion function. It may create issues with double slash URLs not having prefixes.
 
-#### Miscellaneous Configuration
+## Miscellaneous Configuration
 
 - _rewriteMap_ (Array of Objects, SVR.JS 3.0.0 or newer)
   - Map for URL rewriting engine. Entries of the array are URL rewrite rules.
@@ -188,7 +188,7 @@ The _config.json_ file contains various properties that you can customize to con
 - _optOutOfStatisticsServer_ (Boolean, SVR.JS 3.15.6 or newer)
   - Option to opt out of sending data to the statistics server. You can use this option to increase the privacy of SVR.JS.
 
-#### Deprecated and Removed Properties
+## Deprecated and Removed Properties
 
 The following properties are deprecated or removed in newer versions of SVR.JS, and modifying them might not have any effect on the server:
 
@@ -197,7 +197,7 @@ The following properties are deprecated or removed in newer versions of SVR.JS, 
 - _version_ (String, removed in SVR.JS 3.4.0, **DON'T CHANGE**)
   - SVR.JS version (This property is no longer used and should not be modified.)
 
-#### Example Configuration
+## Example Configuration
 
 Here's an example _config.json_ file illustrating some of the available properties:
 

@@ -2,11 +2,11 @@
 title: CGI/SCGI/JSGI/PHP
 ---
 
-### CGI/SCGI/JSGI/PHP
+# CGI/SCGI/JSGI/PHP
 
 In order to use CGI with SVR.JS, you need to install RedBrick mod. For SCGI you need to install OrangeCircle, while for JSGI you need to install YellowSquare mod. [Download these mods.](https://svrjs.org/mods)
 
-#### CGI and PHP via RedBrick
+## CGI and PHP via RedBrick
 
 RedBrick supports running CGI programs and PHP files (RedBrick 2.3.0 and newer) in cgi-bin directory. RedBrick 2.5.0 and newer support running CGI programs and PHP files outside cgi-bin directory. You can configure file extensions outside of cgi-bin directory handled by RedBrick in _redbrick-scriptexts.json_ file in SVR.JS installation directory like this:
 
@@ -46,7 +46,7 @@ SVR.JS currently supports PHP-CGI through RedBrick mod. <s>PHP is currently supp
 
 For security reasons, you may disable directory listing for _cgi-bin_ (and also other directories) through _disableDirectoryListing_ or _disableDirectoryListingVHost_ options in SVR.JS configuration.
 
-#### SCGI via OrangeCircle
+## SCGI via OrangeCircle
 
 OrangeCircle can be configured in _orangecircle-config.json_ file in SVR.JS install directory like this:
 
@@ -60,7 +60,7 @@ OrangeCircle can be configured in _orangecircle-config.json_ file in SVR.JS inst
 
 OrangeCircle 1.0.7 and newer work with web root outside SVR.JS installation directory (older ones need _config.json_ file in web root with valid JSON data; not necessarily related to _config.json_ in SVR.JS installation directory)
 
-#### JSGI via YellowSquare
+## JSGI via YellowSquare
 
 YellowSquare supports running JSGI scripts only in jsgi-bin directory. YellowSquare runs JSGI scripts, that are either with _.jsgi_ or _.jsgi.js_ extension. Every change in JSGI application requires a restart of SVR.JS in order to be applied.
 
@@ -68,11 +68,11 @@ YellowSquare 1.0.3 and newer work with web root outside SVR.JS installation dire
 
 For security reasons, you may disable directory listing for _jsgi-bin_ (and also other directories) through _disableDirectoryListing_ or _disableDirectoryListingVHost_ options in SVR.JS configuration.
 
-### FastCGI/PHP-FPM
+# FastCGI/PHP-FPM
 
 In order to use FastCGI with SVR.JS, you need to install GreenRhombus mod. [Download the mod.](https://svrjs.org/mods)
 
-#### GreenRhombus notes
+## GreenRhombus notes
 
 GreenRhombus' path and FastCGI server address can be configured in _greenrhombus-config.json_ file in the SVR.JS install directory.
 
@@ -101,7 +101,7 @@ You can configure file extensions outside of path specified in _greenrhombus-con
 [".php"]
 ```
 
-#### PHP-FPM
+## PHP-FPM
 
 GreenRhombus supports running PHP files through PHP-FPM. If you want to use GreenRhombus only for PHP-FPM, configure _greenrhombus-config.json_ like this (in this case we're using socket in `/run/php/php8.2-fpm.sock`; you can check it in PHP-FPM configuration file, e.g. `/etc/php/8.2/fpm/pool.d/www.conf`; configure it without _path_ property):
 

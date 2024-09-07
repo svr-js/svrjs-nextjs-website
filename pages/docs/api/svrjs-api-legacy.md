@@ -2,15 +2,15 @@
 title: SVR.JS API (.tar.gz mods and server-side JavaScript)
 ---
 
-## SVR.JS API (_.tar.gz_ mods and server-side JavaScript)
+# SVR.JS API (_.tar.gz_ mods and server-side JavaScript)
 
 SVR.JS has its API for both _.tar.gz_ mods and server-side JavaScript that expands its functionality. SVR.JS API extends vanilla Node.JS HTTP API.
 
-### Error handling
+## Error handling
 
 When a JavaScript error is thrown outside of event callbacks, SVR.JS will return a 500 error to the client. Inside event callbacks, SVR.JS will simply crash.
 
-#### Incorrect Error Handling:
+### Incorrect Error Handling:
 
 ```js
 //XXX WARNING!!! IT WILL CRASH THE SVR.JS!!!
@@ -45,7 +45,7 @@ if (href == "/page.svr") {
 
 Instead, you should handle errors gracefully using _callServerError_ function:
 
-#### Correct Error Handling:
+### Correct Error Handling:
 
 ```js
 //Much better!
@@ -98,7 +98,7 @@ if (href == "/page.svr") {
 
 By using `callServerError`, you can handle errors effectively and provide appropriate error responses to the client, preventing SVR.JS from crashing due to unhandled exceptions.
 
-### Non-proxy API
+## Non-proxy API
 
 This API is exposed both to mods and server-side JavaScript. This API also includes proxy requests, which don't use CONNECT method. It's possible to determine, if the request comes from the proxy, by checking if _req.url_ begins with "_http://_" or with "_https://_" (unlike non-proxy requests, for which _req.url_ begins with "_/_") like this:
 
@@ -108,7 +108,7 @@ var isProxy = req.url && req.url.match(/^https?:\/\//);
 
 SVR.JS applies mods for request URLs beginning with "_http://_" or with "_https://_" (proxy through GET or POST method, non-proxy requests have request URLs beginning with "_/_") only if _Mod.prototype.proxyCallback_ method is present (not possible with SVR.JS server-side JavaScript).
 
-#### _req_
+### _req_
 
 _req_ object is almost same, as _req_ object in Node.JS
 
@@ -118,7 +118,7 @@ Differences:
 - _req.socket.originalRemoteAddress_ and _req.socket.originalRemotePort_ will contain IP address, from which proxy request came from.
 - _req.url_ refers to request URL after all processing (URL rewriting too)
 
-#### _res_
+### _res_
 
 _res_ object is almost same, as _res_ object in Node.JS
 
@@ -132,7 +132,7 @@ Differences:
 - _res.writeHead_ called multiple times will emit a warning, instead of throwing an error, which could crash SVR.JS.
 - Custom headers defined in _config.json_ are set by default.
 
-#### _serverconsole.climessage(message)_
+### _serverconsole.climessage(message)_
 
 Parameters:
 
@@ -140,7 +140,7 @@ Parameters:
 
 Sends CLI message to server console.
 
-#### _serverconsole.reqmessage(message)_
+### _serverconsole.reqmessage(message)_
 
 Parameters:
 
@@ -148,7 +148,7 @@ Parameters:
 
 Sends request message to server console.
 
-#### _serverconsole.resmessage(message)_
+### _serverconsole.resmessage(message)_
 
 Parameters:
 
@@ -156,7 +156,7 @@ Parameters:
 
 Sends response message to server console.
 
-#### _serverconsole.errmessage(message)_
+### _serverconsole.errmessage(message)_
 
 Parameters:
 
@@ -164,7 +164,7 @@ Parameters:
 
 Sends response error message to server console.
 
-#### _serverconsole.locerrmessage(message)_
+### _serverconsole.locerrmessage(message)_
 
 Parameters:
 
@@ -172,7 +172,7 @@ Parameters:
 
 Sends local error message to server console.
 
-#### _serverconsole.locwarnmessage(message)_
+### _serverconsole.locwarnmessage(message)_
 
 Parameters:
 
@@ -180,7 +180,7 @@ Parameters:
 
 Sends local warning message to server console.
 
-#### _serverconsole.locmessage(message)_
+### _serverconsole.locmessage(message)_
 
 Parameters:
 
@@ -188,7 +188,7 @@ Parameters:
 
 Sends local message to server console.
 
-#### _responseEnd(body)_
+### _responseEnd(body)_
 
 Parameters:
 
@@ -196,57 +196,57 @@ Parameters:
 
 Sends response message (along with custom head and foot) specified by _body_ parameter.
 
-#### _href_
+### _href_
 
 Path name of resource defined in the request. Alias for _uobject.pathname_.
 
-#### _ext_
+### _ext_
 
 Extension of resource defined in the request.
 
-#### _uobject_
+### _uobject_
 
 Parsed _Url_ object created by _url.parse()_ method (includes parsed query string).
 
 SVR.JS 3.3.1 and newer include hostname of the server (3.3.1 to 3.14.x use wrapper over WHATWG URL API; 3.15.0 and newer use custom URL parser), older versions don't.
 
-#### _search_
+### _search_
 
 Query string of URL. Alias for _uobject.search_
 
-#### _defaultpage_
+### _defaultpage_
 
 **WARNING! DEPRECATED IN SVR.JS 3.X OR NEWER**
 
 In SVR.JS 2.x it was alias for _configJSON.defaultpage_. In SVR.JS 3.x for backward compability it's always "_index.html_".
 
-#### _users_
+### _users_
 
 **WARNING! DEPRECATED**
 
 Alias for _configJSON.users_
 
-#### _page404_
+### _page404_
 
 Alias for _configJSON.page404_
 
-#### _head_
+### _head_
 
 HTML head read from either _.head_ or _head.html_ file.
 
-#### _foot_
+### _foot_
 
 HTML foot read from either _.foot_ or _foot.html_ file.
 
-#### _fd_
+### _fd_
 
 **WARNING! This property has currently no use and it's reserved for new SVR.JS functions.** Currently this property is an empty string.
 
-#### _elseCallback()_
+### _elseCallback()_
 
 Invokes next SVR.JS mod callback, SVR.JS server-side JavaScript callback or main SVR.JS callback.
 
-#### _configJSON_
+### _configJSON_
 
 <small>_Added in SVR.JS 3.0.0_</small>
 
@@ -254,7 +254,7 @@ Parsed object of _config.json_ file.
 
 SVR.JS 3.4.0 and newer has _version_ property, that corresponds to server version, and _productName_ property, which always is "SVR.JS".
 
-#### _callServerError(errorCode[, extName][, stack][, ch])_
+### _callServerError(errorCode[, extName][, stack][, ch])_
 
 <small>_Added in SVR.JS 3.0.0_</small>
 
@@ -267,7 +267,7 @@ Parameters:
 
 Invokes HTTP error code. If it's unavailable, invokes 501 error code.
 
-#### _getCustomHeaders()_
+### _getCustomHeaders()_
 
 <small>_Added in SVR.JS 3.0.0_</small>
 
@@ -275,13 +275,13 @@ Returns: _Object_ property contains custom headers.
 
 This methods retrieves custom headers from _config.json_ file. Returned object additionally includes _Server_ header.
 
-#### _origHref_
+### _origHref_
 
 <small>_Added in SVR.JS 3.0.0_</small>
 
 Original path name before URL rewriting.
 
-#### _redirect(dest[, isTemporary][, keepMethod][, headers])_
+### _redirect(dest[, isTemporary][, keepMethod][, headers])_
 
 <small>_Added in SVR.JS 3.0.0_</small>
 
@@ -294,7 +294,7 @@ Parameters:
 
 Redirects HTTP client to specific destination.
 
-#### _parsePostData([options], callback)_
+### _parsePostData([options], callback)_
 
 <small>_Added in SVR.JS 3.0.0_</small>
 
@@ -308,7 +308,7 @@ Parameters:
 
 A wrapper over _formidable_ library, which is used for parsing request bodies of POST requests.
 
-#### _authUser_
+### _authUser_
 
 <small>_Added in SVR.JS 3.14.2_</small>
 
@@ -356,7 +356,7 @@ function checkIfThereIsA401Rule() {
 }
 ```
 
-### Proxy API
+## Proxy API
 
 <small>_Added in SVR.JS 3.4.21, 3.7.0_</small>
 
@@ -378,37 +378,37 @@ if (!res.writeHead) {
 }
 ```
 
-#### _req_
+### _req_
 
 <small>_Added in SVR.JS 3.4.21, 3.7.0_</small>
 
 _req_ object is the same, as _req_ object in Node.JS
 
-#### _socket_
+### _socket_
 
 <small>_Added in SVR.JS 3.4.21, 3.7.0_</small>
 
 _socket_ object is the same, as _socket_ object in Node.JS
 
-#### _head_
+### _head_
 
 <small>_Added in SVR.JS 3.4.21, 3.7.0_</small>
 
 _head_ object is the same, as _head_ object in Node.JS
 
-#### _configJSON_
+### _configJSON_
 
 <small>_Added in SVR.JS 3.4.21, 3.7.0_</small>
 
 _See configJSON in non-proxy API_
 
-#### _serverconsole_
+### _serverconsole_
 
 <small>_Added in SVR.JS 3.4.21, 3.7.0_</small>
 
 _See serverconsole in non-proxy API_
 
-#### _elseCallback()_
+### _elseCallback()_
 
 <small>_Added in SVR.JS 3.4.21, 3.7.0_</small>
 

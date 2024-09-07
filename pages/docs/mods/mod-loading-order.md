@@ -2,9 +2,9 @@
 title: Mod loading order
 ---
 
-### Mod loading order
+# Mod loading order
 
-#### Startup
+## Startup
 
 1.  Search for mods
 2.  For each mod (sorted alphabetically by mod file name):
@@ -18,7 +18,7 @@ title: Mod loading order
     1.  Create mod file from server-side JavaScript
     2.  Initialize "mod", and add "mod" to list
 
-#### Execution (on each server request)
+## Execution (on each server request)
 
 1.  Initialize SVR.JS variables
 2.  Invoke mods and server-side JavaScript (mods sorted alphabetically by mod file name)

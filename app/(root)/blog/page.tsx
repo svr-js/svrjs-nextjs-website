@@ -43,7 +43,7 @@ const BlogPage = async () => {
       id="blog"
       className="wrapper container py-24 md:py-28 gap-2 flex-center flex-col"
     >
-      <h1 className="text-3xl md:text-5xl mb-3 pb-1 md:pb-2 font-bold text-black dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-b dark:from-white dark:to-neutral-400">
+      <h1 className="text-3xl md:text-5xl pb-1 md:pb-2 font-bold text-black dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-b dark:from-white dark:to-neutral-400">
         SVR.JS Blog
       </h1>
       <p className="text-muted-foreground flex-center mb-2">

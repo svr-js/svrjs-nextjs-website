@@ -3,11 +3,11 @@ import nodemailer from "nodemailer";
 import clientPromise from "@/lib/db";
 
 const transporter = nodemailer.createTransport({
-  host: "smtp.ethereal.email", //replace this also comment this if u not using etheral
-  // service: "gmail", // uncomment if u using gmail
-  port: 587,
+  host: process.env.EMAIL_SERVER,
+  port: parseInt(process.env.EMAIL_PORT ? process.env.EMAIL_PORT : "25"),
+  secure: Boolean(process.env.EMAIL_SECURE ? process.env.EMAIL_SECURE : false),
   auth: {
-    user: process.env.EMAIL,
+    user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS
   }
 });
@@ -15,7 +15,7 @@ const transporter = nodemailer.createTransport({
 const sendEmail = async (to: string[], subject: string, html: string) => {
   try {
     await transporter.sendMail({
-      from: process.env.EMAIL_USER,
+      from: process.env.EMAIL_NEWSLETTER_ADDRESS,
       to: to.join(", "),
       subject: subject,
       html: html

@@ -2,11 +2,11 @@ import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
 const transporter = nodemailer.createTransport({
-  host: "smtp.ethereal.email", // Replace with your SMTP host
-  // service: "gmail", // Uncomment if using Gmail
-  port: 587,
+  host: process.env.EMAIL_SERVER,
+  port: parseInt(process.env.EMAIL_PORT ? process.env.EMAIL_PORT : "25"),
+  secure: Boolean(process.env.EMAIL_SECURE ? process.env.EMAIL_SECURE : false),
   auth: {
-    user: process.env.EMAIL,
+    user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS
   }
 });
@@ -14,7 +14,7 @@ const transporter = nodemailer.createTransport({
 const sendEmail = async (to: string[], subject: string, html: string) => {
   try {
     await transporter.sendMail({
-      from: process.env.EMAIL_USER,
+      from: process.env.EMAIL_NEWSLETTER_ADDRESS,
       to: to.join(", "),
       subject: subject,
       html: html

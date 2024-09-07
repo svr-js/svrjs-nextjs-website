@@ -1,17 +1,18 @@
 import nodemailer from "nodemailer";
 
 export const transporter = nodemailer.createTransport({
-  host: "smtp.ethereal.email",
-  port: 587,
+  host: process.env.EMAIL_SERVER,
+  port: parseInt(process.env.EMAIL_PORT ? process.env.EMAIL_PORT : "25"),
+  secure: Boolean(process.env.EMAIL_SECURE ? process.env.EMAIL_SECURE : false),
   auth: {
-    user: process.env.EMAIL,
+    user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS
   }
 });
 
 export const mailOptions = {
-  from: process.env.EMAIL,
-  to: process.env.EMAIL,
+  from: process.env.EMAIL_CONTACT_ADDRESS,
+  to: process.env.EMAIL_CONTACT_DEST,
   html: `
     <table bgcolor="#fafafa" style=" width: 100%!important; height: 100%; background-color: #fafafa; padding: 20px; font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, 'Lucida Grande', sans-serif;  font-size: 100%; line-height: 1.6;">
                 <tr>

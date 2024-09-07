@@ -87,7 +87,7 @@ const SvrjsModsAdminPage = () => {
       });
       setDialogOpen(true); // Open dialog when a mod is being edited
     }
-  }, [editMod]);
+  }, [editMod, dialogForm]);
 
   const fetchMods = async () => {
     try {

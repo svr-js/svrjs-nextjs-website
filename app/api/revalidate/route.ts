@@ -50,7 +50,11 @@ export async function POST(req: NextRequest) {
       const cardsPerPage = 6;
 
       const totalPostsQuery = `count(*[_type == 'blog'])`;
-      const totalPosts: number = await client.fetch(totalPostsQuery);
+      const totalPosts: number = await client.fetch(
+        totalPostsQuery,
+        {},
+        { cache: "no-store" }
+      );
 
       const totalPages = Math.ceil(totalPosts / cardsPerPage);
       for (let i = 1; i <= totalPages + 1; i++) {

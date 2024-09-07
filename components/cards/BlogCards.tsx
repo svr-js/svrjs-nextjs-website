@@ -48,7 +48,11 @@ const BlogCards: React.FC<BlogCardInterface> = async (props) => {
   );
 
   const totalPostsQuery = `count(*[_type == 'blog'])`;
-  const totalPosts: number = await client.fetch(totalPostsQuery);
+  const totalPosts: number = await client.fetch(
+    totalPostsQuery,
+    {},
+    { cache: "no-store" }
+  );
 
   const totalPages = Math.ceil(totalPosts / cardsPerPage);
 

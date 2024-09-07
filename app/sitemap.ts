@@ -10,7 +10,6 @@ export default async function sitemap() {
     "/contact",
     "/contribute",
     "/downloads",
-    "/forum",
     "/mods",
     "/privacy",
     "/tos",

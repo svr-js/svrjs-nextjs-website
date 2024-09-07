@@ -37,7 +37,7 @@ const Testimonials = () => {
             name={testimonial.name}
             role={testimonial.role}
             testimonial={testimonial.testimonial}
-            rating={testimonial.rating}
+            rating={0} /*{testimonial.rating}*/
             key={idx}
           />
         ))}

@@ -6,6 +6,8 @@ import { Rss } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "Blog - SVR.JS",
   description:

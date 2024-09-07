@@ -40,6 +40,8 @@ interface BlogSlugArticle {
   _createdAt: string;
 }
 
+export const dynamic = "force-static";
+
 export async function generateMetadata({
   params
 }: {

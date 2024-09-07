@@ -8,7 +8,7 @@
       "seperator": {
           "type": "separator"
         },
-    "config": "Configurations",
+    "config": "Configuration",
     "configseperator": {
         "type": "separator"
       },
@@ -16,8 +16,9 @@
     "modseperator": {
         "type": "separator"
       },
-    "server-side-javascript": "Server Side javascript",
+    "server-side-javascript": "Server-side JavaScript",
     "ssjseperator": {
         "type": "separator"
-      }
+      },
+    "api": "SVR.JS API"
 }

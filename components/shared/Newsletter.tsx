@@ -74,7 +74,7 @@ const Newsletter = () => {
         </h3>
         <p className="text-lg text-muted-foreground text-center mt-4 md:mt-2 mb-8">
           Subscribe to our newsletter for updates. We promise no spam emails
-          will be sent
+          will be sent.
         </p>
         <form
           className="relative flex flex-col w-full md:flex-row md:w-6/12 lg:w-4/12 mx-auto gap-4 md:gap-2"

@@ -21,6 +21,7 @@
  */
 
 import { isValidSignature, SIGNATURE_HEADER_NAME } from "@sanity/webhook";
+import { client } from "@/lib/sanity";
 import { revalidatePath } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -42,11 +43,22 @@ export async function POST(req: NextRequest) {
 
   try {
     if (body._type == "blog") {
-      revalidatePath(`/blog/${body.slug.current}`);
-      revalidatePath("/blog", "page");
-      revalidatePath("/blog/page/[id]", "page");
+      if (body.slug.current) revalidatePath(`/blog/${body.slug.current}`);
+      revalidatePath("/blog");
+
+      // Change in /blog/page/[id] route and in BlogCards component too!
+      const cardsPerPage = 6;
+
+      const totalPostsQuery = `count(*[_type == 'blog'])`;
+      const totalPosts: number = await client.fetch(totalPostsQuery);
+
+      const totalPages = Math.ceil(totalPosts / cardsPerPage);
+      for (let i = 1; i <= totalPages + 1; i++) {
+        revalidatePath(`/blog/page/${i.toString()}`);
+      }
+
       return NextResponse.json({
-        message: `Revalidated "${body._type}" with slug "${body.slug}"`
+        message: `Revalidated "${body._type}" with slug "${body.slug.current}"`
       });
     }
 

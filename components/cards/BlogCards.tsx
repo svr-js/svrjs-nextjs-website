@@ -29,7 +29,7 @@ interface BlogCardInterface {
 const BlogCards: React.FC<BlogCardInterface> = async (props) => {
   "use server";
 
-  // Change in /blog/page/[id] route too!
+  // Change in /blog/page/[id] route and in /api/revalidate route too!
   const cardsPerPage = 6;
   const currentPage = props.page;
 

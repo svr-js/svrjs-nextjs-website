@@ -63,7 +63,7 @@ const BlogPage = async ({ params }: { params: { id: string } }) => {
 };
 
 export async function generateStaticParams() {
-  // Change in BlogCards component too!
+  // Change in BlogCards component and in /api/revalidate route too!
   const cardsPerPage = 6;
 
   const totalPostsQuery = `count(*[_type == 'blog'])`;

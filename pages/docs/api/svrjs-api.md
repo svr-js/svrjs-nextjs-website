@@ -105,7 +105,7 @@ By using `res.error`, you can handle errors effectively and provide appropriate 
 
 ### Main callback API (`module.exports`)
 
-<small>_Added in SVR.JS 4.0.0_</small>{" "}
+<small>_Added in SVR.JS 4.0.0_</small>
 
 This API includes proxy requests, which don't use CONNECT method. It's possible to determine, if the request comes from the proxy with `req.isProxy` property.
 
@@ -113,13 +113,13 @@ SVR.JS applies mods for request URLs beginning with "_http://_" or with "_https:
 
 #### _req_
 
-<small>_Added in SVR.JS 4.0.0_</small>{" "}
+<small>_Added in SVR.JS 4.0.0_</small>
 
 _req_ object is almost same, as _req_ object in Node.JS
 
 #### _req.socket.realRemoteAddress_
 
-<small>_Added in SVR.JS 4.0.0_</small>{" "}
+<small>_Added in SVR.JS 4.0.0_</small>
 
 A property containing IP address, from which request originally went from, if request is sent through reverse proxy.
 
@@ -127,7 +127,7 @@ You can specify generic request IP variable using `const reqip = req.socket.real
 
 #### _req.socket.realRemotePort_
 
-<small>_Added in SVR.JS 4.0.0_</small>{" "}
+<small>_Added in SVR.JS 4.0.0_</small>
 
 A property containing port number, from which request originally went from, if request is sent through reverse proxy. (for _X-Forwarded-For_ header, it will be _null_)
 
@@ -135,55 +135,55 @@ You can specify generic request IP variable using `const reqip = req.socket.real
 
 #### _req.socket.originalRemoteAddress_
 
-<small>_Added in SVR.JS 4.0.0_</small>{" "}
+<small>_Added in SVR.JS 4.0.0_</small>
 
 A property containing IP address, from which proxy request came from. If the request isn't a proxy request, it will be `undefined`.
 
 #### _req.socket.originalRemotePort_
 
-<small>_Added in SVR.JS 4.0.0_</small>{" "}
+<small>_Added in SVR.JS 4.0.0_</small>
 
 A property containing port number, from which proxy request came from. If the request isn't a proxy request, it will be `undefined`.
 
 #### _req.url_
 
-<small>_Added in SVR.JS 4.0.0_</small>{" "}
+<small>_Added in SVR.JS 4.0.0_</small>
 
 A property containing request URL after all processing (URL rewriting too).
 
 #### _req.parsedURL_
 
-<small>_Added in SVR.JS 4.0.0_</small>{" "}
+<small>_Added in SVR.JS 4.0.0_</small>
 
 A property containing parsed request URL created by a custom URL parser (compatible with legacy URL parser: `url.parse()`)
 
 #### _req.originalParsedURL_
 
-<small>_Added in SVR.JS 4.0.0_</small>{" "}
+<small>_Added in SVR.JS 4.0.0_</small>
 
 A property containing parsed request URL (before URL rewriting) created by a custom URL parser (compatible with legacy URL parser: `url.parse()`)
 
 #### _req.isProxy_
 
-<small>_Added in SVR.JS 4.0.0_</small>{" "}
+<small>_Added in SVR.JS 4.0.0_</small>
 
 A property that determines if request is a proxy request or not.
 
 #### _req.authUser_
 
-<small>_Added in SVR.JS 4.0.0_</small>{" "}
+<small>_Added in SVR.JS 4.0.0_</small>
 
 The name of authenticated HTTP user. If the user wasn't authenticated, the property would be _null_.
 
 #### _res_
 
-<small>_Added in SVR.JS 4.0.0_</small>{" "}
+<small>_Added in SVR.JS 4.0.0_</small>
 
 _res_ object is almost same, as _res_ object in Node.JS
 
 #### _res.socket.realRemoteAddress_
 
-<small>_Added in SVR.JS 4.0.0_</small>{" "}
+<small>_Added in SVR.JS 4.0.0_</small>
 
 A property containing IP address, from which request originally went from, if request is sent through reverse proxy.
 
@@ -191,7 +191,7 @@ You can specify generic request IP variable using `const reqip = req.socket.real
 
 #### _res.socket.realRemotePort_
 
-<small>_Added in SVR.JS 4.0.0_</small>{" "}
+<small>_Added in SVR.JS 4.0.0_</small>
 
 A property containing port number, from which request originally went from, if request is sent through reverse proxy. (for _X-Forwarded-For_ header, it will be _null_)
 
@@ -199,19 +199,19 @@ You can specify generic request IP variable using `const reqip = req.socket.real
 
 #### _res.socket.originalRemoteAddress_
 
-<small>_Added in SVR.JS 4.0.0_</small>{" "}
+<small>_Added in SVR.JS 4.0.0_</small>
 
 A property containing IP address, from which proxy request came from. If the request isn't a proxy request, it will be `undefined`.
 
 #### _res.socket.originalRemotePort_
 
-<small>_Added in SVR.JS 4.0.0_</small>{" "}
+<small>_Added in SVR.JS 4.0.0_</small>
 
 A property containing port number, from which proxy request came from. If the request isn't a proxy request, it will be `undefined`.
 
 #### _res.writeHead(statusCode[, statusMessage][, headers])_
 
-<small>_Added in SVR.JS 4.0.0_</small>{" "}
+<small>_Added in SVR.JS 4.0.0_</small>
 
 Parameters:
 
@@ -225,7 +225,7 @@ The difference between _res.writeHead_ in Node.JS, and in SVR.JS is that in SVR.
 
 #### _res.setHeader(name, value)_
 
-<small>_Added in SVR.JS 4.0.0_</small>{" "}
+<small>_Added in SVR.JS 4.0.0_</small>
 
 Parameters:
 
@@ -238,19 +238,19 @@ Custom headers defined in _config.json_ are set by default.
 
 #### _res.head_
 
-<small>_Added in SVR.JS 4.0.0_</small>{" "}
+<small>_Added in SVR.JS 4.0.0_</small>
 
 HTML head read from either _.head_ or _head.html_ file.
 
 #### _res.foot_
 
-<small>_Added in SVR.JS 4.0.0_</small>{" "}
+<small>_Added in SVR.JS 4.0.0_</small>
 
 HTML foot read from either _.foot_ or _foot.html_ file.
 
 #### _res.responseEnd(body)_
 
-<small>_Added in SVR.JS 4.0.0_</small>{" "}
+<small>_Added in SVR.JS 4.0.0_</small>
 
 Parameters:
 
@@ -260,7 +260,7 @@ Sends response message (along with custom head and foot) specified by _body_ par
 
 #### _res.error(errorCode[, extName][, stack][, ch])_
 
-<small>_Added in SVR.JS 4.0.0_</small>{" "}
+<small>_Added in SVR.JS 4.0.0_</small>
 
 Parameters:
 
@@ -273,7 +273,7 @@ Invokes HTTP error code. If it's unavailable, invokes 501 error code.
 
 #### _res.redirect(dest[, isTemporary][, keepMethod][, headers])_
 
-<small>_Added in SVR.JS 4.0.0_</small>{" "}
+<small>_Added in SVR.JS 4.0.0_</small>
 
 Parameters:
 
@@ -286,13 +286,13 @@ Redirects HTTP client to specific destination.
 
 #### _logFacilities_
 
-<small>_Added in SVR.JS 4.0.0_</small>{" "}
+<small>_Added in SVR.JS 4.0.0_</small>
 
 The log facilities for SVR.JS.
 
 #### _logFacilities.climessage(message)_
 
-<small>_Added in SVR.JS 4.0.0_</small>{" "}
+<small>_Added in SVR.JS 4.0.0_</small>
 
 Parameters:
 
@@ -302,7 +302,7 @@ Sends CLI message to server console.
 
 #### _logFacilities.reqmessage(message)_
 
-<small>_Added in SVR.JS 4.0.0_</small>{" "}
+<small>_Added in SVR.JS 4.0.0_</small>
 
 Parameters:
 
@@ -312,7 +312,7 @@ Sends request message to server console.
 
 #### _logFacilities.resmessage(message)_
 
-<small>_Added in SVR.JS 4.0.0_</small>{" "}
+<small>_Added in SVR.JS 4.0.0_</small>
 
 Parameters:
 
@@ -322,7 +322,7 @@ Sends response message to server console.
 
 #### _logFacilities.errmessage(message)_
 
-<small>_Added in SVR.JS 4.0.0_</small>{" "}
+<small>_Added in SVR.JS 4.0.0_</small>
 
 Parameters:
 
@@ -332,7 +332,7 @@ Sends response error message to server console.
 
 #### _logFacilities.locerrmessage(message)_
 
-<small>_Added in SVR.JS 4.0.0_</small>{" "}
+<small>_Added in SVR.JS 4.0.0_</small>
 
 Parameters:
 
@@ -342,7 +342,7 @@ Sends local error message to server console.
 
 #### _logFacilities.locwarnmessage(message)_
 
-<small>_Added in SVR.JS 4.0.0_</small>{" "}
+<small>_Added in SVR.JS 4.0.0_</small>
 
 Parameters:
 
@@ -352,7 +352,7 @@ Sends local warning message to server console.
 
 #### _logFacilities.locmessage(message)_
 
-<small>_Added in SVR.JS 4.0.0_</small>{" "}
+<small>_Added in SVR.JS 4.0.0_</small>
 
 Parameters:
 
@@ -362,13 +362,13 @@ Sends local message to server console.
 
 #### _config_
 
-<small>_Added in SVR.JS 4.0.0_</small>{" "}
+<small>_Added in SVR.JS 4.0.0_</small>
 
 This object contains properties from _config.json_ file.
 
 #### _config.getCustomHeaders()_
 
-<small>_Added in SVR.JS 4.0.0_</small>{" "}
+<small>_Added in SVR.JS 4.0.0_</small>
 
 Returns: _Object_ property contains custom headers.
 
@@ -376,7 +376,7 @@ This methods retrieves custom headers from _config.json_ file. Returned object a
 
 #### _config.generateServerString()_
 
-<small>_Added in SVR.JS 4.0.0_</small>{" "}
+<small>_Added in SVR.JS 4.0.0_</small>
 
 Returns: The generated server string.
 
@@ -384,6 +384,6 @@ This methods generated the string which is used to identify a web server (the sa
 
 #### _next()_
 
-<small>_Added in SVR.JS 4.0.0_</small>{" "}
+<small>_Added in SVR.JS 4.0.0_</small>
 
 Invokes next SVR.JS mod callback, SVR.JS server-side JavaScript callback or main SVR.JS callback.

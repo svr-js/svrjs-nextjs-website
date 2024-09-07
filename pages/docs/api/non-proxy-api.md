@@ -152,7 +152,7 @@ Invokes next SVR.JS mod callback, SVR.JS server-side JavaScript callback or main
 
 #### _configJSON_
 
-<small>_Added in SVR.JS 3.0.0_</small>{" "}
+<small>_Added in SVR.JS 3.0.0_</small>
 
 Parsed object of _config.json_ file.
 
@@ -160,7 +160,7 @@ SVR.JS 3.4.0 and newer has _version_ property, that corresponds to server versio
 
 #### _callServerError(errorCode[, extName][, stack][, ch])_
 
-<small>_Added in SVR.JS 3.0.0_</small>{" "}
+<small>_Added in SVR.JS 3.0.0_</small>
 
 Parameters:
 
@@ -173,7 +173,7 @@ Invokes HTTP error code. If it's unavailable, invokes 501 error code.
 
 #### _getCustomHeaders()_
 
-<small>_Added in SVR.JS 3.0.0_</small>{" "}
+<small>_Added in SVR.JS 3.0.0_</small>
 
 Returns: _Object_ property contains custom headers.
 
@@ -181,13 +181,13 @@ This methods retrieves custom headers from _config.json_ file. Returned object a
 
 #### _origHref_
 
-<small>_Added in SVR.JS 3.0.0_</small>{" "}
+<small>_Added in SVR.JS 3.0.0_</small>
 
 Original path name before URL rewriting.
 
 #### _redirect(dest[, isTemporary][, keepMethod][, headers])_
 
-<small>_Added in SVR.JS 3.0.0_</small>{" "}
+<small>_Added in SVR.JS 3.0.0_</small>
 
 Parameters:
 
@@ -200,7 +200,7 @@ Redirects HTTP client to specific destination.
 
 #### _parsePostData([options], callback)_
 
-<small>_Added in SVR.JS 3.0.0_</small>{" "}
+<small>_Added in SVR.JS 3.0.0_</small>
 
 Parameters:
 

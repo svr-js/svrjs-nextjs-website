@@ -1,39 +1,52 @@
 import { useRouter } from "next/router";
+import { useConfig } from "nextra-theme-docs";
 import Logo from "./components/shared/Logo";
 
 export default {
-  head: (
-    <>
-      <meta
-        name="description"
-        content="The SVR.JS documentation provides comprehensive information and instructions on how to use and configure the SVR.JS web server. This documentation is also a valuable resource for web developers."
-      />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
+  head: function Head() {
+    const { asPath, defaultLocale, locale } = useRouter();
+    const { frontMatter } = useConfig();
+    const url = `https://svrjs.org/${asPath}`;
 
-      <meta property="og:title" content="Documentation - SVR.JS" />
-      <meta
-        property="og:description"
-        content="The SVR.JS documentation provides comprehensive information and instructions on how to use and configure the SVR.JS web server. This documentation is also a valuable resource for web developers."
-      />
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content="https://svrjs.org" />
-      <meta
-        property="og:image"
-        content="https://svrjs.vercel.app/metadata/svrjs-cover.png"
-      />
-      <title>Documentation - SVR.JS</title>
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Documentation - SVR.JS" />
-      <meta
-        name="twitter:description"
-        content="The SVR.JS documentation provides comprehensive information and instructions on how to use and configure the SVR.JS web server. This documentation is also a valuable resource for web developers."
-      />
-      <meta
-        name="twitter:image"
-        content="https://svrjs.vercel.app/metadata/svrjs-cover.png"
-      />
-    </>
-  ),
+    return (
+      <>
+        <meta
+          name="description"
+          content="The SVR.JS documentation provides comprehensive information and instructions on how to use and configure the SVR.JS web server. This documentation is also a valuable resource for web developers."
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <meta
+          property="og:title"
+          content={(frontMatter.title || "Documentation") + " - SVR.JS"}
+        />
+        <meta
+          property="og:description"
+          content="The SVR.JS documentation provides comprehensive information and instructions on how to use and configure the SVR.JS web server. This documentation is also a valuable resource for web developers."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={url} />
+        <meta
+          property="og:image"
+          content="https://svrjs.vercel.app/metadata/svrjs-cover.png"
+        />
+        <title>{(frontMatter.title || "Documentation") + " - SVR.JS"}</title>
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content={(frontMatter.title || "Documentation") + " - SVR.JS"}
+        />
+        <meta
+          name="twitter:description"
+          content="The SVR.JS documentation provides comprehensive information and instructions on how to use and configure the SVR.JS web server. This documentation is also a valuable resource for web developers."
+        />
+        <meta
+          name="twitter:image"
+          content="https://svrjs.vercel.app/metadata/svrjs-cover.png"
+        />
+      </>
+    );
+  },
   editLink: {
     component: null
   },

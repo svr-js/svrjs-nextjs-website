@@ -3,7 +3,6 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/shared/providers/themeprovider";
 import { Toaster } from "@/components/ui/toaster";
-import { Analytics } from "@vercel/analytics/react";
 
 const poppins = Poppins({
   weight: ["400", "600", "700", "900"],
@@ -56,7 +55,6 @@ export default function RootLayout({
         >
           {children}
           <Toaster />
-          <Analytics />
         </ThemeProvider>
       </body>
     </html>

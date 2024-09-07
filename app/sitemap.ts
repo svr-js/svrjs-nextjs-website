@@ -26,7 +26,7 @@ export default async function sitemap() {
     lastModified: new Date().toISOString().split("T")[0]
   }));
 
-  let changelogRoutes = [];
+  let changelogRoutes: any[] = [];
   try {
     const client = await clientPromise;
     const db = client.db(process.env.MONGODB_DB);

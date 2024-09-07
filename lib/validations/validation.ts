@@ -28,7 +28,8 @@ export const vulnerabilitiesSchema = z.object({
   version: z.string(),
   bullets: z.array(
     z.object({
-      point: z.string()
+      point: z.string(),
+      securityAdvisoryUrl: z.string()
     })
   )
 });

@@ -3,9 +3,11 @@ import { VULNERABILITY } from "@/constants/guidelines";
 import { useEffect, useState } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import clientPromise from "@/lib/db";
+import Link from "next/link";
 
 interface Bullet {
   point: string;
+  securityAdvisoryUrl: string;
 }
 
 interface Vulnerabilities {
@@ -80,7 +82,19 @@ const Vulnerabilities = async () => {
           <h2 className="font-semibold text-3xl -mb-2">{download.version}</h2>
           <ul className="list-disc pl-5">
             {(download.bullets ?? []).map((bullet, index) => (
-              <li key={index}>{bullet.point}</li>
+              <li key={index}>
+                {bullet.point}
+                {bullet.securityAdvisoryUrl ? (
+                  <>
+                    {" "}
+                    <Link href={bullet.securityAdvisoryUrl}>
+                      View security advisory
+                    </Link>
+                  </>
+                ) : (
+                  ""
+                )}
+              </li>
             ))}
           </ul>
         </div>

@@ -35,7 +35,10 @@ import {
 interface VulnerabiltyEntry {
   _id: string;
   version: string;
-  bullets: { point: string }[];
+  bullets: {
+    point: string;
+    securityAdvisoryUrl: string;
+  }[];
 }
 
 type VulnerabiltiesForm = z.infer<typeof vulnerabilitiesSchema>;
@@ -50,7 +53,7 @@ const AdminLogPage = () => {
     resolver: zodResolver(vulnerabilitiesSchema),
     defaultValues: {
       version: "",
-      bullets: [{ point: "" }]
+      bullets: [{ point: "", securityAdvisoryUrl: "" }]
     }
   });
 
@@ -136,35 +139,53 @@ const AdminLogPage = () => {
           />
 
           {fields.map((field, index) => (
-            <FormField
-              key={field.id}
-              control={form.control}
-              name={`bullets.${index}.point`}
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Key Point {index + 1}</FormLabel>
-                  <FormControl>
-                    <Input {...field} />
-                  </FormControl>
-                  <FormMessage />
-                  <Button
-                    type="button"
-                    className="mt-2"
-                    variant={"secondary"}
-                    onClick={() => remove(index)}
-                  >
-                    Remove
-                  </Button>
-                </FormItem>
-              )}
-            />
+            <>
+              <FormField
+                key={field.id}
+                control={form.control}
+                name={`bullets.${index}.point`}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Key Point {index + 1}</FormLabel>
+                    <FormControl>
+                      <Input {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                key={field.id + "-securityAdvisory"}
+                control={form.control}
+                name={`bullets.${index}.securityAdvisoryUrl`}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>
+                      Security Advisory URL for Key Point {index + 1}
+                    </FormLabel>
+                    <FormControl>
+                      <Input {...field} />
+                    </FormControl>
+                    <FormMessage />
+                    <Button
+                      type="button"
+                      className="mt-2"
+                      variant={"secondary"}
+                      onClick={() => remove(index)}
+                    >
+                      Remove
+                    </Button>
+                  </FormItem>
+                )}
+              />
+            </>
           ))}
           <Button
             type="button"
             className="mb-4"
             size={"icon"}
             variant={"outline"}
-            onClick={() => append({ point: "" })}
+            onClick={() => append({ point: "", securityAdvisoryUrl: "" })}
           >
             +
           </Button>

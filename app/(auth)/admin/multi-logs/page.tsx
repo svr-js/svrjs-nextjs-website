@@ -122,7 +122,7 @@ const MultiLogs = () => {
               <TableRow key={page.slug}>
                 <TableCell className="border-b px-4 py-2">
                   <a
-                    href={`/changelogs/${page.slug}`}
+                    href={`/changelog/${page.slug}`}
                     className="text-blue-500 underline"
                   >
                     {page.slug}

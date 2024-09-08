@@ -31,7 +31,7 @@ export async function POST(req: NextRequest) {
     const { subject, html } = await req.json();
 
     const client = await clientPromise;
-    const db = client.db("newsletter");
+    const db = client.db(process.env.MONGODB_DB);
     const collection = db.collection("subscribers");
 
     const subscribers = await collection

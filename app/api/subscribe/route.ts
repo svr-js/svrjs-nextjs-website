@@ -1,7 +1,33 @@
 import { NextRequest, NextResponse } from "next/server";
 import clientPromise from "@/lib/db";
+import { Collection } from "mongodb";
+import dns from "dns/promises";
+import { isEmail } from "validator";
 
 export async function POST(req: NextRequest) {
+  const generateUnsubscribeID = () => {
+    const chars =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    let result = "";
+    for (let i = 0; i < 32; i++) {
+      result += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return result;
+  };
+
+  const generateUniqueUnsubscribeID = async (collection: Collection) => {
+    const id = generateUnsubscribeID();
+    const result = await collection
+      .find({
+        unsubscribeId: id
+      })
+      .toArray();
+    if (result.length > 0) {
+      return await generateUniqueUnsubscribeID(collection);
+    }
+    return id;
+  };
+
   try {
     const { email, captchaToken } = await req.json();
 
@@ -33,8 +59,31 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    // Check email address
+    if (!isEmail(email)) {
+      return NextResponse.json(
+        { message: "Invalid email address" },
+        { status: 400 }
+      );
+    }
+
+    // Check email host
+    const emailDomainMatch = email.match(/@([^@]+)/);
+    const emailDomain = emailDomainMatch ? emailDomainMatch[1] : "";
+    let isEmailHostValid = false;
+    try {
+      const mxRecords = await dns.resolveMx(emailDomain);
+      if (mxRecords.length > 0) isEmailHostValid = true;
+    } catch (err) {}
+    if (!isEmailHostValid) {
+      return NextResponse.json(
+        { message: "Email domain is misconfigured" },
+        { status: 400 }
+      );
+    }
+
     const client = await clientPromise;
-    const db = client.db("newsletter");
+    const db = client.db(process.env.MONGODB_DB);
     const collection = db.collection("subscribers");
 
     // checking if email alr exists
@@ -47,7 +96,11 @@ export async function POST(req: NextRequest) {
     }
 
     // saves the email in the db
-    await collection.insertOne({ email, subscribedAt: new Date() });
+    await collection.insertOne({
+      email,
+      subscribedAt: new Date(),
+      unsubscribeId: await generateUniqueUnsubscribeID(collection)
+    });
 
     return NextResponse.json(
       { message: "Successfully subscribed!" },

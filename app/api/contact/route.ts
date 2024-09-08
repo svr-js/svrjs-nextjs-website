@@ -1,5 +1,7 @@
 import { mailOptions, transporter } from "@/lib/nodemailer/nodemailer";
 import { NextRequest, NextResponse } from "next/server";
+import dns from "dns/promises";
+import { isEmail } from "validator";
 
 const CONTACT_MESSAGE_FIELDS: Record<string, string> = {
   name: "Name",
@@ -125,6 +127,29 @@ export async function POST(req: NextRequest) {
     if (!hcaptchaData.success) {
       return NextResponse.json(
         { message: "Captcha verification failed." },
+        { status: 400 }
+      );
+    }
+
+    // Check email address
+    if (!isEmail(data.email)) {
+      return NextResponse.json(
+        { message: "Invalid email address" },
+        { status: 400 }
+      );
+    }
+
+    // Check email host
+    const emailDomainMatch = data.email.match(/@([^@]+)/);
+    const emailDomain = emailDomainMatch ? emailDomainMatch[1] : "";
+    let isEmailHostValid = false;
+    try {
+      const mxRecords = await dns.resolveMx(emailDomain);
+      if (mxRecords.length > 0) isEmailHostValid = true;
+    } catch (err) {}
+    if (!isEmailHostValid) {
+      return NextResponse.json(
+        { message: "Email domain is misconfigured" },
         { status: 400 }
       );
     }

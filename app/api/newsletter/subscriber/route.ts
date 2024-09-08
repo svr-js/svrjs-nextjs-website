@@ -16,7 +16,7 @@ export async function GET(req: Request) {
     const skip = (page - 1) * limit;
 
     const client = await clientPromise;
-    const db = client.db("newsletter");
+    const db = client.db(process.env.MONGODB_DB);
     const collection = db.collection("subscribers");
 
     // Pagination

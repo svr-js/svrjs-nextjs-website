@@ -47,8 +47,8 @@ const DownloadPage: React.FC = async () => {
         Downloads
       </h1>
       <p className="md:text-lg text-muted-foreground text-start mb-6">
-        Get all the latest version of SVR.JS here! Other SVR.JS downloads can be
-        found in{" "}
+        Get all the latest versions of SVR.JS here! Other SVR.JS downloads can
+        be found in{" "}
         <Link
           href="https://downloads.svrjs.org"
           className="text-black dark:text-white underline"

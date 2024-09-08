@@ -9,11 +9,11 @@ export const metadata: Metadata = {
     title: "Downloads - SVR.JS",
     description:
       "Ready to get started with SVR.JS? Visit our downloads page to access the latest stable releases, nightly builds, and archived versions. Find the right fit for your needs today!",
-    url: "https://svrjs.org/downloads",
+    url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/downloads`,
     type: "website",
     images: [
       {
-        url: "https://svrjs.vercel.app/metadata/svrjs-cover.png",
+        url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/metadata/svrjs-cover.png`,
         width: 800,
         height: 600,
         alt: "Downloads - SVR.JS"
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title: "Downloads - SVR.JS",
     description:
       "Ready to get started with SVR.JS? Visit our downloads page to access the latest stable releases, nightly builds, and archived versions. Find the right fit for your needs today!",
-    images: ["https://svrjs.vercel.app/metadata/svrjs-cover.png"],
+    images: [`${process.env.NEXT_PUBLIC_WEBSITE_URL}/metadata/svrjs-cover.png`],
     creator: "@SVR_JS"
   }
 };

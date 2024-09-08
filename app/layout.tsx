@@ -17,11 +17,11 @@ export const metadata: Metadata = {
     title: "SVR.JS - a web server running on Node.JS",
     description:
       "Experience unparalleled flexibility with SVR.JS - the ultimate web server for Node.JS. Host web pages, run server-side JavaScript, utilize mods for extended functionality, and more. Integrated log viewer and user management tools included. Also supports Bun (experimental).",
-    url: "https://svrjs.org",
+    url: `${process.env.WEBSITE_URL}`,
     type: "website",
     images: [
       {
-        url: "https://svrjs.vercel.app/metadata/svrjs-cover.png",
+        url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/metadata/svrjs-cover.png`,
         width: 800,
         height: 600,
         alt: "SVR.JS - a web server running on Node.JS"
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     title: "SVR.JS - a web server running on Node.JS",
     description:
       "Experience unparalleled flexibility with SVR.JS - the ultimate web server for Node.JS. Host web pages, run server-side JavaScript, utilize mods for extended functionality, and more. Integrated log viewer and user management tools included. Also supports Bun (experimental).",
-    images: ["https://svrjs.vercel.app/metadata/svrjs-cover.png"],
+    images: [`${process.env.NEXT_PUBLIC_WEBSITE_URL}/metadata/svrjs-cover.png`],
     creator: "@SVR_JS"
   }
 };

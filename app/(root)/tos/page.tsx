@@ -11,11 +11,11 @@ export const metadata: Metadata = {
     title: "Terms of Service - SVR.JS",
     description:
       "Understand your rights and responsibilities when using SVR.JS. Our Terms of Service page outlines the conditions for visiting our website, ensuring a transparent and fair experience for all users.",
-    url: "https://svrjs.org/tos",
+    url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/tos`,
     type: "website",
     images: [
       {
-        url: "https://svrjs.vercel.app/metadata/svrjs-cover.png",
+        url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/metadata/svrjs-cover.png`,
         width: 800,
         height: 600,
         alt: "Terms of Service - SVR.JS"
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     title: "Terms of Service - SVR.JS",
     description:
       "Understand your rights and responsibilities when using SVR.JS. Our Terms of Service page outlines the conditions for visiting our website, ensuring a transparent and fair experience for all users.",
-    images: ["https://svrjs.vercel.app/metadata/svrjs-cover.png"],
+    images: [`${process.env.NEXT_PUBLIC_WEBSITE_URL}/metadata/svrjs-cover.png`],
     creator: "@SVR_JS"
   }
 };

@@ -67,13 +67,13 @@ export async function generateMetadata({
     openGraph: {
       title: `${data.title} - SVR.JS`,
       description: data.smallDescription,
-      url: `https://svrjs.org/blog/${data.currentSlug}`,
+      url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/blog/${data.currentSlug}`,
       type: "website",
       images: [
         {
           url: data.titleImage
             ? urlFor(data.titleImage).url()
-            : "https://svrjs.vercel.app/blog-missing.png",
+            : `${process.env.NEXT_PUBLIC_WEBSITE_URL}/blog-missing.png`,
           width: 800,
           height: 600,
           alt: `${data.title} - SVR.JS`
@@ -88,7 +88,7 @@ export async function generateMetadata({
       images: [
         data.titleImage
           ? urlFor(data.titleImage).url()
-          : "https://svrjs.vercel.app/blog-missing.png"
+          : `${process.env.NEXT_PUBLIC_WEBSITE_URL}/blog-missing.png`
       ],
       creator: "@SVR_JS"
     }

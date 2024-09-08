@@ -11,11 +11,11 @@ export const metadata: Metadata = {
     title: "Contribute - SVR.JS",
     description:
       "Contribute to SVR.JS and be part of an exciting open-source project. Follow the step-by-step guidelines to make your code contributions.",
-    url: "https://svrjs.org/contribute",
+    url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/contribute`,
     type: "website",
     images: [
       {
-        url: "https://svrjs.vercel.app/metadata/svrjs-cover.png",
+        url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/metadata/svrjs-cover.png`,
         width: 800,
         height: 600,
         alt: "Contribute - SVR.JS"
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     title: "Contribute - SVR.JS",
     description:
       "Contribute to SVR.JS and be part of an exciting open-source project. Follow the step-by-step guidelines to make your code contributions.",
-    images: ["https://svrjs.vercel.app/metadata/svrjs-cover.png"],
+    images: [`${process.env.NEXT_PUBLIC_WEBSITE_URL}/metadata/svrjs-cover.png`],
     creator: "@SVR_JS"
   }
 };

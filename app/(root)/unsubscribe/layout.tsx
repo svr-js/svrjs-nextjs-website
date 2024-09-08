@@ -10,11 +10,11 @@ export async function generateMetadata({
     openGraph: {
       title: "Unsubscribe - SVR.JS",
       description: "Unsubscribe from our newsletter.",
-      url: `https://svrjs.org/unsubscribe/?id=${encodeURIComponent(searchParams ? searchParams.id : "")}`,
+      url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/unsubscribe/?id=${encodeURIComponent(searchParams ? searchParams.id : "")}`,
       type: "website",
       images: [
         {
-          url: "https://svrjs.vercel.app/metadata/svrjs-cover.png",
+          url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/metadata/svrjs-cover.png`,
           width: 800,
           height: 600,
           alt: "Unsubscribe - SVR.JS"
@@ -26,7 +26,9 @@ export async function generateMetadata({
       site: "@SVR_JS",
       title: "Unsubscribe - SVR.JS",
       description: "Unsubscribe from our newsletter.",
-      images: ["https://svrjs.vercel.app/metadata/svrjs-cover.png"],
+      images: [
+        `${process.env.NEXT_PUBLIC_WEBSITE_URL}/metadata/svrjs-cover.png`
+      ],
       creator: "@SVR_JS"
     }
   };

@@ -50,11 +50,11 @@ export async function generateMetadata({
     openGraph: {
       title: `${page.title} change log - SVR.JS`,
       description: `Keep track of the latest updates and improvements for ${page.title} with our comprehensive change log. Discover new features, bug fixes, and enhancements for each release of this SVR.JS mod.`,
-      url: `https://svrjs.org/changelog/${params.slug}`,
+      url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/changelog/${params.slug}`,
       type: "website",
       images: [
         {
-          url: "https://svrjs.vercel.app/metadata/svrjs-cover.png",
+          url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/metadata/svrjs-cover.png`,
           width: 800,
           height: 600,
           alt: `${page.title} change log - SVR.JS`
@@ -66,7 +66,9 @@ export async function generateMetadata({
       site: "@SVR_JS",
       title: `${page.title} change log - SVR.JS`,
       description: `Keep track of the latest updates and improvements for ${page.title} with our comprehensive change log. Discover new features, bug fixes, and enhancements for each release of this SVR.JS mod.`,
-      images: ["https://svrjs.vercel.app/metadata/svrjs-cover.png"],
+      images: [
+        `${process.env.NEXT_PUBLIC_WEBSITE_URL}/metadata/svrjs-cover.png`
+      ],
       creator: "@SVR_JS"
     }
   };

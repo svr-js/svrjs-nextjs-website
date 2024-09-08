@@ -9,11 +9,11 @@ export const metadata: Metadata = {
     title: "SVR.JS change log - SVR.JS",
     description:
       "Stay up-to-date with the latest improvements and updates to SVR.JS web server. Our change log page provides a comprehensive list of new features, bug fixes, and enhancements for each release.",
-    url: "https://svrjs.org/changelogs",
+    url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/changelog`,
     type: "website",
     images: [
       {
-        url: "https://svrjs.vercel.app/metadata/svrjs-cover.png",
+        url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/metadata/svrjs-cover.png`,
         width: 800,
         height: 600,
         alt: "SVR.JS change log - SVR.JS"
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title: "SVR.JS change log - SVR.JS",
     description:
       "Stay up-to-date with the latest improvements and updates to SVR.JS web server. Our change log page provides a comprehensive list of new features, bug fixes, and enhancements for each release.",
-    images: ["https://svrjs.vercel.app/metadata/svrjs-cover.png"],
+    images: [`${process.env.NEXT_PUBLIC_WEBSITE_URL}/metadata/svrjs-cover.png`],
     creator: "@SVR_JS"
   }
 };

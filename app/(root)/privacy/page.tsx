@@ -13,11 +13,11 @@ export const metadata: Metadata = {
     title: "Privacy Policy - SVR.JS",
     description:
       "Learn how we collect, use, and protect your data. Our Privacy Policy outlines our commitment to your privacy and the measures we take to safeguard your information when visiting our website.",
-    url: "https://svrjs.org/privacy",
+    url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/privacy`,
     type: "website",
     images: [
       {
-        url: "https://svrjs.vercel.app/metadata/svrjs-cover.png",
+        url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/metadata/svrjs-cover.png`,
         width: 800,
         height: 600,
         alt: "Privacy Policy - SVR.JS"
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     title: "Privacy Policy - SVR.JS",
     description:
       "Learn how we collect, use, and protect your data. Our Privacy Policy outlines our commitment to your privacy and the measures we take to safeguard your information when visiting our website.",
-    images: ["https://svrjs.vercel.app/metadata/svrjs-cover.png"],
+    images: [`${process.env.NEXT_PUBLIC_WEBSITE_URL}/metadata/svrjs-cover.png`],
     creator: "@SVR_JS"
   }
 };

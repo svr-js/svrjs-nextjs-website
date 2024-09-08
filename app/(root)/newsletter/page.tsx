@@ -10,11 +10,11 @@ export const metadata: Metadata = {
     title: "Newsletter - SVR.JS",
     description:
       "Subscribe to our newsletter for updates. We promise no spam emails will be sent.",
-    url: "https://svrjs.org/newsletter",
+    url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/newsletter`,
     type: "website",
     images: [
       {
-        url: "https://svrjs.vercel.app/metadata/svrjs-cover.png",
+        url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/metadata/svrjs-cover.png`,
         width: 800,
         height: 600,
         alt: "Newsletter - SVR.JS"
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     title: "Newsletter - SVR.JS",
     description:
       "Subscribe to our newsletter for updates. We promise no spam emails will be sent.",
-    images: ["https://svrjs.vercel.app/metadata/svrjs-cover.png"],
+    images: [`${process.env.NEXT_PUBLIC_WEBSITE_URL}/metadata/svrjs-cover.png`],
     creator: "@SVR_JS"
   }
 };

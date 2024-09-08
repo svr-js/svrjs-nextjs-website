@@ -167,7 +167,7 @@ export const FOOTERLINKS = {
       label: "Privacy Policy"
     },
     rightsReserved: {
-      href: "https://svrjs.org/",
+      href: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/`,
       label: "SVR.JS"
     }
   }
@@ -316,17 +316,17 @@ export const EXAMPLE_A1 = `<!DOCTYPE html>
     </style>
   </head>
   <body>
-    <img class="logo" src="https://svrjs.org/logo-wide.png">
+    <img class="logo" src="${process.env.NEXT_PUBLIC_WEBSITE_URL}/logo-wide.png">
     <main>
       <div class="content">
       <h1>Title</h1>
       </div>
-      <img class="thumbnail" src="https://svrjs.org/blog-missing.png" alt="Thumbnail">
+      <img class="thumbnail" src="${process.env.NEXT_PUBLIC_WEBSITE_URL}/blog-missing.png" alt="Thumbnail">
       <div class="content">
         Put contents of the newsletter email here.
-        <p><a href="https://svrjs.org">Go to SVR.JS website</a></p>  
+        <p><a href="${process.env.NEXT_PUBLIC_WEBSITE_URL}">Go to SVR.JS website</a></p>
       </div>
     </main>
-    <p class="unsubscribe">You can unsubscribe from the newsletter <a href="https://svrjs.org/unsubscribe?id={unsubscribeId}">here</a>.</p>
+    <p class="unsubscribe">You can unsubscribe from the newsletter <a href="${process.env.NEXT_PUBLIC_WEBSITE_URL}/unsubscribe?id={unsubscribeId}">here</a>.</p>
   </body>
 </html>`;

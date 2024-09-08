@@ -6,7 +6,7 @@ export default {
   head: function Head() {
     const { asPath, defaultLocale, locale } = useRouter();
     const { frontMatter } = useConfig();
-    const url = `https://svrjs.org/${asPath}`;
+    const url = `${process.env.NEXT_PUBLIC_WEBSITE_URL}/${asPath}`;
 
     return (
       <>
@@ -28,7 +28,7 @@ export default {
         <meta property="og:url" content={url} />
         <meta
           property="og:image"
-          content="https://svrjs.vercel.app/metadata/svrjs-cover.png"
+          content={`${process.env.NEXT_PUBLIC_WEBSITE_URL}/metadata/svrjs-cover.png`}
         />
         <title>{(frontMatter.title || "Documentation") + " - SVR.JS"}</title>
         <meta name="twitter:card" content="summary_large_image" />
@@ -42,7 +42,7 @@ export default {
         />
         <meta
           name="twitter:image"
-          content="https://svrjs.vercel.app/metadata/svrjs-cover.png"
+          content={`${process.env.NEXT_PUBLIC_WEBSITE_URL}/metadata/svrjs-cover.png`}
         />
       </>
     );
@@ -84,8 +84,4 @@ export default {
   },
   primaryHue: 136,
   primarySaturation: 75
-  // banner: {
-  // 	key: "svrjs",
-  // 	text: <a href="https://svrjs.org">🎉 Check out SVR.JS Now. Read more →</a>,
-  // },
 };

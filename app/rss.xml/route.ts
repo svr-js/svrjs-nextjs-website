@@ -9,7 +9,7 @@ export async function GET() {
   // Define the site URL based on the environment
   const SITE_URL =
     process.env.NODE_ENV === "production"
-      ? "https://svrjs.vercel.app"
+      ? `${process.env.WEBSITE_URL}`
       : "http://localhost:3000";
 
   const postsQuery = `*[_type == 'blog'] | order(_createdAt desc) {

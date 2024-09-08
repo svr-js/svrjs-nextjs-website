@@ -17,12 +17,12 @@ export default async function sitemap() {
     "/vulnerabilities",
     "/newsletter"
   ].map((route) => ({
-    url: `https://svrjs.vercel.app${route}`,
+    url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}${route}`,
     lastModified: new Date().toISOString().split("T")[0]
   }));
 
   const blogRoutes = blogPostSlugs.map((slug) => ({
-    url: `https://svrjs.vercel.app/blog/${slug.slug}`,
+    url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/blog/${slug.slug}`,
     lastModified: new Date().toISOString().split("T")[0]
   }));
 
@@ -32,7 +32,7 @@ export default async function sitemap() {
     const db = client.db(process.env.MONGODB_DB);
     const slugs = await db.collection("pages").find().toArray();
     changelogRoutes = slugs.map((slug) => ({
-      url: `https://svrjs.vercel.app/changelog/${slug.slug}`,
+      url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/changelog/${slug.slug}`,
       lastModified: new Date().toISOString().split("T")[0]
     }));
   } catch (err) {}

@@ -17,7 +17,7 @@ const Sidebar = () => {
 
           <nav className="sidebar-nav">
             <ul className="sidebar-nav_elements">
-              {AdminLinks.slice(0, 6).map((link) => {
+              {AdminLinks.slice(0, 7).map((link) => {
                 const isActive = link.url === pathname;
 
                 return (
@@ -37,7 +37,7 @@ const Sidebar = () => {
             </ul>
 
             <ul className="sidebar-nav_elements">
-              {AdminLinks.slice(6).map((link) => {
+              {AdminLinks.slice(7).map((link) => {
                 const isActive = link.url === pathname;
 
                 return (

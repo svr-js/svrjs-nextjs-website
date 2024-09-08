@@ -25,7 +25,7 @@ const MobileNav = () => {
             <>
               <Logo width={155} height={53} />
               <ul className="header-nav_elements">
-                {AdminLinks.slice(0, 6).map((link) => {
+                {AdminLinks.slice(0, 7).map((link) => {
                   const isActive = link.url === pathname;
 
                   return (

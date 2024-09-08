@@ -206,6 +206,11 @@ export const AdminLinks = [
     icon: BugIcon
   },
   {
+    name: "Emails",
+    url: "/admin/email",
+    icon: Mail
+  },
+  {
     name: "Back Home",
     url: "/",
     icon: Home

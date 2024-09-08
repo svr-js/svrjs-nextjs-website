@@ -109,6 +109,8 @@ const EmailEditor = () => {
         <Link href="/admin/email" className="text-blue-500 underline">
           Back
         </Link>
+        &ldquo;{"{unsubscribeId}"}&rdquo; will be replaced with an
+        unsubscription ID.
         <input
           type="text"
           placeholder="Subject"
@@ -135,9 +137,9 @@ const EmailEditor = () => {
         <h2 className="text-2xl font-bold mb-4 text-secondary-foreground">
           Email Preview
         </h2>
-        <div
-          className="border rounded-md p-4"
-          dangerouslySetInnerHTML={{ __html: previewContent }}
+        <iframe
+          className="border rounded-md w-full h-2/3"
+          srcDoc={previewContent}
         />
       </div>
     </div>

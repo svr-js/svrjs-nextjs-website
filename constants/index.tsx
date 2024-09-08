@@ -263,9 +263,65 @@ export const emails = [
   }
 ];
 
-export const EXAMPLE_A1 = `
-  <div>
-    <h1>Test Email Preview</h1>
-    <p>This is a simple email preview test.</p>
-  </div>
-`;
+export const EXAMPLE_A1 = `<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0">
+    <title>{{title}} - SVR.JS Blog Newsletter</title>
+    <style>
+      body {
+        color: #000000;
+        background-color: #dfffdf;
+        margin: 1em 0;
+        padding: 0;
+        font-family: Poppins, FreeSans, Helvetica, Tahoma, Verdana, Arial, sans-serif;
+      }
+
+      .logo {
+        margin: 1em auto;
+        display: block;
+        width: 224px;
+      }
+      
+      .unsubscribe {
+        text-align: center;
+      }
+      
+      main {
+        width: 95%;
+        max-width: 1280px;
+        background-color: #ffffff;
+        border: 1px #c0c0c0 solid;
+        margin: auto;
+      }
+      
+      .content {
+        padding: 0.5em 1em;
+      }
+      
+      .content h1 {
+        margin: 0.25em 0;
+      }
+      
+      .thumbnail {
+        width: 100%;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <img class="logo" src="https://svrjs.org/logo-wide.png">
+    <main>
+      <div class="content">
+      <h1>Title</h1>
+      </div>
+      <img class="thumbnail" src="https://svrjs.org/blog-missing.png" alt="Thumbnail">
+      <div class="content">
+        Put contents of the newsletter email here.
+        <p><a href="https://svrjs.org">Go to SVR.JS website</a></p>  
+      </div>
+    </main>
+    <p class="unsubscribe">You can unsubscribe from the newsletter <a href="https://svrjs.org/unsubscribe?id={unsubscribeId}">here</a>.</p>
+  </body>
+</html>`;

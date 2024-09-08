@@ -21,6 +21,7 @@ export async function PUT(
       { _id: new ObjectId(id) },
       {
         $set: {
+          date: new Date().toISOString().split("T")[0],
           fileName,
           version,
           downloadLink,

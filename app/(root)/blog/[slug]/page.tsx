@@ -121,11 +121,6 @@ const customPortableTextComponents: PortableTextComponents = {
 
       if (!grammar) {
         console.error(`No grammar found for language: "${language}"`);
-        return (
-          <pre className="p-4 rounded-md overflow-x-auto text-sm">
-            <code>{value.code}</code>
-          </pre>
-        );
       }
 
       return (

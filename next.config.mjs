@@ -14,6 +14,7 @@ const NextConfig = {
 	eslint: {
 		ignoreDuringBuilds: true,
 	},
+	poweredByHeader: false
 };
 
 const withNextra = nextra({

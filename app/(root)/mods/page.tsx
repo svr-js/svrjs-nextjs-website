@@ -76,25 +76,22 @@ const ModsPage: React.FC = async () => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {downloads
-            .slice(0, 10)
-            .reverse()
-            .map((download) => (
-              <TableRow key={download._id}>
-                <TableCell className="font-medium">{download.date}</TableCell>
-                <TableCell>{download.fileName}</TableCell>
-                <TableCell>{download.version}</TableCell>
-                <TableCell className="text-left">{download.fileSize}</TableCell>
-                <TableCell className="flex items-center justify-end">
-                  <Link href={download.downloadLink}>
-                    <Button variant={"ghost"} className="">
-                      <Download className="w-4 h-4 mr-2" />
-                      Download
-                    </Button>
-                  </Link>
-                </TableCell>
-              </TableRow>
-            ))}
+          {downloads.map((download) => (
+            <TableRow key={download._id}>
+              <TableCell className="font-medium">{download.date}</TableCell>
+              <TableCell>{download.fileName}</TableCell>
+              <TableCell>{download.version}</TableCell>
+              <TableCell className="text-left">{download.fileSize}</TableCell>
+              <TableCell className="flex items-center justify-end">
+                <Link href={download.downloadLink}>
+                  <Button variant={"ghost"} className="">
+                    <Download className="w-4 h-4 mr-2" />
+                    Download
+                  </Button>
+                </Link>
+              </TableCell>
+            </TableRow>
+          ))}
         </TableBody>
       </Table>
     </section>

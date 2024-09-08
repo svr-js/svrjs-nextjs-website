@@ -12,16 +12,18 @@ const transporter = nodemailer.createTransport({
 });
 
 const sendEmail = async (to: string[], subject: string, html: string) => {
-  try {
-    await transporter.sendMail({
-      from: process.env.EMAIL_NEWSLETTER_ADDRESS,
-      to: to.join(", "),
-      subject: subject,
-      html: html
-    });
-  } catch (error) {
-    console.error("Error sending email:", error);
-    throw new Error("Failed to send email");
+  for (let i = 0; i < to.length; i++) {
+    try {
+      await transporter.sendMail({
+        from: process.env.EMAIL_NEWSLETTER_ADDRESS,
+        to: to[i],
+        subject: subject,
+        html: html
+      });
+    } catch (error) {
+      console.error("Error sending email:", error);
+      throw new Error("Failed to send email");
+    }
   }
 };
 
@@ -29,11 +31,9 @@ export async function POST(req: NextRequest) {
   try {
     const { subject, html } = await req.json();
 
-    // add ur email here
-    const testEmails = [
-      "abhijitbhattacharjee333@gmail.com",
-      "test2@example.com"
-    ];
+    const testEmails = process.env.EMAIL_NEWSLETTER_TESTDEST
+      ? process.env.EMAIL_NEWSLETTER_TESTDEST.split(",")
+      : [];
 
     if (testEmails.length === 0) {
       console.error("No email addresses provided.");

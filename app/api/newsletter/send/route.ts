@@ -12,17 +12,26 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-const sendEmail = async (to: string[], subject: string, html: string) => {
-  try {
-    await transporter.sendMail({
-      from: process.env.EMAIL_NEWSLETTER_ADDRESS,
-      to: to.join(", "),
-      subject: subject,
-      html: html
-    });
-  } catch (error) {
-    console.error("Error sending email:", error);
-    throw new Error("Failed to send email");
+const sendEmail = async (
+  to: { email: string; unsubscribeId: string }[],
+  subject: string,
+  html: string
+) => {
+  for (let i = 0; i < to.length; i++) {
+    try {
+      await transporter.sendMail({
+        from: process.env.EMAIL_NEWSLETTER_ADDRESS,
+        to: to[i].email,
+        subject: subject,
+        html: html.replace(
+          /\{unsubscribeId\}/g,
+          encodeURIComponent(to[i].unsubscribeId)
+        )
+      });
+    } catch (error) {
+      console.error("Error sending email:", error);
+      throw new Error("Failed to send email");
+    }
   }
 };
 
@@ -35,7 +44,7 @@ export async function POST(req: NextRequest) {
     const collection = db.collection("subscribers");
 
     const subscribers = await collection
-      .find({}, { projection: { email: 1 } })
+      .find({}, { projection: { email: 1, unsubscribeId: 1 } })
       .toArray();
 
     if (subscribers.length === 0) {
@@ -46,17 +55,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const emails = subscribers.map((subscriber) => subscriber.email);
-
-    if (emails.length === 0) {
-      console.error("No email addresses found.");
-      return NextResponse.json(
-        { message: "No email addresses found." },
-        { status: 404 }
-      );
-    }
-
-    await sendEmail(emails, subject, html);
+    await sendEmail(subscribers as any[], subject, html ?? "No HTML specified");
     return NextResponse.json({ message: "Emails sent successfully" });
   } catch (error) {
     console.error("Error handling POST request:", error);

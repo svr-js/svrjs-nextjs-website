@@ -3,6 +3,8 @@ import RSS from "rss";
 import { client } from "@/lib/sanity";
 import { toHTML } from "@portabletext/to-html";
 
+export const dynamic = "force-static";
+
 export async function GET() {
   // Define the site URL based on the environment
   const SITE_URL =

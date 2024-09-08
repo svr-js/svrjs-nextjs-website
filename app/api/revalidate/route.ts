@@ -46,6 +46,7 @@ export async function POST(req: NextRequest) {
       if (body.slug.current) {
         revalidatePath(`/blog/${body.slug.current}`);
         revalidatePath("/sitemap.xml");
+        revalidatePath("/rss.xml");
       }
       revalidatePath("/blog");
 

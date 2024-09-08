@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import RSS from "rss";
-import { client } from "@/lib/sanity";
+import { client, urlFor } from "@/lib/sanity";
 import { toHTML } from "@portabletext/to-html";
 
 export const dynamic = "force-static";
@@ -37,10 +37,13 @@ export async function GET() {
       title: post.title,
       description: toHTML(post.content),
       url: `${SITE_URL}/blog/${post.slug}`,
-      date: new Date(post._createdAt).toUTCString()
-      // uncomment this if u want to
-      // enclosure: { url: urlFor(post.titleImage).url() },
-      // author: "SVR.JS",
+      date: new Date(post._createdAt).toUTCString(),
+      enclosure: {
+        url: post.titleImage
+          ? urlFor(post.titleImage).url()
+          : `${SITE_URL}/blog-missing.png`
+      },
+      author: "SVR.JS"
     });
   });
 

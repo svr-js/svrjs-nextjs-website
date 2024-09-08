@@ -14,6 +14,7 @@ const NextConfig = {
 	eslint: {
 		ignoreDuringBuilds: true,
 	},
+	cacheMaxMemorySize: 0,
 	poweredByHeader: false
 };
 

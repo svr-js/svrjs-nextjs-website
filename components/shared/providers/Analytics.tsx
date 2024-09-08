@@ -22,6 +22,7 @@ function AnalyticsInternal(props: { pagesRouter?: boolean }) {
       // Track page view
       const _paq = ((window as any)._paq = (window as any)._paq || []);
       _paq.push(["setDocumentTitle", document.title]);
+      _paq.push(["setCustomUrl", document.location]);
       _paq.push(["trackPageView"]);
       return;
     }

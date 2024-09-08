@@ -77,18 +77,18 @@ const Vulnerabilities = async () => {
       {reversedDownloads.map((download) => (
         <div
           key={download._id}
-          className="flex-start flex-col prose dark:prose-invert gap-4"
+          className="flex-start flex-col prose max-w-full md:prose-lg dark:prose-invert gap-2"
         >
-          <h2 className="font-semibold text-3xl -mb-2">{download.version}</h2>
-          <ul className="list-disc pl-5">
+          <h2 className="mb-0 md:mb-0">{download.version}</h2>
+          <ul>
             {(download.bullets ?? []).map((bullet, index) => (
               <li key={index}>
                 {bullet.point}
                 {bullet.securityAdvisoryUrl ? (
                   <>
                     {" "}
-                    <Link href={bullet.securityAdvisoryUrl}>
-                      View security advisory
+                    <Link href={bullet.securityAdvisoryUrl} className="italic">
+                      View the security advisory
                     </Link>
                   </>
                 ) : (

@@ -81,7 +81,7 @@ const Newsletter = () => {
           aria-label="Email Information"
           onSubmit={(e) => e.preventDefault()}
         >
-          <div className="group flex items-center gap-x-4 pl-4 pr-1 rounded-[9px] bg-accent/80 hover:bg-accent shadow-outline-gray hover:shadow-transparent focus-within:bg-accent focus-within:!shadow-outline-gray-focus transition-all duration-300">
+          <div className="group flex items-center gap-x-4 pl-1 md:pl-4 pr-1 rounded-[9px] bg-accent/80 hover:bg-accent shadow-outline-gray hover:shadow-transparent focus-within:bg-accent focus-within:!shadow-outline-gray-focus transition-all duration-300">
             <Mail className="hidden sm:inline w-6 h-6 text-[#4B4C52] group-focus-within:text-secondary-foreground group-hover:text-secondary-foreground transition-colors duration-300" />
             <Input
               value={input}

@@ -1,21 +1,12 @@
 import { mailOptions, transporter } from "@/lib/nodemailer/nodemailer";
 import { NextRequest, NextResponse } from "next/server";
 import dns from "dns/promises";
-import { isEmail } from "validator";
+import { isEmail, escape } from "validator";
 
 const CONTACT_MESSAGE_FIELDS: Record<string, string> = {
   name: "Name",
   email: "Email",
   message: "Message"
-};
-
-const escapeHtml = (text: string) => {
-  return text
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
 };
 
 const generateEmailContent = (data: Record<string, string>) => {
@@ -31,9 +22,9 @@ const generateEmailContent = (data: Record<string, string>) => {
       str +
       (key == "captchaToken"
         ? ""
-        : `<h3 class="form-heading">${escapeHtml(
+        : `<h3 class="form-heading">${escape(
             CONTACT_MESSAGE_FIELDS[key] || key
-          )}</h3><p class="form-answer">${escapeHtml(val).replace(
+          )}</h3><p class="form-answer">${escape(val).replace(
             /\n/g,
             "<br/>"
           )}</p>`),

@@ -261,141 +261,135 @@ const SvrjsModsAdminPage = () => {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {mods
-              .slice()
-              .reverse()
-              .map((mod) => (
-                <TableRow key={mod._id}>
-                  <TableCell className="border-b px-4 py-2">
-                    {mod.fileName}
-                  </TableCell>
-                  <TableCell className="border-b px-4 py-2">
-                    {mod.version}
-                  </TableCell>
-                  <TableCell className="border-b px-4 py-2">
-                    <a
-                      href={mod.downloadLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {mod.downloadLink}
-                    </a>
-                  </TableCell>
-                  <TableCell className="border-b px-4 py-2">
-                    {mod.fileSize}
-                  </TableCell>
-                  <TableCell className="border-b px-4 py-2 gap-2 flex-center">
-                    <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
-                      <DialogTrigger>
-                        <Button
-                          variant="outline"
-                          onClick={() => setEditMod(mod)}
-                        >
-                          Edit
-                        </Button>
-                      </DialogTrigger>
-                      <DialogContent>
-                        <DialogTitle>Edit Content</DialogTitle>
+            {mods.map((mod) => (
+              <TableRow key={mod._id}>
+                <TableCell className="border-b px-4 py-2">
+                  {mod.fileName}
+                </TableCell>
+                <TableCell className="border-b px-4 py-2">
+                  {mod.version}
+                </TableCell>
+                <TableCell className="border-b px-4 py-2">
+                  <a
+                    href={mod.downloadLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {mod.downloadLink}
+                  </a>
+                </TableCell>
+                <TableCell className="border-b px-4 py-2">
+                  {mod.fileSize}
+                </TableCell>
+                <TableCell className="border-b px-4 py-2 gap-2 flex-center">
+                  <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+                    <DialogTrigger>
+                      <Button variant="outline" onClick={() => setEditMod(mod)}>
+                        Edit
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent>
+                      <DialogTitle>Edit Content</DialogTitle>
 
-                        <Form {...dialogForm}>
-                          <form
-                            onSubmit={dialogForm.handleSubmit(onSubmit)}
-                            className="space-y-4"
-                          >
-                            <FormField
-                              control={dialogForm.control}
-                              name="fileName"
-                              render={({ field }) => (
-                                <FormItem>
-                                  <FormLabel>File Name</FormLabel>
-                                  <FormControl>
-                                    <Input
-                                      {...field}
-                                      defaultValue={editMod?.fileName}
-                                    />
-                                  </FormControl>
-                                  <FormMessage />
-                                </FormItem>
-                              )}
-                            />
-                            <FormField
-                              control={dialogForm.control}
-                              name="version"
-                              render={({ field }) => (
-                                <FormItem>
-                                  <FormLabel>Version</FormLabel>
-                                  <FormControl>
-                                    <Input
-                                      {...field}
-                                      defaultValue={editMod?.version}
-                                    />
-                                  </FormControl>
-                                  <FormMessage />
-                                </FormItem>
-                              )}
-                            />
-                            <FormField
-                              control={dialogForm.control}
-                              name="downloadLink"
-                              render={({ field }) => (
-                                <FormItem>
-                                  <FormLabel>Download Link</FormLabel>
-                                  <UploadButton
-                                    endpoint="imageUploader"
-                                    onClientUploadComplete={(res) => {
-                                      field.onChange(res[0].url);
-                                    }}
-                                    onUploadError={(error: Error) => {
-                                      alert(`ERROR! ${error.message}`);
-                                    }}
+                      <Form {...dialogForm}>
+                        <form
+                          onSubmit={dialogForm.handleSubmit(onSubmit)}
+                          className="space-y-4"
+                        >
+                          <FormField
+                            control={dialogForm.control}
+                            name="fileName"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel>File Name</FormLabel>
+                                <FormControl>
+                                  <Input
+                                    {...field}
+                                    defaultValue={editMod?.fileName}
                                   />
-                                  <FormControl>
-                                    <Input
-                                      {...field}
-                                      defaultValue={editMod?.downloadLink}
-                                    />
-                                  </FormControl>
-                                  <FormMessage />
-                                </FormItem>
-                              )}
-                            />
-                            <FormField
-                              control={dialogForm.control}
-                              name="fileSize"
-                              render={({ field }) => (
-                                <FormItem>
-                                  <FormLabel>File Size</FormLabel>
-                                  <FormControl>
-                                    <Input
-                                      {...field}
-                                      defaultValue={editMod?.fileSize}
-                                    />
-                                  </FormControl>
-                                  <FormMessage />
-                                </FormItem>
-                              )}
-                            />
-                            <Button
-                              type="submit"
-                              className="w-full text-lg rounded-full"
-                              size={"lg"}
-                              disabled={loading}
-                            >
-                              Save Changes
-                            </Button>
-                          </form>
-                        </Form>
-                      </DialogContent>
-                    </Dialog>
-                    <Button
-                      variant={"destructive"}
-                      onClick={() => deleteMod(mod._id)}
-                    >
-                      Delete
-                    </Button>
-                  </TableCell>
-                </TableRow>
-              ))}
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          <FormField
+                            control={dialogForm.control}
+                            name="version"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel>Version</FormLabel>
+                                <FormControl>
+                                  <Input
+                                    {...field}
+                                    defaultValue={editMod?.version}
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          <FormField
+                            control={dialogForm.control}
+                            name="downloadLink"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel>Download Link</FormLabel>
+                                <UploadButton
+                                  endpoint="imageUploader"
+                                  onClientUploadComplete={(res) => {
+                                    field.onChange(res[0].url);
+                                  }}
+                                  onUploadError={(error: Error) => {
+                                    alert(`ERROR! ${error.message}`);
+                                  }}
+                                />
+                                <FormControl>
+                                  <Input
+                                    {...field}
+                                    defaultValue={editMod?.downloadLink}
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          <FormField
+                            control={dialogForm.control}
+                            name="fileSize"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel>File Size</FormLabel>
+                                <FormControl>
+                                  <Input
+                                    {...field}
+                                    defaultValue={editMod?.fileSize}
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          <Button
+                            type="submit"
+                            className="w-full text-lg rounded-full"
+                            size={"lg"}
+                            disabled={loading}
+                          >
+                            Save Changes
+                          </Button>
+                        </form>
+                      </Form>
+                    </DialogContent>
+                  </Dialog>
+                  <Button
+                    variant={"destructive"}
+                    onClick={() => deleteMod(mod._id)}
+                  >
+                    Delete
+                  </Button>
+                </TableCell>
+              </TableRow>
+            ))}
           </TableBody>
         </Table>
       </section>

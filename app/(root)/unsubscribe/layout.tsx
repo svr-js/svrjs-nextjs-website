@@ -1,16 +1,12 @@
 import React from "react";
-export async function generateMetadata({
-  searchParams
-}: {
-  searchParams: { id: string } | undefined;
-}) {
+export async function generateMetadata() {
   return {
     title: "Unsubscribe - SVR.JS",
     description: "Unsubscribe from our newsletter.",
     openGraph: {
       title: "Unsubscribe - SVR.JS",
       description: "Unsubscribe from our newsletter.",
-      url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/unsubscribe/?id=${encodeURIComponent(searchParams ? searchParams.id : "")}`,
+      url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/unsubscribe?id=`, // We can't use searchParams in layouts
       type: "website",
       images: [
         {

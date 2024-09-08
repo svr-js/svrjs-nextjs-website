@@ -16,14 +16,15 @@ export async function POST(req: NextRequest) {
   };
 
   const generateUniqueUnsubscribeID = async (collection: Collection) => {
-    const id = generateUnsubscribeID();
+    const id: string = generateUnsubscribeID();
     const result = await collection
       .find({
         unsubscribeId: id
       })
       .toArray();
     if (result.length > 0) {
-      return await generateUniqueUnsubscribeID(collection);
+      const newId: string = await generateUniqueUnsubscribeID(collection);
+      return newId;
     }
     return id;
   };

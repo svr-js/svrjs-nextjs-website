@@ -54,9 +54,9 @@ const LogsPage: React.FC = async () => {
           key={download._id}
           className="flex-start prose max-w-full md:prose-lg dark:prose-invert flex-col mb-4"
         >
-          <h2 className="font-bold text-3xl">{download.version}</h2>
-          <span className="font-medium italic">{download.date}</span>
-          <ul className="list-disc pl-5">
+          <h2>{download.version}</h2>
+          <span className="italic">{download.date}</span>
+          <ul>
             {(download.bullets ?? []).map((bullet, index) => (
               <li key={index}>{bullet.point}</li>
             ))}

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Footer from "@/components/shared/Footer";
 import Navbar from "@/components/shared/Navbar";
 import Link from "next/link";
+import NoScript from "@/components/shared/NoScript";
 
 export const metadata: Metadata = {
   title: "404 Not Found - SVR.JS",
@@ -16,8 +17,9 @@ export const metadata: Metadata = {
 const NotFound = () => {
   return (
     <>
-      <main className="flex flex-col min-h-screen">
+      <div className="flex flex-col min-h-screen">
         <Navbar />
+        <NoScript />
         <section
           id="404error"
           className="flex-center flex-col wrapper container flex-1 flex-grow"
@@ -33,7 +35,7 @@ const NotFound = () => {
           </p>
         </section>
         <Footer />
-      </main>
+      </div>
     </>
   );
 };

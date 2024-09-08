@@ -1,6 +1,7 @@
 import Footer from "@/components/shared/Footer";
 import Navbar from "@/components/shared/Navbar";
 import Banner from "@/components/widgets/Banner";
+import NoScript from "@/components/shared/NoScript";
 import { Home } from "lucide-react";
 import { Metadata } from "next";
 
@@ -52,6 +53,7 @@ export default function PageLayout({
         buttonText="Read more"
       />
       <Navbar />
+      <NoScript />
       <div className="flex-grow flex-1 overflow-x-hidden">{children}</div>
       <Footer />
     </div>

@@ -268,7 +268,7 @@ export const EXAMPLE_A1 = `<!DOCTYPE html>
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width; initial-scale=1.0">
-    <title>{{title}} - SVR.JS Blog Newsletter</title>
+    <title>SVR.JS Blog Newsletter</title>
     <style>
       body {
         color: #000000;

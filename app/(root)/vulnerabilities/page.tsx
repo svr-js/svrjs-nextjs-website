@@ -1,5 +1,4 @@
 import ReactMarkdown from "react-markdown";
-import { VULNERABILITY } from "@/constants/guidelines";
 import { useEffect, useState } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import clientPromise from "@/lib/db";
@@ -63,7 +62,7 @@ const Vulnerabilities = async () => {
       className="wrapper container py-24 md:py-28 gap-2 flex flex-col"
     >
       <h1 className="text-3xl md:text-5xl pb-1 md:pb-2 font-bold text-black dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-b dark:from-white dark:to-neutral-400">
-        SVR.JS Vulnerabilities
+        SVR.JS vulnerabilities
       </h1>
       <p className="md:text-lg text-muted-foreground text-start mb-6">
         Some older versions of SVR.JS are vulnerable to cyberattacks. It&apos;s
@@ -74,12 +73,15 @@ const Vulnerabilities = async () => {
       </p>
       {error && <p className="text-red-500">{error.message}</p>}
 
+      <h2 className="text-2xl md:text-3xl py-1 md:py-2 font-bold text-black dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-b dark:from-white dark:to-neutral-400">
+        SVR.JS
+      </h2>
       {reversedDownloads.map((download) => (
         <div
           key={download._id}
           className="flex-start flex-col prose max-w-full md:prose-lg dark:prose-invert gap-2"
         >
-          <h2 className="mb-0 md:mb-0">{download.version}</h2>
+          <h3 className="mb-0 md:mb-0">{download.version}</h3>
           <ul>
             {(download.bullets ?? []).map((bullet, index) => (
               <li key={index}>
@@ -99,10 +101,6 @@ const Vulnerabilities = async () => {
           </ul>
         </div>
       ))}
-
-      <div className="prose max-w-full md:prose-lg dark:prose-invert mb-6 md:mb-9">
-        <ReactMarkdown>{VULNERABILITY}</ReactMarkdown>
-      </div>
 
       {/* Section with MODS content */}
       {reversedMods.map((mod) => (

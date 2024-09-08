@@ -9,7 +9,7 @@ export async function GET() {
   // Define the site URL based on the environment
   const SITE_URL =
     process.env.NODE_ENV === "production"
-      ? `${process.env.WEBSITE_URL}`
+      ? `${process.env.NEXT_PUBLIC_WEBSITE_URL}`
       : "http://localhost:3000";
 
   const postsQuery = `*[_type == 'blog'] | order(_createdAt desc) {

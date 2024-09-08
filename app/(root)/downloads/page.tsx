@@ -71,7 +71,7 @@ const DownloadPage: React.FC = async () => {
         </TableHeader>
         <TableBody>
           {downloads
-            .slice(0, 10)
+            .slice(downloads.length - 10 < 0 ? 0 : downloads.length - 10)
             .reverse()
             .map((download) => (
               <TableRow key={download._id}>

@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       `}</style>
       <div className={`antialiased ${poppins.className}`}>
         <Component {...pageProps} />
-        <Analytics />
+        <Analytics pagesRouter={true} />
       </div>
     </>
   );

@@ -56,7 +56,7 @@ export default function RootLayout({
         >
           {children}
           <Toaster />
-          <Analytics />
+          <Analytics pagesRouter={false} />
         </ThemeProvider>
       </body>
     </html>

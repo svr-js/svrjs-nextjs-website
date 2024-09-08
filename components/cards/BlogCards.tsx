@@ -56,6 +56,17 @@ const BlogCards: React.FC<BlogCardInterface> = async (props) => {
 
   const totalPages = Math.ceil(totalPosts / cardsPerPage);
 
+  let begPage = currentPage - 2;
+  let endPage = currentPage + 2;
+  if (endPage > totalPages) {
+    begPage -= endPage - totalPages;
+    endPage = totalPages;
+  }
+  if (begPage < 1) {
+    endPage += 1 - begPage;
+    begPage = 1;
+  }
+
   return (
     <>
       <section className="grid max-w-6xl gap-4 mx-auto sm:grid-cols-2 lg:grid-cols-3">
@@ -120,16 +131,18 @@ const BlogCards: React.FC<BlogCardInterface> = async (props) => {
                   <PaginationPrevious href={`/blog/page/${currentPage - 1}`} />
                 )}
               </PaginationItem>
-              {Array.from({ length: totalPages }).map((_, i) => (
-                <PaginationItem key={i}>
-                  <PaginationLink
-                    href={`/blog/page/${i + 1}`}
-                    isActive={currentPage === i + 1}
-                  >
-                    {i + 1}
-                  </PaginationLink>
-                </PaginationItem>
-              ))}
+              {Array.from({ length: totalPages > 5 ? 5 : totalPages }).map(
+                (_, i) => (
+                  <PaginationItem key={i}>
+                    <PaginationLink
+                      href={`/blog/page/${begPage + i}`}
+                      isActive={currentPage === begPage + i}
+                    >
+                      {begPage + i}
+                    </PaginationLink>
+                  </PaginationItem>
+                )
+              )}
               <PaginationItem>
                 {currentPage < totalPages && (
                   <PaginationNext href={`/blog/page/${currentPage + 1}`} />

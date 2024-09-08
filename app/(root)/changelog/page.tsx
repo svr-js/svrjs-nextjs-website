@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
-import { CHANGE_LOGS } from "@/constants/guidelines";
 import { Skeleton } from "@/components/ui/skeleton";
 import clientPromise from "@/lib/db";
 
@@ -63,9 +62,6 @@ const LogsPage: React.FC = async () => {
           </ul>
         </div>
       ))}
-      <div className="prose max-w-full md:prose-lg dark:prose-invert">
-        <ReactMarkdown>{CHANGE_LOGS}</ReactMarkdown>
-      </div>
     </section>
   );
 };

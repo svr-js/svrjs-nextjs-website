@@ -6,9 +6,13 @@ title: SVR.JS mod notes
 
 ## Berno
 
+Berno is a SSI (Server-Side Includes) engine, which is not maintained.
+
 Current version of Berno allows SSI only in _.shtml_ files. Berno includes parts from very old version of RedBrick (1.x) to handle "exec" SSI directives.
 
 ## easy-waf integration
+
+easy-waf integration is a WAF (web application firewall) mod.
 
 **NOTICE: Using a WAF (Web Application Firewall) is no subsitute for web application security, because attacker will find a way to bypass the WAF.**
 
@@ -81,15 +85,21 @@ _View the [change log.](/changelog/easy-waf-integration)_
 
 ## forward-proxy-mod
 
+forward-proxy-mod is a mod, that enables SVR.JS to do forward proxy functionality.
+
 _Notes are in the [SVR.JS documentation.](/docs/config/forward-proxy-notes)_
 _View the [change log.](/changelog/forward-proxy-mod)_
 
 ## GreenRhombus
 
+GreenRhombus is a FastCGI (Fast Common Gateway Interface) client.
+
 _Notes are in the [SVR.JS documentation.](/docs/config/fastcgi-php-fpm)_
 _View the [change log.](/changelog/greenrhombus)_
 
 ## Next.js integration
+
+Next.js integration is a mod, that enables SVR.JS to serve Next.js applications.
 
 The webroot (_wwwroot_ _config.json_ property) serves as a Next.js application directory. It's recommended to set the owner of the Next.js application directory (around with all the files in it) as the user, on which SVR.JS is running (usually "svrjs"). Setting a `NODE_ENV` environment variable to `development` in SVR.JS configuration enables Next.js development server.
 
@@ -97,20 +107,28 @@ _View the [change log.](/changelog/nextjs-integration)_
 
 ## OrangeCircle
 
+OrangeCircle is a SCGI (Simple Common Gateway Interface) client.
+
 _Notes moved to [SVR.JS documentation.](/docs/config/cgi-scgi-jsgi-php)_
 _View the [change log.](/changelog/orangecircle)_
 
 ## RedBrick
+
+RedBrick is a CGI (Common Gateway Interface) engine.
 
 _Notes moved to [SVR.JS documentation.](/docs/config/cgi-scgi-jsgi-php)_
 _View the [change log.](/changelog/redbrick)_
 
 ## reverse-proxy-mod
 
+reverse-proxy-mod is a mod, that enables SVR.JS to do reverse proxy functionality.
+
 _Notes moved to [SVR.JS documentation.](/docs/config/reverse-proxy-config)_
 _View the [change log.](/changelog/reverse-proxy-mod)_
 
 ## YellowSquare
+
+YellowSquare is a JSGI (JavaScript Gateway Interface) engine.
 
 _Notes moved to [SVR.JS documentation.](/docs/config/cgi-scgi-jsgi-php)_
 _View the [change log.](/changelog/yellowsquare)_

@@ -49,7 +49,7 @@ export default function PageLayout({
         icon={<Home className={iconClassName} />}
         title="SVR.JS 4.0.0 is now on beta!"
         announcement="The latest beta version is SVR.JS 4.0.0-beta3."
-        link="https://blog.svrjs.org/2024/08/30/SVR-JS-4-0-0-beta3-has-been-released/"
+        link="/blog/SVR-JS-4-0-0-beta3-has-been-released"
         buttonText="Read more"
       />
       <Navbar />

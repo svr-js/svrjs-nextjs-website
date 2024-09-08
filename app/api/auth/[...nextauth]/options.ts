@@ -18,7 +18,7 @@ export const authOptions: NextAuthOptions = {
         console.log(adminUsername);
         console.log(adminPasswordHash);
         console.log(credentials.username);
-        console.log(credentials.password);
+        console.log("[password redacted]");
         if (credentials.username == adminUsername) {
           const isValidPassword = await bcrypt.compare(
             credentials.password,

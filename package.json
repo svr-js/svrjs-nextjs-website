@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && swc .next/static/chunks/*.js .next/static/chunks/**/*.js -d . --include-dotfiles",
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "npm run lint -- --fix",
@@ -72,11 +72,13 @@
   "devDependencies": {
     "@commitlint/cli": "^19.4.1",
     "@commitlint/config-conventional": "^19.4.1",
+    "@swc/cli": "^0.4.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@types/rss": "^0.0.32",
     "@types/validator": "^13.12.1",
+    "autoprefixer": "^10.4.20",
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8",
@@ -96,5 +98,12 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  }
+  },
+  "browserslist": [
+    "chrome 64",
+    "edge 79",
+    "firefox 67",
+    "opera 51",
+    "safari 12"
+  ]
 }

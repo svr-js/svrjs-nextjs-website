@@ -106,7 +106,7 @@ const Vulnerabilities = async () => {
       {reversedMods.map((mod) => (
         <div
           key={mod._id}
-          className="flex-start flex-col my-6 md:my-9 gap-4 w-full"
+          className="flex-start flex-col mt-6 md:mt-9 gap-4 w-full"
         >
           <h2 className="text-2xl md:text-3xl py-1 md:py-2 font-bold text-black dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-b dark:from-white dark:to-neutral-400 -mb-1">
             {mod.title}

@@ -13,14 +13,13 @@ const UnsubscribePage = ({
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
   const [showCaptcha, setShowCaptcha] = useState(false);
-  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
 
-  const onSubmit = async () => {
-    if (!captchaToken) {
-      setShowCaptcha(true);
-      return;
-    }
+  const handleCaptchaVerify = async (token: string) => {
+    setShowCaptcha(false);
+    await submit(token); // Trigger form submission after captcha is verified
+  };
 
+  const submit = async (captchaToken: string) => {
     setLoading(true);
     try {
       const res = await fetch("/api/unsubscribe", {
@@ -33,7 +32,6 @@ const UnsubscribePage = ({
       });
 
       if (res.ok) {
-        setCaptchaToken(null); // Reset captcha token after successful submission
         toast({
           description: "Unsubscribed successfully."
         });
@@ -55,11 +53,6 @@ const UnsubscribePage = ({
     }
   };
 
-  const handleCaptchaVerify = async (token: string) => {
-    setCaptchaToken(token);
-    await onSubmit(); // Trigger form submission after captcha is verified
-  };
-
   return (
     <section
       id="vulnerabilities"
@@ -76,7 +69,7 @@ const UnsubscribePage = ({
         className="mx-auto text-center"
         onSubmit={(e: React.FormEvent) => {
           e.preventDefault();
-          onSubmit();
+          setShowCaptcha(true);
         }}
       >
         <Button

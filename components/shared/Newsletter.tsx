@@ -16,7 +16,7 @@ const happyMonkey = Happy_Monkey({
 
 const Newsletter = () => {
   const [submission, setSubmission] = useState<
-    "idle" | "loading" | "success" | "error"
+    "idle" | "loading" | "success" | "already" | "error"
   >("idle");
   const [input, setInput] = useState<string>("");
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
@@ -48,6 +48,9 @@ const Newsletter = () => {
 
       if (response.ok) {
         setSubmission("success");
+        setInput("");
+      } else if (response.status == 409) {
+        setSubmission("already");
         setInput("");
       } else {
         setSubmission("error");
@@ -118,6 +121,11 @@ const Newsletter = () => {
               {submission === "success" && (
                 <p className="dark:invert text-sm text-center text-green-500">
                   🎉 Subscribed successfully...
+                </p>
+              )}
+              {submission === "already" && (
+                <p className="dark:invert text-sm text-center text-green-500">
+                  🙏 You&apos;re already subscribed...
                 </p>
               )}
               {submission === "error" && (

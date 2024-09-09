@@ -19,14 +19,12 @@ const Newsletter = () => {
     "idle" | "loading" | "success" | "already" | "error"
   >("idle");
   const [input, setInput] = useState<string>("");
-  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
   const [showCaptcha, setShowCaptcha] = useState<boolean>(false);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false); // Added this line
   const buttonRef = useRef<HTMLButtonElement>(null);
   const hcaptchaRef = useRef<HCaptcha>(null);
 
   const handleCaptcha = async (token: string) => {
-    setCaptchaToken(token);
     setShowCaptcha(false);
     await handleSubmit(token);
   };

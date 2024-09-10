@@ -109,7 +109,7 @@ It's also recommended to forbid the access to ".env" file and ".git" directories
   "nonStandardCodes": [
     {
       "scode": 403,
-      "regex": "/^\\/\\.env(?:\\.local)?(?:$|[#?])/"
+      "regex": "/^\\/\\.env(?:\\.local|\\.production)?(?:$|[#?])/"
     },
     { 
       "scode": 403,

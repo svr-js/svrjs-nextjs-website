@@ -57,7 +57,7 @@ If you're using SVR.JS behind a reverse proxy, you need to configure _trustProxy
 Example _easywaf-config.json_ file:
 ```json
 {
-  "modules" : {
+  "modules": {
     "xss": {
       "excludePaths": "/^\\/(?:git\\/)?(?:(?!\\.git).)*\\.git\\/|^\\/(?:(?:navbar-)?logo|powered).png$/"
     },

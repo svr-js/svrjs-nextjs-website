@@ -20,6 +20,7 @@ const Iconss = () => {
       <Link
         href={cards.aboutCard.socialLinks.x}
         target="_blank"
+        rel="me"
         className={buttonVariants({
           variant: "ghost",
           size: "sm"
@@ -42,6 +43,7 @@ const Iconss = () => {
       <Link
         href={cards.aboutCard.socialLinks.Mastodon}
         target="_blank"
+        rel="me"
         className={buttonVariants({
           variant: "ghost",
           size: "sm"
@@ -66,6 +68,7 @@ const Iconss = () => {
       <Link
         href={cards.aboutCard.socialLinks.Bluesky}
         target="_blank"
+        rel="me"
         className={buttonVariants({
           variant: "ghost",
           size: "sm"
@@ -90,6 +93,7 @@ const Iconss = () => {
       <Link
         href={cards.aboutCard.socialLinks.Odysee}
         target="_blank"
+        rel="me"
         className={buttonVariants({
           variant: "ghost",
           size: "sm"

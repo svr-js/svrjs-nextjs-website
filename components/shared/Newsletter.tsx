@@ -70,9 +70,9 @@ const Newsletter = () => {
     <section id="newsletter">
       <hr className="w-11/12 mx-auto" />
       <div className="container py-24 md:py-32">
-        <h3 className="text-center text-4xl md:text-5xl md:pb-2 text-black font-bold dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-b dark:from-white dark:to-neutral-400">
+        <h2 className="text-center text-4xl md:text-5xl md:pb-2 text-black font-bold dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-b dark:from-white dark:to-neutral-400">
           Join The Newsletter!
-        </h3>
+        </h2>
         <p className="text-lg text-muted-foreground text-center mt-4 md:mt-2 mb-8">
           Subscribe to our newsletter for updates. We promise no spam emails
           will be sent.

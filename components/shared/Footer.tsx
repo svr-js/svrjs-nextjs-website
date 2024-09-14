@@ -33,7 +33,9 @@ const Footer = () => {
               </div>
 
               <div className="flex flex-col items-center md:items-start">
-                <h1 className="text-2xl font-light text-primary">Resources</h1>
+                <div className="text-2xl font-light text-primary">
+                  Resources
+                </div>
                 {FOOTERLINKS.plans.map((link) => (
                   <span key={link.href}>
                     <Link

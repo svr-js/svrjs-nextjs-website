@@ -103,9 +103,9 @@ const BlogCards: React.FC<BlogCardInterface> = async (props) => {
                 </div>
                 <CardContent className="p-4">
                   <div className="flex-between mb-2 py-2">
-                    <h3 className="text-xl font-semibold leading-tight">
+                    <h2 className="text-xl font-semibold leading-tight">
                       {post.title}
-                    </h3>
+                    </h2>
                     <div className="text-sm text-muted-foreground opacity-0 group-hover:opacity-100 duration-300">
                       <ExternalLink />
                     </div>

@@ -16,17 +16,17 @@ const DemoVideo = () => {
       id="partners"
       className="wrapper container py-24 md:py-28 gap-4 flex flex-col"
     >
-      <p className="text-3xl md:text-5xl font-bold text-start">
+      <h2 className="text-3xl md:text-5xl font-bold text-start">
         <span className="bg-gradient-to-b from-green-300 to-primary text-transparent bg-clip-text">
           SVR.JS
         </span>{" "}
         in action
-      </p>
+      </h2>
       <div className="w-full flex-start flex-row">
         <div className="flex max-md:flex-col items-center justify-start gap-4">
-          <h2 className="text-md font-medium bg-accent/60 px-2 py-2 rounded-md">
+          <p className="text-md font-medium bg-accent/60 px-2 py-2 rounded-md">
             Process of setting up a WordPress website running on SVR.JS.
-          </h2>
+          </p>
           <Button
             onClick={handleClick}
             className="flex-center font-bold max-md:w-full max-w-xl"

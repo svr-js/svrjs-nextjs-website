@@ -2,7 +2,7 @@ import Footer from "@/components/shared/Footer";
 import Navbar from "@/components/shared/Navbar";
 import Banner from "@/components/widgets/Banner";
 import NoScript from "@/components/shared/NoScript";
-import { Home } from "lucide-react";
+import { Rocket } from "lucide-react";
 import { Metadata } from "next";
 
 // baseURL [ENV]
@@ -46,10 +46,10 @@ export default function PageLayout({
     <div className="flex flex-col min-h-screen">
       {/* Comment or edit this whenever required */}
       <Banner
-        icon={<Home className={iconClassName} />}
-        title="SVR.JS 4.0.0 is now on beta!"
-        announcement="The latest beta version is SVR.JS 4.0.0-beta3."
-        link="/blog/SVR-JS-4-0-0-beta3-has-been-released"
+        icon={<Rocket className={iconClassName} />}
+        title="SVR.JS 4.0.0 has been released!"
+        announcement="This major release brings many improvements to SVR.JS."
+        link="/blog/svr-js-4-0-0-has-been-released"
         buttonText="Read more"
       />
       <Navbar />

@@ -29,12 +29,12 @@ const Testimonials = () => {
       <div className="flex flex-row items-center justify-center space-x-1">
         <span className="text-white/50 text-xs lg:text-base">Testimonials</span>
       </div>
-      <h1 className="text-3xl md:text-5xl font-bold text-center">
+      <h2 className="text-3xl md:text-5xl font-bold text-center">
         Hear it from{" "}
         <span className="bg-gradient-to-b from-green-300 to-primary text-transparent bg-clip-text">
           our users
         </span>
-      </h1>
+      </h2>
 
       <ul className="wrapper columns-1 gap-5 md:columns-2 lg:columns-3 py-6 mt-6">
         {testimonials.map((testimonial, idx) => (

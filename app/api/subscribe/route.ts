@@ -74,7 +74,24 @@ export async function POST(req: NextRequest) {
     let isEmailHostValid = false;
     try {
       const mxRecords = await dns.resolveMx(emailDomain);
-      if (mxRecords.length > 0) isEmailHostValid = true;
+      if (mxRecords.length > 0) {
+        for (let i = 0; i < mxRecords.length; i++) {
+          try {
+            const aRecords = await dns.resolve4(mxRecords[i].exchange);
+            if (aRecords.length > 0) {
+              isEmailHostValid = true;
+              break;
+            }
+          } catch (err) {}
+          try {
+            const aaaaRecords = await dns.resolve6(mxRecords[i].exchange);
+            if (aaaaRecords.length > 0) {
+              isEmailHostValid = true;
+              break;
+            }
+          } catch (err) {}
+        }
+      }
     } catch (err) {}
     if (!isEmailHostValid) {
       return NextResponse.json(

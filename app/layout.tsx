@@ -50,8 +50,7 @@ export default function RootLayout({
       <body className={`antialiased ${poppins.className}`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
-          enableSystem
+          enableSystem={true}
           disableTransitionOnChange
         >
           {children}

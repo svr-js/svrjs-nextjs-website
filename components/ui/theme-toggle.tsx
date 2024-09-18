@@ -11,10 +11,10 @@ import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 
 const ThemeToggle = () => {
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
 
   const handleTheme = () => {
-    if (theme == "light") {
+    if (resolvedTheme == "light") {
       setTheme("dark");
     } else {
       setTheme("light");

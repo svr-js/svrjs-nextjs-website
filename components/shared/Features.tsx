@@ -12,8 +12,8 @@ const FeaturesSection = () => {
         </span>
       </h2>
       <p className="md:w-3/4 mx-auto mt-4 mb-8 text-lg md:text-xl text-muted-foreground">
-        Build secure, and scalable web applications with SVR.JS. Open-source,
-        configurable, and able to handle high request loads.
+        Build secure and scalable web applications with SVR.JS. Open-source,
+        configurable, and designed to handle high request loads.
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {Features.map(({ icon, title, description }) => (

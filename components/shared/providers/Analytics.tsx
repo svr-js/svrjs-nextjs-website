@@ -44,7 +44,7 @@ function AnalyticsInternal(props: { pagesRouter?: boolean }) {
       g.src = u + "matomo.js";
       (s.parentNode as ParentNode).insertBefore(g, s);
     })();
-  }, [pathname, searchParams]);
+  }, [pathname, searchParams, props.pagesRouter]);
 
   return null;
 }

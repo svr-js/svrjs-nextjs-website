@@ -30,6 +30,7 @@ async function getData(slug: string) {
         "currentSlug": slug.current,
         title,
         content,
+        smallDescription,
         titleImage,
         _createdAt
     }[0]`;

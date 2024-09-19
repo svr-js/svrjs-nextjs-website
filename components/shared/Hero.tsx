@@ -65,16 +65,20 @@ const Hero = () => {
         </AnimatedGradientText>
         <main className="text-5xl md:text-6xl font-bold">
           <h1 className="inline custom-title">
+            Host&nbsp;with{" "}
             <span className="text-transparent bg-gradient-to-r from-green-300 to-primary bg-clip-text">
-              Simplify
-            </span>{" "}
-            your server logic performance
+              reliability
+            </span>
+            , scale&nbsp;with{" "}
+            <span className="text-transparent bg-gradient-to-r from-green-300 to-primary bg-clip-text">
+              ease
+            </span>
           </h1>
         </main>
         <p className="text-lg text-muted-foreground md:w-10/12 mx-auto lg:mx-0">
-          The SVR.JS web server allows you to optimize your server-side
-          operations, ensuring performance and efficiency in a simple,
-          user-friendly package.
+          Host reliably and securely, and scale effortlessly with SVR.JS, an
+          open-source and configurable web server running on Node.JS that&apos;s
+          designed to handle high loads.
         </p>
         <div className="relative mx-auto lg:mx-0 flex gap-2 flex-col-reverse lg:flex-row justify-start items-center w-fit">
           <Button

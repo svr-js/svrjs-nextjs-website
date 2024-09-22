@@ -123,23 +123,21 @@ const customPortableTextComponents: PortableTextComponents = {
       );
     },
     code: ({ value }) => {
-      const language = value.language;
+      const language = value.language || "none";
       const grammar = Prism.languages[language];
 
-      if (language && !grammar) {
+      if (!grammar) {
         console.error(`No grammar found for language: "${language}"`);
       }
 
       return (
         <div className="relative my-8">
           <pre
-            className={`${language ? "language-" + language + " " : ""}p-4 rounded-md overflow-x-auto text-sm`}
+            className={`language-${language} p-4 rounded-md overflow-x-auto text-sm`}
           >
-            <code className={language ? "language-" + language : ""}>
-              {value.code}
-            </code>
+            <code className={`language-${language}`}>{value.code}</code>
           </pre>
-          {language ? <PrismLoader /> : ""}
+          {language == "none" ? "" : <PrismLoader />}
           <CopyButton code={value.code} />
         </div>
       );

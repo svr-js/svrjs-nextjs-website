@@ -126,7 +126,7 @@ const customPortableTextComponents: PortableTextComponents = {
       const language = value.language || "none";
       const grammar = Prism.languages[language];
 
-      if (!grammar) {
+      if (language != "none" && !grammar) {
         console.error(`No grammar found for language: "${language}"`);
       }
 

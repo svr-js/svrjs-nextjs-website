@@ -20,7 +20,7 @@ export default function CopyButton({ code }: { code: string }) {
   return (
     <Button
       onClick={copyCode}
-      className="absolute top-2 right-2 bg-accent hover:bg-muted p-2 rounded"
+      className="absolute top-2 right-2 bg-accent hover:bg-muted text-black dark:text-white p-2 rounded"
       size={"icon"}
     >
       {copied ? <Check className="w-5 h-5" /> : <Copy className="w-5 h-5" />}

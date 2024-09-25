@@ -49,7 +49,7 @@ export const NAVBAR = {
 export const stats = [
   {
     title: "Docker pulls",
-    count: 33
+    count: 34
   },
   {
     title: "GitHub stars",

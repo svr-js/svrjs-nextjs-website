@@ -148,6 +148,36 @@ reverse-proxy-mod is a mod, that enables SVR.JS to do reverse proxy functionalit
 _Notes moved to [SVR.JS documentation.](/docs/config/reverse-proxy-config)_
 _View the [change log.](/changelog/reverse-proxy-mod)_
 
+## SvelteKit integration
+
+SvelteKit integration is a mod, that enables SVR.JS to serve SvelteKit applications.
+
+The webroot (_wwwroot_ _config.json_ property) serves as a SvelteKit application directory. It's recommended to set the owner of the SvelteKit application directory (around with all the files in it) as the user, on which SVR.JS is running (usually "svrjs").
+
+It's also recommended to forbid the access to ".env" file, ".svelte-kit" and ".git" directories, in case SvelteKit integration mod fails to load. You can set up _nonStandardCodes_ _config.json_ property like this:
+```json
+{
+  "nonStandardCodes": [
+    {
+      "scode": 403,
+      "regex": "/^\\/\\.env(?:\\.local|\\.production)?(?:$|[#?])/"
+    },
+    { 
+      "scode": 403,
+      "regex": "/^\\/\\.git/"
+    },
+    {
+      "scode": 403,
+      "regex": "/^\\/\\.svelte-kit(?:$|[\\/#?])/"
+    },
+    ...other non-standard codes...
+  ],
+  ...other config.json properties...
+}
+```
+
+_View the [change log.](/changelog/sveltekit-integration)_
+
 ## YellowSquare
 
 YellowSquare is a JSGI (JavaScript Gateway Interface) engine.

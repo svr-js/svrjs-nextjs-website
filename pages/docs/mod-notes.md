@@ -154,6 +154,8 @@ SvelteKit integration is a mod, that enables SVR.JS to serve SvelteKit applicati
 
 The webroot (_wwwroot_ _config.json_ property) serves as a SvelteKit application directory. It's recommended to set the owner of the SvelteKit application directory (around with all the files in it) as the user, on which SVR.JS is running (usually "svrjs").
 
+The SvelteKit application must have Node.JS adapter (@sveltejs/adapter-node npm package) configured, and a "build" directory in order for the integration to work. You can generate the files in the "build" directory by running `npm run build` on the SvelteKit application.
+
 It's also recommended to forbid the access to ".env" file, ".svelte-kit" and ".git" directories, in case SvelteKit integration mod fails to load. You can set up _nonStandardCodes_ _config.json_ property like this:
 ```json
 {

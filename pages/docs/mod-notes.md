@@ -103,7 +103,7 @@ Next.js integration is a mod, that enables SVR.JS to serve Next.js applications.
 
 The webroot (_wwwroot_ _config.json_ property) serves as a Next.js application directory. It's recommended to set the owner of the Next.js application directory (around with all the files in it) as the user, on which SVR.JS is running (usually "svrjs"). Setting a `NODE_ENV` environment variable to `development` in SVR.JS configuration enables Next.js development server.
 
-It's also recommended to forbid the access to ".env" file and ".git" directories, in case Next.js integration mod fails to load. You can set up _nonStandardCodes_ _config.json_ property like this:
+It's also recommended to forbid the access to ".env" file, ".next" and ".git" directories, in case Next.js integration mod fails to load. You can set up _nonStandardCodes_ _config.json_ property like this:
 ```json
 {
   "nonStandardCodes": [
@@ -114,6 +114,10 @@ It's also recommended to forbid the access to ".env" file and ".git" directories
     { 
       "scode": 403,
       "regex": "/^\\/\\.git/"
+    },
+    {
+      "scode": 403,
+      "regex": "/^\\/\\.next(?:$|[\\/#?])/"
     },
     ...other non-standard codes...
   ],

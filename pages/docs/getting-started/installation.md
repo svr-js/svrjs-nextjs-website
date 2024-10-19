@@ -47,7 +47,13 @@ To install SVR.JS using _create-svrjs-server_, first install the utility using `
 - `create-svrjs-server latest` - Latest SVR.JS version
 - `create-svrjs-server 3.6.1` - SVR.JS 3.6.1 (replace 3.6.1 with your desired version)
 
-After downloading and installing SVR.JS to your working directory, run `node svr.js` for SVR.JS 3.x or `node svr_new.js` for earlier versions or `bun run svr.js` if you're using Bun instead of Node.JS.
+If you are using Deno, create the `svr.cjs` file with these contents:
+```js
+require("./svr.js");
+```
+Repeat the process with `logviewer.cjs`, `loghighlight.cjs`, and `svrpasswd.cjs` files, replacing `svr.js` with corresponding script names with `.js` extension.
+
+After downloading and installing SVR.JS to your working directory, run `node svr.js` for SVR.JS 3.x or `node svr_new.js` for earlier versions or `bun run svr.js` if you're using Bun instead of Node.JS, or `deno run -A svr.cjs` if you're using Deno instead of Node.JS.
 
 You will then see the message similar to this:
 
@@ -66,7 +72,15 @@ To install SVR.JS via Docker, first pull the image using `docker pull svrjs/svrj
 
 ## Manual installation
 
-To install SVR.JS manually, first unpack your SVR.JS zip archive you downloaded from SVR.JS download page. Then change your working directory to one containing SVR.JS script stub, and run `node svr.js` for SVR.JS 3.x or `node svr_new.js` for earlier versions or `bun run svr.js` if you're using Bun instead of Node.JS.
+To install SVR.JS manually, first unpack your SVR.JS zip archive you downloaded from SVR.JS download page. Then change your working directory to one containing SVR.JS script stub.
+
+If you are using Deno, create the `svr.cjs` file with these contents:
+```js
+require("./svr.js");
+```
+Repeat the process with `logviewer.cjs`, `loghighlight.cjs`, and `svrpasswd.cjs` files, replacing `svr.js` with corresponding script names with `.js` extension.
+
+Run `node svr.js` for SVR.JS 3.x or `node svr_new.js` for earlier versions or `bun run svr.js` if you're using Bun instead of Node.JS, or `deno run -A svr.cjs` if you're using Deno instead of Node.JS.
 
 You will then see the message similar to this:
 

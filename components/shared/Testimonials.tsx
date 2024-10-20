@@ -20,6 +20,12 @@ const testimonials = [
     avatar: "julia",
     testimonial:
       "You can tell just by looking at the website how much work and passion was put into this project! I loved the detailed manual, it's very well-organized and easy to follow. The server is truly a playground with the amount of features it has and the possibilities it provides! I also appreciate just how easily you can get in touch with the creator, you can tell he is passionate and dedicated to helping users get the most out of his project. I can't wait to see how it develops further :)"
+  },
+  {
+    name: "Bart",
+    role: "Software Engineer",
+    avatar: "bart",
+    testimonial: "Recommended!"
   }
 ];
 

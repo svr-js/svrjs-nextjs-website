@@ -7,11 +7,10 @@ interface Page {
 }
 
 // baseURL [ENV]
-export async function generateMetadata({
-  params
-}: {
-  params: { slug: "string" };
+export async function generateMetadata(props: {
+  params: Promise<{ slug: "string" }>;
 }) {
+  const params = await props.params;
   let page: Page = {
     title: "unknown mod",
     content: "unknown mod"

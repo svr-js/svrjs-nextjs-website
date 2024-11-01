@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, use } from "react";
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
 import { Input } from "@/components/ui/input";
@@ -10,7 +10,8 @@ const MarkdownEditor = dynamic(() => import("@uiw/react-md-editor"), {
   ssr: false
 });
 
-const EditPage = ({ params }: { params: { slug: string } }) => {
+const EditPage = (props: { params: Promise<{ slug: string }> }) => {
+  const params = use(props.params);
   const router = useRouter();
   const { slug } = params;
   const { toast } = useToast();

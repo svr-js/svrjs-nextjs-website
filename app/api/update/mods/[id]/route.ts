@@ -7,8 +7,9 @@ export const dynamic = "force-dynamic";
 
 export async function PUT(
   request: Request,
-  { params }: { params: { id: string } }
+  props: { params: Promise<{ id: string }> }
 ) {
+  const params = await props.params;
   const { id } = params;
   const body = await request.json();
   const { fileName, version, downloadLink, fileSize } = body;

@@ -12,7 +12,8 @@ interface Page {
 
 export const dynamic = "force-static";
 
-const Page = async ({ params }: { params: { slug: string } }) => {
+const Page = async (props: { params: Promise<{ slug: string }> }) => {
+  const params = await props.params;
   const { slug } = params;
   let page: Page | null = null;
   let isNotFound = false;

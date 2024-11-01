@@ -38,7 +38,8 @@ export const metadata: Metadata = {
   }
 };
 
-const BlogPage = async ({ params }: { params: { id: string } }) => {
+const BlogPage = async (props: { params: Promise<{ id: string }> }) => {
+  const params = await props.params;
   // Optionally, you can fetch some initial data here if needed.
   let id = parseInt(params.id);
   if (isNaN(id)) id = 1;

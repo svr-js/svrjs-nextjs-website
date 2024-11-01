@@ -49,11 +49,10 @@ interface BlogSlugArticle {
 
 export const dynamic = "force-static";
 
-export async function generateMetadata({
-  params
-}: {
-  params: { slug: string };
+export async function generateMetadata(props: {
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
+  const params = await props.params;
   const data = await getData(params.slug);
 
   if (!data) {
@@ -145,11 +144,10 @@ const customPortableTextComponents: PortableTextComponents = {
   }
 };
 
-export default async function BlogSlugArticle({
-  params
-}: {
-  params: { slug: string };
+export default async function BlogSlugArticle(props: {
+  params: Promise<{ slug: string }>;
 }) {
+  const params = await props.params;
   const data: BlogSlugArticle = await getData(params.slug);
 
   if (!data) {

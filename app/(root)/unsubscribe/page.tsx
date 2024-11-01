@@ -1,15 +1,14 @@
 "use client";
 import Newsletter from "@/components/shared/Newsletter";
-import React, { useState } from "react";
+import React, { useState, use } from "react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
 
-const UnsubscribePage = ({
-  searchParams
-}: {
-  searchParams: { id: string | undefined };
+const UnsubscribePage = (props: {
+  searchParams: Promise<{ id: string | undefined }>;
 }) => {
+  const searchParams = use(props.searchParams);
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
   const [showCaptcha, setShowCaptcha] = useState(false);

@@ -4,8 +4,9 @@ import { revalidatePath } from "next/cache";
 
 export const GET = async (
   req: NextRequest,
-  { params }: { params: { slug: string } }
+  props: { params: Promise<{ slug: string }> }
 ) => {
+  const params = await props.params;
   const client = await clientPromise;
   const db = client.db(process.env.MONGODB_DB);
   const { slug } = params;
@@ -25,8 +26,9 @@ export const GET = async (
 
 export const PUT = async (
   req: NextRequest,
-  { params }: { params: { slug: string } }
+  props: { params: Promise<{ slug: string }> }
 ) => {
+  const params = await props.params;
   const client = await clientPromise;
   const db = client.db(process.env.MONGODB_DB);
   const { slug } = params;
@@ -78,8 +80,9 @@ export const PUT = async (
 
 export const DELETE = async (
   req: NextRequest,
-  { params }: { params: { slug: string } }
+  props: { params: Promise<{ slug: string }> }
 ) => {
+  const params = await props.params;
   const client = await clientPromise;
   const db = client.db(process.env.MONGODB_DB);
   const { slug } = params;

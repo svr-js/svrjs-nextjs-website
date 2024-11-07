@@ -13,7 +13,9 @@ const generateEmailContent = (data: Record<string, string>) => {
   const stringData = Object.entries(data).reduce(
     (str, [key, val]) =>
       str +
-      `${CONTACT_MESSAGE_FIELDS[key] || key}: ${val.replace(/\n/g, "\n")} \n\n`,
+      (key == "captchaToken"
+        ? ""
+        : `${CONTACT_MESSAGE_FIELDS[key] || key}: ${val.replace(/\n/g, "\n")} \n\n`),
     ""
   );
 

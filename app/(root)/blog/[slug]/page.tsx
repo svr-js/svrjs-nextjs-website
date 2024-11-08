@@ -26,7 +26,7 @@ import { Button } from "@/components/ui/button";
 
 async function getData(slug: string) {
   const query = `
-    *[_type == "blog" && slug.current == '${slug}'] {
+    *[_type == "blog" && slug.current == '${slug.replace(/\'/g, "\\'")}'] {
         "currentSlug": slug.current,
         title,
         content,

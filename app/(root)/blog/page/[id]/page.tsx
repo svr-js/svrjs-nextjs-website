@@ -8,35 +8,41 @@ import Link from "next/link";
 
 export const dynamic = "force-static";
 
-export const metadata: Metadata = {
-  title: "Blog - SVR.JS",
-  description:
-    "Welcome to the SVR.JS Blog! Explore our latest blog posts featuring web development, web application security, and web server administration tips. Stay tuned for the latest SVR.JS updates.",
-  openGraph: {
+export async function generateMetadata(props: {
+  params: Promise<{ id: string }>;
+}): Promise<Metadata> {
+  return {
     title: "Blog - SVR.JS",
     description:
       "Welcome to the SVR.JS Blog! Explore our latest blog posts featuring web development, web application security, and web server administration tips. Stay tuned for the latest SVR.JS updates.",
-    url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/blog`,
-    type: "website",
-    images: [
-      {
-        url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/metadata/svrjs-cover.png`,
-        width: 800,
-        height: 600,
-        alt: "Blog - SVR.JS"
-      }
-    ]
-  },
-  twitter: {
-    card: "summary_large_image",
-    site: "@SVR_JS",
-    title: "Blog - SVR.JS",
-    description:
-      "Welcome to the SVR.JS Blog! Explore our latest blog posts featuring web development, web application security, and web server administration tips. Stay tuned for the latest SVR.JS updates.",
-    images: [`${process.env.NEXT_PUBLIC_WEBSITE_URL}/metadata/svrjs-cover.png`],
-    creator: "@SVR_JS"
-  }
-};
+    openGraph: {
+      title: "Blog - SVR.JS",
+      description:
+        "Welcome to the SVR.JS Blog! Explore our latest blog posts featuring web development, web application security, and web server administration tips. Stay tuned for the latest SVR.JS updates.",
+      url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/blog/page/${(await props.params).id}`,
+      type: "website",
+      images: [
+        {
+          url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/metadata/svrjs-cover.png`,
+          width: 800,
+          height: 600,
+          alt: "Blog - SVR.JS"
+        }
+      ]
+    },
+    twitter: {
+      card: "summary_large_image",
+      site: "@SVR_JS",
+      title: "Blog - SVR.JS",
+      description:
+        "Welcome to the SVR.JS Blog! Explore our latest blog posts featuring web development, web application security, and web server administration tips. Stay tuned for the latest SVR.JS updates.",
+      images: [
+        `${process.env.NEXT_PUBLIC_WEBSITE_URL}/metadata/svrjs-cover.png`
+      ],
+      creator: "@SVR_JS"
+    }
+  };
+}
 
 const BlogPage = async (props: { params: Promise<{ id: string }> }) => {
   const params = await props.params;

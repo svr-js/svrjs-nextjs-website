@@ -366,6 +366,12 @@ Sends local message to server console.
 
 This object contains properties from _config.json_ file.
 
+### _config.wwwroot_
+
+<small>_Added in SVR.JS 4.2.0_</small>
+
+A normalized path to the webroot. In SVR.JS versions prior to 4.2.0, _config.wwwroot_ refers to the _webroot_ property from _config.json_ file.
+
 ### _config.getCustomHeaders()_
 
 <small>_Added in SVR.JS 4.0.0_</small>

@@ -187,6 +187,8 @@ The _config.json_ file contains various properties that you can customize to con
   - Option to allow double slashes in the URL. If set to `false`, double slashes are removed by URL sanitizer. Double slashes at the beginning of path (e.g. in _//config.json_) are always removed. Doesn't affect URL rewriting, in that case please configure the _allowDoubleSlashes_ property in the URL rewriting rule. It may allow some configuration file leaks, if web root is in the SVR.JS installation directory.
 - _optOutOfStatisticsServer_ (Boolean, SVR.JS 3.15.6 or newer)
   - Option to opt out of sending data to the statistics server. You can use this option to increase the privacy of SVR.JS.
+- _disableConfigurationSaving_ (Boolean, SVR.JS 4.2.0 or newer)
+  - Option to enable `stdout` even when the `stdout` is not a TTY. Setting this option to `true` may decrease the performace of SVR.JS.
 
 ## Deprecated and Removed Properties
 

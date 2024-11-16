@@ -271,62 +271,39 @@ export const emails = [
 export const EXAMPLE_A1 = `<!DOCTYPE html>
 <html lang="en-US">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width; initial-scale=1.0">
-    <title>SVR.JS Blog Newsletter</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SVR.JS newsletter</title>
     <style>
-      body {
-        color: #000000;
-        background-color: #dfffdf;
-        margin: 1em 0;
-        padding: 0;
-        font-family: Poppins, FreeSans, Helvetica, Tahoma, Verdana, Arial, sans-serif;
-      }
-
-      .logo {
-        margin: 1em auto;
-        display: block;
-        width: 224px;
-      }
-      
-      .unsubscribe {
-        text-align: center;
-      }
-      
-      main {
-        width: 95%;
-        max-width: 1280px;
-        background-color: #ffffff;
-        border: 1px #c0c0c0 solid;
-        margin: auto;
-      }
-      
-      .content {
-        padding: 0.5em 1em;
-      }
-      
-      .content h1 {
-        margin: 0.25em 0;
-      }
-      
-      .thumbnail {
-        width: 100%;
-        display: block;
+      a {
+        color: #22c55e;
+        text-decoration: none;
       }
     </style>
   </head>
-  <body>
-    <img class="logo" src="${process.env.NEXT_PUBLIC_WEBSITE_URL}/logo-wide.png">
-    <main>
-      <div class="content">
-      <h1>Title</h1>
-      </div>
-      <img class="thumbnail" src="${process.env.NEXT_PUBLIC_WEBSITE_URL}/blog-missing.png" alt="Thumbnail">
-      <div class="content">
-        Put contents of the newsletter email here.
-        <p><a href="${process.env.NEXT_PUBLIC_WEBSITE_URL}">Go to SVR.JS website</a></p>
-      </div>
-    </main>
-    <p class="unsubscribe">You can unsubscribe from the newsletter <a href="${process.env.NEXT_PUBLIC_WEBSITE_URL}/unsubscribe?id={unsubscribeId}">here</a>.</p>
+  <body style="margin: 0; padding: 0; font-family: Poppins, FreeSans, Helvetica, Tahoma, Verdana, Arial, sans-serif; background-color: #0c0a09; color: #ffffff;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #0c0a09;">
+      <tr>
+        <td align="center">
+          <table width="600" cellpadding="0" cellspacing="0" border="0" style="margin: 20px 0; background-color: #191817;">
+            <tr>
+              <td align="center" style="padding: 20px 0;">
+                <img src="${process.env.NEXT_PUBLIC_WEBSITE_URL}/logo-wide.png" alt="Logo" width="200" style="display: block; max-width: 100%;" />
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 20px; background-color: #221f1e; color: #ffffff;">
+                <p>Put the contents of the newsletter email here.</p>
+              </td>
+            </tr>
+            <tr>
+              <td align="center" style="padding: 20px; background-color: #191817; color: #ffffff;">
+                <p style="font-size: 12px; color: #aaaaaa;">If you no longer wish to receive these emails, you can <a href="${process.env.NEXT_PUBLIC_WEBSITE_URL}/unsubscribe?id={unsubscribeId}" style="color: #22c55e; text-decoration: none;">unsubscribe</a>.</p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
   </body>
 </html>`;

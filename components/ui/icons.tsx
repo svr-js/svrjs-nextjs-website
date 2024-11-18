@@ -25,13 +25,13 @@ const Iconss = () => {
         rel="me"
         className={buttonVariants({
           variant: "ghost",
-          size: "icon"
+          size: "smicon"
         })}
       >
         <span className="sr-only">X icon</span>
         <svg
-          width="25"
-          height="25"
+          width="22"
+          height="22"
           viewBox="0 0 25 25"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -48,14 +48,14 @@ const Iconss = () => {
         rel="me"
         className={buttonVariants({
           variant: "ghost",
-          size: "icon"
+          size: "smicon"
         })}
       >
         <span className="sr-only">Mastodon icon</span>
 
         <svg
-          width="25"
-          height="25"
+          width="22"
+          height="22"
           viewBox="0 0 25 25"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -73,14 +73,14 @@ const Iconss = () => {
         rel="me"
         className={buttonVariants({
           variant: "ghost",
-          size: "icon"
+          size: "smicon"
         })}
       >
         <span className="sr-only">Bluesky icon</span>
 
         <svg
-          width="25"
-          height="25"
+          width="22"
+          height="22"
           viewBox="0 0 576 512"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -98,14 +98,14 @@ const Iconss = () => {
         rel="me"
         className={buttonVariants({
           variant: "ghost",
-          size: "icon"
+          size: "smicon"
         })}
       >
         <span className="sr-only">Odysee icon</span>
 
         <svg
-          width="25"
-          height="25"
+          width="22"
+          height="22"
           viewBox="0 0 25 25"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -123,14 +123,14 @@ const Iconss = () => {
         rel="me"
         className={buttonVariants({
           variant: "ghost",
-          size: "icon"
+          size: "smicon"
         })}
       >
         <span className="sr-only">Instagram icon</span>
 
         <svg
-          width="25"
-          height="25"
+          width="22"
+          height="22"
           viewBox="0 0 1000 1000"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -148,14 +148,14 @@ const Iconss = () => {
         rel="me"
         className={buttonVariants({
           variant: "ghost",
-          size: "icon"
+          size: "smicon"
         })}
       >
         <span className="sr-only">Threads icon</span>
 
         <svg
-          width="25"
-          height="25"
+          width="22"
+          height="22"
           viewBox="0 0 878 1000"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"

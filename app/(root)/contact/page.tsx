@@ -186,7 +186,7 @@ const ContactUs = () => {
               ))}
             </ul>
             <Separator />
-            <ul className="flex justify-center my-6">
+            <ul className="flex justify-center space-x-1 my-6">
               <Iconss />
             </ul>
             <Separator />

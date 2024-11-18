@@ -88,7 +88,7 @@ const HeroCards = () => {
       </Card>
 
       {/* Socials Second top right */}
-      <Card className="absolute right-[20px] top-4 w-80 flex flex-col justify-center items-center drop-shadow-xl shadow-black/10 dark:shadow-white/10">
+      <Card className="absolute right-[20px] top-5 w-80 flex flex-col justify-center items-center drop-shadow-xl shadow-black/10 dark:shadow-white/10">
         <CardHeader className="flex justify-center items-center pb-2">
           <CardTitle className="text-center">Socials</CardTitle>
           <CardDescription className="font-medium text-primary"></CardDescription>

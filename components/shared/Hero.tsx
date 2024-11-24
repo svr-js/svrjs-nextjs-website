@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import HeroCards from "./HeroCards";
-import { Button } from "../ui/button";
+import { Button, buttonVariants } from "../ui/button";
 import Link from "next/link";
 import { Check, Clipboard } from "lucide-react";
 import GridPattern from "../ui/grid-pattern";
@@ -63,7 +63,7 @@ const Hero = () => {
             Expanding server functionality
           </span>
         </AnimatedGradientText>
-        <main className="text-5xl md:text-6xl font-bold">
+        <div className="text-5xl md:text-6xl font-bold">
           <h1 className="inline custom-title">
             Host&nbsp;with{" "}
             <span className="text-transparent bg-gradient-to-r from-green-300 to-primary bg-clip-text">
@@ -74,7 +74,7 @@ const Hero = () => {
               ease
             </span>
           </h1>
-        </main>
+        </div>
         <p className="text-lg text-muted-foreground md:w-10/12 mx-auto lg:mx-0">
           Host reliably and securely, and scale effortlessly with SVR.JS, an
           open-source and configurable web server running on Node.JS that&apos;s
@@ -95,8 +95,8 @@ const Hero = () => {
           </Button>
           <p className="hidden lg:block">|</p>
           <p className="block lg:hidden">or</p>
-          <Link className="w-full" href="/downloads">
-            <Button className="w-full">Download</Button>
+          <Link className={`${buttonVariants()} w-full`} href="/downloads">
+            Download
           </Link>
           <div className="pointer-events-none dark:invert -scale-x-100 absolute -bottom-14 max-lg:left-0 lg:right-20 inline-flex justify-center items-center gap-1">
             <Image

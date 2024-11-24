@@ -1,16 +1,11 @@
 "use client";
 import React from "react";
-import { Button } from "../ui/button";
+import { Button, buttonVariants } from "../ui/button";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import HeroVideoDialog from "../ui/heroVideoAction";
 
 const DemoVideo = () => {
-  const router = useRouter();
-  const handleClick = () => {
-    router.push("/docs");
-  };
   return (
     <section
       id="partners"
@@ -27,12 +22,12 @@ const DemoVideo = () => {
           <p className="text-md font-medium bg-accent/60 px-2 py-2 rounded-md">
             Process of setting up a WordPress website running on SVR.JS.
           </p>
-          <Button
-            onClick={handleClick}
-            className="flex-center font-bold max-md:w-full max-w-xl"
+          <Link
+            className={`${buttonVariants({ font: "bold" })} flex-center max-md:w-full max-w-xl`}
+            href="/docs"
           >
             Docs <ArrowUpRight />
-          </Button>
+          </Link>
         </div>
       </div>
 

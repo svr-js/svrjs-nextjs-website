@@ -3,7 +3,7 @@
 import { BorderBeam } from "@/components/ui/border-beam";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -120,10 +120,11 @@ const HeroCards = () => {
           </div>
 
           <CardDescription>{cards.pricingCard.description}</CardDescription>
-          <Link className="w-full" href="/downloads">
-            <Button size="sm" className="w-full">
-              {cards.pricingCard.primaryButtonText}
-            </Button>
+          <Link
+            className={`${buttonVariants({ size: "sm" })} w-full`}
+            href="/downloads"
+          >
+            {cards.pricingCard.primaryButtonText}
           </Link>
         </CardHeader>
         <hr className="w-4/5 m-auto -mt-2 mb-4" />

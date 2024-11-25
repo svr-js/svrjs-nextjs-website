@@ -70,6 +70,9 @@ export async function generateMetadata(props: {
   return {
     title: `${data.title} - SVR.JS`,
     description: data.smallDescription,
+    alternates: {
+      canonical: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/blog/${data.currentSlug}`
+    },
     openGraph: {
       title: `${data.title} - SVR.JS`,
       description: data.smallDescription,

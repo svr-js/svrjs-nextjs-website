@@ -10,19 +10,19 @@ export default {
 
     return (
       <>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
           name="description"
-          content="The SVR.JS documentation provides comprehensive information and instructions on how to use and configure the SVR.JS web server. This documentation is also a valuable resource for web developers."
+          content="SVR.JS documentation offers essential information and guidance for using and configuring the SVR.JS web server, serving as a valuable resource for developers."
         />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+        <link rel="canonical" href={url} />
         <meta
           property="og:title"
           content={(frontMatter.title || "Documentation") + " - SVR.JS"}
         />
         <meta
           property="og:description"
-          content="The SVR.JS documentation provides comprehensive information and instructions on how to use and configure the SVR.JS web server. This documentation is also a valuable resource for web developers."
+          content="SVR.JS documentation offers essential information and guidance for using and configuring the SVR.JS web server, serving as a valuable resource for developers."
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={url} />
@@ -38,7 +38,7 @@ export default {
         />
         <meta
           name="twitter:description"
-          content="The SVR.JS documentation provides comprehensive information and instructions on how to use and configure the SVR.JS web server. This documentation is also a valuable resource for web developers."
+          content="SVR.JS documentation offers essential information and guidance for using and configuring the SVR.JS web server, serving as a valuable resource for developers."
         />
         <meta
           name="twitter:image"

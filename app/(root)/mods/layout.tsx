@@ -4,12 +4,12 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Mods - SVR.JS",
   description:
-    "Expand the functionality of SVR.JS with our collection of mods! Visit the mod downloads page to explore, download, and install a wide range of mods tailored to enhance your web server experience.",
+    "Expand the functionality of SVR.JS with our mods! Visit the downloads page to explore and install a variety of mods for a better web server experience.",
   alternates: { canonical: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/mods` },
   openGraph: {
     title: "Mods - SVR.JS",
     description:
-      "Expand the functionality of SVR.JS with our collection of mods! Visit the mod downloads page to explore, download, and install a wide range of mods tailored to enhance your web server experience.",
+      "Expand the functionality of SVR.JS with our mods! Visit the downloads page to explore and install a variety of mods for a better web server experience.",
     url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/mods`,
     type: "website",
     images: [
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     site: "@SVR_JS",
     title: "Mods - SVR.JS",
     description:
-      "Expand the functionality of SVR.JS with our collection of mods! Visit the mod downloads page to explore, download, and install a wide range of mods tailored to enhance your web server experience.",
+      "Expand the functionality of SVR.JS with our mods! Visit the downloads page to explore and install a variety of mods for a better web server experience.",
     images: [`${process.env.NEXT_PUBLIC_WEBSITE_URL}/metadata/svrjs-cover.png`],
     creator: "@SVR_JS"
   }

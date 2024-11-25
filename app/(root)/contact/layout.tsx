@@ -4,12 +4,12 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Contact Us - SVR.JS",
   description:
-    "Have questions about SVR.JS? Need technical support? Visit our Contact Us page to find various ways to get in touch with our team, including email, forums, and our official support channel.",
+    "Questions about SVR.JS? Visit our Contact Us page for email, forums, and support channel options to reach our team.",
   alternates: { canonical: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/contact` },
   openGraph: {
     title: "Contact Us - SVR.JS",
     description:
-      "Have questions about SVR.JS? Need technical support? Visit our Contact Us page to find various ways to get in touch with our team, including email, forums, and our official support channel.",
+      "Questions about SVR.JS? Visit our Contact Us page for email, forums, and support channel options to reach our team.",
     url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/contact`,
     type: "website",
     images: [
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     site: "@SVR_JS",
     title: "Contact Us - SVR.JS",
     description:
-      "Have questions about SVR.JS? Need technical support? Visit our Contact Us page to find various ways to get in touch with our team, including email, forums, and our official support channel.",
+      "Questions about SVR.JS? Visit our Contact Us page for email, forums, and support channel options to reach our team.",
     images: [`${process.env.NEXT_PUBLIC_WEBSITE_URL}/metadata/svrjs-cover.png`],
     creator: "@SVR_JS"
   }

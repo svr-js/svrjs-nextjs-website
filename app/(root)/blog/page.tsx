@@ -10,12 +10,12 @@ export const dynamic = "force-static";
 export const metadata: Metadata = {
   title: "Blog - SVR.JS",
   description:
-    "Welcome to the SVR.JS Blog! Explore our latest blog posts featuring web development, web application security, and web server administration tips. Stay tuned for the latest SVR.JS updates.",
+    "Welcome to the SVR.JS Blog! Discover web development, security tips, and server admin insights. Stay updated with the latest SVR.JS news!",
   alternates: { canonical: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/blog` },
   openGraph: {
     title: "Blog - SVR.JS",
     description:
-      "Welcome to the SVR.JS Blog! Explore our latest blog posts featuring web development, web application security, and web server administration tips. Stay tuned for the latest SVR.JS updates.",
+      "Welcome to the SVR.JS Blog! Discover web development, security tips, and server admin insights. Stay updated with the latest SVR.JS news!",
     url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/blog`,
     type: "website",
     images: [
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     site: "@SVR_JS",
     title: "Blog - SVR.JS",
     description:
-      "Welcome to the SVR.JS Blog! Explore our latest blog posts featuring web development, web application security, and web server administration tips. Stay tuned for the latest SVR.JS updates.",
+      "Welcome to the SVR.JS Blog! Discover web development, security tips, and server admin insights. Stay updated with the latest SVR.JS news!",
     images: [`${process.env.NEXT_PUBLIC_WEBSITE_URL}/metadata/svrjs-cover.png`],
     creator: "@SVR_JS"
   }

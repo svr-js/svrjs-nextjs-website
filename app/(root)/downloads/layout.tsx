@@ -4,12 +4,12 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Downloads - SVR.JS",
   description:
-    "Ready to get started with SVR.JS? Visit our downloads page to access the latest stable releases, nightly builds, and archived versions. Find the right fit for your needs today!",
+    "Get started with SVR.JS! Visit our downloads page for the latest stable releases, nightly builds, and archived versions to find your perfect fit!",
   alternates: { canonical: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/downloads` },
   openGraph: {
     title: "Downloads - SVR.JS",
     description:
-      "Ready to get started with SVR.JS? Visit our downloads page to access the latest stable releases, nightly builds, and archived versions. Find the right fit for your needs today!",
+      "Get started with SVR.JS! Visit our downloads page for the latest stable releases, nightly builds, and archived versions to find your perfect fit!",
     url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/downloads`,
     type: "website",
     images: [
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     site: "@SVR_JS",
     title: "Downloads - SVR.JS",
     description:
-      "Ready to get started with SVR.JS? Visit our downloads page to access the latest stable releases, nightly builds, and archived versions. Find the right fit for your needs today!",
+      "Get started with SVR.JS! Visit our downloads page for the latest stable releases, nightly builds, and archived versions to find your perfect fit!",
     images: [`${process.env.NEXT_PUBLIC_WEBSITE_URL}/metadata/svrjs-cover.png`],
     creator: "@SVR_JS"
   }

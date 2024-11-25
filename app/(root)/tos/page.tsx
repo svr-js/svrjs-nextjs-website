@@ -6,12 +6,12 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Terms of Service - SVR.JS",
   description:
-    "Understand your rights and responsibilities when using SVR.JS. Our Terms of Service page outlines the conditions for visiting our website, ensuring a transparent and fair experience for all users.",
+    "Learn your rights and responsibilities with SVR.JS. Our Terms of Service ensure a transparent and fair experience for all users.",
   alternates: { canonical: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/tos` },
   openGraph: {
     title: "Terms of Service - SVR.JS",
     description:
-      "Understand your rights and responsibilities when using SVR.JS. Our Terms of Service page outlines the conditions for visiting our website, ensuring a transparent and fair experience for all users.",
+      "Learn your rights and responsibilities with SVR.JS. Our Terms of Service ensure a transparent and fair experience for all users.",
     url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/tos`,
     type: "website",
     images: [
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     site: "@SVR_JS",
     title: "Terms of Service - SVR.JS",
     description:
-      "Understand your rights and responsibilities when using SVR.JS. Our Terms of Service page outlines the conditions for visiting our website, ensuring a transparent and fair experience for all users.",
+      "Learn your rights and responsibilities with SVR.JS. Our Terms of Service ensure a transparent and fair experience for all users.",
     images: [`${process.env.NEXT_PUBLIC_WEBSITE_URL}/metadata/svrjs-cover.png`],
     creator: "@SVR_JS"
   }

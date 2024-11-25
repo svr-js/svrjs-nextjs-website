@@ -1,5 +1,10 @@
 import MobileNav from "../_components/Mobilenav";
 import Sidebar from "../_components/Sidebar";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Admin"
+};
 
 export default function PageLayout({
   children

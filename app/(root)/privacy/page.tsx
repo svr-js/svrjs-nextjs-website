@@ -8,12 +8,12 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Privacy Policy - SVR.JS",
   description:
-    "Learn how we collect, use, and protect your data. Our Privacy Policy outlines our commitment to your privacy and the measures we take to safeguard your information when visiting our website.",
+    "Discover how we collect, use, and protect your data. Our Privacy Policy details our commitment to safeguarding your information on our website.",
   alternates: { canonical: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/privacy` },
   openGraph: {
     title: "Privacy Policy - SVR.JS",
     description:
-      "Learn how we collect, use, and protect your data. Our Privacy Policy outlines our commitment to your privacy and the measures we take to safeguard your information when visiting our website.",
+      "Discover how we collect, use, and protect your data. Our Privacy Policy details our commitment to safeguarding your information on our website.",
     url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/privacy`,
     type: "website",
     images: [
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     site: "@SVR_JS",
     title: "Privacy Policy - SVR.JS",
     description:
-      "Learn how we collect, use, and protect your data. Our Privacy Policy outlines our commitment to your privacy and the measures we take to safeguard your information when visiting our website.",
+      "Discover how we collect, use, and protect your data. Our Privacy Policy details our commitment to safeguarding your information on our website.",
     images: [`${process.env.NEXT_PUBLIC_WEBSITE_URL}/metadata/svrjs-cover.png`],
     creator: "@SVR_JS"
   }

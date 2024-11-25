@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "SVR.JS change log - SVR.JS",
   description:
     "Stay up-to-date with the latest improvements and updates to SVR.JS web server. Our change log page provides a comprehensive list of new features, bug fixes, and enhancements for each release.",
+  alternates: { canonical: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/changelog` },
   openGraph: {
     title: "SVR.JS change log - SVR.JS",
     description:

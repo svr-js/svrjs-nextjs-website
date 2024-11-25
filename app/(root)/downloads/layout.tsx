@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Downloads - SVR.JS",
   description:
     "Ready to get started with SVR.JS? Visit our downloads page to access the latest stable releases, nightly builds, and archived versions. Find the right fit for your needs today!",
+  alternates: { canonical: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/downloads` },
   openGraph: {
     title: "Downloads - SVR.JS",
     description:

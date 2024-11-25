@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "Newsletter - SVR.JS",
   description:
     "Subscribe to our newsletter for updates. We promise no spam emails will be sent.",
+  alternates: {
+    canonical: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/newsletter`
+  },
   openGraph: {
     title: "Newsletter - SVR.JS",
     description:

@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Terms of Service - SVR.JS",
   description:
     "Understand your rights and responsibilities when using SVR.JS. Our Terms of Service page outlines the conditions for visiting our website, ensuring a transparent and fair experience for all users.",
+  alternates: { canonical: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/tos` },
   openGraph: {
     title: "Terms of Service - SVR.JS",
     description:

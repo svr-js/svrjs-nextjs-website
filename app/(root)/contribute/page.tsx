@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Contribute - SVR.JS",
   description:
     "Contribute to SVR.JS and be part of an exciting open-source project. Follow the step-by-step guidelines to make your code contributions.",
+  alternates: {
+    canonical: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/contribute`
+  },
   openGraph: {
     title: "Contribute - SVR.JS",
     description:

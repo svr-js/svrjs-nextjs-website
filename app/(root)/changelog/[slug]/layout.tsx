@@ -46,6 +46,9 @@ export async function generateMetadata(props: {
   return {
     title: `${page.title} change log - SVR.JS`,
     description: `Keep track of the latest updates and improvements for ${page.title} with our comprehensive change log. Discover new features, bug fixes, and enhancements for each release of this SVR.JS mod.`,
+    alternates: {
+      canonical: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/changelog/${params.slug}`
+    },
     openGraph: {
       title: `${page.title} change log - SVR.JS`,
       description: `Keep track of the latest updates and improvements for ${page.title} with our comprehensive change log. Discover new features, bug fixes, and enhancements for each release of this SVR.JS mod.`,

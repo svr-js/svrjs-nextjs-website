@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "Privacy Policy - SVR.JS",
   description:
     "Learn how we collect, use, and protect your data. Our Privacy Policy outlines our commitment to your privacy and the measures we take to safeguard your information when visiting our website.",
+  alternates: { canonical: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/privacy` },
   openGraph: {
     title: "Privacy Policy - SVR.JS",
     description:

@@ -15,6 +15,9 @@ export async function generateMetadata(props: {
     title: "Blog - SVR.JS",
     description:
       "Welcome to the SVR.JS Blog! Explore our latest blog posts featuring web development, web application security, and web server administration tips. Stay tuned for the latest SVR.JS updates.",
+    alternates: {
+      canonical: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/blog/page/${(await props.params).id}`
+    },
     openGraph: {
       title: "Blog - SVR.JS",
       description:

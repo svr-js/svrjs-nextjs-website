@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Contact Us - SVR.JS",
   description:
     "Have questions about SVR.JS? Need technical support? Visit our Contact Us page to find various ways to get in touch with our team, including email, forums, and our official support channel.",
+  alternates: { canonical: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/contact` },
   openGraph: {
     title: "Contact Us - SVR.JS",
     description:

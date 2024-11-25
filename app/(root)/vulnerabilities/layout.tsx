@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Vulnerabilities - SVR.JS",
   description:
     "Learn about potential security risks associated with outdated SVR.JS web server versions. Stay informed and safeguard your web applications from potential threats with timely updates.",
+  alternates: {
+    canonical: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/vulnerabilities`
+  },
   openGraph: {
     title: "Vulnerabilities - SVR.JS",
     description:

@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "SVR.JS - a web server running on Node.JS",
   description:
     "Experience unparalleled flexibility with SVR.JS - the ultimate web server for Node.JS. Host web pages, run server-side JavaScript, utilize mods for extended functionality, and more. Integrated log viewer and user management tools included. Also supports Bun (experimental).",
+  alternates: { canonical: `${process.env.NEXT_PUBLIC_WEBSITE_URL}` },
   openGraph: {
     title: "SVR.JS - a web server running on Node.JS",
     description:

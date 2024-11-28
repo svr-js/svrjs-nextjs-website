@@ -96,7 +96,7 @@ The _config.json_ file contains various properties that you can customize to con
     - _ip_: Applicable IP address for this status code. Use this property to specify destination server IP address instead of _host_ property to prevent _Host_ header attacks. (optional; String, SVR.JS 3.14.1 or newer)
     - _userList_: Allowed users for HTTP authentication. (optional; Array of Strings, SVR.JS 3.8.0 or newer)
 - _dontCompress_ (Array of Regex Strings, SVR.JS 3.0.0 or newer)
-  - URLs for which HTTP compression will be disabled.
+  - URLs for which HTTP compression will be disabled. If using SVR.JS 4.3.0 or newer, the HTTP compression is always disabled for these file extensions (as of SVR.JS 4.3.0): _.7z_, _.air_, _.amlx_, _.apk_, _.apng_, _.appinstaller_, _.appx_, _.appxbundle_, _.arj_, _.au_, _.avif_, _.bdoc_, _.boz_, _.bz_, _.bz2_, _.caf_, _.class_, _.doc_, _.docx_, _.dot_, _.dvi_, _.ear_, _.epub_, _.flv_, _.gdoc_, _.gif_, _.gsheet_, _.gslides_, _.gz_, _.iges_, _.igs_, _.jar_, _.jnlp_, _.jp2_, _.jpe_, _.jpeg_, _.jpf_, _.jpg_, _.jpg2_, _.jpgm_, _.jpm_, _.jpx_, _.kmz_, _.latex_, _.m1v_, _.m2a_, _.m2v_, _.m3a_, _.m4a_, _.mesh_, _.mk3d_, _.mks_, _.mkv_, _.mov_, _.mp2_, _.mp2a_, _.mp3_, _.mp4_, _.mp4a_, _.mp4v_, _.mpe_, _.mpeg_, _.mpg_, _.mpg4_, _.mpga_, _.msg_, _.msh_, _.msix_, _.msixbundle_, _.odg_, _.odp_, _.ods_, _.odt_, _.oga_, _.ogg_, _.ogv_, _.ogx_, _.opus_, _.p12_, _.pdf_, _.pfx_, _.pgp_, _.pkpass_, _.png_, _.pot_, _.pps_, _.ppt_, _.pptx_, _.qt_, _.ser_, _.silo_, _.sit_, _.snd_, _.spx_, _.stpxz_, _.stpz_, _.swf_, _.tif_, _.tiff_, _.ubj_, _.usdz_, _.vbox-extpack_, _.vrml_, _.war_, _.wav_, _.weba_, _.webm_, _.wmv_, _.wrl_, _.x3dbz_, _.x3dvz_, _.xla_, _.xlc_, _.xlm_, _.xls_, _.xlsx_, _.xlt_, _.xlw_, _.xpi_, _.xps_, and _.zip_.
 - _enableIPSpoofing_ (Boolean, SVR.JS 3.0.0 or newer)
   - Option to enable identifiying client's originating IP address through the _X-Forwarded-For_ header (**for use in websites hidden behind a reverse proxy**, not recommeded if you're not using SVR.JS behind a reverse proxy, since hackers can spoof client IP address via this header).
 - _enableETag_ (Boolean, SVR.JS 3.6.1 or newer)
@@ -114,6 +114,8 @@ The _config.json_ file contains various properties that you can customize to con
     - _maxHeaderSize_: Alias for _maxHeaderListSize_ (Number, SVR.JS 3.14.0 or newer).
     - _enableConnectProtocol_: Option to enable the "Extended Connect Protocol" defined by RFC 8441 (Number, SVR.JS 3.14.0 or newer).
     - _customSettings_: Additional settings not implemented yet in Node.JS and its underlying libraries. Object key defines the numeric value of the settings type (as defined in the "HTTP/2 SETTINGS" registry established by RFC 7540). Object values define actual numeric value of the settings. Settings types should be greater than 6 and less than 2<sup>16</sup>-1. Values should be in range from 0 to 2<sup>32</sup>-1. Currently you can specify up to 10 custom settings (Object, SVR.JS 3.14.0 or newer).
+- _enableIncludingHeadAndFootInHTML_ (Boolean, SVR.JS 4.3.0 or newer)
+  - Option to enable including custom head and foot in files with _.html_ extension.
 
 ## Security Configuration
 

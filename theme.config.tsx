@@ -74,14 +74,8 @@ export default {
   footer: {
     component: null
   },
-  useNextSeoProps() {
-    const { asPath } = useRouter();
-    if (asPath !== "/") {
-      return {
-        titleTemplate: "%s – SVR.JS"
-      };
-    }
-  },
-  primaryHue: 136,
-  primarySaturation: 75
+  color: {
+    hue: 136,
+    saturation: 75
+  }
 };

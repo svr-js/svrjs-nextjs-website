@@ -36,6 +36,8 @@
     "lib/Hoc/withAuth.jsx",
     "**/*.mdx",
     "pages/_app.tsx",
+    "pages/_meta.ts",
+    "pages/**/_meta.ts",
     "hashedpass.s",
     "app/(root)/contact"
   ],

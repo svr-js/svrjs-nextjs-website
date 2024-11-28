@@ -1,13 +1,15 @@
-# First use
+---
+title: System requirements
+---
 
-## System requirements
+# System requirements
 
-### Minimum
+## Minimum
 
 - Node.JS 8.4.0 or newer (SVR.JS 3.4.x and earlier), Node.JS 10.0.0 or newer (SVR.JS 3.5.x and later) / Latest version of Bun (experimental) / Latest version of Deno (experimental).
 - OS supported by Node.JS/Bun/Deno.
 
-### Recommended
+## Recommended
 
 - Latest Node.JS LTS version.
 - 2-core CPU or better.

@@ -58,7 +58,26 @@ OrangeCircle can be configured in _orangecircle-config.json_ file in SVR.JS inst
 }
 ```
 
-OrangeCircle 1.0.7 and newer work with web root outside SVR.JS installation directory (older ones need _config.json_ file in web root with valid JSON data; not necessarily related to _config.json_ in SVR.JS installation directory)
+OrangeCircle 1.0.7 and newer work with web root outside SVR.JS installation directory (older ones need _config.json_ file in web root with valid JSON data; not necessarily related to _config.json_ in SVR.JS installation directory).
+
+OrangeCircle 1.3.0 and newer support multiple SCGI servers. These versions of OrangeCircle can be configured to use multiple SCGI servers like this:
+
+```json
+{
+  "multiConfig": {
+	"example.com": {
+	  "path": "/scgi",
+	  "host": "localhost",
+	  "port": 4000
+	},
+	"example.org": {
+	  "path": "/scgiorg",
+	  "host": "localhost",
+	  "port": 4001
+	}
+  }
+}
+```
 
 ## JSGI via YellowSquare
 

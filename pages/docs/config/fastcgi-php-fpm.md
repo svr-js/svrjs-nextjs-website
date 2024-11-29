@@ -35,6 +35,25 @@ You can configure file extensions outside of path specified in _greenrhombus-con
 [".php"]
 ```
 
+GreenRhombus 1.1.0 and newer support multiple FastCGI servers. These versions of GreenRhombus can be configured to use multiple FastCGI servers like this:
+
+```json
+{
+  "multiConfig": {
+	"example.com": {
+	  "path": "/fastcgi",
+	  "host": "localhost",
+	  "port": 7000
+	},
+	"example.org": {
+	  "path": "/fastcgiorg",
+	  "host": "localhost",
+	  "port": 7001
+	}
+  }
+}
+```
+
 ## PHP-FPM
 
 GreenRhombus supports running PHP files through PHP-FPM. If you want to use GreenRhombus only for PHP-FPM, configure _greenrhombus-config.json_ like this (in this case we're using socket in `/run/php/php8.2-fpm.sock`; you can check it in PHP-FPM configuration file, e.g. `/etc/php/8.2/fpm/pool.d/www.conf`; configure it without _path_ property):
@@ -49,6 +68,20 @@ And configure _greenrhombus-scriptexts.json_ like this:
 
 ```json
 [".php"]
+```
+
+If using GreenRhombus 1.1.0 or newer, you can configure GreenRhombus to connect to multiple PHP-FPM instances like this:
+```json
+{
+  "multiConfig": {
+	"example.com": {
+	  "socketPath": "/run/php/php8.2-fpm.sock"
+	},
+	"example.org": {
+	  "socketPath": "/run/php/php7.4-fpm.sock"
+	}
+  }
+}
 ```
 
 PHP-FPM may run on different user than SVR.JS web server, so you may need to set permissions for the user, which PHP-FPM runs on.

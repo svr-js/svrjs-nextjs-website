@@ -6,7 +6,7 @@ title: Installation
 
 ## Using SVR.JS installer (installer packages made in April 5, 2024 and later; GNU/Linux only)
 
-The command for SVR.JS installation is available in [the SVR.JS home page](https://svrjs.org). First off, switch to _GNU/Linux_ tab, then copy the command below the tab into the terminal. The command looks something like this: `curl -fsSL https://downloads.svrjs.org/installer/svr.js.installer.linux.20240509.sh > /tmp/installer.sh && sudo bash /tmp/installer.sh`. After starting the installer, you will be prompted to select the type of SVR.JS installation. After selecting the type, SVR.JS installer will install Node.JS, SVR.JS and create SVR.JS service. During installation, you may be prompted for the installation of dependencies. Once the installation is done, the server is started at _http://localhost_.
+The command for SVR.JS installation is available in [the SVR.JS home page](https://svrjs.org). First off, switch to _GNU/Linux_ tab, then copy the command below the tab into the terminal. The command looks something like this: `sudo bash -c "$(curl -fsSL https://downloads.svrjs.org/installer/svr.js.installer.linux.20240509.sh)"`. After starting the installer, you will be prompted to select the type of SVR.JS installation. After selecting the type, SVR.JS installer will install Node.JS, SVR.JS and create SVR.JS service. During installation, you may be prompted for the installation of dependencies. Once the installation is done, the server is started at _http://localhost_.
 
 File structure will look like this:
 

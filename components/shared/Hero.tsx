@@ -19,7 +19,7 @@ const happyMonkey = Happy_Monkey({
 const Hero = () => {
   const [isCopied, setIsCopied] = useState(false);
   const [command, setCommand] = useState(
-    "curl -fsSL https://downloads.svrjs.org/installer/svr.js.installer.linux.20240509.sh > /tmp/installer.sh && sudo bash /tmp/installer.sh"
+    'sudo bash -c "$(curl -fsSL https://downloads.svrjs.org/installer/svr.js.installer.linux.20240509.sh)"'
   );
   const [selectedButton, setSelectedButton] = useState<"linux" | "docker">(
     "linux"
@@ -27,7 +27,7 @@ const Hero = () => {
 
   const commands = {
     linux:
-      "curl -fsSL https://downloads.svrjs.org/installer/svr.js.installer.linux.20240509.sh > /tmp/installer.sh && sudo bash /tmp/installer.sh",
+      'sudo bash -c "$(curl -fsSL https://downloads.svrjs.org/installer/svr.js.installer.linux.20240509.sh)"',
     docker:
       "docker pull svrjs/svrjs && docker run --name mysvrjs -d -p 80:80 --restart=always svrjs/svrjs"
   };
@@ -91,7 +91,7 @@ const Hero = () => {
             ) : (
               <Check className="w-4 h-4 mr-2" />
             )}
-            {command.slice(0, 39)}...
+            {command.slice(0, 37)}...
           </Button>
           <p className="hidden lg:block">|</p>
           <p className="block lg:hidden">or</p>

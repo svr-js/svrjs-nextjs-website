@@ -22,4 +22,4 @@ Then you can run `node svr.js` or `bun run svr.js` to extract new version of SVR
 
 ## Manual updating
 
-SVR.JS can be updated manually by extracting _svr.js_, _modules.compressed_ and _svr.compressed_ files from archive containing new version of SVR.JS to directory, to which older version of SVR.JS is installed (if you installed SVR.JS using SVR.JS installer, it is _/usr/lib/svrjs_). Then you can run `node svr.js` or `bun run svr.js` to extract new version of SVR.JS and new Node.JS modules.
+SVR.JS can be updated manually by extracting _svr.js_, _modules.compressed_ and _svr.compressed_ files from archive containing new version of SVR.JS to directory, to which older version of SVR.JS is installed (if you installed SVR.JS using SVR.JS installer, it is _/usr/lib/svrjs_ or _%SystemDrive%\svrjs\svrjs_). Then you can run `node svr.js` or `bun run svr.js` to extract new version of SVR.JS and new Node.JS modules.

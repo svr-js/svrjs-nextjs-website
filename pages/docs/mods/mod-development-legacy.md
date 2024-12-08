@@ -48,7 +48,7 @@ These methods are defined inside _Mod.prototype_ object. Both methods return a f
 
 The reference to file in the SVR.JS installation directory is `__dirname + "/../../../filename"` (replace `filename` with your desired file name).
 
-Current working directory (`process.cwd()`) is SVR.JS web root.
+Current working directory (`process.cwd()`) is SVR.JS web root. It's recommended to use the _configJSON.wwwroot_ property instead though, if targeting SVR.JS 4.2.0 or newer.
 
 A typical _index.js_ file for a mod may look like this:
 

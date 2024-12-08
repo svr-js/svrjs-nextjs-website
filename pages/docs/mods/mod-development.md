@@ -82,7 +82,7 @@ The reserved control messages, used internally by SVR.JS begin with:
 
 `process.dirname` refers to the SVR.JS installation directory.
 
-Current working directory (`process.cwd()`) is SVR.JS web root.
+Current working directory (`process.cwd()`) is SVR.JS web root. It's recommended to use the _config.wwwroot_ property instead though.
 
 ## Get started
 

@@ -230,7 +230,7 @@ If you're using SVR.JS 3.14.0 or newer, you can use this configuration:
       "host": "anothersite.example",
       "postfix": "anothersite.example",
       "skipRegex": "/^\\/.dirimages(?:$|[\\/#?])/"
-    }
+    },
     {
       "postfix": "NONEXISTENT_SITE"
     }

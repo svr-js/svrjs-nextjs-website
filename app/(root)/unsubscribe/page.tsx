@@ -1,6 +1,7 @@
 "use client";
 import Newsletter from "@/components/shared/Newsletter";
-import React, { useState, use } from "react";
+import React, { useState } from "react";
+import { ReadonlyURLSearchParams, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
@@ -8,7 +9,10 @@ import HCaptcha from "@hcaptcha/react-hcaptcha";
 const UnsubscribePage = (props: {
   searchParams: Promise<{ id: string | undefined }>;
 }) => {
-  const searchParams = use(props.searchParams);
+  const searchParams = useSearchParams() as ReadonlyURLSearchParams;
+  const unsubscribeId = searchParams.has("id")
+    ? searchParams.get("id")
+    : undefined;
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
   const [showCaptcha, setShowCaptcha] = useState(false);
@@ -23,7 +27,7 @@ const UnsubscribePage = (props: {
     try {
       const res = await fetch("/api/unsubscribe", {
         method: "POST",
-        body: JSON.stringify({ unsubscribeId: searchParams.id, captchaToken }),
+        body: JSON.stringify({ unsubscribeId: unsubscribeId, captchaToken }),
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json"

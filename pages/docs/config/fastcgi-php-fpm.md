@@ -84,6 +84,8 @@ If using GreenRhombus 1.1.0 or newer, you can configure GreenRhombus to connect 
 }
 ```
 
+GreenRhombus 1.1.1 and newer support virtual host functionality based on switching web roots.
+
 PHP-FPM may run on different user than SVR.JS web server, so you may need to set permissions for the user, which PHP-FPM runs on.
 
 If you are using PHP-FPM only for SVR.JS, you can set the _listen.owner_ and _listen.group_ properties to _svrjs_ in the PHP-FPM configuration file (e.g. `/etc/php/8.2/fpm/pool.d/www.conf`).

@@ -155,6 +155,11 @@ The _config.json_ file contains various properties that you can customize to con
   - Array containing URL strings to insert before web root postfix (for all hosts). For example: the source URL is _/cgi-bin/gitweb.cgi_, postfix is _svrjs_ and the postfix prefix is _/cgi-bin_; the rewritten URL is _/cgi-bin/svrjs/gitweb.cgi_.
 - _allowPostfixDoubleSlashes_ (Boolean, SVR.JS 3.14.4 or newer)
   - Option to allow double slashes, when inserting web root postfixes. If set to `false`, double slashes are removed by postfix insertion function. It may create issues with double slash URLs not having prefixes.
+- _wwwrootVHost_ (Array of Objects; SVR.JS 4.4.0 or newer)
+  - Array containing web roots assigned for each virtual host.
+    - _host_: Applicable host name for this web root (String, SVR.JS 4.4.0 or newer).
+    - _ip_: Applicable IP address for this web root. Use this property to specify destination server IP address instead of _host_ property to prevent _Host_ header attacks. (optional; String, SVR.JS 4.4.0 or newer).
+    - _wwwroot_: The web root used for the virtual host (String, SVR.JS 4.4.0 or newer).
 
 ## Miscellaneous Configuration
 

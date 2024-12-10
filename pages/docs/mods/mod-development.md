@@ -78,6 +78,32 @@ The reserved control messages, used internally by SVR.JS begin with:
 - `\x14PINGPING`
 - `\x14SAVECONF`
 
+## Custom configuration validators
+
+SVR.JS 4.4.0 and later allows mods to have custom configuration validators to ensure that the configuration values provided are valid and meet specific criteria. This feature helps in maintaining the integrity and correctness of the mod's configuration.
+
+To add a custom configuration validator, you need to export a `configValidators` object from your mod. This object maps configuration keys to validator functions. Each validator function should take a single parameter, `value`, which is the configuration value to be validated, and return a boolean indicating whether the value is valid.
+
+Here is an example of how to define custom configuration validators:
+
+```js
+module.exports.configValidators = {
+  aNumber: (value) => typeof value === "number",
+  aString: (value) => typeof value === "string",
+  aPositiveNumber: (value) => typeof value === "number" && value > 0,
+  aNonEmptyString: (value) => typeof value === "string" && value.trim().length > 0
+};
+```
+
+In this example:
+
+- `aNumber` validator checks if the value is of type `number`.
+- `aString` validator checks if the value is of type `string`.
+- `aPositiveNumber` validator checks if the value is a positive number.
+- `aNonEmptyString` validator checks if the value is a non-empty string.
+
+Once you have defined your custom configuration validators, SVR.JS will automatically use them to validate the corresponding configuration values when the mod is loaded.
+
 ## Paths
 
 `process.dirname` refers to the SVR.JS installation directory.

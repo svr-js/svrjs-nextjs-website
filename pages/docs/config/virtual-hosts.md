@@ -4,7 +4,119 @@ title: Virtual hosts
 
 # Virtual hosts
 
-When you're not planning to use SVR.JS server-side JavaScript or SVR.JS mods implementing individual web applications and plan to use SVR.JS similarly to Apache, nginx or IIS (static-only, PHP, CGI or JSGI), you can use virtual host-like functionality (name-based; IP-based from SVR.JS 3.14.1 and newer) with SVR.JS 3.8.0 or newer.
+## Using virtual host functionality based on switching web roots
+
+When you're not planning to use SVR.JS server-side JavaScript or SVR.JS mods implementing individual web applications and plan to use SVR.JS similarly to Apache, NGINX or IIS (static-only, PHP, CGI or JSGI), you can use virtual host functionality (based on switching web roots) with SVR.JS 4.4.0 or newer.
+
+You can set up custom error pages, URL rewriting rules and non-standard status code settings per-host like this (assuming that you want to also include CGI support through RedBrick):
+
+```json
+{
+  "users": [],
+  "port": 80,
+  "pubport": 80,
+  "page404": "404.html",
+  "blacklist": [],
+  "nonStandardCodes": [
+    {
+      "url": "/dl",
+      "location": "/download",
+      "host": "anothersite.example",
+      "scode": 301
+    },
+    {
+      "url": "/downloads",
+      "location": "/download",
+      "host": "anothersite.example",
+      "scode": 301
+    }
+  ],
+  "enableCompression": true,
+  "customHeaders": {},
+  "enableHTTP2": false,
+  "enableLogging": true,
+  "enableDirectoryListing": true,
+  "enableDirectoryListingWithDefaultHead": false,
+  "serverAdministratorEmail": "[no contact information]",
+  "stackHidden": false,
+  "enableRemoteLogBrowsing": false,
+  "exposeServerVersion": true,
+  "disableServerSideScriptExpose": true,
+  "rewriteMap": [
+    {
+      "definingRegex": "/^\\/index(?:$|[\\/#?])/",
+      "host": "anothersite.example".
+      "replacements": [
+        {
+          "regex": "/^\\/index/",
+          "replacement": "/"
+        }
+      ]
+    },
+  ],
+  "allowStatus": true,
+  "dontCompress": [
+    "/.*\\.ipxe$/",
+    "/.*\\.img$/",
+    "/.*\\.iso$/"
+  ],
+  "enableIPSpoofing": false,
+  "secure": false,
+  "sni": {},
+  "disableNonEncryptedServer": false,
+  "disableToHTTPSRedirect": false,
+  "enableETag": true,
+  "disableUnusedWorkerTermination": false,
+  "rewriteDirtyURLs": true,
+  "errorPages": [
+    {
+      "scode": 404,
+      "path": "oops.html",
+      "host": "website.example"
+    }
+  ],
+  "customHeadersVHost": [
+    {
+      "host": "website.example",
+      "headers": {
+        "X-Some-Header": "some-value"
+      }
+    }
+  ],
+  "enableDirectoryListingVHost": [
+    {
+      "host": "website.example",
+      "enable": false
+    }
+  ],
+  "wwwrootVHost": [
+    {
+      "host": "website.example",
+      "wwwroot": "./website.example"
+    },
+    {
+      "host": "anothersite.example",
+      "wwwroot": "./anothersite.example"
+    },
+    {
+      "wwwroot": "./NONEXISTENT_SITE"
+    }
+  ]
+}
+```
+
+You need to then create this directory structure in SVR.JS default web root:
+
+- website.example
+  - cgi-bin
+- anothersite.example
+  - cgi-bin
+
+Only some SVR.JS mods support virtual host functionality based on switching web roots.
+
+## Using virtual host functionality based on URL rewriting
+
+When you're not planning to use SVR.JS server-side JavaScript or SVR.JS mods implementing individual web applications and plan to use SVR.JS similarly to Apache httpd, NGINX or IIS (static-only, PHP, CGI or JSGI), you can use virtual host-like functionality (name-based; IP-based from SVR.JS 3.14.1 and newer) with SVR.JS 3.8.0 or newer.
 
 You can set up custom error pages, URL rewriting rules and non-standard status code settings per-host like this (assuming that you want to also include CGI support through RedBrick):
 

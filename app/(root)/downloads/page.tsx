@@ -23,7 +23,7 @@ interface Download {
 
 export const dynamic = "force-static";
 
-const DownloadPage: React.FC = async () => {
+const DownloadPage = async () => {
   let error: Error | null = null;
   let downloads: Download[] = [];
 

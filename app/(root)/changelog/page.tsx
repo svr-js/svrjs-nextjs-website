@@ -18,7 +18,7 @@ interface LOGS {
 
 export const dynamic = "force-static";
 
-const LogsPage: React.FC = async () => {
+const LogsPage = async () => {
   let error: Error | null = null;
   let downloads: LOGS[] = [];
 

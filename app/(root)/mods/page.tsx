@@ -23,7 +23,7 @@ interface Mods {
 
 export const dynamic = "force-static";
 
-const ModsPage: React.FC = async () => {
+const ModsPage = async () => {
   let error: Error | null = null;
   let downloads: Mods[] = [];
 

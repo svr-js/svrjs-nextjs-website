@@ -1,6 +1,6 @@
 "use client";
-import React, { useEffect, useState, use } from "react";
-import { useRouter } from "next/navigation";
+import React, { useEffect, useState } from "react";
+import { useParams, useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -10,8 +10,8 @@ const MarkdownEditor = dynamic(() => import("@uiw/react-md-editor"), {
   ssr: false
 });
 
-const EditPage = (props: { params: Promise<{ slug: string }> }) => {
-  const params = use(props.params);
+const EditPage = () => {
+  const params = useParams<{ slug: string }>() as { slug: string };
   const router = useRouter();
   const { slug } = params;
   const { toast } = useToast();

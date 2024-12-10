@@ -26,7 +26,7 @@ interface BlogCardInterface {
   page: number;
 }
 
-const BlogCards: React.FC<BlogCardInterface> = async (props) => {
+const BlogCards = async (props: BlogCardInterface) => {
   "use server";
 
   // Change in /blog/page/[id] route and in /api/revalidate route too!

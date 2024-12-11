@@ -6,7 +6,7 @@ title: Reverse proxy configuration
 
 In order to use SVR.JS as a reverse proxy, you need to install reverse-proxy-mod SVR.JS mod. [Download this mod.](https://svrjs.org/mods)
 
-Configuration file of reverse-proxy-mod is _reverse-proxy-config.json_ inside SVR.JS installation directory. Keys of configuration object are domain names (or paths from reverse-proxy-mod 1.1.1), for which it's settings apply. Values are object with those properties:
+Configuration file of reverse-proxy-mod is _reverse-proxy-config.json_ inside SVR.JS installation directory. Keys of configuration object are domain names (or paths from reverse-proxy-mod 1.1.1), for which its settings apply. Values are object with those properties:
 
 - _hostname_ - Hostname of origin server.
 - _port_ - Port of origin server.

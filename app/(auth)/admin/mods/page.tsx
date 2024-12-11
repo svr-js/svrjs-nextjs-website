@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -85,9 +85,9 @@ const SvrjsModsAdminPage = () => {
         downloadLink: editMod.downloadLink,
         fileSize: editMod.fileSize
       });
-      setDialogOpen(true); // Open dialog when a mod is being edited
     }
-  }, [editMod, dialogForm]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [editMod, dialogForm.reset]);
 
   const fetchMods = async () => {
     try {
@@ -130,7 +130,6 @@ const SvrjsModsAdminPage = () => {
         fetchMods();
         setLoading(false);
         setEditMod(null);
-        setDialogOpen(false); // Close dialog on successful submission
         toast({
           description: "Successfully Saved Changes"
         });
@@ -282,11 +281,14 @@ const SvrjsModsAdminPage = () => {
                   {mod.fileSize}
                 </TableCell>
                 <TableCell className="border-b px-4 py-2 gap-2 flex-center">
-                  <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
-                    <DialogTrigger>
-                      <Button variant="outline" onClick={() => setEditMod(mod)}>
-                        Edit
-                      </Button>
+                  <Dialog
+                    open={editMod?._id == mod._id}
+                    onOpenChange={(open) => setEditMod(open ? mod : null)}
+                  >
+                    <DialogTrigger
+                      className={`${buttonVariants({ variant: "outline" })}`}
+                    >
+                      Edit
                     </DialogTrigger>
                     <DialogContent>
                       <DialogTitle>Edit Content</DialogTitle>

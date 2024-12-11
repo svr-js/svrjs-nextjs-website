@@ -12,6 +12,7 @@ Configuration file of reverse-proxy-mod is _reverse-proxy-config.json_ inside SV
 - _port_ - Port of origin server.
 - _secureHostname_ - Hostname of origin server (access via HTTPS).
 - _securePort_ - Port of origin server (access via HTTPS).
+- _removeCustomHeaders_ - Option to remove custom headers set by SVR.JS. (available in reverse-proxy-mod 1.1.5 or newer)
 
 reverse-proxy-mod 1.1.0 and newer support HTTP upgrades (including WebSocket).
 

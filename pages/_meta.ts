@@ -14,8 +14,8 @@ export default {
     type: "page"
   },
   forum: {
-    title: "Forum",
-    href: "https://forum.svrjs.org",
+    title: "Community",
+    href: "https://community.svrjs.org",
     type: "page"
   }
 };

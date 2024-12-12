@@ -31,9 +31,9 @@ export const NAVBAR = {
       label: "Blog"
     },
     {
-      href: "https://forum.svrjs.org",
+      href: "https://community.svrjs.org",
       target: "_self",
-      label: "Forum"
+      label: "Community"
     }
   ],
   rightLinks: [
@@ -140,7 +140,7 @@ export const FOOTERLINKS = {
     { href: "/", label: "Home" },
     { href: "/contact", label: "Contact" },
     { href: "/blog", label: "Blog" },
-    { href: "https://forum.svrjs.org", label: "Forum" }
+    { href: "https://community.svrjs.org", label: "Community" }
   ],
   plans: [
     { href: "/docs", label: "Docs" },

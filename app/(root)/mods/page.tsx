@@ -83,7 +83,7 @@ const ModsPage = async () => {
               <TableCell>{download.version}</TableCell>
               <TableCell className="text-left">{download.fileSize}</TableCell>
               <TableCell className="flex items-center justify-end">
-                <Link href={download.downloadLink}>
+                <Link href={download.downloadLink} download={true}>
                   <Button variant={"ghost"} className="">
                     <Download className="w-4 h-4 mr-2" />
                     Download

@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import {
   Table,
   TableBody,
@@ -81,11 +81,13 @@ const DownloadPage = async () => {
                 <TableCell className="text-left">{download.fileSize}</TableCell>
                 <TableCell className="flex items-center justify-end">
                   {download.downloadLink ? (
-                    <Link href={download.downloadLink} download={true}>
-                      <Button variant={"ghost"} className="">
-                        <Download className="w-4 h-4 mr-2" />
-                        Download
-                      </Button>
+                    <Link
+                      href={download.downloadLink}
+                      download={true}
+                      className={`${buttonVariants({ variant: "ghost" })}`}
+                    >
+                      <Download className="w-4 h-4 mr-2" />
+                      Download
                     </Link>
                   ) : (
                     <Button variant={"ghost"} disabled>

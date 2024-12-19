@@ -180,6 +180,20 @@ It's also recommended to forbid the access to ".env" file, ".svelte-kit" and ".g
 
 _View the [change log.](/changelog/sveltekit-integration)_
 
+## SVR.JS Cache mod
+
+SVR.JS Cache mod is a simple in-memory cache mod for SVR.JS that works with "Cache-Control" and "Vary" headers. The cache is a per-worker cache.
+
+This mod adds these SVR.JS configuration properties:
+- _cacheVaryHeaders_ (Array of Strings)
+  - A list of headers that can vary in a cache. Supplements the "Vary" response header.
+- _maximumCacheResponseSize_ (Number or `null`)
+  - A maximum response size to be cached in bytes. If `null`, the maximum response size is limited to the maximum size of JavaScript strings.
+
+If you use this mod with SVR.JS's static file serving functionality, set the caching headers for the cache to work, and add "ETag" and "Accept-Encoding" to either a list of headers in a _Vary_ header or in the _cacheVaryHeaders_ property in the SVR.JS configuration.
+
+_View the [change log.](/changelog/svrjs-cache-mod)_
+
 ## YellowSquare
 
 YellowSquare is a JSGI (JavaScript Gateway Interface) engine.

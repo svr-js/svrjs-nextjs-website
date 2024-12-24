@@ -186,7 +186,9 @@ SVR.JS Cache mod is a simple in-memory cache mod for SVR.JS that works with "Cac
 
 This mod adds these SVR.JS configuration properties:
 - _cacheVaryHeaders_ (Array of Strings)
-  - A list of headers that can vary in a cache. Supplements the "Vary" response header.
+  - A list of request headers that can vary in a cache. Supplements the "Vary" response header.
+- _cacheIgnoreHeaders_ (Array of Strings, SVR.JS Cache mod 1.1.0 or newer)
+  - A list of response headers that will not be stored in a cache.
 - _maximumCacheResponseSize_ (Number or `null`)
   - A maximum response size to be cached in bytes. If `null`, the maximum response size is limited to the maximum size of JavaScript strings.
 

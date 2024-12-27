@@ -17,5 +17,10 @@ export default {
     title: "Community",
     href: "https://community.svrjs.org",
     type: "page"
+  },
+  mods: {
+    title: "Mods",
+    href: "https://mods.svrjs.org",
+    type: "page"
   }
 };

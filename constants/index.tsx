@@ -34,6 +34,11 @@ export const NAVBAR = {
       href: "https://community.svrjs.org",
       target: "_self",
       label: "Community"
+    },
+    {
+      href: "https://mods.svrjs.org",
+      target: "_self",
+      label: "Mods"
     }
   ],
   rightLinks: [
@@ -145,7 +150,8 @@ export const FOOTERLINKS = {
   plans: [
     { href: "/docs", label: "Docs" },
     { href: "/downloads", label: "Downloads" },
-    { href: "/mods", label: "SVR.JS mods" },
+    { href: "/mods", label: "Official mods" },
+    { href: "https://mods.svrjs.org", label: "SVR.JS Mods" },
     { href: "/changelog", label: "Change log" }
   ],
   additional: [

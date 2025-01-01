@@ -9,6 +9,7 @@ import { Metadata } from "next";
 import { format } from "date-fns";
 import Prism from "prismjs";
 import "prismjs/components/prism-javascript";
+import "prismjs/components/prism-jsx";
 import "prismjs/components/prism-python";
 import "prismjs/components/prism-php";
 import "prismjs/components/prism-bash";

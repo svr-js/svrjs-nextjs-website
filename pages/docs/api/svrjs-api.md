@@ -182,7 +182,7 @@ The name of authenticated HTTP user. If the user wasn't authenticated, the prope
 Parameters:
 
 - _rewrittenURL_ - the rewritten request URL (with query string) (_String_)
-- _callback_ - the callback invoked after the request URL (_Function_)
+- _callback_ - the callback invoked after rewriting the request URL (_Function_)
 
 Rewrites the request URL to the _rewrittenURL_ parameter. Also invokes the URL sanitizer after initial rewriting.
 

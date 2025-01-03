@@ -175,6 +175,17 @@ A property that determines if request is a proxy request or not.
 
 The name of authenticated HTTP user. If the user wasn't authenticated, the property would be _null_.
 
+### _req.rewriteURL(rewrittenURL, callback)_
+
+<small>_Added in SVR.JS 4.5.0_</small>
+
+Parameters:
+
+- _rewrittenURL_ - the rewritten request URL (with query string) (_String_)
+- _callback_ - the callback invoked after the request URL (_Function_)
+
+Rewrites the request URL to the _rewrittenURL_ parameter. Also invokes the URL sanitizer after initial rewriting.
+
 ### _res_
 
 <small>_Added in SVR.JS 4.0.0_</small>
@@ -219,7 +230,7 @@ Parameters:
 - _statusMessage_ - the response status message (optional; _String_)
 - _headers_ - the response headers (optional; _Object_)
 
-Returns: _res_ property.
+Returns: _res_ property (in SVR.JS 4.5.0 and later).
 
 The difference between _res.writeHead_ in Node.JS, and in SVR.JS is that in SVR.JS it writes into server log, doesn't invoke a warning about unused status code string, and if called multiple times will emit a warning, instead of throwing an error, which could crash SVR.JS.
 

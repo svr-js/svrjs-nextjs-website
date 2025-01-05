@@ -6,7 +6,7 @@ title: Installation
 
 ## Using SVR.JS installer for GNU/Linux (installer packages made in April 5, 2024 and later)
 
-The command for SVR.JS installation is available in [the SVR.JS home page](https://svrjs.org). First off, press the _GNU/Linux_ button, then copy the command below the tab into the terminal. The command looks something like this: `sudo bash -c "$(curl -fsSL https://downloads.svrjs.org/installer/svr.js.installer.linux.20240509.sh)"`. After starting the installer, you will be prompted to select the type of SVR.JS installation. After selecting the type, SVR.JS installer will install Node.JS, SVR.JS and create SVR.JS service. During installation, you may be prompted for the installation of dependencies. Once the installation is done, the server is started at _http://localhost_.
+The command for SVR.JS installation is available in [the SVR.JS home page](https://svrjs.org). First off, press the _GNU/Linux_ button, then copy the command below the tab into the terminal. The command looks something like this: `sudo bash -c "$(curl -fsSL https://downloads.svrjs.org/installer/svr.js.installer.linux.20250105.sh)"`. After starting the installer, you will be prompted to select the type of SVR.JS installation. After selecting the type, SVR.JS installer will install Node.JS, SVR.JS and create SVR.JS service. During installation, you may be prompted for the installation of dependencies. Once the installation is done, the server is started at _http://localhost_.
 
 File structure will look like this:
 
@@ -40,7 +40,7 @@ SVR.JS installer will also install these commands:
 - _svrpasswd_ - SVR.JS user management tool
 
 ## Using SVR.JS installer for Windows Server
-The command for SVR.JS installation is available in [the SVR.JS home page](https://svrjs.org). First off, press the _Windows Server_ button, then copy the command below the tab into the command prompt. The command looks something like this: `powershell -c "irm https://downloads.svrjs.org/installer/svr.js.installer.windows.20241204.ps1 | iex"`. After starting the installer, you will be prompted to select the type of SVR.JS installation. After selecting the type, SVR.JS installer will install Node.JS, SVR.JS and create SVR.JS service. During installation, you may be prompted for the installation of dependencies. Once the installation is done, the server is started at _http://localhost_.
+The command for SVR.JS installation is available in [the SVR.JS home page](https://svrjs.org). First off, press the _Windows Server_ button, then copy the command below the tab into the command prompt. The command looks something like this: `powershell -c "irm https://downloads.svrjs.org/installer/svr.js.installer.windows.20250105.ps1 | iex"`. After starting the installer, you will be prompted to select the type of SVR.JS installation. After selecting the type, SVR.JS installer will install Node.JS, SVR.JS and create SVR.JS service. During installation, you may be prompted for the installation of dependencies. Once the installation is done, the server is started at _http://localhost_.
 
 File structure will look like this:
 

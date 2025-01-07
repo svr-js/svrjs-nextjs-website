@@ -4,7 +4,7 @@ title: SVR.JS API (.tar.gz mods and server-side JavaScript)
 
 # SVR.JS API (_.tar.gz_ mods and server-side JavaScript)
 
-SVR.JS has its API for both _.tar.gz_ mods and server-side JavaScript that expands its functionality. SVR.JS API extends vanilla Node.JS HTTP API.
+SVR.JS has its API for both _.tar.gz_ mods and server-side JavaScript that expands its functionality. SVR.JS API extends vanilla Node.js HTTP API.
 
 ## Error handling
 
@@ -110,7 +110,7 @@ SVR.JS applies mods for request URLs beginning with "_http://_" or with "_https:
 
 ### _req_
 
-_req_ object is almost same, as _req_ object in Node.JS
+_req_ object is almost same, as _req_ object in Node.js
 
 Differences:
 
@@ -120,7 +120,7 @@ Differences:
 
 ### _res_
 
-_res_ object is almost same, as _res_ object in Node.JS
+_res_ object is almost same, as _res_ object in Node.js
 
 Differences:
 
@@ -382,19 +382,19 @@ if (!res.writeHead) {
 
 <small>_Added in SVR.JS 3.4.21, 3.7.0_</small>
 
-_req_ object is the same, as _req_ object in Node.JS
+_req_ object is the same, as _req_ object in Node.js
 
 ### _socket_
 
 <small>_Added in SVR.JS 3.4.21, 3.7.0_</small>
 
-_socket_ object is the same, as _socket_ object in Node.JS
+_socket_ object is the same, as _socket_ object in Node.js
 
 ### _head_
 
 <small>_Added in SVR.JS 3.4.21, 3.7.0_</small>
 
-_head_ object is the same, as _head_ object in Node.JS
+_head_ object is the same, as _head_ object in Node.js
 
 ### _configJSON_
 

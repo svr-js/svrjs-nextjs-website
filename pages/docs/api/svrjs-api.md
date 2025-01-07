@@ -4,7 +4,7 @@ title: SVR.JS API (.js mods)
 
 # SVR.JS API (_.js_ mods)
 
-SVR.JS has its API for _.js_ mods that expands its functionality. SVR.JS API extends vanilla Node.JS HTTP API.
+SVR.JS has its API for _.js_ mods that expands its functionality. SVR.JS API extends vanilla Node.js HTTP API.
 
 ## Error handling
 
@@ -115,7 +115,7 @@ SVR.JS applies mods for request URLs beginning with "_http://_" or with "_https:
 
 <small>_Added in SVR.JS 4.0.0_</small>
 
-_req_ object is almost same, as _req_ object in Node.JS
+_req_ object is almost same, as _req_ object in Node.js
 
 ### _req.socket.realRemoteAddress_
 
@@ -190,7 +190,7 @@ Rewrites the request URL to the _rewrittenURL_ parameter. Also invokes the URL s
 
 <small>_Added in SVR.JS 4.0.0_</small>
 
-_res_ object is almost same, as _res_ object in Node.JS
+_res_ object is almost same, as _res_ object in Node.js
 
 ### _res.socket.realRemoteAddress_
 
@@ -232,7 +232,7 @@ Parameters:
 
 Returns: _res_ property (in SVR.JS 4.5.0 and later).
 
-The difference between _res.writeHead_ in Node.JS, and in SVR.JS is that in SVR.JS it writes into server log, doesn't invoke a warning about unused status code string, and if called multiple times will emit a warning, instead of throwing an error, which could crash SVR.JS.
+The difference between _res.writeHead_ in Node.js, and in SVR.JS is that in SVR.JS it writes into server log, doesn't invoke a warning about unused status code string, and if called multiple times will emit a warning, instead of throwing an error, which could crash SVR.JS.
 
 ### _res.setHeader(name, value)_
 
@@ -243,7 +243,7 @@ Parameters:
 - _name_ - the response header name (_String_)
 - _value_ - the response header value (optional; _String_ or _Array_)
 
-The difference between _res.setHeader_ in Node.JS, and in SVR.JS is that in SVR.JS it doesn't invoke a warning about HTTP/1.x headers being not allowed in HTTP/2.
+The difference between _res.setHeader_ in Node.js, and in SVR.JS is that in SVR.JS it doesn't invoke a warning about HTTP/1.x headers being not allowed in HTTP/2.
 
 Custom headers defined in _config.json_ are set by default.
 
@@ -413,19 +413,19 @@ Invokes next SVR.JS mod callback, SVR.JS server-side JavaScript callback or main
 
 <small>_Added in SVR.JS 4.0.0_</small>
 
-_req_ object is the same, as _req_ object in Node.JS
+_req_ object is the same, as _req_ object in Node.js
 
 ### _socket_
 
 <small>_Added in SVR.JS 4.0.0_</small>
 
-_socket_ object is the same, as _socket_ object in Node.JS
+_socket_ object is the same, as _socket_ object in Node.js
 
 ### _head_
 
 <small>_Added in SVR.JS 4.0.0_</small>
 
-_head_ object is the same, as _head_ object in Node.JS
+_head_ object is the same, as _head_ object in Node.js
 
 ### _logFacilities_
 

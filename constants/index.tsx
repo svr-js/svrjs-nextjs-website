@@ -76,13 +76,13 @@ export const Features = [
     icon: <Bird className="w-10 h-10 text-primary" />,
     title: "Free as in freedom",
     description:
-      "You don't need to worry about proprietary malware, counterfeit software, crashes from non-genuine versions, or Big Tech backdoors. SVR.JS is open-source under the MIT license, running on Node.JS (also MIT). Contribute to SVR.JS via our Git repository!"
+      "You don't need to worry about proprietary malware, counterfeit software, crashes from non-genuine versions, or Big Tech backdoors. SVR.JS is open-source under the MIT license, running on Node.js (also MIT). Contribute to SVR.JS via our Git repository!"
   },
   {
     icon: <BarChart4 className="w-10 h-10 text-primary" />,
     title: "Scalable",
     description:
-      "SVR.JS runs on Node.JS or Bun, which are JavaScript runtimes utilizing event-driven infrastructure for efficient handling of I/O operations. It also uses clustering by default to withstand high request loads and ensure server stability."
+      "SVR.JS runs on Node.js or Bun, which are JavaScript runtimes utilizing event-driven infrastructure for efficient handling of I/O operations. It also uses clustering by default to withstand high request loads and ensure server stability."
   },
   {
     icon: <ShieldCheck className="w-10 h-10 text-primary" />,
@@ -110,13 +110,13 @@ export const questions = [
     key: "item-2",
     question: "What is SVR.JS?",
     answer:
-      "SVR.JS is web server software running on Node.JS that can host both static and dynamic content. With additional mods, SVR.JS can be used for different types of dynamic content and can even be used as a forward or reverse proxy. SVR.JS is licensed under a permissive MIT/X11 license"
+      "SVR.JS is web server software running on Node.js that can host both static and dynamic content. With additional mods, SVR.JS can be used for different types of dynamic content and can even be used as a forward or reverse proxy. SVR.JS is licensed under a permissive MIT/X11 license"
   },
   {
     key: "item-3",
     question: "How was SVR.JS created?",
     answer:
-      "Someone in 2018 wanted to create a website, but he didn't know about setting up popular web server software like Apache httpd, NGINX, or IIS... So he created his own web server in Node.JS to serve his website! And he saved it in a file called svr.js. Since then, this web server has been gradually turned from a web server intended for one website into a general-purpose web server, which is what SVR.JS is today!"
+      "Someone in 2018 wanted to create a website, but he didn't know about setting up popular web server software like Apache httpd, NGINX, or IIS... So he created his own web server in Node.js to serve his website! And he saved it in a file called svr.js. Since then, this web server has been gradually turned from a web server intended for one website into a general-purpose web server, which is what SVR.JS is today!"
   },
   {
     key: "item-4",
@@ -126,9 +126,9 @@ export const questions = [
   },
   {
     key: "item-5",
-    question: "What is Node.JS?",
+    question: "What is Node.js?",
     answer:
-      "Node.JS is an asynchronous event-driven JavaScript runtime built on Chromium's V8 engine. Node.JS is designed to build scalable network applications."
+      "Node.js is an asynchronous event-driven JavaScript runtime built on Chromium's V8 engine. Node.js is designed to build scalable network applications."
   },
   {
     key: "item-6",

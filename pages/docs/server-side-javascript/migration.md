@@ -4,16 +4,16 @@ title: Migration to SVR.JS
 
 # Migration to SVR.JS
 
-If you have previously built your web application using the Node.JS http library, Express framework, or Koa framework, you can easily migrate that code to SVR.JS server-side JavaScript.
+If you have previously built your web application using the Node.js http library, Express framework, or Koa framework, you can easily migrate that code to SVR.JS server-side JavaScript.
 
-## From Node.JS http library
+## From Node.js http library
 
-For applications built with the Node.JS http library, you can simply copy the contents of the request event listener to the SVR.JS server-side JavaScript. However, make sure to consider the _disableEndElseCallbackExecute_ option to ensure proper execution flow.
+For applications built with the Node.js http library, you can simply copy the contents of the request event listener to the SVR.JS server-side JavaScript. However, make sure to consider the _disableEndElseCallbackExecute_ option to ensure proper execution flow.
 
 ```js
 disableEndElseCallbackExecute = true; //Without "var", else it will not work!!!
 
-// Node.JS http library request event listener code goes here.
+// Node.js http library request event listener code goes here.
 if (req.url == "/" && req.method == "GET") {
 	res.writeHead(200, "OK", {
 		"Content-Type": "text/plain",
@@ -68,7 +68,7 @@ app.use(function (ctx, next) {
 	}
 });
 
-// Optionally, if you want the main SVR.JS callback (not recommended by Koa, as it passes Node.JS req and res objects).
+// Optionally, if you want the main SVR.JS callback (not recommended by Koa, as it passes Node.js req and res objects).
 app.use(function (ctx) {
 	ctx.respond = false;
 	elseCallback(ctx.req, ctx.res);

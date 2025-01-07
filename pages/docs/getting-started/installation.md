@@ -6,7 +6,7 @@ title: Installation
 
 ## Using SVR.JS installer for GNU/Linux (installer packages made in April 5, 2024 and later)
 
-The command for SVR.JS installation is available in [the SVR.JS home page](https://svrjs.org). First off, press the _GNU/Linux_ button, then copy the command below the tab into the terminal. The command looks something like this: `sudo bash -c "$(curl -fsSL https://downloads.svrjs.org/installer/svr.js.installer.linux.20250105.sh)"`. After starting the installer, you will be prompted to select the type of SVR.JS installation. After selecting the type, SVR.JS installer will install Node.JS, SVR.JS and create SVR.JS service. During installation, you may be prompted for the installation of dependencies. Once the installation is done, the server is started at _http://localhost_.
+The command for SVR.JS installation is available in [the SVR.JS home page](https://svrjs.org). First off, press the _GNU/Linux_ button, then copy the command below the tab into the terminal. The command looks something like this: `sudo bash -c "$(curl -fsSL https://downloads.svrjs.org/installer/svr.js.installer.linux.20250105.sh)"`. After starting the installer, you will be prompted to select the type of SVR.JS installation. After selecting the type, SVR.JS installer will install Node.js, SVR.JS and create SVR.JS service. During installation, you may be prompted for the installation of dependencies. Once the installation is done, the server is started at _http://localhost_.
 
 File structure will look like this:
 
@@ -24,7 +24,7 @@ SVR.JS installer will also install these commands:
 
 ## Using SVR.JS installer for GNU/Linux (installer packages made before April 5, 2024)
 
-SVR.JS now has a brand new installer for GNU/Linux. First, [download SVR.JS installer](https://downloads.svrjs.org/installer), then unpack your SVR.JS installer zip archive. After unpacking the installer, download SVR.JS zip archive (not installer), copy it to the installer directory and rename it to "_svrjs.zip_". Then run SVR.JS installer using `sudo bash installer.sh`. After starting the installer, you will be prompted to select the type of OS (type of GNU/Linux distribution). After selecting the type, SVR.JS installer will install Node.JS, SVR.JS and create SVR.JS service. During installation, you may be prompted for the installation of dependencies. Once the installation is done, restart your server OS or type `systemctl start svrjs` or `/etc/init.d/svrjs start` to start SVR.JS and get a web server on _http://localhost_.
+SVR.JS now has a brand new installer for GNU/Linux. First, [download SVR.JS installer](https://downloads.svrjs.org/installer), then unpack your SVR.JS installer zip archive. After unpacking the installer, download SVR.JS zip archive (not installer), copy it to the installer directory and rename it to "_svrjs.zip_". Then run SVR.JS installer using `sudo bash installer.sh`. After starting the installer, you will be prompted to select the type of OS (type of GNU/Linux distribution). After selecting the type, SVR.JS installer will install Node.js, SVR.JS and create SVR.JS service. During installation, you may be prompted for the installation of dependencies. Once the installation is done, restart your server OS or type `systemctl start svrjs` or `/etc/init.d/svrjs start` to start SVR.JS and get a web server on _http://localhost_.
 
 File structure will look like this:
 
@@ -40,7 +40,7 @@ SVR.JS installer will also install these commands:
 - _svrpasswd_ - SVR.JS user management tool
 
 ## Using SVR.JS installer for Windows Server
-The command for SVR.JS installation is available in [the SVR.JS home page](https://svrjs.org). First off, press the _Windows Server_ button, then copy the command below the tab into the command prompt. The command looks something like this: `powershell -c "irm https://downloads.svrjs.org/installer/svr.js.installer.windows.20250105.ps1 | iex"`. After starting the installer, you will be prompted to select the type of SVR.JS installation. After selecting the type, SVR.JS installer will install Node.JS, SVR.JS and create SVR.JS service. During installation, you may be prompted for the installation of dependencies. Once the installation is done, the server is started at _http://localhost_.
+The command for SVR.JS installation is available in [the SVR.JS home page](https://svrjs.org). First off, press the _Windows Server_ button, then copy the command below the tab into the command prompt. The command looks something like this: `powershell -c "irm https://downloads.svrjs.org/installer/svr.js.installer.windows.20250105.ps1 | iex"`. After starting the installer, you will be prompted to select the type of SVR.JS installation. After selecting the type, SVR.JS installer will install Node.js, SVR.JS and create SVR.JS service. During installation, you may be prompted for the installation of dependencies. Once the installation is done, the server is started at _http://localhost_.
 
 File structure will look like this:
 
@@ -61,7 +61,7 @@ require("./svr.js");
 ```
 Repeat the process with `logviewer.cjs`, `loghighlight.cjs`, and `svrpasswd.cjs` files, replacing `svr.js` with corresponding script names with `.js` extension.
 
-After downloading and installing SVR.JS to your working directory, run `node svr.js` for SVR.JS 3.x or `node svr_new.js` for earlier versions or `bun run svr.js` if you're using Bun instead of Node.JS, or `deno run -A --unstable-delect-cjs svr.js` if you're using Deno 2.1.2 or newer, or `deno run -A svr.cjs` if you're using older versions of Deno.
+After downloading and installing SVR.JS to your working directory, run `node svr.js` for SVR.JS 3.x or `node svr_new.js` for earlier versions or `bun run svr.js` if you're using Bun instead of Node.js, or `deno run -A --unstable-delect-cjs svr.js` if you're using Deno 2.1.2 or newer, or `deno run -A svr.cjs` if you're using older versions of Deno.
 
 You will then see the message similar to this:
 
@@ -88,7 +88,7 @@ require("./svr.js");
 ```
 Repeat the process with `logviewer.cjs`, `loghighlight.cjs`, and `svrpasswd.cjs` files, replacing `svr.js` with corresponding script names with `.js` extension.
 
-Run `node svr.js` for SVR.JS 3.x or `node svr_new.js` for earlier versions or `bun run svr.js` if you're using Bun instead of Node.JS, or `deno run -A --unstable-delect-cjs svr.js` if you're using Deno 2.1.2 or newer, or `deno run -A svr.cjs` if you're using older versions of Deno.
+Run `node svr.js` for SVR.JS 3.x or `node svr_new.js` for earlier versions or `bun run svr.js` if you're using Bun instead of Node.js, or `deno run -A --unstable-delect-cjs svr.js` if you're using Deno 2.1.2 or newer, or `deno run -A svr.cjs` if you're using older versions of Deno.
 
 You will then see the message similar to this:
 

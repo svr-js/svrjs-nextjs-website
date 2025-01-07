@@ -42,7 +42,7 @@ The _config.json_ file contains various properties that you can customize to con
 - _rejectUnauthorizedClientCertificates_ (Boolean, SVR.JS 3.14.0 or newer)
   - Option to disable verification of client certificates.
 - _cipherSuite_ (String, SVR.JS 3.14.0 or newer)
-  - Specification of cipher suites, replacing the default. For more information, see [Node.JS documentation](https://nodejs.org/docs/latest/api/tls.html#modifying-the-default-tls-cipher-suite).
+  - Specification of cipher suites, replacing the default. For more information, see [Node.js documentation](https://nodejs.org/docs/latest/api/tls.html#modifying-the-default-tls-cipher-suite).
 - _ecdhCurve_ (String, SVR.JS 3.14.0 or newer)
   - Specification of ECDH curves, for example `P-521:P-384:P-256`. Set the parameter to `auto` to select the curve automatically. You can use `openssl ecparam -list_curves` command to obtain available ECDH curves.
 - _signatureAlgorithms_ (String, SVR.JS 3.14.0 or newer)
@@ -105,7 +105,7 @@ The _config.json_ file contains various properties that you can customize to con
 - _customHeaders_ (Object, SVR.JS 3.0.0 or newer)
   - Custom HTTP headers (configured as a JavaScript object) with a _{path}_ template representing the request path (after URL rewriting).
 - _http2Settings_ (Object, SVR.JS 3.14.0 or newer)
-  - HTTP/2 protocol settings object. See [Node.JS documentation](https://nodejs.org/docs/latest/api/http2.html#settings-object) for more information.
+  - HTTP/2 protocol settings object. See [Node.js documentation](https://nodejs.org/docs/latest/api/http2.html#settings-object) for more information.
     - _headerTableSize_: Maximum number of bytes used for header compression. Minimum value is 0. Maximum value is 2<sup>32</sup>-1. Default is 4096 (Number, SVR.JS 3.14.0 or newer).
     - _enablePush_: Option to enable HTTP/2 Push Streams. It is enabled by default (Boolean, SVR.JS 3.14.0 or newer).
     - _initialWindowSize_: Sender's initial window size in bytes for stream-level flow control. Minimum value is 0. Maximum value is 2<sup>32</sup>-1. Default is 65535 (Number, SVR.JS 3.14.0 or newer).
@@ -114,7 +114,7 @@ The _config.json_ file contains various properties that you can customize to con
     - _maxHeaderListSize_: Maximum size (uncompressed octets) of acceptable header list. Minimum value is 0. Maximum value is 2<sup>32</sup>-1. Default is 65535 (Number, SVR.JS 3.14.0 or newer).
     - _maxHeaderSize_: Alias for _maxHeaderListSize_ (Number, SVR.JS 3.14.0 or newer).
     - _enableConnectProtocol_: Option to enable the "Extended Connect Protocol" defined by RFC 8441 (Number, SVR.JS 3.14.0 or newer).
-    - _customSettings_: Additional settings not implemented yet in Node.JS and its underlying libraries. Object key defines the numeric value of the settings type (as defined in the "HTTP/2 SETTINGS" registry established by RFC 7540). Object values define actual numeric value of the settings. Settings types should be greater than 6 and less than 2<sup>16</sup>-1. Values should be in range from 0 to 2<sup>32</sup>-1. Currently you can specify up to 10 custom settings (Object, SVR.JS 3.14.0 or newer).
+    - _customSettings_: Additional settings not implemented yet in Node.js and its underlying libraries. Object key defines the numeric value of the settings type (as defined in the "HTTP/2 SETTINGS" registry established by RFC 7540). Object values define actual numeric value of the settings. Settings types should be greater than 6 and less than 2<sup>16</sup>-1. Values should be in range from 0 to 2<sup>32</sup>-1. Currently you can specify up to 10 custom settings (Object, SVR.JS 3.14.0 or newer).
 - _enableIncludingHeadAndFootInHTML_ (Boolean, SVR.JS 4.3.0 or newer)
   - Option to enable including custom head and foot in files with _.html_ extension.
 
@@ -123,7 +123,7 @@ The _config.json_ file contains various properties that you can customize to con
 - _blacklist_ (Array of Strings)
   - Block list of IP addresses and CIDR ranges.
 - _disableServerSideScriptExpose_ (Boolean, SVR.JS 3.0.0 or newer)
-  - Option to disable exposing SVR.JS script, server-side JavaScript, SVR.JS mods, and Node.JS modules. **It's strongly recommended to set this property to _true_ if you're using SVR.JS server-side JavaScript.** If you want to additionally prevent fingerprinting SVR.JS by accessing _/serverSideScript.js_, you can add URL rewrite rule, that defines rewriting of _/serverSideScript.js_ to a non-existent page.
+  - Option to disable exposing SVR.JS script, server-side JavaScript, SVR.JS mods, and Node.js modules. **It's strongly recommended to set this property to _true_ if you're using SVR.JS server-side JavaScript.** If you want to additionally prevent fingerprinting SVR.JS by accessing _/serverSideScript.js_, you can add URL rewrite rule, that defines rewriting of _/serverSideScript.js_ to a non-existent page.
 - _enableRemoteLogBrowsing_ (Boolean, SVR.JS 3.0.0 or newer)
   - Option to enable browsing server logs from an HTTP client. Applicable only when you're not using custom web root. **It's not recommended to enable this, because it provides valuable information for attackerss, unless you're protecting _log_ folder with HTTP authentication.**
 - _exposeServerVersion_ (Boolean)

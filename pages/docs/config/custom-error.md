@@ -12,5 +12,5 @@ When designing custom error pages, you can make use of the following placeholder
 - _{errorDesc}_ - Displays a longer description of the server error.
 - _{stack}_ - Displays the error stack, which is equivalent to the _Error.stack_ property in JavaScript.
 - _{path}_ - Shows the path of the page that caused the error.
-- _{server}_ - Displays the server version string along with the hostname. For example, "_SVR.JS/3.9.6 (Linux; Node.JS/v12.22.12) on 127.0.0.1:8080_" or simply "_SVR.JS on svrjs.org_".
+- _{server}_ - Displays the server version string along with the hostname. For example, "_SVR.JS/3.9.6 (Linux; Node.js/v12.22.12) on 127.0.0.1:8080_" or simply "_SVR.JS on svrjs.org_".
 - _{contact}_ - Displays the contact information of the server administrator, which can be set using the _serverAdministratorEmail_ property in _config.json_.

@@ -11,7 +11,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "SVR.JS - a web server running on Node.JS"
+  title: "SVR.JS - a web server running on Node.js"
 };
 
 export default function RootLayout({

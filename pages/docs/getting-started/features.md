@@ -27,7 +27,7 @@ title: Features
 - Expandability via server-side JavaScript and mods
 - Ability to serve non-standard error pages
 - URL rewriting engine
-- Event driven architecture powered by Node.JS, along with clustering.
+- Event driven architecture powered by Node.js, along with clustering.
 
 ## Compression and content delivery
 

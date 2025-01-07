@@ -24,7 +24,7 @@ const About = () => {
                 </span>
               </h2>
               <p className="text-lg text-muted-foreground mt-4">
-                SVR.JS is a web server that runs on top of Node.JS, enabling
+                SVR.JS is a web server that runs on top of Node.js, enabling
                 server-side JavaScript on webpages. SVR.JS also has an
                 integrated log viewer, log highlighter, and user management
                 tool. You can host a webpage using SVR.JS, run server-side

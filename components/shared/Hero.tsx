@@ -79,7 +79,7 @@ const Hero = () => {
         </div>
         <p className="text-lg text-muted-foreground md:w-10/12 mx-auto lg:mx-0">
           Host reliably and securely, and scale effortlessly with SVR.JS, an
-          open-source and configurable web server running on Node.JS that&apos;s
+          open-source and configurable web server running on Node.js that&apos;s
           designed to handle high loads.
         </p>
         <div className="relative mx-auto lg:mx-0 flex gap-2 flex-col-reverse lg:flex-row justify-start items-center w-fit">

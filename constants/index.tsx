@@ -58,7 +58,7 @@ export const stats = [
   },
   {
     title: "GitHub stars",
-    count: 14
+    count: 17
   },
   {
     title: "Powered servers",

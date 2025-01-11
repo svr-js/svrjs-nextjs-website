@@ -56,7 +56,6 @@ const BlogPage = async () => {
           </Button>
         </Link>
       </p>
-      {/* @ts-expect-error Async Server Component */}
       <BlogCards page={1} />
     </section>
   );

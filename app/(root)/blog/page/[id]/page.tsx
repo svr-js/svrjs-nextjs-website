@@ -70,7 +70,6 @@ const BlogPage = async (props: { params: Promise<{ id: string }> }) => {
           </Button>
         </Link>
       </p>
-      {/* @ts-expect-error Async Server Component */}
       <BlogCards page={id} />
     </section>
   );

@@ -131,7 +131,7 @@ You can specify generic request IP variable using `const reqip = req.socket.real
 
 A property containing port number, from which request originally went from, if request is sent through reverse proxy. (for _X-Forwarded-For_ header, it will be _null_)
 
-You can specify generic request IP variable using `const reqip = req.socket.realRemotePort ? req.socket.realRemotePort : req.socket.remotePort`
+You can specify generic request port variable using `const reqport = req.socket.realRemotePort ? req.socket.realRemotePort : req.socket.remotePort`
 
 ### _req.socket.originalRemoteAddress_
 
@@ -206,7 +206,7 @@ You can specify generic request IP variable using `const reqip = req.socket.real
 
 A property containing port number, from which request originally went from, if request is sent through reverse proxy. (for _X-Forwarded-For_ header, it will be _null_)
 
-You can specify generic request IP variable using `const reqip = req.socket.realRemotePort ? req.socket.realRemotePort : req.socket.remotePort`
+You can specify generic request port variable using `const reqport = req.socket.realRemotePort ? req.socket.realRemotePort : req.socket.remotePort`
 
 ### _res.socket.originalRemoteAddress_
 

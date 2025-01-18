@@ -19,7 +19,7 @@ const happyMonkey = Happy_Monkey({
 const Hero = () => {
   const [isCopied, setIsCopied] = useState(false);
   const [command, setCommand] = useState(
-    'sudo bash -c "$(curl -fsSL https://downloads.svrjs.org/installer/svr.js.installer.linux.20250105.sh)"'
+    'sudo bash -c "$(curl -fsSL https://downloads.svrjs.org/installer/svr.js.installer.linux.20250118.sh)"'
   );
   const [selectedButton, setSelectedButton] = useState<
     "linux" | "windows" | "docker"
@@ -27,9 +27,9 @@ const Hero = () => {
 
   const commands = {
     linux:
-      'sudo bash -c "$(curl -fsSL https://downloads.svrjs.org/installer/svr.js.installer.linux.20250105.sh)"',
+      'sudo bash -c "$(curl -fsSL https://downloads.svrjs.org/installer/svr.js.installer.linux.20250118.sh)"',
     windows:
-      'powershell -c "irm https://downloads.svrjs.org/installer/svr.js.installer.windows.20250105.ps1 | iex"',
+      'powershell -c "irm https://downloads.svrjs.org/installer/svr.js.installer.windows.20250118.ps1 | iex"',
     docker:
       "docker pull svrjs/svrjs && docker run --name mysvrjs -d -p 80:80 --restart=always svrjs/svrjs"
   };

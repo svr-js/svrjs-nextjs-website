@@ -97,6 +97,41 @@ GreenRhombus is a FastCGI (Fast Common Gateway Interface) client.
 _Notes are in the [SVR.JS documentation.](/docs/config/fastcgi-php-fpm)_
 _View the [change log.](/changelog/greenrhombus)_
 
+## ModSecurity integration
+
+ModSecurity integration is a WAF (web application firewall) mod that uses ModSecurity 3.
+
+**NOTICE: Using a WAF (Web Application Firewall) is no subsitute for web application security, because attacker may find a way to bypass the WAF.**
+
+This mod adds these SVR.JS configuration properties:
+- _modSecurityRulesPath_ (String)
+  - Path to the ModSecurity configuration, required for the integration to work correctly. If the path is relative, it's relative to the SVR.JS installation root.
+- _maxRequestCheckedSize_ (Number)
+  - The maximum size of the request body (in bytes) to be checked. Default is `65536` (64 KiB).
+- _maxRequestCheckedSizeStrict_ (Boolean)
+  - Option to enable strict request body limits. If the limits are exceeded, then the server will return a 413 Content Too Large error. Default is `false`.
+- _maxResponseCheckedSize_ (Number)
+  - The maximum size of the response body (in bytes) to be checked. Setting this option to `0` disables the response body checking. Default is `65536` (64 KiB).
+
+This mod requires an external `modsecurity` npm package to be installed, which has native Node-API bindings. You can install it using the `npm install modsecurity` command in the SVR.JS installation directory.
+
+Before installing the `modsecurity` npm package, you may need to install ModSecurity 3 and its development libraries. You can find the commands at the [`modsecurity` npm package page](https://www.npmjs.com/package/modsecurity).
+
+You can install the [OWASP Core Rule Set](https://owasp.org/www-project-modsecurity-core-rule-set/), and use the ModSecurity configuration below (replace `/path/to/owasp-crs` and `/path/to/modsecurity.log` with proper paths):
+```
+SecRuleEngine On
+SecAuditEngine On
+SecAuditLog "/path/to/modsecurity.log"
+
+Include "/path/to/owasp-crs/crs-setup.conf"
+Include "/path/to/owasp-crs/plugins/*-config.conf"
+Include "/path/to/owasp-crs/plugins/*-before.conf"
+Include "/path/to/owasp-crs/rules/*.conf"
+Include "/path/to/owasp-crs/plugins/*-after.conf"
+```
+
+_View the [change log.](/changelog/modsecurity-integration)_
+
 ## Next.js integration
 
 Next.js integration is a mod, that enables SVR.JS to serve Next.js applications.

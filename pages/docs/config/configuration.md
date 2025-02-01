@@ -113,7 +113,7 @@ The _config.json_ file contains various properties that you can customize to con
     - _maxConcurrentStreams_: Maximum number of concurrent streams allowed on HTTP/2 session. Minimum value is 0. Maximum value is 2<sup>32</sup>-1. Default is 2<sup>32</sup>-1 (Number, SVR.JS 3.14.0 or newer).
     - _maxHeaderListSize_: Maximum size (uncompressed octets) of acceptable header list. Minimum value is 0. Maximum value is 2<sup>32</sup>-1. Default is 65535 (Number, SVR.JS 3.14.0 or newer).
     - _maxHeaderSize_: Alias for _maxHeaderListSize_ (Number, SVR.JS 3.14.0 or newer).
-    - _enableConnectProtocol_: Option to enable the "Extended Connect Protocol" defined by RFC 8441 (Number, SVR.JS 3.14.0 or newer).
+    - _enableConnectProtocol_: Option to enable the "Extended Connect Protocol" defined by RFC 8441. It is disabled by default (Boolean, SVR.JS 3.14.0 or newer).
     - _customSettings_: Additional settings not implemented yet in Node.js and its underlying libraries. Object key defines the numeric value of the settings type (as defined in the "HTTP/2 SETTINGS" registry established by RFC 7540). Object values define actual numeric value of the settings. Settings types should be greater than 6 and less than 2<sup>16</sup>-1. Values should be in range from 0 to 2<sup>32</sup>-1. Currently you can specify up to 10 custom settings (Object, SVR.JS 3.14.0 or newer).
 - _enableIncludingHeadAndFootInHTML_ (Boolean, SVR.JS 4.3.0 or newer)
   - Option to enable including custom head and foot in files with _.html_ extension.

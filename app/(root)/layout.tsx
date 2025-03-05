@@ -2,7 +2,7 @@ import Footer from "@/components/shared/Footer";
 import Navbar from "@/components/shared/Navbar";
 import Banner from "@/components/widgets/Banner";
 import NoScript from "@/components/shared/NoScript";
-import { Rocket } from "lucide-react";
+import { AlertTriangle } from "lucide-react";
 
 export default function PageLayout({
   children
@@ -13,13 +13,13 @@ export default function PageLayout({
   return (
     <div className="flex flex-col min-h-screen">
       {/* Comment or edit this whenever required */}
-      {/*<Banner
-        icon={<Rocket className={iconClassName} />}
-        title="SVR.JS 4.0.0 has been released!"
-        announcement="This major release brings many improvements to SVR.JS."
-        link="/blog/svr-js-4-0-0-has-been-released"
+      <Banner
+        icon={<AlertTriangle className={iconClassName} />}
+        title="SVR.JS development on hold"
+        announcement="We're focusing on Ferron, a high-performance, memory-safe web server written in Rust."
+        link="/blog/update-on-the-development-of-svr-js"
         buttonText="Read more"
-      />*/}
+      />
       <Navbar />
       <NoScript />
       <div className="flex-grow flex-1 overflow-x-hidden">{children}</div>
